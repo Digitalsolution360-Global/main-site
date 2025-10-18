@@ -81,7 +81,7 @@ function MissionVision() {
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className='text-blue-100 text-lg leading-relaxed mb-8'
               >
-                We're committed to delivering exceptional value to our clients. We understand that every business is unique, personalized approach to every project we undertake.
+                We&apos;re committed to delivering exceptional value to our clients. We understand that every business is unique, personalized approach to every project we undertake.
               </motion.p>
 
               <motion.div

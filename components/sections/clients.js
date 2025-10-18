@@ -56,7 +56,7 @@ function Clients() {
             Trusted by <span className='text-blue-600'>Leading Brands</span>
           </h2>
           <p className='text-lg text-gray-600 max-w-2xl mx-auto'>
-            We're proud to partner with incredible businesses across industries, helping them achieve their digital goals.
+            We&apos;re proud to partner with incredible businesses across industries, helping them achieve their digital goals.
           </p>
         </motion.div>
       </div>
