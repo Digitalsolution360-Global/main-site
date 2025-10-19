@@ -1,0 +1,49 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Andheri Dental Clinic",
+      "location": "Andheri, Mumbai",
+      "description": "Complete Google My Business optimization for a dental clinic, improving local search visibility and patient engagement. Enhanced profile with professional photos, accurate business information, and strategic keyword optimization.",
+      "beforeImage": "/portfolio/gmb/andheri-dental-clinic-before.webp",
+      "afterImage": "/portfolio/gmb/andheri-dental-clinic-after.webp",
+      "results": [
+        "300% increase in profile views",
+        "250% boost in direction requests",
+        "150+ new patient inquiries per month",
+        "4.8 star rating with 100+ reviews"
+      ],
+      "services": ["Profile Optimization", "Review Management", "Local SEO", "Photo Enhancement"]
+    },
+    {
+      "id": 2,
+      "title": "Dell Computer Solutions",
+      "location": "Hyderabad, Telangana",
+      "description": "Strategic GMB setup and optimization for computer services provider. Implemented multi-location management, enhanced business categories, and created engaging posts to drive customer engagement.",
+      "beforeImage": "/portfolio/gmb/dell-before.webp",
+      "afterImage": "/portfolio/gmb/dell-after.png",
+      "results": [
+        "400% increase in search visibility",
+        "200% growth in phone calls",
+        "180% more website clicks",
+        "Enhanced local pack rankings"
+      ],
+      "services": ["Multi-Location Setup", "Category Optimization", "Content Strategy", "Q&A Management"]
+    },
+    {
+      "id": 3,
+      "title": "Jay Ganesh Event Management",
+      "location": "Pune, Maharashtra",
+      "description": "Comprehensive GMB transformation for event management company. Created compelling business description, optimized for event-related keywords, and implemented regular post strategy to showcase past events.",
+      "beforeImage": "/portfolio/gmb/jay-ganesh-event-before.webp",
+      "afterImage": "/portfolio/gmb/jay-ganesh-event-after.webp",
+      "results": [
+        "350% increase in booking inquiries",
+        "280% growth in profile engagement",
+        "Featured in Google 3-Pack",
+        "90+ five-star reviews collected"
+      ],
+      "services": ["Profile Creation", "Keyword Research", "Post Management", "Reputation Building"]
+    }
+  ]
+}
