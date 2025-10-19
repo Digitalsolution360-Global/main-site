@@ -63,7 +63,7 @@ function AboutPage() {
   return (
     <BgLayout>
       {/* Hero Section with Background Image */}
-      <section className='relative h-screen flex items-center justify-center overflow-hidden'>
+      <section className='relative h-[50vh] mt-21 lg:mt-15 flex items-center justify-center overflow-hidden'>
         {/* Background Image */}
         <div className='absolute inset-0'>
           <img
@@ -117,7 +117,7 @@ function AboutPage() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
             >
               <h2 className='text-4xl md:text-5xl font-bold mb-6'>
                 Our <span className='text-blue-600'>Story</span>
@@ -205,7 +205,7 @@ function AboutPage() {
       </section>
 
       {/* Our Values */}
-      <section className='py-20 bg-white'>
+      <section className='py-10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -250,7 +250,7 @@ function AboutPage() {
       <Clients />
 
       {/* Team Stats */}
-      <section className='py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white'>
+      <section className='py-10 bg-gradient-to-br from-blue-600 to-blue-800 text-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -286,7 +286,7 @@ function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className='py-20 bg-gradient-to-br from-gray-50 to-white'>
+      <section className='py-10'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

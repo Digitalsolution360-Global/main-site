@@ -63,7 +63,7 @@ function PortfolioPage() {
   return (
     <BgLayout>
       {/* Hero Section with Background Image - Full Screen Height */}
-      <section className='relative h-screen flex items-center justify-center overflow-hidden'>
+      <section className='relative h-[50vh] mt-21 lg:mt-15 flex items-center justify-center overflow-hidden'>
         {/* Background Image */}
         <div className='absolute inset-0'>
           <img
@@ -224,7 +224,7 @@ function PortfolioPage() {
       </section>
 
       {/* CTA Section */}
-      <section className='py-20 bg-white'>
+      <section className='py-10'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

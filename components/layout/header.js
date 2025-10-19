@@ -45,7 +45,7 @@ function Header() {
                 stiffness: 200,
                 damping: 50,
             }}
-            className='fixed top-0 left-0 xl:left-5 right-0 hidden lg:flex flex-row justify-around mx-auto py-5 max-w-7xl items-center rounded-b-2xl z-50 bg-white'
+            className='fixed top-0 left-0 right-0 hidden lg:flex flex-row justify-around mx-auto py-3  items-center rounded-b-2xl z-50 bg-white'
         >
             <div>
                 <Link href="/">
@@ -55,8 +55,8 @@ function Header() {
 
             <div>
                 <nav onMouseLeave={() => setHovered(null)}>
-                    <ul className='flex flex-row justify-between gap-5 text-xl'>
-                        <li className='relative hidden [@media(min-width:1130px)]:block'>
+                    <ul className='flex flex-row justify-between lg:gap-3 xl:gap-7 gap-5 text-xl'>
+                        {/* <li className='relative hidden [@media(min-width:1130px)]:block'>
                             <Link 
                                 href="/" 
                                 onMouseEnter={() => setHovered('home')}
@@ -71,7 +71,7 @@ function Header() {
                                 )}
                                 <span className='relative z-20'>Home</span>
                             </Link>
-                        </li>
+                        </li> */}
                         <li className='relative'>
                             <Link 
                                 href="/about" 

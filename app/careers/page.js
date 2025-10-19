@@ -103,7 +103,7 @@ function CareersPage() {
   return (
     <BgLayout>
       {/* Hero Section - Full Screen Height */}
-      <section className='relative h-screen flex items-center justify-center overflow-hidden'>
+      <section className='relative h-[50vh] mt-21 lg:mt-15 flex items-center justify-center overflow-hidden'>
         {/* Background Image */}
         <div className='absolute inset-0'>
           <img

@@ -1,0 +1,88 @@
+{
+  "apps": [
+    {
+      "id": 1,
+      "name": "My Door Keeper",
+      "tagline": "Smart Visitor Management System",
+      "category": "Security & Management",
+      "description": "A comprehensive visitor management application designed for residential and commercial properties. Features include visitor pre-registration, real-time notifications, digital passes, and complete visitor logs for enhanced security.",
+      "image": "/portfolio/apps/my-door-keeper.webp",
+      "platforms": ["iOS", "Android"],
+      "technologies": ["React Native", "Node.js", "MongoDB", "Firebase", "Push Notifications"],
+      "features": [
+        "Real-time visitor notifications",
+        "Digital visitor passes with QR codes",
+        "Pre-registration system for expected guests",
+        "Complete visitor history and logs",
+        "Multi-property management",
+        "Emergency alert system",
+        "Guard duty management",
+        "Analytics and reporting dashboard"
+      ],
+      "stats": {
+        "downloads": "10K+",
+        "rating": "4.7",
+        "users": "5K+",
+        "properties": "200+"
+      },
+      "appLink": "https://play.google.com/store/apps/details?id=com.user.door",
+      "color": "from-blue-500 to-cyan-600"
+    },
+    {
+      "id": 2,
+      "name": "Urdoer",
+      "tagline": "On-Demand Service Marketplace",
+      "category": "Service & Booking",
+      "description": "An innovative platform connecting service providers with customers for various home and professional services. From plumbing to beauty services, Urdoer makes booking local services quick, easy, and reliable.",
+      "image": "/portfolio/apps/urdoer.webp",
+      "platforms": ["iOS", "Android", "Web"],
+      "technologies": ["Flutter", "Laravel", "MySQL", "Google Maps API", "Payment Gateway", "Socket.io"],
+      "features": [
+        "Multi-category service booking",
+        "Real-time service provider tracking",
+        "Integrated payment system",
+        "Rating and review system",
+        "In-app chat with service providers",
+        "Service history and invoices",
+        "Multiple payment options",
+        "Push notifications for booking updates"
+      ],
+      "stats": {
+        "downloads": "50K+",
+        "rating": "4.5",
+        "users": "25K+",
+        "services": "15+"
+      },
+      "appLink": "https://play.google.com/store/search?q=urdoer&c=apps",
+      "color": "from-purple-500 to-pink-600"
+    },
+    {
+      "id": 3,
+      "name": "VegVerse",
+      "tagline": "Plant-Based Lifestyle Companion",
+      "category": "Health & Lifestyle",
+      "description": "Your complete guide to plant-based living. VegVerse offers thousands of vegan recipes, nutrition tracking, meal planning, and a supportive community for those embracing or exploring a vegan lifestyle.",
+      "image": "/portfolio/apps/vegverse.webp",
+      "platforms": ["iOS", "Android"],
+      "technologies": ["React Native", "Express.js", "PostgreSQL", "AWS", "Redux", "ML Recipe Recommendations"],
+      "features": [
+        "5000+ curated vegan recipes",
+        "AI-powered meal planner",
+        "Nutrition tracking and analysis",
+        "Shopping list generator",
+        "Restaurant finder with vegan options",
+        "Community forums and groups",
+        "Recipe sharing and social features",
+        "Personalized recipe recommendations"
+      ],
+      "stats": {
+        "downloads": "100K+",
+        "rating": "4.8",
+        "users": "60K+",
+        "recipes": "5000+"
+      },
+      "appLink": "https://play.google.com/store/apps/details?id=com.vegverse.app",
+      "color": "from-green-500 to-emerald-600"
+    }
+  ]
+}

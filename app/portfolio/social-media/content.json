@@ -1,0 +1,94 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "name": "Raj Nursing Home Hapur",
+      "handle": "@rajnursinghomehapur",
+      "instagramUrl": "https://www.instagram.com/rajnursinghomehapur",
+      "niche": "Healthcare",
+      "description": "Complete social media management for a leading nursing home in Hapur. We created engaging healthcare content, patient testimonials, and educational posts that built trust and increased patient inquiries.",
+      "stats": {
+        "followers": "5K+",
+        "engagement": "8.5%",
+        "reach": "50K+",
+        "posts": "200+"
+      },
+      "services": [
+        "Content Strategy",
+        "Graphic Design",
+        "Caption Writing",
+        "Hashtag Research",
+        "Community Management",
+        "Story Management"
+      ],
+      "results": [
+        "400% growth in followers in 6 months",
+        "8.5% average engagement rate",
+        "50K+ monthly reach achieved",
+        "300+ patient inquiries generated"
+      ],
+      "testimonial": "Digital Solution 360 transformed our social media presence. We've seen remarkable growth in both engagement and patient inquiries!",
+      "color": "from-pink-500 to-purple-600"
+    },
+    {
+      "id": 2,
+      "name": "This Is Dehi",
+      "handle": "@thisisdehi",
+      "instagramUrl": "https://www.instagram.com/thisisdehi",
+      "niche": "Fashion & Lifestyle",
+      "description": "Elevated a fashion brand's Instagram presence with stunning visuals, trendy reels, and strategic influencer collaborations. Created a cohesive aesthetic that resonated with the target audience.",
+      "stats": {
+        "followers": "12K+",
+        "engagement": "12.3%",
+        "reach": "150K+",
+        "posts": "350+"
+      },
+      "services": [
+        "Content Creation",
+        "Reels Production",
+        "Influencer Marketing",
+        "Brand Aesthetics",
+        "Product Photography",
+        "Campaign Management"
+      ],
+      "results": [
+        "600% increase in Instagram followers",
+        "12.3% engagement rate (3x industry average)",
+        "150K+ monthly impressions",
+        "500+ direct sales through Instagram"
+      ],
+      "testimonial": "The team's creativity and strategic approach helped us build a strong brand identity. Our sales have skyrocketed!",
+      "color": "from-blue-500 to-cyan-600"
+    },
+    {
+      "id": 3,
+      "name": "MaxAlign Dental",
+      "handle": "@maxalign.dental",
+      "instagramUrl": "https://www.instagram.com/maxalign.dental",
+      "niche": "Dental Care",
+      "description": "Comprehensive social media strategy for a premium dental clinic. We focused on educational content, before-after transformations, and patient success stories to build credibility and attract new patients.",
+      "stats": {
+        "followers": "8K+",
+        "engagement": "10.2%",
+        "reach": "80K+",
+        "posts": "280+"
+      },
+      "services": [
+        "Medical Content Creation",
+        "Before/After Showcases",
+        "Educational Posts",
+        "Patient Testimonials",
+        "Appointment Booking Integration",
+        "Review Management"
+      ],
+      "results": [
+        "500% growth in profile visits",
+        "10.2% average engagement rate",
+        "400+ new patient bookings",
+        "Established as top dental brand in locality"
+      ],
+      "testimonial": "Their expertise in healthcare social media is unmatched. We've become the go-to dental clinic in our area!",
+      "color": "from-teal-500 to-green-600"
+    }
+  ]
+}
