@@ -21,7 +21,7 @@ function Clients() {
   ];
 
   // Duplicate clients array multiple times for seamless infinite scroll
-  const duplicatedClients = [...clients, ...clients];
+  const duplicatedClients = [...clients, ...clients,...clients, ...clients];
 
   const [isPaused, setIsPaused] = useState(false);
   const xPos = useMotionValue(0);
@@ -78,7 +78,7 @@ function Clients() {
               key={index}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              className='flex-shrink-0 w-48 h-32 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center p-6 group cursor-pointer'
+              className='flex-shrink-0 w-69 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center p-6 group cursor-pointer'
             >
               <img
                 src={client.logo}

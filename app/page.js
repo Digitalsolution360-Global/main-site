@@ -1,7 +1,4 @@
 import BgLayout from "@/components/layout/bgLayout";
-import { CoolHeader } from "@/components/layout/cool-header";
-import Footer from "@/components/layout/footer";
-import Header from "@/components/layout/header";
 import Blogs from "@/components/sections/blogs";
 import Clients from "@/components/sections/clients";
 import Faqs from "@/components/sections/faqs";

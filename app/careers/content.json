@@ -1,0 +1,40 @@
+{
+    "jobs": [
+        {
+            "id": 1,
+            "title": "Digital Marketing Intern",
+            "location": "Work from Home - Noida",
+            "description": "Join our marketing team to assist in digital campaigns, SEO, social media, and more."
+        },
+        {
+            "id": 2,
+            "title": "Frontend Developer Intern",
+            "location": "Work from Home - Noida",
+            "description": "Looking for developers skilled in HTML, CSS, JavaScript, and Tailwind to build beautiful UIs."
+        },
+        {
+            "id": 3,
+            "title": "Backend Developer Intern",
+            "location": "Work from Home - Noida",
+            "description": "Work on APIs, database design, and server-side logic using PHP and Laravel."
+        },
+        {
+            "id": 4,
+            "title": "WordPress Developer Intern",
+            "location": "Work from Home - Noida",
+            "description": "Build and customize WordPress themes and plugins for a variety of clients."
+        },
+        {
+            "id": 5,
+            "title": "Laravel Developer Intern",
+            "location": "Work from Home - Noida",
+            "description": "Seeking interns with Laravel experience to develop scalable backend systems and APIs."
+        },
+        {
+            "id": 6,
+            "title": "UI/UX Designer Intern",
+            "location": "Work from Home - Noida",
+            "description": "Assist in creating user-friendly, visually appealing interfaces and wireframes for web and mobile applications."
+        }
+    ]
+}

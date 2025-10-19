@@ -12,7 +12,7 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className='bg-gray-900 text-white pt-16 pb-8'>
+    <footer className='bg-gray-900 text-white py-8'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         {/* WhatsApp Floating Chat Button */}
         <div className="hidden md:block fixed bottom-4 right-4 z-100">
