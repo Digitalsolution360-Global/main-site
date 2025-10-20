@@ -55,7 +55,7 @@ function Header() {
 
             <div>
                 <nav onMouseLeave={() => setHovered(null)}>
-                    <ul className='flex flex-row justify-between lg:gap-3 xl:gap-7 gap-5 text-xl'>
+                    <ul className='flex flex-row justify-between gap-5 lg:gap-3 xl:gap-7 text-lg xl:text-xl'>
                         {/* <li className='relative hidden [@media(min-width:1130px)]:block'>
                             <Link 
                                 href="/" 

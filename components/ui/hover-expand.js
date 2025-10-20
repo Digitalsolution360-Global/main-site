@@ -81,7 +81,7 @@ const HoverExpand_001 = ({
         duration: 0.3,
         delay: 0.5,
       }}
-      className={cn("relative w-full max-w-7xl mx-auto px-5 pb-10", className)}
+      className={cn("relative hidden lg:block w-full mx-auto px-10 ", className)}
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -96,8 +96,8 @@ const HoverExpand_001 = ({
                 className="relative cursor-pointer overflow-hidden rounded-xl"
                 initial={{ width: "2.5rem", height: "20rem" }}
                 animate={{
-                    width: activeImage === index ? "24rem" : "10rem",
-                    height: activeImage === index ? "24rem" : "24rem",
+                    width: activeImage === index ? "30rem" : "10rem",
+                    height: activeImage === index ? "30rem" : "30rem",
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 onClick={() => {
@@ -127,7 +127,7 @@ const HoverExpand_001 = ({
                         exit={{ opacity: 0 }}
                         className="absolute flex h-full w-full flex-col items-start justify-end p-4"
                     >
-                        <p className="text-left text-xl text-white font-semibold">
+                        <p className="text-left text-2xl text-white font-semibold">
                         {image.text}
                         </p>
                     </motion.div>
@@ -136,16 +136,24 @@ const HoverExpand_001 = ({
               
                 <AnimatePresence>
                     {activeImage != index && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="absolute flex h-full w-full flex-col items-end justify-end p-4"
-                    >
-                        <p className="text-right text-xs text-white/50">
-                        {image.text}
-                        </p>
-                    </motion.div>
+                      <>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="absolute inset-0 bg-black/70"
+                        />
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="absolute flex h-full w-full items-center justify-center"
+                        >
+                            <p className="text-white font-semibold text-2xl tracking-widest [writing-mode:vertical-lr] rotate-180">
+                            {image.text}
+                            </p>
+                        </motion.div>
+                      </>
                     )}
                 </AnimatePresence>
                 <img

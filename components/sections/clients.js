@@ -78,7 +78,7 @@ function Clients() {
               key={index}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              className='flex-shrink-0 w-69 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center p-6 group cursor-pointer'
+              className='flex-shrink-0 w-69 h-40 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center p-6 group cursor-pointer'
             >
               <img
                 src={client.logo}
