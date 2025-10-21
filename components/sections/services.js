@@ -15,8 +15,8 @@ function Services() {
         {
             src: "/home/images/offerings/web-development.webp",
             text: "Web Development Service",
-            link: "/services/web-development",
-            alt: "Web Development Service",
+            link: "/services/web-app-development",
+            alt: "Web App Development Service",
             code: "# 02",
         },
         {
@@ -43,14 +43,14 @@ function Services() {
         {
             src: "/home/images/offerings/automation-solutions.webp",
             text: "Automation Solutions Service",
-            link: "/services/automation-solutions",
+            link: "/services/automation-solution",
             alt: "Automation Solutions Service",
             code: "# 06",
         },
         {
             src: "/home/images/offerings/managed-services.webp",
             text: "Managed Services",
-            link: "/services/managed-services",
+            link: "/services/managed-service",
             alt: "Managed Services",
             code: "# 07",
         }
