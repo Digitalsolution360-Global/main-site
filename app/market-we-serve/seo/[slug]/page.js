@@ -374,7 +374,7 @@ export default function SEOPage({ params }) {
                         required
                         disabled={isSubmitting}
                         className='w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                        placeholder='John Doe'
+                        placeholder='Nakul Jaglan'
                       />
                     </div>
                   </div>
@@ -394,7 +394,7 @@ export default function SEOPage({ params }) {
                         required
                         disabled={isSubmitting}
                         className='w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                        placeholder='john@example.com'
+                        placeholder='nakul@example.com'
                       />
                     </div>
                   </div>

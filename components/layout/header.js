@@ -31,7 +31,7 @@ function Header() {
         <motion.div 
             initial={{ y: -100, opacity: 0 }}
             animate={{
-                y: visible ? 10 : 0,
+                y: visible ? 0 : 0,
                 opacity: 1,
                 backdropFilter: visible ? "blur(10px)" : "none",
                 boxShadow: visible
@@ -201,7 +201,7 @@ function Header() {
             </div>
 
             <div className='flex flex-row items-center'>
-                <Link href="tel:+919990556217" className='text-lg hover:text-xl text-blue-500 transition-all duration-200'>
+                <Link href="tel:+919990556217" className='text-lg hover:text-xl font-semibold text-blue-500 transition-all duration-200'>
                     +91 99905 56217
                 </Link>
                 
