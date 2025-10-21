@@ -89,7 +89,7 @@ function MarketWeServePage() {
       <section className='relative h-[50vh] mt-15 flex items-center justify-center overflow-hidden'>
         <div className='absolute inset-0'>
           <img
-            src="/market-we-serve-hero.webp"
+            src="/market/hero-image.webp"
             alt="Markets We Serve"
             className='w-full h-full object-cover'
           />

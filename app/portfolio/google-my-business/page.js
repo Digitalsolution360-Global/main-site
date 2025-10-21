@@ -298,7 +298,7 @@ function GoogleBusinessPage() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className='relative max-w-7xl max-h-[90vh] w-full'
+              className='relative max-w-3xl w-full'
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
@@ -310,16 +310,16 @@ function GoogleBusinessPage() {
               </button>
 
               {/* Image Title */}
-              <div className='absolute -top-12 left-0 text-white text-lg font-semibold'>
+              <div className='absolute -top-10 left-0 text-white text-lg font-semibold'>
                 {selectedImage.title}
               </div>
 
               {/* Image */}
-              <div className='bg-white rounded-2xl p-4 shadow-2xl'>
+              <div className='bg-white rounded-2xl p-2 shadow-2xl'>
                 <img
                   src={selectedImage.image}
                   alt={selectedImage.title}
-                  className='w-full h-auto max-h-[80vh] object-contain rounded-lg'
+                  className='w-full max-w-180 mx-auto h-auto object-contain rounded-lg'
                 />
               </div>
             </motion.div>

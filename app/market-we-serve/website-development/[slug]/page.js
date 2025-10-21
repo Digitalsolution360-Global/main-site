@@ -425,7 +425,7 @@ export default function WebDevServicePage({ params }) {
       </section>
 
       {/* Services Overview */}
-      <section className='py-10 bg-gray-50'>
+      <section className='py-10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -540,7 +540,7 @@ export default function WebDevServicePage({ params }) {
       </section>
 
       {/* Core Values */}
-      <section className='py-10 bg-gray-50'>
+      <section className='py-10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -694,7 +694,7 @@ export default function WebDevServicePage({ params }) {
       </section>
 
       {/* Clients Section */}
-      <section className='py-10 bg-gray-50'>
+      <section className='py-10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <Clients />
         </div>

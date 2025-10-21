@@ -1,9 +1,12 @@
+import BgLayout from '@/components/layout/bgLayout'
 import React from 'react'
 
-function page() {
+function ContentWritingPage() {
   return (
-    <div>page</div>
+    <BgLayout>
+        
+    </BgLayout>
   )
 }
 
-export default page
+export default ContentWritingPage

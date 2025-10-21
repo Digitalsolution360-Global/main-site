@@ -31,7 +31,7 @@ function Header() {
         <motion.div 
             initial={{ y: -100, opacity: 0 }}
             animate={{
-                y: visible ? 20 : 0,
+                y: visible ? 10 : 0,
                 opacity: 1,
                 backdropFilter: visible ? "blur(10px)" : "none",
                 boxShadow: visible

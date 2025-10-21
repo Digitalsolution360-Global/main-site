@@ -93,7 +93,7 @@ function Offering() {
         </motion.div>
 
         {/* Offerings */}
-        <div className='space-y-24'>
+        <div className='space-y-10'>
           {offerings.map((offering, index) => (
             <div key={index} className='relative'>
               <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
@@ -119,7 +119,7 @@ function Offering() {
                   </div>
 
                   {/* Points Grid */}
-                  <div className='grid grid-cols-2 gap-3'>
+                  <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
                     {offering.points.map((point, pointIndex) => (
                       <motion.div
                         key={pointIndex}
@@ -127,10 +127,15 @@ function Offering() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.3, delay: 0.3 + (pointIndex * 0.05) }}
-                        className='flex items-center gap-2'
+                        whileHover={{ scale: 1.02, x: 5 }}
+                        className='flex items-center gap-3 p-3 rounded-lg bg-gray-100 hover:bg-blue-100 transition-all duration-300 group cursor-default'
                       >
-                        <IconCheck size={18} className='text-blue-600 flex-shrink-0' />
-                        <span className='text-gray-700 text-lg font-medium'>{point}</span>
+                        <div className='w-6 h-6 rounded-full bg-blue-100 group-hover:bg-blue-600 flex items-center justify-center transition-all duration-300 flex-shrink-0'>
+                          <IconCheck size={16} className='text-blue-600 group-hover:text-white transition-colors duration-300' />
+                        </div>
+                        <span className='text-gray-700 group-hover:text-gray-900 text-base md:text-lg font-medium transition-colors duration-300'>
+                          {point}
+                        </span>
                       </motion.div>
                     ))}
                   </div>

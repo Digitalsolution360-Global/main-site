@@ -18,8 +18,7 @@ function ContactPage() {
     countryCode: '+91',
     services: [],
     budget: '',
-    message: '',
-    agreeToSMS: false
+    message: ''
   });
 
   const handleInputChange = (e) => {
@@ -49,8 +48,7 @@ function ContactPage() {
       countryCode: '+91',
       services: [],
       budget: '',
-      message: '',
-      agreeToSMS: false
+      message: ''
     });
   };
 
@@ -73,7 +71,6 @@ function ContactPage() {
           'Services Interested': formData.services.join(', '),
           'Monthly Budget': formData.budget,
           'Message': formData.message,
-          'SMS Consent': formData.agreeToSMS ? 'Yes' : 'No',
           _captcha: false,
           _template: 'table'
         })
@@ -148,7 +145,7 @@ function ContactPage() {
       </section>
 
       {/* Contact Form Section */}
-      <section className='py-20 bg-gradient-to-br from-gray-50 to-white'>
+      <section className='py-10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid grid-cols-1 lg:grid-cols-5 gap-12'>
             
@@ -336,23 +333,6 @@ function ContactPage() {
                     />
                   </div>
 
-                  {/* SMS Consent */}
-                  <div className='mb-6'>
-                    <label className='flex items-start gap-3 cursor-pointer'>
-                      <input
-                        type='checkbox'
-                        name='agreeToSMS'
-                        checked={formData.agreeToSMS}
-                        onChange={handleInputChange}
-                        disabled={isSubmitting}
-                        className='w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500 mt-0.5 disabled:bg-gray-100'
-                      />
-                      <span className='text-sm text-gray-600'>
-                        Yes, I would like to receive SMS notifications about my project updates and promotional offers.
-                      </span>
-                    </label>
-                  </div>
-
                   {/* Submit Button */}
                   <button
                     type='submit'
@@ -361,11 +341,6 @@ function ContactPage() {
                   >
                     {isSubmitting ? 'Sending...' : 'Send My Free Proposal'}
                   </button>
-
-                  {/* Disclaimer */}
-                  <p className='text-xs text-gray-500 mt-4 text-center'>
-                    By checking the box above, you consent to receive informational SMS and SMS-based appointment reminders from Digital Solution 360 at the phone number provided. Msg & data rates may apply. Msg frequency varies. Unsubscribe at any time by replying STOP.
-                  </p>
 
                 </form>
 

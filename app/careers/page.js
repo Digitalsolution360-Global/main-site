@@ -210,6 +210,61 @@ function CareersPage() {
         </div>
       </section>
 
+      {/* Open Positions */}
+      <section className='py-10'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className='text-center mb-16'
+          >
+            <h2 className='text-4xl md:text-5xl font-bold mb-4'>
+              Open <span className='text-blue-600'>Positions</span>
+            </h2>
+            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
+              Join our growing team and help shape the future of digital solutions.
+            </p>
+          </motion.div>
+
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {careersData.jobs.map((job, index) => (
+              <motion.div
+                key={job.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className='bg-white p-6 rounded-xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1'
+              >
+                {/* <div className='flex items-start justify-between mb-4'>
+                  <IconBriefcase size={32} className='text-blue-600' />
+                  <span className='bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold'>Open</span>
+                </div> */}
+                <h3 className='text-xl font-bold text-gray-900 mb-3'>{job.title}</h3>
+                <div className='flex items-center gap-2 text-gray-600 mb-4'>
+                  <IconMapPin size={18} />
+                  <span className='text-sm'>{job.location}</span>
+                </div>
+                <p className='text-gray-600 text-sm mb-4 leading-relaxed'>
+                  {job.description}
+                </p>
+                <a
+                  href='#apply'
+                  className='inline-block text-blue-600 font-semibold hover:text-blue-700 transition-colors'
+                >
+                  Apply Now →
+                </a>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+
       {/* Why Choose Our Company */}
       <section className='py-10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -325,60 +380,6 @@ function CareersPage() {
             </motion.div>
 
           </div>
-        </div>
-      </section>
-
-      {/* Open Positions */}
-      <section className='py-10'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className='text-center mb-16'
-          >
-            <h2 className='text-4xl md:text-5xl font-bold mb-4'>
-              Open <span className='text-blue-600'>Positions</span>
-            </h2>
-            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
-              Join our growing team and help shape the future of digital solutions.
-            </p>
-          </motion.div>
-
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {careersData.jobs.map((job, index) => (
-              <motion.div
-                key={job.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className='bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl border border-gray-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1'
-              >
-                {/* <div className='flex items-start justify-between mb-4'>
-                  <IconBriefcase size={32} className='text-blue-600' />
-                  <span className='bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold'>Open</span>
-                </div> */}
-                <h3 className='text-xl font-bold text-gray-900 mb-3'>{job.title}</h3>
-                <div className='flex items-center gap-2 text-gray-600 mb-4'>
-                  <IconMapPin size={18} />
-                  <span className='text-sm'>{job.location}</span>
-                </div>
-                <p className='text-gray-600 text-sm mb-4 leading-relaxed'>
-                  {job.description}
-                </p>
-                <a
-                  href='#apply'
-                  className='inline-block text-blue-600 font-semibold hover:text-blue-700 transition-colors'
-                >
-                  Apply Now →
-                </a>
-              </motion.div>
-            ))}
-          </div>
-
         </div>
       </section>
 

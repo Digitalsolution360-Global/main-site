@@ -7,7 +7,7 @@ import { IconTarget, IconEye, IconSparkles } from '@tabler/icons-react'
 
 function MissionVision() {
   return (
-    <section className='py-20 bg-white'>
+    <section className='py-10'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         
         {/* Header */}

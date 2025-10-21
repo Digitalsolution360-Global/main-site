@@ -366,7 +366,7 @@ function AppDevPage() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className='bg-white rounded-3xl p-8 md:p-12 max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative'
+              className='bg-white rounded-3xl p-8 md:p-12 max-w-4xl w-full max-h-[70vh] overflow-y-auto shadow-2xl relative'
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
@@ -382,7 +382,7 @@ function AppDevPage() {
                 <img
                   src={selectedApp.image}
                   alt={selectedApp.name}
-                  className='w-full max-w-md mx-auto h-auto rounded-2xl shadow-xl'
+                  className='w-full max-w-xs mx-auto h-auto rounded-2xl shadow-xl'
                 />
               </div>
 
