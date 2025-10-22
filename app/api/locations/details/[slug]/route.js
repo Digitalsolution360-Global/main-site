@@ -1,4 +1,4 @@
-import { getCityDetails, getStateDetails } from '@/lib/db';
+import { getCityDetails, getStateDetails, getCountryDetails } from '@/lib/db';
 
 export async function GET(request, { params }) {
   try {
@@ -12,6 +12,12 @@ export async function GET(request, { params }) {
     if (!location) {
       location = await getStateDetails(slug);
       locationType = 'state';
+    }
+    
+    // If not found as state, try as country
+    if (!location) {
+      location = await getCountryDetails(slug);
+      locationType = 'country';
     }
     
     if (!location) {

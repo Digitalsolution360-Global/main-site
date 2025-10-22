@@ -25,9 +25,18 @@ export default function WebDevServicePage({ params }) {
 
   const fetchLocationData = async () => {
     try {
-      const response = await fetch(`/api/locations/city-details/${slug}`);
+      const response = await fetch(`/api/locations/details/${slug}`);
       const data = await response.json();
-      setLocationData(data);
+      
+      if (data.location) {
+        // Map the location data to the expected format
+        const mappedData = {
+          city_name: data.location.city || data.location.name || data.location.state || data.location.country,
+          state_name: data.location.state_name || data.location.name,
+          country_name: data.location.country_name
+        };
+        setLocationData(mappedData);
+      }
     } catch (error) {
       console.error('Error fetching location:', error);
     } finally {
