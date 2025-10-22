@@ -291,9 +291,13 @@ function Header() {
                                                 exit={{ height: 0, opacity: 0 }}
                                                 className='ml-4 mt-2 flex flex-col gap-2 overflow-hidden'
                                             >
-                                                <li><Link href="/services/website-development" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>Website Development</Link></li>
-                                                <li><Link href="/services/social-media" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>Social Media</Link></li>
-                                                <li><Link href="/services/seo" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>SEO Services</Link></li>
+                                                <li><Link href="/digital-marketing" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>Digital Marketing</Link></li>
+                                                <li><Link href="/web-app-development" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>Website Development</Link></li>
+                                                <li><Link href="/seo" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>SEO Services</Link></li>
+                                                <li><Link href="/brand-creative" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>Brand & Creative</Link></li>
+                                                <li><Link href="/media-advertising" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>Social Media Marketing</Link></li>
+                                                <li><Link href="/automation-solution" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>Automation Solutions</Link></li>
+                                                <li><Link href="/managed-service" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>Managed Services</Link></li>
                                             </motion.ul>
                                         )}
                                     </AnimatePresence>
