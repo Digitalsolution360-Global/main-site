@@ -2,7 +2,7 @@ import { getCityDetails } from '@/lib/db';
 
 export async function GET(request, { params }) {
   try {
-    const { slug } = params;
+    const { slug } = await params;
     const city = await getCityDetails(slug);
     
     if (!city) {

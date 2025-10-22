@@ -1,14 +1,14 @@
 "use client";
 
 import BgLayout from '@/components/layout/bgLayout';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import { motion } from 'motion/react';
 import { IconHome, IconChevronRight, IconMapPin, IconCheck, IconStar, IconPhone, IconMail, IconUser, IconCode, IconDeviceMobile, IconShoppingCart, IconRocket } from '@tabler/icons-react';
 import Link from 'next/link';
 import Clients from '@/components/sections/clients';
 
 export default function WebDevServicePage({ params }) {
-  const { slug } = params;
+  const { slug } = use(params);
   const [locationData, setLocationData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
@@ -196,7 +196,7 @@ export default function WebDevServicePage({ params }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className='text-3xl md:text-5xl lg:text-6xl font-bold mb-4'>
+            <h1 className='text-lg sm:text-xl md:text-3xl lg:text-6xl font-bold mb-4'>
               Online Presence Empowerment through Professional Website Development Services in <span className='text-blue-400'>{cityName}</span>
             </h1>
             <p className='text-lg md:text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-6'>

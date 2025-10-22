@@ -1,14 +1,14 @@
 "use client";
 
 import BgLayout from '@/components/layout/bgLayout';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import { motion } from 'motion/react';
 import { IconHome, IconChevronRight, IconCheck, IconStar, IconPhone, IconMail, IconUser, IconSearch, IconTrendingUp, IconTarget, IconChartBar } from '@tabler/icons-react';
 import Link from 'next/link';
 import Clients from '@/components/sections/clients';
 
 export default function SEOPage({ params }) {
-  const { slug } = params;
+  const { slug } = use(params);
   const [locationData, setLocationData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({

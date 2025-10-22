@@ -10,39 +10,59 @@ const services = [
   { id: 'google-my-business', name: 'Google My Business', color: 'blue' },
   { id: 'seo', name: 'SEO', color: 'green' },
   { id: 'website-development', name: 'Website Development', color: 'purple' },
-  { id: 'digital-marketing', name: 'Digital Marketing', color: 'pink' },
-  { id: 'content-writing', name: 'Content Writing', color: 'orange' }
+  // { id: 'content-writing', name: 'Content Writing', color: 'orange' }
 ];
 
 function MarketWeServePage() {
   const [activeService, setActiveService] = useState('google-my-business');
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
-  const [states, setStates] = useState([]);
-  const [selectedState, setSelectedState] = useState(null);
-  const [cities, setCities] = useState([]);
+  const [statesWithCities, setStatesWithCities] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // Get the appropriate slug based on the active service
+  const getCitySlug = (city) => {
+    switch (activeService) {
+      case 'google-my-business':
+        return city.gmb_slug;
+      case 'seo':
+        return city.seo_slug;
+      case 'website-development':
+        return city.web_slug;
+      case 'content-writing':
+        return city.content_slug;
+      default:
+        return city.web_slug;
+    }
+  };
+
+  // Get the appropriate state slug based on the active service
+  const getStateSlug = (state) => {
+    switch (activeService) {
+      case 'google-my-business':
+        return state.gmb_slug;
+      case 'seo':
+        return state.seo_slug;
+      case 'website-development':
+        return state.web_slug;
+      case 'content-writing':
+        return state.content_slug;
+      default:
+        return state.web_slug;
+    }
+  };
 
   // Fetch countries on mount
   useEffect(() => {
     fetchCountries();
   }, []);
 
-  // Fetch states when country is selected
+  // Fetch states and cities when country is selected
   useEffect(() => {
     if (selectedCountry) {
-      fetchStates(selectedCountry.id);
-      setSelectedState(null);
-      setCities([]);
+      fetchStatesAndCities(selectedCountry.id);
     }
   }, [selectedCountry]);
-
-  // Fetch cities when state is selected
-  useEffect(() => {
-    if (selectedState) {
-      fetchCities(selectedState.id);
-    }
-  }, [selectedState]);
 
   const fetchCountries = async () => {
     try {
@@ -60,26 +80,38 @@ function MarketWeServePage() {
     }
   };
 
-  const fetchStates = async (countryId) => {
+  const fetchStatesAndCities = async (countryId) => {
     try {
-      const response = await fetch(`/api/locations/states/${countryId}`);
-      const data = await response.json();
-      setStates(data.states || []);
-      if (data.states && data.states.length > 0) {
-        setSelectedState(data.states[0]);
-      }
-    } catch (error) {
-      console.error('Error fetching states:', error);
-    }
-  };
+      setLoading(true);
+      const statesResponse = await fetch(`/api/locations/states/${countryId}`);
+      const statesData = await statesResponse.json();
+      const states = statesData.states || [];
 
-  const fetchCities = async (stateId) => {
-    try {
-      const response = await fetch(`/api/locations/cities/${stateId}`);
-      const data = await response.json();
-      setCities(data.cities || []);
+      // Fetch cities for all states
+      const statesWithCitiesData = await Promise.all(
+        states.map(async (state) => {
+          try {
+            const citiesResponse = await fetch(`/api/locations/cities/${state.id}`);
+            const citiesData = await citiesResponse.json();
+            return {
+              ...state,
+              cities: citiesData.cities || []
+            };
+          } catch (error) {
+            console.error(`Error fetching cities for state ${state.name}:`, error);
+            return {
+              ...state,
+              cities: []
+            };
+          }
+        })
+      );
+
+      setStatesWithCities(statesWithCitiesData);
     } catch (error) {
-      console.error('Error fetching cities:', error);
+      console.error('Error fetching states and cities:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -127,7 +159,7 @@ function MarketWeServePage() {
       </section>
 
       {/* Service Tabs */}
-      <section className='py-10 bg-white sticky top-0 z-40 shadow-md'>
+      <section className='py-10 bg-white sticky top-18 z-40 shadow-md'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='flex flex-wrap justify-center gap-3'>
             {services.map((service) => (
@@ -182,60 +214,46 @@ function MarketWeServePage() {
                 </div>
               </div>
 
-              {/* State Tabs */}
-              {states.length > 0 && (
-                <div className='mb-8'>
-                  <h2 className='text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2'>
-                    <IconMapPin size={28} className='text-green-600' />
-                    Select State in {selectedCountry?.name}
-                  </h2>
-                  <div className='flex flex-wrap gap-3'>
-                    {states.map((state) => (
-                      <button
-                        key={state.id}
-                        onClick={() => setSelectedState(state)}
-                        className={`px-6 py-3 rounded-lg font-semibold transition-all ${
-                          selectedState?.id === state.id
-                            ? 'bg-green-600 text-white shadow-lg'
-                            : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-green-600'
-                        }`}
-                      >
-                        {state.name}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Cities Grid */}
-              {cities.length > 0 && (
-                <div>
-                  <h2 className='text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2'>
-                    <IconMapPin size={28} className='text-purple-600' />
-                    Cities in {selectedState?.name}
-                  </h2>
-                  <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-                    {cities.map((city) => (
-                      <Link
-                        key={city.id}
-                        href={`/market-we-serve/${activeService}/${city.slug}`}
-                      >
-                        <motion.div
-                          whileHover={{ scale: 1.05, y: -5 }}
-                          className='bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all border-2 border-gray-100 hover:border-blue-600 cursor-pointer'
-                        >
-                          <div className='flex items-center gap-3 mb-2'>
-                            <IconMapPin size={20} className='text-blue-600' />
-                            <h3 className='font-bold text-gray-900'>{city.name}</h3>
-                          </div>
-                          <p className='text-sm text-gray-600'>{selectedState?.name}, {selectedCountry?.name}</p>
-                          <div className='mt-3 text-blue-600 text-sm font-semibold'>
-                            View Services →
-                          </div>
-                        </motion.div>
+              {/* States with Cities */}
+              {statesWithCities.length > 0 && (
+                <div className='space-y-12'>
+                  {statesWithCities.map((state, idx) => (
+                    <div key={idx}>
+                      <Link href={`/${getStateSlug(state)}`}>
+                        <h2 className='text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2 hover:text-blue-600 transition-colors cursor-pointer w-fit'>
+                          <IconMapPin size={28} className='text-green-600' />
+                          {state.name}
+                        </h2>
                       </Link>
-                    ))}
-                  </div>
+                      
+                      {state.cities.length > 0 ? (
+                        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+                          {state.cities.map((city) => (
+                            <Link
+                              key={city.id}
+                              href={`/${getCitySlug(city)}`}
+                            >
+                              <motion.div
+                                whileHover={{ scale: 1.05, y: -5 }}
+                                className='bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all border-2 border-gray-100 hover:border-blue-600 cursor-pointer'
+                              >
+                                <div className='flex items-center gap-3 mb-2'>
+                                  <IconMapPin size={20} className='text-blue-600' />
+                                  <h3 className='font-bold text-gray-900'>{city.name}</h3>
+                                </div>
+                                <p className='text-sm text-gray-600'>{state.name}, {selectedCountry?.name}</p>
+                                <div className='mt-3 text-blue-600 text-sm font-semibold'>
+                                  View Services →
+                                </div>
+                              </motion.div>
+                            </Link>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className='text-gray-500 italic'>No cities available for this state.</p>
+                      )}
+                    </div>
+                  ))}
                 </div>
               )}
             </>

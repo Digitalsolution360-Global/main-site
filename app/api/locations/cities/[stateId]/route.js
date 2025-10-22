@@ -2,7 +2,7 @@ import { getCitiesByState } from '@/lib/db';
 
 export async function GET(request, { params }) {
   try {
-    const { stateId } = params;
+    const { stateId } = await params;
     const cities = await getCitiesByState(stateId);
     return Response.json({ cities });
   } catch (error) {
