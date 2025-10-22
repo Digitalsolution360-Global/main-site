@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { IconChevronDown } from '@tabler/icons-react'
+import Link from 'next/link';
 
 function Faqs() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -145,12 +146,12 @@ function Faqs() {
           <p className='text-gray-600 text-xl mb-6'>
             Can&apos;t find the answer you&apos;re looking for? Our team is here to help.
           </p>
-          <a
+          <Link
             href='/contact'
             className='inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-xl font-semibold hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-1'
           >
             Get in Touch
-          </a>
+          </Link>
         </motion.div>
 
       </div>
