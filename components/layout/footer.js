@@ -96,13 +96,13 @@ function Footer() {
           <div>
             <h3 className='text-lg font-semibold mb-4'>Our Services</h3>
             <ul className='space-y-2'>
-              <li><Link href="/services/digital-marketing" className='text-gray-400 hover:text-white transition-colors'>Digital Marketing</Link></li>
-              <li><Link href="/services/web-app-development" className='text-gray-400 hover:text-white transition-colors'>Website Development</Link></li>
-              <li><Link href="/services/seo" className='text-gray-400 hover:text-white transition-colors'>SEO Services</Link></li>
-              <li><Link href="/services/brand-creative" className='text-gray-400 hover:text-white transition-colors'>Brand & Creative</Link></li>
-              <li><Link href="/services/media-advertising" className='text-gray-400 hover:text-white transition-colors'>Social Media Marketing</Link></li>
-              <li><Link href="/services/automation-solution" className='text-gray-400 hover:text-white transition-colors'>Automation Solutions</Link></li>
-              <li><Link href="/services/managed-service" className='text-gray-400 hover:text-white transition-colors'>Managed Services</Link></li>
+              <li><Link href="/digital-marketing" className='text-gray-400 hover:text-white transition-colors'>Digital Marketing</Link></li>
+              <li><Link href="/web-app-development" className='text-gray-400 hover:text-white transition-colors'>Website Development</Link></li>
+              <li><Link href="/seo" className='text-gray-400 hover:text-white transition-colors'>SEO Services</Link></li>
+              <li><Link href="/brand-creative" className='text-gray-400 hover:text-white transition-colors'>Brand & Creative</Link></li>
+              <li><Link href="/media-advertising" className='text-gray-400 hover:text-white transition-colors'>Social Media Marketing</Link></li>
+              <li><Link href="/automation-solution" className='text-gray-400 hover:text-white transition-colors'>Automation Solutions</Link></li>
+              <li><Link href="/managed-service" className='text-gray-400 hover:text-white transition-colors'>Managed Services</Link></li>
             </ul>
           </div>
 

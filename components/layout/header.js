@@ -119,14 +119,26 @@ function Header() {
                                         exit={{ opacity: 0, y: -10 }}
                                         className='absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl py-2 min-w-[220px]'
                                     >
-                                        <Link href="/services/website-development" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
+                                        <Link href="/digital-marketing" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
+                                            Digital Marketing
+                                        </Link>
+                                        <Link href="/web-app-development" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
                                             Website Development
                                         </Link>
-                                        <Link href="/services/social-media" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
-                                            Social Media
-                                        </Link>
-                                        <Link href="/services/seo" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
+                                        <Link href="/seo" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
                                             SEO Services
+                                        </Link>
+                                        <Link href="/brand-creative" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
+                                            Brand & Creative
+                                        </Link>
+                                        <Link href="/media-advertising" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
+                                            Social Media Marketing
+                                        </Link>
+                                        <Link href="/automation-solution" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
+                                            Automation Solutions
+                                        </Link>
+                                        <Link href="/managed-service" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
+                                            Managed Services
                                         </Link>
                                     </motion.div>
                                 )}
