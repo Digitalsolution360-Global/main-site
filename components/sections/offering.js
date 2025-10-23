@@ -131,7 +131,8 @@ function Offering() {
                         className='flex items-center gap-3 p-3 rounded-lg bg-gray-100 hover:bg-blue-100 transition-all duration-300 group cursor-default'
                       >
                         <div className='w-6 h-6 rounded-full bg-blue-100 group-hover:bg-blue-600 flex items-center justify-center transition-all duration-300 flex-shrink-0'>
-                          <IconCheck size={16} className='text-blue-600 group-hover:text-white transition-colors duration-300' />
+                          {/* <IconCheck size={16} className='text-blue-600 group-hover:text-white transition-colors duration-300' /> */}
+                          <p className='text-blue-600 group-hover:text-white transition-colors duration-300'>✓</p>
                         </div>
                         <span className='text-gray-700 group-hover:text-gray-900 text-base md:text-lg font-medium transition-colors duration-300'>
                           {point}

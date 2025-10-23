@@ -5,6 +5,7 @@ import Header from './header'
 import Footer from './footer'
 import { CoolHeader } from './cool-header'
 import { motion } from 'motion/react'
+import FloatCta from '../sections/floatCta';
 
 function BgLayout({ children }) {
   return (
@@ -124,6 +125,7 @@ function BgLayout({ children }) {
 
       <main className='relative z-0'>
         {children}
+        <FloatCta/>
       </main>
       <Footer />
     </>
