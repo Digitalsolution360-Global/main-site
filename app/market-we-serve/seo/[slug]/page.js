@@ -6,10 +6,13 @@ import { motion } from 'motion/react';
 import { IconHome, IconChevronRight, IconCheck, IconStar, IconPhone, IconMail, IconUser, IconSearch, IconTrendingUp, IconTarget, IconChartBar } from '@tabler/icons-react';
 import Link from 'next/link';
 import Clients from '@/components/sections/clients';
+import LocationStructuredData from '@/components/seo/LocationStructuredData';
 
 export default function SEOPage({ params }) {
   const { slug } = use(params);
   const [locationData, setLocationData] = useState(null);
+  const [locationType, setLocationType] = useState(null);
+  const [serviceType, setServiceType] = useState(null);
   const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
     name: '',
@@ -29,13 +32,10 @@ export default function SEOPage({ params }) {
       const data = await response.json();
       
       if (data.location) {
-        // Map the location data to the expected format
-        const mappedData = {
-          city_name: data.location.city || data.location.name || data.location.state || data.location.country,
-          state_name: data.location.state_name || data.location.name,
-          country_name: data.location.country_name
-        };
-        setLocationData(mappedData);
+        // Store full location data including IDs for structured data
+        setLocationData(data.location);
+        setLocationType(data.locationType);
+        setServiceType(data.serviceType);
       }
     } catch (error) {
       console.error('Error fetching location:', error);
@@ -97,7 +97,13 @@ export default function SEOPage({ params }) {
     );
   }
 
-  const cityName = locationData?.city_name || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  // Get location name based on type
+  const cityName = locationType === 'city' 
+    ? (locationData?.city || locationData?.name)
+    : locationType === 'state'
+    ? locationData?.name
+    : locationData?.name || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  
   const stateName = locationData?.state_name || '';
   const countryName = locationData?.country_name || '';
 
@@ -174,6 +180,13 @@ export default function SEOPage({ params }) {
 
   return (
     <BgLayout>
+      {/* Structured Data for SEO */}
+      <LocationStructuredData 
+        locationData={locationData}
+        locationType={locationType}
+        serviceType={serviceType}
+      />
+
       {/* Hero Section */}
       <section className='relative h-[50vh] mt-15 flex items-center justify-center overflow-hidden'>
         <div className='absolute inset-0'>

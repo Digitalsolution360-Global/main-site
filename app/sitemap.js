@@ -37,7 +37,7 @@ export default async function sitemap() {
   try {
     const blogs = await getAllBlogs();
     blogRoutes = blogs.map((blog) => ({
-      url: `${baseUrl}/blogs/${blog.slug}`,
+      url: `${baseUrl}/${blog.slug}`,
       lastModified: new Date(blog.updated_at || blog.created_at),
       changeFrequency: 'monthly',
       priority: 0.7,

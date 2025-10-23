@@ -8,29 +8,42 @@ import { notFound } from 'next/navigation';
 const WebDevServicePage = dynamic(() => import('../market-we-serve/website-development/[slug]/page'), { ssr: false });
 const SEOServicePage = dynamic(() => import('../market-we-serve/seo/[slug]/page'), { ssr: false });
 const GMBServicePage = dynamic(() => import('../market-we-serve/google-my-business/[slug]/page'), { ssr: false });
+const BlogDetailPage = dynamic(() => import('../blogs/[slug]/page'), { ssr: false });
 
-export default function LocationPage({ params }) {
+export default function DynamicPage({ params }) {
   const { slug } = use(params);
-  const [isValid, setIsValid] = useState(null);
+  const [pageType, setPageType] = useState(null);
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
-    validateSlug();
+    determinePageType();
   }, [slug]);
 
-  const validateSlug = async () => {
+  const determinePageType = async () => {
     try {
-      const response = await fetch(`/api/locations/details/${slug}`);
-      const data = await response.json();
+      // First, check if it's a blog post
+      const blogResponse = await fetch(`/api/blogs/${slug}`);
+      if (blogResponse.ok) {
+        const blogData = await blogResponse.json();
+        if (blogData.blog) {
+          setPageType('blog');
+          setLoading(false);
+          return;
+        }
+      }
+
+      // If not a blog, check if it's a location
+      const locationResponse = await fetch(`/api/locations/details/${slug}`);
+      const locationData = await locationResponse.json();
       
-      if (data.error || !data.location) {
-        setIsValid(false);
+      if (locationData.error || !locationData.location) {
+        setPageType('notfound');
       } else {
-        setIsValid(true);
+        setPageType('location');
       }
     } catch (error) {
-      console.error('Error validating slug:', error);
-      setIsValid(false);
+      console.error('Error determining page type:', error);
+      setPageType('notfound');
     } finally {
       setLoading(false);
     }
@@ -47,11 +60,16 @@ export default function LocationPage({ params }) {
     );
   }
 
-  if (isValid === false) {
+  if (pageType === 'notfound') {
     notFound();
   }
+
+  // Render blog page
+  if (pageType === 'blog') {
+    return <BlogDetailPage params={Promise.resolve({ slug })} />;
+  }
   
-  // Determine which service page to render based on slug
+  // Render location page - determine which service page based on slug
   if (slug.includes('google-my-business') || slug.includes('gmb')) {
     return <GMBServicePage params={Promise.resolve({ slug })} />;
   } else if (slug.includes('seo-service')) {

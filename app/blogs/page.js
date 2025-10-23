@@ -106,7 +106,7 @@ export default function BlogsPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className='group'
                 >
-                  <Link href={`/blogs/${blog.slug}`}>
+                  <Link href={`/${blog.slug}`}>
                     <motion.div
                       whileHover={{ y: -8 }}
                       transition={{ duration: 0.3 }}

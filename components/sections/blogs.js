@@ -82,7 +82,7 @@ function Blogs() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Link href={`/blogs/${post.slug}`} className='block h-full'>
+              <Link href={`/${post.slug}`} className='block h-full'>
                 <div className='h-full bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer'>
                   {/* Image Container */}
                   <div className='relative h-64 overflow-hidden'>

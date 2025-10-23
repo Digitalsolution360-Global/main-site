@@ -200,7 +200,7 @@ function BlogDetailPage({ params }) {
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                     >
                       <Link
-                        href={`/blogs/${recentBlog.slug}`}
+                        href={`/${recentBlog.slug}`}
                         className='block group'
                       >
                         <div className='flex gap-4'>
