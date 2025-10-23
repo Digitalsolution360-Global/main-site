@@ -178,18 +178,18 @@ function Header() {
                         </li>
                         <li className='relative'>
                             <Link 
-                                href="/blog" 
-                                onMouseEnter={() => setHovered('blog')}
+                                href="/blogs" 
+                                onMouseEnter={() => setHovered('blogs')}
                                 className='relative px-0 py-2 inline-block'
                             >
-                                {hovered === 'blog' && (
+                                {hovered === 'blogs' && (
                                     <motion.div
                                         layoutId="hovered"
                                         className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"
                                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
                                     />
                                 )}
-                                <span className='relative z-20'>Blog</span>
+                                <span className='relative z-20'>Blogs</span>
                             </Link>
                         </li>
                         <li className='relative'>
@@ -304,7 +304,7 @@ function Header() {
                                 </li>
                                 <li><Link href="/portfolio" onClick={() => setMobileMenuOpen(false)}>Portfolio</Link></li>
                                 <li><Link href="/careers" onClick={() => setMobileMenuOpen(false)}>Careers</Link></li>
-                                <li><Link href="/blog" onClick={() => setMobileMenuOpen(false)}>Blog</Link></li>
+                                <li><Link href="/blogs" onClick={() => setMobileMenuOpen(false)}>Blogs</Link></li>
                                 <li><Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link></li>
                             </ul>
 

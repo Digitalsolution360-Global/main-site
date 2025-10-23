@@ -1,4 +1,6 @@
-export default function sitemap() {
+import { getAllBlogs } from '@/lib/db';
+
+export default async function sitemap() {
   const baseUrl = 'https://www.digitalsolution360.com';
   
   // Static pages
@@ -8,7 +10,7 @@ export default function sitemap() {
     '/contact',
     '/portfolio',
     '/careers',
-    '/blog',
+    '/blogs',
     '/market-we-serve',
   ];
 
@@ -30,5 +32,19 @@ export default function sitemap() {
     priority: route === '' ? 1 : 0.8,
   }));
 
-  return [...staticRoutes];
+  // Fetch blog posts dynamically
+  let blogRoutes = [];
+  try {
+    const blogs = await getAllBlogs();
+    blogRoutes = blogs.map((blog) => ({
+      url: `${baseUrl}/blogs/${blog.slug}`,
+      lastModified: new Date(blog.updated_at || blog.created_at),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    }));
+  } catch (error) {
+    console.error('Error fetching blogs for sitemap:', error);
+  }
+
+  return [...staticRoutes, ...blogRoutes];
 }
