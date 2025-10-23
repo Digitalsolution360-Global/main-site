@@ -136,7 +136,7 @@ function FloatCta() {
             {/* Form Content */}
             <div className='p-6'>
               <h2 className='text-2xl font-bold text-gray-900 mb-2'>Get Free Support</h2>
-              <p className='text-gray-600 mb-6'>Fill in your details and we'll get back to you shortly.</p>
+              <p className='text-gray-600 mb-6'>Fill in your details and we&apos;ll get back to you shortly.</p>
 
               <form 
                 onSubmit={handleSubmit}
@@ -227,7 +227,7 @@ function FloatCta() {
 
             <h2 className='text-3xl font-bold text-gray-900 mb-3'>Thank You!</h2>
             <p className='text-gray-600 text-lg mb-2'>Your request has been submitted successfully.</p>
-            <p className='text-gray-500 text-sm'>We'll get back to you shortly.</p>
+            <p className='text-gray-500 text-sm'>We&apos;ll get back to you shortly.</p>
             
             {/* Auto-close indicator */}
             <p className='text-gray-400 text-xs mt-6'>This window will close automatically in 5 seconds</p>
