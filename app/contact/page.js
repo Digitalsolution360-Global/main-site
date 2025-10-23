@@ -156,7 +156,7 @@ function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className='bg-white rounded-2xl shadow-xl p-8 md:p-12'
+                className='bg-blue-50/90 rounded-2xl shadow-2xl p-8 md:p-12'
               >
                 <h2 className='text-3xl md:text-4xl font-bold mb-2'>Experience Real Results</h2>
                 <p className='text-lg text-gray-600 mb-8'>
@@ -178,7 +178,7 @@ function ContactPage() {
                       onChange={handleInputChange}
                       required
                       disabled={isSubmitting}
-                      className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                      className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                       placeholder='Nakul Jaglan'
                     />
                   </div>
@@ -197,7 +197,7 @@ function ContactPage() {
                         onChange={handleInputChange}
                         required
                         disabled={isSubmitting}
-                        className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                        className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                         placeholder='Your Company Name'
                       />
                     </div>
@@ -212,7 +212,7 @@ function ContactPage() {
                         value={formData.website}
                         onChange={handleInputChange}
                         disabled={isSubmitting}
-                        className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                        className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                         placeholder='https://yourwebsite.com'
                       />
                     </div>
@@ -232,7 +232,7 @@ function ContactPage() {
                         onChange={handleInputChange}
                         required
                         disabled={isSubmitting}
-                        className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                        className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                         placeholder='nakul@example.com'
                       />
                     </div>
@@ -261,7 +261,7 @@ function ContactPage() {
                           onChange={handleInputChange}
                           required
                           disabled={isSubmitting}
-                          className='flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                          className='flex-1 px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                           placeholder='9876543210'
                         />
                       </div>
@@ -328,7 +328,7 @@ function ContactPage() {
                       onChange={handleInputChange}
                       rows={5}
                       disabled={isSubmitting}
-                      className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                      className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                       placeholder='Describe your requirements, goals, and timeline...'
                     />
                   </div>

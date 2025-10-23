@@ -8,6 +8,7 @@ function Services() {
         {
             src: "/home/images/offerings/digital-marketing.webp",
             text: "Digital Marketing Service",
+            description: "Maximize your online presence with our targeted digital marketing strategies.",
             link: "/digital-marketing",
             alt: "Digital Marketing Service",
             code: "# 01",
@@ -15,6 +16,7 @@ function Services() {
         {
             src: "/home/images/offerings/web-development.webp",
             text: "Web Development Service",
+            description: "Build responsive and high-performing websites tailored to your business needs.",
             link: "/web-app-development",
             alt: "Web App Development Service",
             code: "# 02",
@@ -22,6 +24,7 @@ function Services() {
         {
             src: "/home/images/offerings/seo.webp",
             text: "SEO Service",
+            description: "Improve your website's visibility on search engines and attract more organic traffic.",
             link: "/seo",
             alt: "SEO Service",
             code: "# 03",
@@ -29,6 +32,7 @@ function Services() {
         {
             src: "/home/images/offerings/brand-creative.webp",
             text: "Brand & Creative Service",
+            description: "Craft a unique brand identity and compelling visuals that resonate with your audience.",
             link: "/brand-creative",
             alt: "Brand & Creative Service",
             code: "# 04",
@@ -36,6 +40,7 @@ function Services() {
         {
             src: "/home/images/offerings/media-advertising.webp",
             text: "Media & Advertising Service",
+            description: "Amplify your brand's reach with our strategic media planning and advertising solutions.",
             link: "/media-advertising",
             alt: "Media & Advertising Service",
             code: "# 05",
@@ -43,6 +48,7 @@ function Services() {
         {
             src: "/home/images/offerings/automation-solutions.webp",
             text: "Automation Solutions Service",
+            description: "Streamline your operations and improve efficiency with our automation solutions.",
             link: "/automation-solution",
             alt: "Automation Solutions Service",
             code: "# 06",
@@ -50,6 +56,7 @@ function Services() {
         {
             src: "/home/images/offerings/managed-services.webp",
             text: "Managed Services",
+            description: "Get comprehensive support and management for your IT infrastructure and applications.",
             link: "/managed-service",
             alt: "Managed Services",
             code: "# 07",

@@ -230,7 +230,7 @@ function ManagedServicePage() {
                 className='rounded-2xl overflow-hidden shadow-xl'
               >
                 <img
-                  src="/services/managed-service-1.webp"
+                  src="/services/managed-service/managed-service-1.webp"
                   alt="Managed Services"
                   className='w-full h-80 object-cover'
                 />
@@ -244,7 +244,7 @@ function ManagedServicePage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className='bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-xl p-8 sticky top-24'
+                className='bg-blue-50/90 rounded-2xl shadow-2xl p-8 sticky top-24'
               >
                 <h3 className='text-2xl font-bold text-gray-900 mb-2'>Quick Contact</h3>
                 <p className='text-gray-600 mb-6'>Get a free IT consultation!</p>
@@ -264,7 +264,7 @@ function ManagedServicePage() {
                         onChange={handleInputChange}
                         required
                         disabled={isSubmitting}
-                        className='w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                        className='w-full pl-10 pr-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                         placeholder='Nakul Jaglan'
                       />
                     </div>
@@ -284,7 +284,7 @@ function ManagedServicePage() {
                         onChange={handleInputChange}
                         required
                         disabled={isSubmitting}
-                        className='w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                        className='w-full pl-10 pr-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                         placeholder='nakul@example.com'
                       />
                     </div>
@@ -304,7 +304,7 @@ function ManagedServicePage() {
                         onChange={handleInputChange}
                         required
                         disabled={isSubmitting}
-                        className='w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                        className='w-full pl-10 pr-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                         placeholder='+1 234 567 8900'
                       />
                     </div>
@@ -320,7 +320,7 @@ function ManagedServicePage() {
                       value={formData.service}
                       onChange={handleInputChange}
                       disabled={isSubmitting}
-                      className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                      className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                     >
                       <option value="24/7 Monitoring">24/7 Monitoring & Support</option>
                       <option value="IT Infrastructure">IT Infrastructure Management</option>
@@ -443,7 +443,7 @@ function ManagedServicePage() {
             className='rounded-2xl overflow-hidden shadow-2xl'
           >
             <img
-              src="/services/managed-service-2.webp"
+              src="/services/managed-service/managed-service-2.webp"
               alt="IT Operations Management"
               className='w-full h-96 object-cover'
             />

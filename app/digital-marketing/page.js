@@ -245,7 +245,7 @@ function DigitalMarketingServicesPage() {
                 className='rounded-2xl overflow-hidden shadow-xl'
               >
                 <img
-                  src="/services/digital-marketing-1.webp"
+                  src="/services/digital-marketing/digital-marketing-1.webp"
                   alt="Digital Marketing Services"
                   className='w-full h-80 object-cover'
                 />
@@ -259,7 +259,7 @@ function DigitalMarketingServicesPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className='bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-xl p-8 sticky top-24'
+                className='bg-blue-50/90 rounded-2xl shadow-2xl p-8 sticky top-24'
               >
                 <h3 className='text-2xl font-bold text-gray-900 mb-2'>Quick Contact</h3>
                 <p className='text-gray-600 mb-6'>Get a free consultation today!</p>
@@ -279,7 +279,7 @@ function DigitalMarketingServicesPage() {
                         onChange={handleInputChange}
                         required
                         disabled={isSubmitting}
-                        className='w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                        className='w-full pl-10 pr-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                         placeholder='Nakul Jaglan'
                       />
                     </div>
@@ -299,7 +299,7 @@ function DigitalMarketingServicesPage() {
                         onChange={handleInputChange}
                         required
                         disabled={isSubmitting}
-                        className='w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                        className='w-full pl-10 pr-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                         placeholder='nakul@example.com'
                       />
                     </div>
@@ -319,7 +319,7 @@ function DigitalMarketingServicesPage() {
                         onChange={handleInputChange}
                         required
                         disabled={isSubmitting}
-                        className='w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                        className='w-full pl-10 pr-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                         placeholder='+1 234 567 8900'
                       />
                     </div>
@@ -335,7 +335,7 @@ function DigitalMarketingServicesPage() {
                       value={formData.service}
                       onChange={handleInputChange}
                       disabled={isSubmitting}
-                      className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                      className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                     >
                       <option value="SEO">SEO</option>
                       <option value="Social Media Marketing">Social Media Marketing</option>
@@ -458,7 +458,7 @@ function DigitalMarketingServicesPage() {
             className='rounded-2xl overflow-hidden shadow-2xl'
           >
             <img
-              src="/services/digital-marketing-2.webp"
+              src="/services/digital-marketing/digital-marketing-2.webp"
               alt="Digital Marketing Strategy"
               className='w-full h-96 object-cover'
             />

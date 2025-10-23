@@ -243,7 +243,7 @@ function CareersPage() {
                   <IconBriefcase size={32} className='text-blue-600' />
                   <span className='bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold'>Open</span>
                 </div> */}
-                <h3 className='text-xl font-bold text-gray-900 mb-3'>{job.title}</h3>
+                <h3 className='text-xl font-bold text-gray-900 hover:text-blue-500 mb-3'>{job.title}</h3>
                 <div className='flex items-center gap-2 text-gray-600 mb-4'>
                   <IconMapPin size={18} />
                   <span className='text-sm'>{job.location}</span>
@@ -253,7 +253,7 @@ function CareersPage() {
                 </p>
                 <a
                   href='#apply'
-                  className='inline-block text-blue-600 font-semibold hover:text-blue-700 transition-colors'
+                  className='inline-block bg-blue-600 text-white font-semibold hover:bg-blue-700 py-2 px-4 rounded-md hover:rounded-lg transition-colors duration-300'
                 >
                   Apply Now →
                 </a>
@@ -407,7 +407,7 @@ function CareersPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className='bg-white rounded-2xl shadow-xl p-8 md:p-12'
+            className='bg-blue-50/90 rounded-2xl shadow-2xl p-8 md:p-12'
           >
             <form onSubmit={handleFormSubmit}>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mb-6'>
@@ -425,7 +425,7 @@ function CareersPage() {
                     onChange={handleInputChange}
                     required
                     disabled={isSubmitting}
-                    className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                    className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                     placeholder='Nakul Jaglan'
                   />
                 </div>
@@ -443,7 +443,7 @@ function CareersPage() {
                     onChange={handleInputChange}
                     required
                     disabled={isSubmitting}
-                    className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                    className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                     placeholder='nakul@example.com'
                   />
                 </div>
@@ -461,7 +461,7 @@ function CareersPage() {
                     onChange={handleInputChange}
                     required
                     disabled={isSubmitting}
-                    className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                    className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                     placeholder='+91 98765 43210'
                   />
                 </div>
@@ -479,7 +479,7 @@ function CareersPage() {
                     onChange={handleInputChange}
                     required
                     disabled={isSubmitting}
-                    className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                    className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                     placeholder='Noida'
                   />
                 </div>
@@ -497,7 +497,7 @@ function CareersPage() {
                     onChange={handleInputChange}
                     required
                     disabled={isSubmitting}
-                    className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                    className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                     placeholder='₹25,000'
                   />
                 </div>
@@ -547,7 +547,7 @@ function CareersPage() {
                   accept='.pdf,.doc,.docx'
                   required
                   disabled={isSubmitting}
-                  className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                  className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                 />
                 {formData.resume && (
                   <p className='mt-2 text-sm text-gray-600'>

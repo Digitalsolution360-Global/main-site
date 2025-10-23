@@ -135,9 +135,8 @@ function AboutPage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
               className='relative'
             >
@@ -159,7 +158,7 @@ function AboutPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            // viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
             className='text-center mb-12'
           >
@@ -172,7 +171,7 @@ function AboutPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              // viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300'
             >
@@ -188,7 +187,7 @@ function AboutPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              // viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300'
             >
@@ -210,7 +209,7 @@ function AboutPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            // viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
             className='text-center mb-16'
           >
@@ -230,7 +229,7 @@ function AboutPage() {
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  // viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className='bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1'
                 >
@@ -255,7 +254,7 @@ function AboutPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            // viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
             className='text-center mb-16'
           >
@@ -273,7 +272,7 @@ function AboutPage() {
                 key={index}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
+                // viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className='text-center'
               >
@@ -291,7 +290,7 @@ function AboutPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            // viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
             className='bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-12 text-white text-center relative overflow-hidden'
           >

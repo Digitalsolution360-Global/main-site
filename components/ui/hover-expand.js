@@ -130,6 +130,9 @@ const HoverExpand_001 = ({
                         <p className="text-left text-2xl text-white font-semibold">
                         {image.text}
                         </p>
+                        <p className="mt-2 text-base text-white opacity-80">
+                        {image.description}
+                        </p>
                     </motion.div>
                     )}
                 </AnimatePresence>

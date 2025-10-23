@@ -187,7 +187,7 @@ function SEOServicesPage() {
       <section className='relative h-[50vh] mt-15 flex items-center justify-center overflow-hidden'>
         <div className='absolute inset-0'>
           <img
-            src="/services/seo-services-hero.webp"
+            src="/services/seo-hero.webp"
             alt="SEO Services"
             className='w-full h-full object-cover'
           />
@@ -270,7 +270,7 @@ function SEOServicesPage() {
                 className='rounded-2xl overflow-hidden shadow-xl'
               >
                 <img
-                  src="/services/seo-services-1.webp"
+                  src="/services/seo/seo-services-1.webp"
                   alt="SEO Services"
                   className='w-full h-80 object-cover'
                 />
@@ -482,7 +482,7 @@ function SEOServicesPage() {
             className='rounded-2xl overflow-hidden shadow-2xl'
           >
             <img
-              src="/services/seo-services-2.webp"
+              src="/services/seo/seo-services-2.webp"
               alt="SEO Tools and Analytics"
               className='w-full h-96 object-cover'
             />

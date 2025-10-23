@@ -2,6 +2,26 @@
   "projects": [
     {
       "id": 1,
+      "title": "Andheri Dental Care",
+      "subtitle": "Modern Dental Clinic Website",
+      "description": "Developed from scratch using Frontend, HTML5, CSS3, Bootstrap 5, Responsive Design, and JavaScript to ensure complete control over design and performance.",
+      "image": "/portfolio/website/andheridentalcare.png",
+      "tags": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript", "Responsive Design"],
+      "highlights": [
+        "Modern & Responsive Design - Clean, professional interface that looks beautiful on all devices",
+        "Fast Loading & Optimized Performance - Lightweight coding and optimized images ensure quick loading",
+        "Professional Branding - Carefully selected color palette, fonts, and icons match the clinic's image",
+        "Service Showcase - Detailed sections highlight dental treatments and orthodontic solutions",
+        "Patient-Friendly Navigation - Clear menus and call-to-action buttons guide patients effortlessly",
+        "Integrated Features - Appointment booking, contact forms, Google Maps integration, and SEO-friendly",
+        "Secure & Scalable - Built with best practices for security and future upgrades",
+        "Engaging Visuals & Animations - Professional look that enhances user experience"
+      ],
+      "isLink": true,
+      "link": "https://andheridentalcare.com"
+    },
+    {
+      "id": 2,
       "title": "Max Align Dental",
       "subtitle": "Modern Dental Clinic Website",
       "description": "Developed from scratch using Frontend, HTML5, CSS3, Bootstrap 5, Responsive Design, and JavaScript to ensure complete control over design and performance.",
@@ -21,7 +41,7 @@
       "link": "https://maxaligndental.com"
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "Preesha Global",
       "subtitle": "Corporate Business Website",
       "description": "Built on WordPress for flexibility, easy management, and scalability tailored to corporate business needs.",
@@ -44,7 +64,7 @@
       "link": "https://preeshaglobal.com"
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Bliss32 Dental Care",
       "subtitle": "Dental Clinic Website",
       "description": "Developed from scratch using Frontend, HTML5, CSS3, Bootstrap 5, Responsive Design, Backend, Dynamic Blog Management and JavaScript to ensure complete control over design and performance.",
@@ -64,7 +84,7 @@
       "link": "https://bliss32.com"
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "The Great Herbal",
       "subtitle": "E-commerce Redesign",
       "description": "Built on WordPress for flexibility, easy management, and scalability tailored to skincare & cosmetics industries.",
@@ -86,7 +106,7 @@
       "link": "https://thegreatherbal.com"
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Prudent Business Ventures",
       "subtitle": "Corporate Web Presence",
       "description": "Built on WordPress for flexibility, scalability, and ease of content management without technical complexity.",
@@ -109,7 +129,7 @@
       "link": "https://prudentbv.nl/"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Raj Nursing Home",
       "subtitle": "Local SEO Boost",
       "description": "Developed from scratch using HTML5, CSS3, Bootstrap 5, and JavaScript to ensure complete control over design and performance.",
@@ -131,7 +151,7 @@
       "link": "https://www.rajnursinghome.com/"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "The Tickle Toe",
       "subtitle": "Premium Kids & Baby eCommerce Store",
       "description": "Developed on Shopify to provide a robust and scalable eCommerce platform tailored for premium baby and kids products.",
@@ -153,7 +173,7 @@
       "link": "https://thetickletoe.com"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "WattGuru",
       "subtitle": "IT Consulting & Energy Solutions",
       "description": "Built from scratch using HTML5, CSS3, and JavaScript, ensuring a lightweight, fast-loading site.",
@@ -171,7 +191,7 @@
       "link": "https://wattguru.com"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "Master Dinesh",
       "subtitle": "Laptop Repair Training Platform",
       "description": "Built with HTML5, CSS3, Bootstrap, and JavaScript, ensuring a fast, responsive, and mobile-friendly design.",
@@ -190,7 +210,7 @@
       "link": "https://masterdinesh.com"
     },
     {
-      "id": 10,
+      "id": 11,
       "title": "SKC Investment Advisors",
       "subtitle": "SEBI Registered Merchant Banker",
       "description": "Designed and developed using HTML5, CSS3, Slick Slider, Fancybox, and responsive frameworks for a seamless browsing experience.",
@@ -209,7 +229,7 @@
       "link": "https://skciapl.com"
     },
     {
-      "id": 11,
+      "id": 12,
       "title": "Enfragy Solutions",
       "subtitle": "GIS Solutions & Aerial Mapping",
       "description": "Built with HTML5, CSS3, JavaScript, Slick Slider, and AOS animations for smooth, engaging interactions.",
@@ -228,7 +248,7 @@
       "link": "https://enfragy.com"
     },
     {
-      "id": 12,
+      "id": 13,
       "title": "BD Services",
       "subtitle": "Background Verification Company",
       "description": "Built with HTML5, CSS3, JavaScript, Slick Slider, and AOS animations to deliver a modern, responsive experience.",

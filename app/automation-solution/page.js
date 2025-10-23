@@ -218,7 +218,7 @@ function AutomationSolutionPage() {
                 className='rounded-2xl overflow-hidden shadow-xl'
               >
                 <img
-                  src="/services/automation-solution-1.webp"
+                  src="/services/automation-solution/automation-solution-1.webp"
                   alt="Automation Solutions"
                   className='w-full h-80 object-cover'
                 />
@@ -232,7 +232,7 @@ function AutomationSolutionPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className='bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-xl p-8 sticky top-24'
+                className='bg-blue-50/90 rounded-2xl shadow-2xl p-8 sticky top-24'
               >
                 <h3 className='text-2xl font-bold text-gray-900 mb-2'>Quick Contact</h3>
                 <p className='text-gray-600 mb-6'>Get a free automation consultation!</p>
@@ -252,7 +252,7 @@ function AutomationSolutionPage() {
                         onChange={handleInputChange}
                         required
                         disabled={isSubmitting}
-                        className='w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                        className='w-full pl-10 pr-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                         placeholder='Nakul Jaglan'
                       />
                     </div>
@@ -272,7 +272,7 @@ function AutomationSolutionPage() {
                         onChange={handleInputChange}
                         required
                         disabled={isSubmitting}
-                        className='w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                        className='w-full pl-10 pr-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                         placeholder='nakul@example.com'
                       />
                     </div>
@@ -292,7 +292,7 @@ function AutomationSolutionPage() {
                         onChange={handleInputChange}
                         required
                         disabled={isSubmitting}
-                        className='w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                        className='w-full pl-10 pr-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                         placeholder='+1 234 567 8900'
                       />
                     </div>
@@ -308,7 +308,7 @@ function AutomationSolutionPage() {
                       value={formData.service}
                       onChange={handleInputChange}
                       disabled={isSubmitting}
-                      className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
+                      className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
                     >
                       <option value="Workflow Automation">Workflow Automation</option>
                       <option value="RPA">Robotic Process Automation</option>
@@ -430,7 +430,7 @@ function AutomationSolutionPage() {
             className='rounded-2xl overflow-hidden shadow-2xl'
           >
             <img
-              src="/services/automation-solution-2.webp"
+              src="/services/automation-solution/automation-solution-2.webp"
               alt="Automation Process"
               className='w-full h-96 object-cover'
             />
