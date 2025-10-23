@@ -75,6 +75,11 @@ function Footer() {
               >
                 <FaYoutube size={20} />
               </motion.a>
+            </div> 
+            <div className='mt-4'>
+              <Link href="/market-we-serve" className='text-gray-300 hover:text-white transition-colors text-lg underline hover:no-underline'>
+                Markets We Serve
+              </Link>
             </div>
           </div>
 
