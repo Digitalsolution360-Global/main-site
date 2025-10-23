@@ -1,0 +1,42 @@
+# Digital Solution 360 - LLM Context
+
+## Company Overview
+Digital Solution 360 is a leading digital marketing and web development agency specializing in comprehensive digital solutions for businesses worldwide.
+
+## Core Services
+- **Digital Marketing**: SEO, Social Media Marketing, PPC Advertising, Email Campaigns, Conversion Rate Optimization
+- **Website Development**: Responsive web design, E-commerce development, WordPress, Custom web applications
+- **SEO Services**: On-page SEO, Technical SEO, Local SEO, Link building, Content optimization
+- **Brand & Creative**: Logo design, Brand identity, Creative campaigns, Packaging design
+- **Social Media Marketing**: Content creation, Platform management, Paid advertising, Community engagement
+- **Automation Solutions**: Workflow automation, RPA, AI-powered automation, Process optimization
+- **Managed Services**: 24/7 monitoring, IT infrastructure management, Cloud services, Cybersecurity
+
+## Contact Information
+- **Phone**: +91 99905 56217
+- **Email**: globalweb3600@gmail.com
+- **Website**: https://www.digitalsolution360.com
+
+## Service Areas
+We serve clients across the UAE (United Arab Emirates), England, and other global locations including:
+- Dubai, Abu Dhabi, Sharjah, Ajman
+- London, Birmingham
+- And many more cities worldwide
+
+## Key Features
+- 253+ Projects Completed
+- Expert team of developers, designers, and digital marketers
+- Custom solutions tailored to business needs
+- Proven track record of results
+- Free consultation available
+
+## Technologies & Platforms
+- WordPress, Shopify, WooCommerce, Magento
+- React, Angular, Laravel
+- Google Ads, Facebook Ads, LinkedIn Ads
+- SEO Tools: SEMrush, Ahrefs, Google Analytics
+- Design Tools: Figma, Adobe Creative Suite, Canva
+- Automation: UiPath, Zapier, Power Automate
+
+## Business Philosophy
+We focus on creating digital experiences that engage, convert, and inspire. Our approach combines creativity, functionality, and cutting-edge technology to deliver websites and digital solutions that drive business growth.
