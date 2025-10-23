@@ -1,31 +1,49 @@
 "use client";
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'motion/react'
 import Link from 'next/link'
 import { IconArrowRight } from '@tabler/icons-react'
 
 function Blogs() {
-  const blogPosts = [
-    {
-      title: "Your Next-Gen Website Development Partner in Abu Dhabi & Al Ain: World-Class Quality at Affordable Prices",
-      description: "Looking for professional website development services in Abu Dhabi, Al Ain, or M...",
-      image: "/home/images/blogs/blog-img3.png",
-      link: "/blogs"
-    },
-    {
-      title: "Social Media Marketing That Drives Business Growth: Strategies, Trends, and Affordable Solutions",
-      description: "In today's world, social media is not just about likes and followers—it's about...",
-      image: "/home/images/blogs/blog-img2.png",
-      link: "/blogs"
-    },
-    {
-      title: "SEO Tools That Every Business Needs",
-      description: "Discover the must-have SEO tools that can help businesses improve website rankin...",
-      image: "/home/images/blogs/blog-img1.png",
-      link: "/blogs"
+  const [blogPosts, setBlogPosts] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchBlogs() {
+      try {
+        const res = await fetch('/api/blogs')
+        const data = await res.json()
+        // Get only the 3 most recent blogs
+        setBlogPosts((data.blogs || []).slice(0, 3))
+      } catch (error) {
+        console.error('Error fetching blogs:', error)
+      } finally {
+        setLoading(false)
+      }
     }
-  ];
+    fetchBlogs()
+  }, [])
+
+  // Helper function to strip HTML and truncate
+  const getExcerpt = (html, maxLength = 100) => {
+    const text = html.replace(/<[^>]*>/g, '')
+    return text.length > maxLength ? text.substring(0, maxLength) + '...' : text
+  }
+
+  if (loading) {
+    return (
+      <section className='py-10'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
+          <div className='animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto'></div>
+        </div>
+      </section>
+    )
+  }
+
+  if (blogPosts.length === 0) {
+    return null
+  }
 
   return (
     <section className='py-10'>
@@ -58,48 +76,48 @@ function Blogs() {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {blogPosts.map((post, index) => (
             <motion.article
-              key={index}
+              key={post.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className='bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group'
             >
-              {/* Image Container */}
-              <div className='relative h-64 overflow-hidden'>
-                <motion.img
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.4 }}
-                  src={post.image}
-                  alt={post.title}
-                  className='w-full h-full object-cover'
-                />
-                {/* Gradient Overlay */}
-                <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
-              </div>
+              <Link href={`/blogs/${post.slug}`} className='block h-full'>
+                <div className='h-full bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer'>
+                  {/* Image Container */}
+                  <div className='relative h-64 overflow-hidden'>
+                    <motion.img
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.4 }}
+                      src={`/${post.image}`}
+                      alt={post.title}
+                      className='w-full h-full object-cover'
+                    />
+                    {/* Gradient Overlay */}
+                    <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+                  </div>
 
-              {/* Content */}
-              <div className='p-6'>
-                <h3 className='text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300'>
-                  {post.title}
-                </h3>
-                
-                <p className='text-gray-600 mb-6 line-clamp-3'>
-                  {post.description}
-                </p>
+                  {/* Content */}
+                  <div className='p-6'>
+                    <h3 className='text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300'>
+                      {post.title}
+                    </h3>
+                    
+                    <p className='text-gray-600 mb-6 line-clamp-3'>
+                      {getExcerpt(post.description)}
+                    </p>
 
-                {/* Read More Button */}
-                <Link
-                  href={post.link}
-                  className='inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all duration-300 group/link'
-                >
-                  Read More
-                  <IconArrowRight 
-                    size={20} 
-                    className='transition-transform duration-300 group-hover/link:translate-x-1'
-                  />
-                </Link>
-              </div>
+                    {/* Read More Button */}
+                    <div className='inline-flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all duration-300'>
+                      <span>Read More</span>
+                      <IconArrowRight 
+                        size={20} 
+                        className='transition-transform duration-300 group-hover:translate-x-1'
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Link>
             </motion.article>
           ))}
         </div>

@@ -143,7 +143,7 @@ function BlogDetailPage({ params }) {
                   <IconShare size={24} className='text-blue-600' />
                   <h3 className='text-xl font-bold'>Share this article</h3>
                 </div>
-                <div className='flex gap-4'>
+                <div className='flex flex-col md:flex-row w-fit gap-4'>
                   <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
