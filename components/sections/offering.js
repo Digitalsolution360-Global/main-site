@@ -74,14 +74,14 @@ function Offering() {
 
   return (
     <section className='py-10'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+      <div className='max-w-7xl mx-auto px-4 '>
         
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+        <div
+          // initial={{ opacity: 0, y: 20 }}
+          // whileInView={{ opacity: 1, y: 0 }}
+          // viewport={{ once: true, margin: "-100px" }}
+          // transition={{ duration: 0.6 }}
           className='text-center mb-16'
         >
           <h2 className='text-4xl md:text-5xl font-bold mb-4'>
@@ -90,7 +90,7 @@ function Offering() {
           <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
             Comprehensive digital solutions to transform your business and drive growth in the digital age.
           </p>
-        </motion.div>
+        </div>
 
         {/* Offerings */}
         <div className='space-y-10'>
@@ -101,11 +101,11 @@ function Offering() {
               }`}>
                 
                 {/* Content Side */}
-                <motion.div
-                  initial={{ opacity: 0, x: offering.imagePosition === 'right' ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                <div
+                  // initial={{ opacity: 0, x: offering.imagePosition === 'right' ? -50 : 50 }}
+                  // whileInView={{ opacity: 1, x: 0 }}
+                  // viewport={{ once: true, margin: "0px" }}
+                  // transition={{ duration: 0.6, delay: 0.2 }}
                   className={offering.imagePosition === 'left' ? 'lg:col-start-2' : ''}
                 >
                   <div className='mb-6'>
@@ -121,13 +121,13 @@ function Offering() {
                   {/* Points Grid */}
                   <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
                     {offering.points.map((point, pointIndex) => (
-                      <motion.div
+                      <div
                         key={pointIndex}
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.3, delay: 0.3 + (pointIndex * 0.05) }}
-                        whileHover={{ scale: 1.02, x: 5 }}
+                        // initial={{ opacity: 0, y: 10 }}
+                        // whileInView={{ opacity: 1, y: 0 }}
+                        // viewport={{ once: true, margin: "0px" }}
+                        // transition={{ duration: 0.3, delay: 0.3 + (pointIndex * 0.05) }}
+                        // whileHover={{ scale: 1.02, x: 5 }}
                         className='flex items-center gap-3 p-3 rounded-lg bg-gray-100 hover:bg-blue-100 transition-all duration-300 group cursor-default'
                       >
                         <div className='w-6 h-6 rounded-full bg-blue-100 group-hover:bg-blue-600 flex items-center justify-center transition-all duration-300 flex-shrink-0'>
@@ -136,23 +136,23 @@ function Offering() {
                         <span className='text-gray-700 group-hover:text-gray-900 text-base md:text-lg font-medium transition-colors duration-300'>
                           {point}
                         </span>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
-                </motion.div>
+                </div>
 
                 {/* Image Side */}
-                <motion.div
-                  initial={{ opacity: 0, x: offering.imagePosition === 'right' ? 50 : -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
+                <div
+                  // initial={{ opacity: 0, x: offering.imagePosition === 'right' ? 50 : 50 }}
+                  // whileInView={{ opacity: 1, x: 0 }}
+                  // viewport={{ once: true, margin: "0px" }}
+                  // transition={{ duration: 0.6 }}
                   className={offering.imagePosition === 'left' ? 'lg:col-start-1 lg:row-start-1' : ''}
                 >
                   <div className='relative rounded-2xl overflow-hidden shadow-2xl group'>
-                    <motion.img
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.4 }}
+                    <img
+                      // whileHover={{ scale: 1.05 }}
+                      // transition={{ duration: 0.4 }}
                       src={offering.image}
                       alt={offering.heading}
                       className='w-full h-auto object-cover'
@@ -163,10 +163,10 @@ function Offering() {
                   </div>
 
                   {/* Decorative Elements */}
-                  <div className={`absolute -z-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl ${
+                  {/* <div className={`absolute -z-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl ${
                     offering.imagePosition === 'right' ? '-right-20' : '-left-20'
-                  } top-1/2 -translate-y-1/2`}></div>
-                </motion.div>
+                  } top-1/2 -translate-y-1/2`}></div> */}
+                </div>
 
               </div>
 
