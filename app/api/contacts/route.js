@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { query } from '@/lib/db';
+import { auth } from '@clerk/nextjs/server';
 
 export async function POST(request) {
   try {
@@ -78,6 +79,8 @@ export async function POST(request) {
 // Optional: GET endpoint to retrieve contacts (for admin purposes)
 export async function GET(request) {
   try {
+    await auth.protect();
+    
     const { searchParams } = new URL(request.url);
     const source = searchParams.get('source');
     const page_url = searchParams.get('page_url');

@@ -65,8 +65,8 @@ function CareersPage() {
     setIsSubmitting(true);
 
     try {
-      // Save to database
-      await fetch('/api/careers', {
+      // First, save to database
+      const dbResponse = await fetch('/api/careers', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -81,6 +81,10 @@ function CareersPage() {
           resume_filename: formData.resume ? formData.resume.name : null
         })
       });
+
+      if (!dbResponse.ok) {
+        throw new Error('Failed to save to database');
+      }
 
       // Create FormData to handle file upload for email
       const submitData = new FormData();
@@ -100,15 +104,18 @@ function CareersPage() {
       submitData.append('_captcha', 'false');
       submitData.append('_template', 'table');
 
-      const response = await fetch('https://formsubmit.co/globalweb3600@gmail.com', {
+      // Send email with resume attachment
+      const emailResponse = await fetch('https://formsubmit.co/globalweb3600@gmail.com', {
         method: 'POST',
         body: submitData
       });
 
-      if (response.ok) {
-        resetForm();
-        setShowThankYou(true);
-      }
+      console.log('Email submission status:', emailResponse.status);
+
+      // Show success even if email fails (data is saved in DB)
+      resetForm();
+      setShowThankYou(true);
+      
     } catch (error) {
       console.error('Form submission error:', error);
       alert('Failed to submit application. Please try again.');

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { query } from '@/lib/db';
+import { auth } from '@clerk/nextjs/server';
 
 export async function POST(request) {
   try {
@@ -72,6 +73,8 @@ export async function POST(request) {
 // Optional: GET endpoint to retrieve career applications (for admin purposes)
 export async function GET(request) {
   try {
+    await auth.protect();
+    
     const { searchParams } = new URL(request.url);
     const apply_for = searchParams.get('apply_for');
     const city = searchParams.get('city');
