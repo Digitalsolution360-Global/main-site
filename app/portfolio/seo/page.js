@@ -1,26 +1,36 @@
-import BgLayout from '@/components/layout/bgLayout'
-import React from 'react'
+import SEOPageClient from './seoPortClient'
 
-function SEOPage() {
-  return (
-    <BgLayout>
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center space-y-6 px-4">
-          <h1 className="text-5xl md:text-7xl font-bold bg-blue-500 bg-clip-text text-transparent">
-            Coming Soon
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400">
-            Our SEO Portfolio is under construction
-          </p>
-          <div className="flex gap-2 justify-center">
-            <div className="w-3 h-3 bg-blue-600 rounded-full animate-bounce"></div>
-            <div className="w-3 h-3 bg-purple-600 rounded-full animate-bounce delay-100"></div>
-            <div className="w-3 h-3 bg-pink-600 rounded-full animate-bounce delay-200"></div>
-          </div>
-        </div>
-      </div>
-    </BgLayout>
-  )
+export const metadata = {
+  title: 'SEO Portfolio - Search Engine Optimization Results | Digital Solution 360',
+  description: 'Explore our SEO portfolio showcasing successful search engine optimization campaigns, ranking improvements, and organic traffic growth for our clients.',
+  keywords: 'SEO portfolio, SEO results, search rankings, organic traffic growth, SEO case studies, search optimization',
+  openGraph: {
+    title: 'SEO Portfolio - Search Engine Optimization Results | Digital Solution 360',
+    description: 'Explore our SEO portfolio showcasing successful search engine optimization campaigns and ranking improvements.',
+    url: 'https://www.digitalsolution360.com/portfolio/seo',
+    siteName: 'Digital Solution 360',
+    images: [
+      {
+        url: 'https://www.digitalsolution360.com/services/services-hero.webp',
+        width: 1200,
+        height: 630,
+        alt: 'SEO Portfolio',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SEO Portfolio - Search Engine Optimization Results | Digital Solution 360',
+    description: 'Explore our SEO portfolio showcasing successful campaigns.',
+    images: ['https://www.digitalsolution360.com/services/services-hero.webp'],
+  },
+  alternates: {
+    canonical: 'https://www.digitalsolution360.com/portfolio/seo',
+  },
 }
 
-export default SEOPage
+export default function SEOPage() {
+  return <SEOPageClient />
+}

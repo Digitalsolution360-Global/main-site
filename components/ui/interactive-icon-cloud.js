@@ -46,12 +46,6 @@ export const renderCustomIcon = (icon, theme) => {
     fallbackHex,
     minContrastRatio,
     size: 42,
-    aProps: {
-      href: undefined,
-      target: undefined,
-      rel: undefined,
-      onClick: (e) => e.preventDefault(),
-    },
   })
 }
 
