@@ -50,25 +50,45 @@ function Header() {
     }
   }, [showThankYou])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const form = e.target
     const formData = new FormData(form)
 
-    // Submit form data using fetch
-    fetch('https://formsubmit.co/globalweb3600@gmail.com', {
-      method: 'POST',
-      body: formData
-    })
-    .then(() => {
+    try {
+      // Save to database
+      await fetch('/api/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          country_code: '+91',
+          company: null,
+          website: null,
+          services: null,
+          message: null,
+          source: 'header_quote',
+          page_url: window.location.pathname
+        })
+      })
+
+      // Send email notification
+      await fetch('https://formsubmit.co/globalweb3600@gmail.com', {
+        method: 'POST',
+        body: formData
+      })
+
       setShowForm(false)
       setShowThankYou(true)
       form.reset()
-    })
-    .catch((error) => {
+    } catch (error) {
       console.error('Error:', error)
       alert('Something went wrong. Please try again.')
-    })
+    }
   }
 
   return (

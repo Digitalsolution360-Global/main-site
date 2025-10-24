@@ -17,7 +17,6 @@ function ContactPage() {
     phone: '',
     countryCode: '+91',
     services: [],
-    budget: '',
     message: ''
   });
 
@@ -47,7 +46,6 @@ function ContactPage() {
       phone: '',
       countryCode: '+91',
       services: [],
-      budget: '',
       message: ''
     });
   };
@@ -57,7 +55,32 @@ function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://formsubmit.co/globalweb3600@gmail.com', {
+      // Save to database
+      const dbResponse = await fetch('/api/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          country_code: formData.countryCode,
+          company: formData.company || null,
+          website: formData.website || null,
+          services: formData.services.length > 0 ? formData.services.join(', ') : null,
+          message: formData.message || null,
+          source: 'contact_form',
+          page_url: window.location.pathname
+        })
+      });
+
+      if (!dbResponse.ok) {
+        console.error('Failed to save to database');
+      }
+
+      // Send email notification
+      const emailResponse = await fetch('https://formsubmit.co/globalweb3600@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,14 +92,14 @@ function ContactPage() {
           'Email': formData.email,
           'Phone': `${formData.countryCode} ${formData.phone}`,
           'Services Interested': formData.services.join(', '),
-          'Monthly Budget': formData.budget,
           'Message': formData.message,
+          'Page URL': window.location.pathname,
           _captcha: false,
           _template: 'table'
         })
       });
 
-      if (response.ok) {
+      if (emailResponse.ok || dbResponse.ok) {
         resetForm();
         setShowThankYou(true);
       }
@@ -293,28 +316,6 @@ function ContactPage() {
                       ))}
                     </div>
                   </div>
-
-                  {/* Budget */}
-                  {/* <div className='mb-6'>
-                    <label htmlFor='budget' className='block text-sm font-semibold text-gray-700 mb-2'>
-                      What is your monthly digital marketing budget?
-                    </label>
-                    <select
-                      id='budget'
-                      name='budget'
-                      value={formData.budget}
-                      onChange={handleInputChange}
-                      disabled={isSubmitting}
-                      className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white disabled:bg-gray-100'
-                    >
-                      <option value="">Select Budget Range</option>
-                      <option value="₹25,000 - ₹50,000">₹25,000 - ₹50,000</option>
-                      <option value="₹50,000 - ₹1,00,000">₹50,000 - ₹1,00,000</option>
-                      <option value="₹1,00,000 - ₹2,50,000">₹1,00,000 - ₹2,50,000</option>
-                      <option value="₹2,50,000 - ₹5,00,000">₹2,50,000 - ₹5,00,000</option>
-                      <option value="₹5,00,000+">₹5,00,000+</option>
-                    </select>
-                  </div> */}
 
                   {/* Message */}
                   <div className='mb-6'>

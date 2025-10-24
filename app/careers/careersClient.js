@@ -65,7 +65,24 @@ function CareersPage() {
     setIsSubmitting(true);
 
     try {
-      // Create FormData to handle file upload
+      // Save to database
+      await fetch('/api/careers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          city: formData.city,
+          expected_salary: formData.expectedSalary || null,
+          apply_for: formData.applyFor,
+          resume_filename: formData.resume ? formData.resume.name : null
+        })
+      });
+
+      // Create FormData to handle file upload for email
       const submitData = new FormData();
       submitData.append('name', formData.name);
       submitData.append('email', formData.email);

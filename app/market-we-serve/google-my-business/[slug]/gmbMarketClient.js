@@ -57,6 +57,27 @@ export default function GMBServicePage({ params }) {
     setIsSubmitting(true);
 
     try {
+      // Save to database
+      await fetch('/api/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          country_code: '+91',
+          company: null,
+          website: null,
+          services: `Google My Business - ${locationData?.city_name || slug}`,
+          message: null,
+          source: 'gmb_market_page',
+          page_url: window.location.pathname
+        })
+      });
+
+      // Send email notification
       await fetch('https://formsubmit.co/globalweb3600@gmail.com', {
         method: 'POST',
         headers: {
@@ -68,6 +89,7 @@ export default function GMBServicePage({ params }) {
           'Phone': formData.phone,
           'Service': 'Google My Business',
           'Location': locationData?.city_name || slug,
+          'Page URL': window.location.pathname,
           _captcha: false,
           _template: 'table'
         })
