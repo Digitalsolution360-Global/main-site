@@ -71,7 +71,7 @@ export default async function sitemap() {
       { path: '/market-we-serve/website-development', slugField: 'web_slug' },
       { path: '/market-we-serve/seo', slugField: 'seo_slug' },
       { path: '/market-we-serve/google-my-business', slugField: 'gmb_slug' },
-      { path: '/market-we-serve/content-writing', slugField: 'content_slug' },
+      // { path: '/market-we-serve/content-writing', slugField: 'content_slug' },
     ];
 
     // Generate routes for all cities
