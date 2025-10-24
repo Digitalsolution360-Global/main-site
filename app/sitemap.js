@@ -79,7 +79,7 @@ export default async function sitemap() {
       services.forEach(service => {
         if (city[service.slugField]) {
           locationRoutes.push({
-            url: `${baseUrl}${service.path}/${escapeXml(city[service.slugField])}`,
+            url: `${baseUrl}/${escapeXml(city[service.slugField])}`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.6,
@@ -93,7 +93,7 @@ export default async function sitemap() {
       services.forEach(service => {
         if (state[service.slugField]) {
           locationRoutes.push({
-            url: `${baseUrl}${service.path}/${escapeXml(state[service.slugField])}`,
+            url: `${baseUrl}/${escapeXml(state[service.slugField])}`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.6,
@@ -107,7 +107,7 @@ export default async function sitemap() {
       services.forEach(service => {
         if (country[service.slugField]) {
           locationRoutes.push({
-            url: `${baseUrl}${service.path}/${escapeXml(country[service.slugField])}`,
+            url: `${baseUrl}/${escapeXml(country[service.slugField])}`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.6,
