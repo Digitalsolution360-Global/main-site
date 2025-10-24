@@ -178,6 +178,20 @@ export default function SEOPage({ params }) {
     }
   ];
 
+  // Generate FAQ Schema
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <BgLayout>
       {/* Structured Data for SEO */}
@@ -185,6 +199,12 @@ export default function SEOPage({ params }) {
         locationData={locationData}
         locationType={locationType}
         serviceType={serviceType}
+      />
+
+      {/* FAQ Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Hero Section */}

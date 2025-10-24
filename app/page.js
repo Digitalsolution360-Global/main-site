@@ -47,7 +47,7 @@ export default function Home() {
           autoPlay
           loop
           muted
-          className="pt-21 lg:pt-18 w-full h-auto max-h-screen object-cover"
+          className="pt-22 lg:pt-18 w-full h-auto max-h-screen object-cover"
         />
 
         <Services/>

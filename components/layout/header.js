@@ -38,7 +38,7 @@ function Header() {
                     ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
                     : "0 10px 40px -10px rgba(0, 0, 0, 0.3)",
                 width: visible ? "90%" : "100%",
-                borderRadius: visible ? "9999px" : "0 0 1rem 1rem",
+                borderRadius: visible ? "0 0 30px 30px" : "0 0 1rem 1rem",
             }}
             transition={{
                 type: "spring",
