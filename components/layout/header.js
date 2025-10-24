@@ -1,15 +1,18 @@
 "use client";
 
 import Link from 'next/link'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'motion/react'
 import { IconMenu2, IconX, IconChevronDown } from '@tabler/icons-react'
+import { FaTimes } from 'react-icons/fa'
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hovered, setHovered] = useState(null);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
   const ref = useRef(null);
 
   const { scrollY } = useScroll({
@@ -24,6 +27,49 @@ function Header() {
       setVisible(false);
     }
   });
+
+  // Prevent body scroll when form is open
+  useEffect(() => {
+    if (showForm || showThankYou) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [showForm, showThankYou])
+
+  // Auto close thank you modal after 5 seconds
+  useEffect(() => {
+    if (showThankYou) {
+      const timer = setTimeout(() => {
+        setShowThankYou(false)
+      }, 5000)
+      return () => clearTimeout(timer)
+    }
+  }, [showThankYou])
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target
+    const formData = new FormData(form)
+
+    // Submit form data using fetch
+    fetch('https://formsubmit.co/globalweb3600@gmail.com', {
+      method: 'POST',
+      body: formData
+    })
+    .then(() => {
+      setShowForm(false)
+      setShowThankYou(true)
+      form.reset()
+    })
+    .catch((error) => {
+      console.error('Error:', error)
+      alert('Something went wrong. Please try again.')
+    })
+  }
 
   return (
     <header ref={ref}>
@@ -217,7 +263,10 @@ function Header() {
                     +91 99905 56217
                 </Link>
                 
-                <Link href="/contact" className='bg-blue-600 text-white ml-4 hover:scale-110 hover:text-xl rounded-2xl px-4 py-3 text-lg inline-block relative overflow-hidden transition-all duration-200'>
+                <button 
+                    onClick={() => setShowForm(true)}
+                    className='bg-blue-600 text-white ml-4 hover:scale-110 hover:text-xl rounded-2xl px-4 py-3 text-lg inline-block relative overflow-hidden transition-all duration-200'
+                >
                     <span className='relative z-10'>Get a Quote</span>
                     <motion.div
                         className="absolute inset-0 w-full h-full"
@@ -237,7 +286,7 @@ function Header() {
                             transform: 'skewX(-20deg)'
                         }}
                     />
-                </Link>
+                </button>
             </div>
         </motion.div>
 
@@ -313,7 +362,13 @@ function Header() {
                                     +91 99905 56217
                                 </Link>
                                 
-                                <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className='bg-blue-600 text-white text-center rounded-md px-4 py-3 text-lg relative overflow-hidden'>
+                                <button 
+                                    onClick={() => {
+                                        setMobileMenuOpen(false);
+                                        setShowForm(true);
+                                    }}
+                                    className='bg-blue-600 text-white text-center rounded-md px-4 py-3 text-lg relative overflow-hidden'
+                                >
                                     <span className='relative z-10'>Get a Quote</span>
                                     <motion.div
                                         className="absolute inset-0 w-full h-full"
@@ -333,13 +388,127 @@ function Header() {
                                             transform: 'skewX(-20deg)'
                                         }}
                                     />
-                                </Link>
+                                </button>
                             </div>
                         </nav>
                     </motion.div>
                 )}
             </AnimatePresence>
         </motion.div>
+
+        {/* Popup Form */}
+        {showForm && (
+            <div className='fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4'>
+                <div className='bg-white rounded-lg shadow-2xl w-full max-w-md relative animate-fadeIn'>
+                    {/* Close Button */}
+                    <button
+                        onClick={() => setShowForm(false)}
+                        className='absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors'
+                    >
+                        <FaTimes className="text-2xl" />
+                    </button>
+
+                    {/* Form Content */}
+                    <div className='p-6'>
+                        <h2 className='text-2xl font-bold text-gray-900 mb-2'>Get a Quote</h2>
+                        <p className='text-gray-600 mb-6'>Fill in your details and we&apos;ll get back to you shortly.</p>
+
+                        <form 
+                            onSubmit={handleSubmit}
+                            className='space-y-4'
+                        >
+                            {/* FormSubmit Configuration */}
+                            <input type="hidden" name="_subject" value="New Quote Request - Digital Solution 360" />
+                            <input type="hidden" name="_captcha" value="false" />
+                            <input type="hidden" name="_template" value="table" />
+
+                            {/* Name Field */}
+                            <div>
+                                <label htmlFor="name" className='block text-sm font-medium text-gray-700 mb-1'>
+                                    Full Name *
+                                </label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    required
+                                    className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all'
+                                    placeholder='Enter your name'
+                                />
+                            </div>
+
+                            {/* Email Field */}
+                            <div>
+                                <label htmlFor="email" className='block text-sm font-medium text-gray-700 mb-1'>
+                                    Email Address *
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    required
+                                    className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all'
+                                    placeholder='Enter your email'
+                                />
+                            </div>
+
+                            {/* Phone Field */}
+                            <div>
+                                <label htmlFor="phone" className='block text-sm font-medium text-gray-700 mb-1'>
+                                    Phone Number *
+                                </label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    required
+                                    pattern="[0-9]{10,15}"
+                                    className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all'
+                                    placeholder='Enter your phone number'
+                                />
+                            </div>
+
+                            {/* Submit Button */}
+                            <button
+                                type="submit"
+                                className='w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors mt-6'
+                            >
+                                Submit Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        )}
+
+        {/* Thank You Modal */}
+        {showThankYou && (
+            <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4'>
+                <div className='bg-white rounded-lg shadow-2xl w-full max-w-md relative animate-fadeIn p-8 text-center'>
+                    {/* Close Button */}
+                    <button
+                        onClick={() => setShowThankYou(false)}
+                        className='absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors'
+                    >
+                        <FaTimes className="text-2xl" />
+                    </button>
+
+                    {/* Success Icon */}
+                    <div className='w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4'>
+                        <svg className="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+
+                    <h2 className='text-3xl font-bold text-gray-900 mb-3'>Thank You!</h2>
+                    <p className='text-gray-600 text-lg mb-2'>Your request has been submitted successfully.</p>
+                    <p className='text-gray-500 text-sm'>We&apos;ll get back to you shortly.</p>
+                    
+                    {/* Auto-close indicator */}
+                    <p className='text-gray-400 text-xs mt-6'>This window will close automatically in 5 seconds</p>
+                </div>
+            </div>
+        )}
     </header>
   )
 }
