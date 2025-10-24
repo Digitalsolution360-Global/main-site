@@ -52,8 +52,8 @@ export default function Home() {
 
         <Services/>
         <WhyUS/>
-        <MissionVision/>
         <Clients/>
+        <MissionVision/>
         <WebDev/>
         <Offering/>
         <Blogs/>
