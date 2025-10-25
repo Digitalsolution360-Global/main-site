@@ -1,9 +1,55 @@
 "use client";
 
-import React, { useRef, useState } from 'react'
-import { motion, useAnimationFrame, useMotionValue, useTransform } from 'motion/react'
+import React, { useRef, useState, useEffect } from 'react'
+import { motion, useAnimationFrame, useMotionValue, useTransform, useInView } from 'motion/react'
 
 function Clients() {
+  const statsRef = useRef(null);
+  const isInView = useInView(statsRef, { once: true, margin: "-100px" });
+  
+  const [counts, setCounts] = useState({
+    clients: 0,
+    projects: 0,
+    years: 0,
+    satisfaction: 0
+  });
+
+  useEffect(() => {
+    if (isInView) {
+      const duration = 2000; // 2 seconds
+      const frameRate = 1000 / 60; // 60fps
+      const totalFrames = duration / frameRate;
+
+      const targets = {
+        clients: 500,
+        projects: 1000,
+        years: 15,
+        satisfaction: 98
+      };
+
+      let frame = 0;
+      const counter = setInterval(() => {
+        frame++;
+        const progress = frame / totalFrames;
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+
+        setCounts({
+          clients: Math.floor(easeOutQuart * targets.clients),
+          projects: Math.floor(easeOutQuart * targets.projects),
+          years: Math.floor(easeOutQuart * targets.years),
+          satisfaction: Math.floor(easeOutQuart * targets.satisfaction)
+        });
+
+        if (frame >= totalFrames) {
+          clearInterval(counter);
+          setCounts(targets);
+        }
+      }, frameRate);
+
+      return () => clearInterval(counter);
+    }
+  }, [isInView]);
+
   const clients = [
     { name: 'Bliss 32 Dental', logo: '/clients/Bliss-32-Dental.webp' },
     { name: 'BD Services', logo: '/clients/bd-services.webp' },
@@ -92,6 +138,7 @@ function Clients() {
 
       {/* Stats Section */}
       <motion.div
+        ref={statsRef}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -100,19 +147,19 @@ function Clients() {
       >
         <div className='grid grid-cols-2 md:grid-cols-4 gap-8'>
           <div className='text-center'>
-            <p className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>500+</p>
+            <p className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>{counts.clients}+</p>
             <p className='text-gray-600 font-medium'>Happy Clients</p>
           </div>
           <div className='text-center'>
-            <p className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>1000+</p>
+            <p className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>{counts.projects}+</p>
             <p className='text-gray-600 font-medium'>Projects Completed</p>
           </div>
           <div className='text-center'>
-            <p className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>15+</p>
+            <p className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>{counts.years}+</p>
             <p className='text-gray-600 font-medium'>Years Experience</p>
           </div>
           <div className='text-center'>
-            <p className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>98%</p>
+            <p className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>{counts.satisfaction}%</p>
             <p className='text-gray-600 font-medium'>Client Satisfaction</p>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { IconCheck, IconX, IconPhone, IconMail, IconUser } from '@tabler/icons-react';
 
 function ContactForm() {
-  const [showThankYou, setShowThankYou] = useState(true);
+  const [showThankYou, setShowThankYou] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',

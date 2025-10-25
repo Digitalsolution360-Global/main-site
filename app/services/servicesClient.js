@@ -1,12 +1,55 @@
 "use client";
 
 import BgLayout from '@/components/layout/bgLayout';
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'motion/react';
 import { IconHome, IconChevronRight, IconShoppingCart, IconCode, IconBrandGoogle, IconRocket, IconBulb, IconDevices, IconSettings, IconChartBar } from '@tabler/icons-react';
 import Link from 'next/link';
 
 function ServicesPage() {
+  const statsRef = useRef(null);
+  const isInView = useInView(statsRef, { once: true, margin: "-100px" });
+  
+  const [serviceCounts, setServiceCounts] = useState({
+    projects: 0,
+    ratings: 0,
+    years: 0
+  });
+
+  useEffect(() => {
+    if (isInView) {
+      const duration = 2000; // 2 seconds
+      const frameRate = 1000 / 60; // 60fps
+      const totalFrames = duration / frameRate;
+
+      const targets = {
+        projects: 250,
+        ratings: 2000,
+        years: 10
+      };
+
+      let frame = 0;
+      const counter = setInterval(() => {
+        frame++;
+        const progress = frame / totalFrames;
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+
+        setServiceCounts({
+          projects: Math.floor(easeOutQuart * targets.projects),
+          ratings: Math.floor(easeOutQuart * targets.ratings),
+          years: Math.floor(easeOutQuart * targets.years)
+        });
+
+        if (frame >= totalFrames) {
+          clearInterval(counter);
+          setServiceCounts(targets);
+        }
+      }, frameRate);
+
+      return () => clearInterval(counter);
+    }
+  }, [isInView]);
+
   const services = [
     {
       title: 'eCommerce Website Development',
@@ -209,42 +252,54 @@ function ServicesPage() {
             </p>
           </motion.div>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
-            {[
-              {
-                number: '250+',
-                title: 'Projects Completed',
-                description: 'Successfully delivered projects across industries'
-              },
-              {
-                number: '2000+',
-                title: '5-Star Ratings',
-                description: 'Client satisfaction is our top priority'
-              },
-              {
-                number: '10+',
-                title: 'Years Experience',
-                description: 'Proven track record in digital solutions'
-              },
-              {
-                number: '24/7',
-                title: 'Support Available',
-                description: 'Round-the-clock assistance for your needs'
-              }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className='text-center p-6'
-              >
-                <div className='text-5xl font-bold text-blue-600 mb-3'>{stat.number}</div>
-                <h3 className='text-xl font-bold text-gray-900 mb-2'>{stat.title}</h3>
-                <p className='text-gray-600'>{stat.description}</p>
-              </motion.div>
-            ))}
+          <div ref={statsRef} className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0 * 0.1 }}
+              className='text-center p-6'
+            >
+              <div className='text-5xl font-bold text-blue-600 mb-3'>{serviceCounts.projects}+</div>
+              <h3 className='text-xl font-bold text-gray-900 mb-2'>Projects Completed</h3>
+              <p className='text-gray-600'>Successfully delivered projects across industries</p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 1 * 0.1 }}
+              className='text-center p-6'
+            >
+              <div className='text-5xl font-bold text-blue-600 mb-3'>{serviceCounts.ratings}+</div>
+              <h3 className='text-xl font-bold text-gray-900 mb-2'>5-Star Ratings</h3>
+              <p className='text-gray-600'>Client satisfaction is our top priority</p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 2 * 0.1 }}
+              className='text-center p-6'
+            >
+              <div className='text-5xl font-bold text-blue-600 mb-3'>{serviceCounts.years}+</div>
+              <h3 className='text-xl font-bold text-gray-900 mb-2'>Years Experience</h3>
+              <p className='text-gray-600'>Proven track record in digital solutions</p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 3 * 0.1 }}
+              className='text-center p-6'
+            >
+              <div className='text-5xl font-bold text-blue-600 mb-3'>24/7</div>
+              <h3 className='text-xl font-bold text-gray-900 mb-2'>Support Available</h3>
+              <p className='text-gray-600'>Round-the-clock assistance for your needs</p>
+            </motion.div>
           </div>
         </div>
       </section>

@@ -2,12 +2,58 @@
 
 import BgLayout from '@/components/layout/bgLayout'
 import Clients from '@/components/sections/clients'
-import React from 'react'
-import { motion } from 'motion/react'
+import React, { useState, useEffect, useRef } from 'react'
+import { motion, useInView } from 'motion/react'
 import { IconTarget, IconUsers, IconTrophy, IconHeart, IconRocket, IconBulb, IconHome, IconChevronRight } from '@tabler/icons-react'
 import Link from 'next/link'
 
 function AboutPage() {
+  const teamStatsRef = useRef(null);
+  const isInView = useInView(teamStatsRef, { once: true, margin: "-100px" });
+  
+  const [teamCounts, setTeamCounts] = useState({
+    years: 0,
+    members: 0,
+    projects: 0,
+    retention: 0
+  });
+
+  useEffect(() => {
+    if (isInView) {
+      const duration = 2000; // 2 seconds
+      const frameRate = 1000 / 60; // 60fps
+      const totalFrames = duration / frameRate;
+
+      const targets = {
+        years: 10,
+        members: 50,
+        projects: 500,
+        retention: 98
+      };
+
+      let frame = 0;
+      const counter = setInterval(() => {
+        frame++;
+        const progress = frame / totalFrames;
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+
+        setTeamCounts({
+          years: Math.floor(easeOutQuart * targets.years),
+          members: Math.floor(easeOutQuart * targets.members),
+          projects: Math.floor(easeOutQuart * targets.projects),
+          retention: Math.floor(easeOutQuart * targets.retention)
+        });
+
+        if (frame >= totalFrames) {
+          clearInterval(counter);
+          setTeamCounts(targets);
+        }
+      }, frameRate);
+
+      return () => clearInterval(counter);
+    }
+  }, [isInView]);
+
   const values = [
     {
       icon: IconTarget,
@@ -259,27 +305,57 @@ function AboutPage() {
             className='text-center mb-16'
           >
             <h2 className='text-4xl md:text-5xl font-bold mb-4'>
-              Our Team <span className='text-blue-200'>by Numbers</span>
+              Our Team by Numbers
             </h2>
             <p className='text-xl text-blue-100 max-w-3xl mx-auto'>
               A dedicated team of experts committed to your success
             </p>
           </motion.div>
 
-          <div className='grid grid-cols-2 lg:grid-cols-4 gap-8'>
-            {team.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                // viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className='text-center'
-              >
-                <div className='text-5xl md:text-6xl font-bold mb-2'>{stat.expertise}</div>
-                <div className='text-blue-200 font-medium'>{stat.description}</div>
-              </motion.div>
-            ))}
+          <div ref={teamStatsRef} className='grid grid-cols-2 lg:grid-cols-4 gap-8'>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              // viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.4, delay: 0 * 0.1 }}
+              className='text-center'
+            >
+              <div className='text-5xl md:text-6xl font-bold mb-2'>{teamCounts.years}+ Years</div>
+              <div className='text-blue-200 font-medium'>Combined Industry Experience</div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              // viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.4, delay: 1 * 0.1 }}
+              className='text-center'
+            >
+              <div className='text-5xl md:text-6xl font-bold mb-2'>{teamCounts.members}+</div>
+              <div className='text-blue-200 font-medium'>Expert Team Members</div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              // viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.4, delay: 2 * 0.1 }}
+              className='text-center'
+            >
+              <div className='text-5xl md:text-6xl font-bold mb-2'>{teamCounts.projects}+</div>
+              <div className='text-blue-200 font-medium'>Successful Projects Delivered</div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              // viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.4, delay: 3 * 0.1 }}
+              className='text-center'
+            >
+              <div className='text-5xl md:text-6xl font-bold mb-2'>{teamCounts.retention}%</div>
+              <div className='text-blue-200 font-medium'>Client Retention Rate</div>
+            </motion.div>
           </div>
         </div>
       </section>

@@ -1,12 +1,58 @@
 "use client";
 
 import BgLayout from '@/components/layout/bgLayout'
-import React from 'react'
-import { motion } from 'motion/react'
+import React, { useState, useEffect, useRef } from 'react'
+import { motion, useInView } from 'motion/react'
 import { IconHome, IconChevronRight, IconCode, IconBrandGoogle, IconSearch, IconBrandFacebook, IconDeviceMobile, IconArrowRight } from '@tabler/icons-react'
 import Link from 'next/link'
 
 function PortfolioPage() {
+  const statsRef = useRef(null);
+  const isInView = useInView(statsRef, { once: true, margin: "-100px" });
+  
+  const [portfolioCounts, setPortfolioCounts] = useState({
+    projects: 0,
+    clients: 0,
+    industries: 0,
+    success: 0
+  });
+
+  useEffect(() => {
+    if (isInView) {
+      const duration = 2000; // 2 seconds
+      const frameRate = 1000 / 60; // 60fps
+      const totalFrames = duration / frameRate;
+
+      const targets = {
+        projects: 830,
+        clients: 300,
+        industries: 50,
+        success: 98
+      };
+
+      let frame = 0;
+      const counter = setInterval(() => {
+        frame++;
+        const progress = frame / totalFrames;
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+
+        setPortfolioCounts({
+          projects: Math.floor(easeOutQuart * targets.projects),
+          clients: Math.floor(easeOutQuart * targets.clients),
+          industries: Math.floor(easeOutQuart * targets.industries),
+          success: Math.floor(easeOutQuart * targets.success)
+        });
+
+        if (frame >= totalFrames) {
+          clearInterval(counter);
+          setPortfolioCounts(targets);
+        }
+      }, frameRate);
+
+      return () => clearInterval(counter);
+    }
+  }, [isInView]);
+
   const portfolioCategories = [
     {
       id: 1,
@@ -112,30 +158,56 @@ function PortfolioPage() {
       <section className='py-10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
+            ref={statsRef}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className='grid grid-cols-2 md:grid-cols-4 gap-6'
           >
-            {[
-              { number: '830+', label: 'Projects Completed' },
-              { number: '300+', label: 'Happy Clients' },
-              { number: '50+', label: 'Industries Served' },
-              { number: '98%', label: 'Success Rate' }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className='bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md text-center border border-gray-100'
-              >
-                <div className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>{stat.number}</div>
-                <div className='text-gray-600 font-medium'>{stat.label}</div>
-              </motion.div>
-            ))}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0 * 0.1 }}
+              className='bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md text-center border border-gray-100'
+            >
+              <div className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>{portfolioCounts.projects}+</div>
+              <div className='text-gray-600 font-medium'>Projects Completed</div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 1 * 0.1 }}
+              className='bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md text-center border border-gray-100'
+            >
+              <div className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>{portfolioCounts.clients}+</div>
+              <div className='text-gray-600 font-medium'>Happy Clients</div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 2 * 0.1 }}
+              className='bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md text-center border border-gray-100'
+            >
+              <div className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>{portfolioCounts.industries}+</div>
+              <div className='text-gray-600 font-medium'>Industries Served</div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 3 * 0.1 }}
+              className='bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md text-center border border-gray-100'
+            >
+              <div className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>{portfolioCounts.success}%</div>
+              <div className='text-gray-600 font-medium'>Success Rate</div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
