@@ -3,7 +3,7 @@
 import BgLayout from '@/components/layout/bgLayout';
 import React, { useState, useEffect, use } from 'react';
 import { motion } from 'motion/react';
-import { IconHome, IconChevronRight, IconMapPin, IconCheck, IconStar, IconPhone, IconMail, IconUser, IconCode, IconDeviceMobile, IconShoppingCart, IconRocket } from '@tabler/icons-react';
+import { IconHome, IconChevronRight, IconMapPin, IconCheck, IconStar, IconPhone, IconMail, IconUser, IconCode, IconDeviceMobile, IconShoppingCart, IconRocket, IconLock, IconBolt, IconTrendingUp } from '@tabler/icons-react';
 import Link from 'next/link';
 import Clients from '@/components/sections/clients';
 import LocationStructuredData from '@/components/seo/LocationStructuredData';
@@ -125,6 +125,13 @@ export default function WebDevServicePage({ params }) {
     : locationType === 'state'
     ? locationData?.name
     : locationData?.name || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  
+  const stateName = locationData?.state_name || locationData?.state || '';
+  const countryName = locationData?.country_name || locationData?.country || '';
+  
+  // Get parent slugs - for country, we need to fetch it separately or use a mapping
+  const countrySlug = locationData?.country_slug;
+  const stateSlug = locationData?.state_slug;
 
   const processSteps = [
     {
@@ -158,17 +165,20 @@ export default function WebDevServicePage({ params }) {
     {
       title: 'Security',
       description: 'Modern encryption, firewalls, and secure methods of payment are some of our measures against vulnerabilities to your site.',
-      icon: '🔒'
+      icon: <IconLock size={60} />,
+      color: 'blue'
     },
     {
       title: 'Speed',
       description: 'Our search engine optimization techniques ensure faster page loading, which will increase user experience and search position.',
-      icon: '⚡'
+      icon: <IconBolt size={60} />,
+      color: 'yellow'
     },
     {
       title: 'Scalability',
       description: 'Your site can easily take more visitors, merchandise, and services as your company grows.',
-      icon: '📈'
+      icon: <IconTrendingUp size={60} />,
+      color: 'green'
     }
   ];
 
@@ -225,7 +235,7 @@ export default function WebDevServicePage({ params }) {
       />
       
       {/* Hero Section */}
-      <section className='relative h-[50vh] mt-15 flex items-center justify-center overflow-hidden'>
+      <section className='relative h-[50vh] mt-21 lg:mt-19 flex items-center justify-center overflow-hidden'>
         <div className='absolute inset-0'>
           <img
             src="/portfolio/web-dev-hero.webp"
@@ -247,19 +257,34 @@ export default function WebDevServicePage({ params }) {
               <span>Home</span>
             </Link>
             <IconChevronRight size={16} className='text-blue-400' />
-            <Link href='/market-we-serve' className='hover:text-blue-400 transition-colors'>
-              Markets We Serve
-            </Link>
-            <IconChevronRight size={16} className='text-blue-400' />
-            <span className='text-blue-400'>Website Development in {cityName}</span>
+            {/* Show country for both city and state */}
+            {(locationType === 'city' || locationType === 'state') && countryName && countrySlug && (
+              <>
+                <Link href={`/${countrySlug}`} className='hover:text-blue-400 transition-colors'>
+                  {countryName}
+                </Link>
+                <IconChevronRight size={16} className='text-blue-400' />
+              </>
+            )}
+            {/* Show state only for city */}
+            {locationType === 'city' && stateName && stateSlug && (
+              <>
+                <Link href={`/${stateSlug}`} className='hover:text-blue-400 transition-colors'>
+                  {stateName}
+                </Link>
+                <IconChevronRight size={16} className='text-blue-400' />
+              </>
+            )}
+            <span className='text-blue-400'>Web Development in {cityName}</span>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className='text-left lg:text-center'
           >
-            <h1 className='text-lg sm:text-xl md:text-3xl lg:text-6xl font-bold mb-4'>
+            <h1 className='text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4'>
               Online Presence Empowerment through Professional Website Development Services in <span className='text-blue-400'>{cityName}</span>
             </h1>
             <p className='text-lg md:text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-6'>
@@ -495,7 +520,7 @@ export default function WebDevServicePage({ params }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className='text-center mb-12'
+            className='text-left lg:text-center mb-12'
           >
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
               Website Development Services in {cityName}
@@ -610,7 +635,7 @@ export default function WebDevServicePage({ params }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className='text-center mb-12'
+            className='text-left lg:text-center mb-12'
           >
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
               Our Three Core Values: Security, Speed, and Scalability
@@ -630,7 +655,7 @@ export default function WebDevServicePage({ params }) {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className='bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all'
               >
-                <div className='text-6xl mb-4'>{value.icon}</div>
+                <div className={`text-${value.color}-600 mb-4 flex justify-center`}>{value.icon}</div>
                 <h3 className='text-2xl font-bold text-gray-900 mb-4'>{value.title}</h3>
                 <p className='text-gray-600 leading-relaxed'>{value.description}</p>
               </motion.div>

@@ -64,7 +64,7 @@ function Services() {
     ];
 
   return(
-    <section className="py-10">
+    <section className="py-10 mt-20 sm:mt-0">
         <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -4,6 +4,9 @@ export async function GET(request, { params }) {
   try {
     const { slug } = await params;
     
+    // Determine service type based on which slug column matched
+    let serviceType = 'website-development';
+    
     // Try to find as city first
     let location = await getCityDetails(slug);
     let locationType = 'city';
@@ -24,14 +27,37 @@ export async function GET(request, { params }) {
       return Response.json({ error: 'Location not found' }, { status: 404 });
     }
 
-    // Determine service type based on slug
-    let serviceType = 'website-development';
-    if (slug.includes('google-my-business') || slug.includes('gmb')) {
+    // Determine service type by checking which slug column matched
+    if (location.gmb_slug === slug) {
       serviceType = 'google-my-business';
-    } else if (slug.includes('seo-service')) {
+    } else if (location.seo_slug === slug) {
       serviceType = 'seo';
-    } else if (slug.includes('content-writer')) {
+    } else if (location.content_slug === slug) {
       serviceType = 'content-writing';
+    } else if (location.web_slug === slug) {
+      serviceType = 'website-development';
+    }
+
+    // Add appropriate parent slugs based on service type
+    if (locationType === 'city') {
+      if (serviceType === 'google-my-business') {
+        location.state_slug = location.state_gmb_slug;
+        location.country_slug = location.country_gmb_slug;
+      } else if (serviceType === 'seo') {
+        location.state_slug = location.state_seo_slug;
+        location.country_slug = location.country_seo_slug;
+      } else {
+        location.state_slug = location.state_web_slug;
+        location.country_slug = location.country_web_slug;
+      }
+    } else if (locationType === 'state') {
+      if (serviceType === 'google-my-business') {
+        location.country_slug = location.country_gmb_slug;
+      } else if (serviceType === 'seo') {
+        location.country_slug = location.country_seo_slug;
+      } else {
+        location.country_slug = location.country_web_slug;
+      }
     }
 
     return Response.json({

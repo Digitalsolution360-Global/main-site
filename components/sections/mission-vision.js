@@ -59,8 +59,8 @@ function MissionVision() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <p className='text-blue-200 text-sm font-semibold mb-2 uppercase tracking-wide'>digitalsolution360</p>
-                <h3 className='text-3xl md:text-4xl font-bold mb-4'>Our Value</h3>
+                <p className='text-blue-100 text-sm font-semibold mb-2 uppercase tracking-wide'>DIGITALSOLUTION360</p>
+                <h3 className='text-3xl md:text-4xl font-bold mb-4'>Our <span className='text-blue-500'>Values</span></h3>
                 <div className='w-20 h-1 bg-white mb-6'></div>
               </motion.div>
 
@@ -92,6 +92,7 @@ function MissionVision() {
               >
                 <Link
                   href="/about"
+                  description="Learn more about our company and values"
                   className='inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1'
                 >
                   Learn More
@@ -112,9 +113,9 @@ function MissionVision() {
             <div className='w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center mb-6'>
               <IconTarget size={28} className='text-white' />
             </div>
-            
-            <h3 className='text-2xl font-bold text-gray-800 mb-4'>Our Mission</h3>
-            
+
+            <h3 className='text-2xl font-bold text-gray-800 mb-4'>Our <span className='text-blue-500'>Mission</span></h3>
+
             <p className='text-gray-600 leading-relaxed'>
               To empower businesses of all sizes with the digital tools and strategies they need to thrive online. We are committed to demystifying digital marketing, delivering exceptional ROI, and building long-term partnerships that drive tangible success.
             </p>
@@ -131,9 +132,9 @@ function MissionVision() {
             <div className='w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center mb-6'>
               <IconEye size={28} className='text-white' />
             </div>
-            
-            <h3 className='text-2xl font-bold text-gray-800 mb-4'>Our Vision</h3>
-            
+
+            <h3 className='text-2xl font-bold text-gray-800 mb-4'>Our <span className='text-blue-500'>Vision</span></h3>
+
             <p className='text-gray-600 leading-relaxed'>
               We envision a digital landscape where every business, from local startups in Abu Dhabi to global enterprises, can leverage technology to realize its full potential and connect authentically with its audience.
             </p>

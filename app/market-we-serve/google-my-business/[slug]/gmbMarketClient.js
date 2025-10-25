@@ -126,8 +126,12 @@ export default function GMBServicePage({ params }) {
     ? locationData?.name
     : locationData?.name || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
   
-  const stateName = locationData?.state_name || '';
-  const countryName = locationData?.country_name || '';
+  const stateName = locationData?.state_name || locationData?.state || '';
+  const countryName = locationData?.country_name || locationData?.country || '';
+  
+  // Get parent slugs
+  const countrySlug = locationData?.country_slug;
+  const stateSlug = locationData?.state_slug;
 
   const industries = [
     { name: 'Healthcare', label: 'INDUSTRY' },
@@ -205,7 +209,7 @@ export default function GMBServicePage({ params }) {
       />
 
       {/* Hero Section */}
-      <section className='relative h-[50vh] mt-15 flex items-center justify-center overflow-hidden'>
+      <section className='relative h-[50vh] mt-21 lg:mt-19 flex items-center justify-center overflow-hidden'>
         <div className='absolute inset-0'>
           <img
             src="/portfolio/gmb-hero.webp"
@@ -227,10 +231,24 @@ export default function GMBServicePage({ params }) {
               <span>Home</span>
             </Link>
             <IconChevronRight size={16} className='text-blue-400' />
-            <Link href='/market-we-serve' className='hover:text-blue-400 transition-colors'>
-              Markets We Serve
-            </Link>
-            <IconChevronRight size={16} className='text-blue-400' />
+            {/* Show country for both city and state */}
+            {(locationType === 'city' || locationType === 'state') && countryName && countrySlug && (
+              <>
+                <Link href={`/${countrySlug}`} className='hover:text-blue-400 transition-colors'>
+                  {countryName}
+                </Link>
+                <IconChevronRight size={16} className='text-blue-400' />
+              </>
+            )}
+            {/* Show state only for city */}
+            {locationType === 'city' && stateName && stateSlug && (
+              <>
+                <Link href={`/${stateSlug}`} className='hover:text-blue-400 transition-colors'>
+                  {stateName}
+                </Link>
+                <IconChevronRight size={16} className='text-blue-400' />
+              </>
+            )}
             <span className='text-blue-400'>GMB in {cityName}</span>
           </motion.div>
 

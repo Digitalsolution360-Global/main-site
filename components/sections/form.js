@@ -130,7 +130,7 @@ function ContactForm() {
                 </div>
                 <div>
                   <p className="font-semibold text-lg">Free Consultation</p>
-                  <p className="text-blue-200 text-sm">No commitment required</p>
+                  <p className="text-blue-100 text-sm">No commitment required</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -139,7 +139,7 @@ function ContactForm() {
                 </div>
                 <div>
                   <p className="font-semibold text-lg">Quick Response</p>
-                  <p className="text-blue-200 text-sm">We&apos;ll get back within 24 hours</p>
+                  <p className="text-blue-100 text-sm">We&apos;ll get back within 24 hours</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -148,7 +148,7 @@ function ContactForm() {
                 </div>
                 <div>
                   <p className="font-semibold text-lg">Customized Solutions</p>
-                  <p className="text-blue-200 text-sm">Tailored to your business needs</p>
+                  <p className="text-blue-100 text-sm">Tailored to your business needs</p>
                 </div>
               </div>
             </div>
@@ -186,7 +186,7 @@ function ContactForm() {
                     required
                     disabled={isSubmitting}
                     className="w-full pl-12 pr-4 py-3 bg-gray-50 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100 text-gray-900"
-                    placeholder="Nakul Jaglan"
+                    placeholder="Enter your full name"
                   />
                 </div>
               </div>
@@ -209,7 +209,7 @@ function ContactForm() {
                     required
                     disabled={isSubmitting}
                     className="w-full pl-12 pr-4 py-3 bg-gray-50 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100 text-gray-900"
-                    placeholder="nakul@example.com"
+                    placeholder="Enter your email address"
                   />
                 </div>
               </div>
