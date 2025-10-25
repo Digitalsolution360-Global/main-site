@@ -2,6 +2,7 @@ import BgLayout from "@/components/layout/bgLayout";
 import Blogs from "@/components/sections/blogs";
 import Clients from "@/components/sections/clients";
 import Faqs from "@/components/sections/faqs";
+import ContactForm from "@/components/sections/form";
 import MissionVision from "@/components/sections/mission-vision";
 import Offering from "@/components/sections/offering";
 import Services from "@/components/sections/services";
@@ -55,6 +56,7 @@ export default function Home() {
         <Clients/>
         <MissionVision/>
         <WebDev/>
+        <ContactForm/>
         <Offering/>
         <Blogs/>
         <Faqs/>
