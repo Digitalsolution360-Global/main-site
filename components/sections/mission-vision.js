@@ -95,7 +95,7 @@ function MissionVision() {
                   description="Learn more about our company and values"
                   className='inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1'
                 >
-                  Learn More
+                  About Us
                   <IconSparkles size={20} />
                 </Link>
               </motion.div>

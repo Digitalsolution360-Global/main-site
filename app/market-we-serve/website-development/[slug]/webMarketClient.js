@@ -3,7 +3,7 @@
 import BgLayout from '@/components/layout/bgLayout';
 import React, { useState, useEffect, use } from 'react';
 import { motion } from 'motion/react';
-import { IconHome, IconChevronRight, IconMapPin, IconCheck, IconStar, IconPhone, IconMail, IconUser, IconCode, IconDeviceMobile, IconShoppingCart, IconRocket, IconLock, IconBolt, IconTrendingUp } from '@tabler/icons-react';
+import { IconHome, IconChevronRight, IconMapPin, IconCheck, IconStar, IconPhone, IconMail, IconUser, IconCode, IconDeviceMobile, IconShoppingCart, IconRocket, IconLock, IconBolt, IconTrendingUp, IconChevronDown } from '@tabler/icons-react';
 import Link from 'next/link';
 import Clients from '@/components/sections/clients';
 import LocationStructuredData from '@/components/seo/LocationStructuredData';
@@ -21,6 +21,7 @@ export default function WebDevServicePage({ params }) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
   useEffect(() => {
     fetchLocationData();
@@ -296,7 +297,7 @@ export default function WebDevServicePage({ params }) {
                 <span>253 Projects Done</span>
               </div>
               <div className='flex items-center gap-2'>
-                <IconStar size={20} className='text-yellow-400' />
+                <IconStar size={20} className='text-yellow-500 fill-yellow-500' />
                 <span>2010 Ratings</span>
               </div>
             </div>
@@ -811,10 +812,29 @@ export default function WebDevServicePage({ params }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className='bg-white rounded-xl p-6 shadow-md'
+                className='bg-white rounded-xl shadow-md overflow-hidden'
               >
-                <h3 className='text-lg font-bold text-gray-900 mb-3'>{faq.question}</h3>
-                <p className='text-gray-600 leading-relaxed'>{faq.answer}</p>
+                <button
+                  onClick={() => setOpenFaqIndex(openFaqIndex === index ? -1 : index)}
+                  className='w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors'
+                >
+                  <h3 className='text-lg font-bold text-gray-900 pr-4'>{faq.question}</h3>
+                  <IconChevronDown 
+                    size={24} 
+                    className={`flex-shrink-0 text-blue-600 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                <motion.div
+                  initial={false}
+                  animate={{ 
+                    height: openFaqIndex === index ? 'auto' : 0,
+                    opacity: openFaqIndex === index ? 1 : 0
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className='overflow-hidden'
+                >
+                  <p className='px-6 pb-4 text-gray-600 leading-relaxed'>{faq.answer}</p>
+                </motion.div>
               </motion.div>
             ))}
           </div>

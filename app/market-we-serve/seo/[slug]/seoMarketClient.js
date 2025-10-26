@@ -3,7 +3,7 @@
 import BgLayout from '@/components/layout/bgLayout';
 import React, { useState, useEffect, use } from 'react';
 import { motion } from 'motion/react';
-import { IconHome, IconChevronRight, IconCheck, IconStar, IconPhone, IconMail, IconUser, IconSearch, IconTrendingUp, IconTarget, IconChartBar } from '@tabler/icons-react';
+import { IconHome, IconChevronRight, IconCheck, IconStar, IconPhone, IconMail, IconUser, IconSearch, IconTrendingUp, IconTarget, IconChartBar, IconChevronDown } from '@tabler/icons-react';
 import Link from 'next/link';
 import Clients from '@/components/sections/clients';
 import LocationStructuredData from '@/components/seo/LocationStructuredData';
@@ -21,6 +21,7 @@ export default function SEOPage({ params }) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
   useEffect(() => {
     fetchLocationData();
@@ -281,32 +282,23 @@ export default function SEOPage({ params }) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className='text-left lg:text-center'
           >
-            <h1 className='text-3xl md:text-5xl lg:text-6xl font-bold mb-4'>
-              Grow Your Business on the Internet with Professional <span className='text-blue-400'>SEO in {cityName}</span>
+            <h1 className='text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4'>
+              Grow Your Business on the Internet with Professional SEO in <span className='text-blue-400'>{cityName}</span>
             </h1>
-            <p className='text-lg md:text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8'>
+            <p className='text-lg md:text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-6'>
               Have you ever wondered why some companies appear on top of Google but other companies are buried in the later pages? It is visible in the digital era.
             </p>
-            <div className='flex flex-wrap items-center justify-center gap-4'>
-              <Link href='#contact-form'>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className='bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition-all'
-                >
-                  Get Started Now
-                </motion.button>
-              </Link>
-              <Link href='#learn-more'>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className='bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full font-bold text-lg border-2 border-white hover:bg-white/20 transition-all'
-                >
-                  Learn More
-                </motion.button>
-              </Link>
+            <div className='flex flex-wrap items-center justify-center gap-6 text-sm md:text-base'>
+              <div className='flex items-center gap-2'>
+                <IconCheck size={20} className='text-green-400' />
+                <span>253 Projects Done</span>
+              </div>
+              <div className='flex items-center gap-2'>
+                <IconStar size={20} className='text-yellow-500 fill-yellow-500' />
+                <span>1640 Ratings</span>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -534,7 +526,7 @@ export default function SEOPage({ params }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className='text-center mb-12'
+            className='text-left lg:text-center mb-12'
           >
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
               Our Comprehensive SEO Services in {cityName}
@@ -699,7 +691,7 @@ export default function SEOPage({ params }) {
       </section>
 
       {/* FAQs Section */}
-      <section className='py-10'>
+      <section className='py-10 '>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -721,10 +713,29 @@ export default function SEOPage({ params }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className='bg-white rounded-xl p-6 shadow-md'
+                className='bg-white rounded-xl shadow-xl overflow-hidden'
               >
-                <h3 className='text-lg font-bold text-gray-900 mb-3'>{faq.question}</h3>
-                <p className='text-gray-600 leading-relaxed'>{faq.answer}</p>
+                <button
+                  onClick={() => setOpenFaqIndex(openFaqIndex === index ? -1 : index)}
+                  className='w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors'
+                >
+                  <h3 className='text-lg font-bold text-gray-900 pr-4'>{faq.question}</h3>
+                  <IconChevronDown 
+                    size={24} 
+                    className={`flex-shrink-0 text-blue-600 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                <motion.div
+                  initial={false}
+                  animate={{ 
+                    height: openFaqIndex === index ? 'auto' : 0,
+                    opacity: openFaqIndex === index ? 1 : 0
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className='overflow-hidden'
+                >
+                  <p className='px-6 pb-4 text-gray-600 leading-relaxed'>{faq.answer}</p>
+                </motion.div>
               </motion.div>
             ))}
           </div>
@@ -732,8 +743,8 @@ export default function SEOPage({ params }) {
       </section>
 
       {/* CTA Section */}
-      <section className='py-10 bg-blue-600'>
-        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
+      <section className='py-10 bg-blue-600 '>
+        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left lg:text-center'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

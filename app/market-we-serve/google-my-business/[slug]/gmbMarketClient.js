@@ -3,7 +3,7 @@
 import BgLayout from '@/components/layout/bgLayout';
 import React, { useState, useEffect, use } from 'react';
 import { motion } from 'motion/react';
-import { IconHome, IconChevronRight, IconMapPin, IconCheck, IconStar, IconPhone, IconMail, IconUser } from '@tabler/icons-react';
+import { IconHome, IconChevronRight, IconMapPin, IconCheck, IconStar, IconPhone, IconMail, IconUser, IconChevronDown } from '@tabler/icons-react';
 import Link from 'next/link';
 import Clients from '@/components/sections/clients';
 import LocationStructuredData from '@/components/seo/LocationStructuredData';
@@ -21,6 +21,7 @@ export default function GMBServicePage({ params }) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
   useEffect(() => {
     fetchLocationData();
@@ -134,13 +135,13 @@ export default function GMBServicePage({ params }) {
   const stateSlug = locationData?.state_slug;
 
   const industries = [
-    { name: 'Healthcare', label: 'INDUSTRY' },
-    { name: 'Retail & Ecommerce', label: 'INDUSTRY' },
-    { name: 'Travel & Hospitality', label: 'INDUSTRY' },
-    { name: 'Finance & Legal', label: 'INDUSTRY' },
-    { name: 'Startups & SaaS', label: 'INDUSTRY' },
-    { name: 'Real Estate', label: 'INDUSTRY' },
-    { name: 'Education & Edtech', label: 'INDUSTRY' }
+    { name: 'Healthcare', label: 'INDUSTRY', image: '/home/images/industries/healthcare.png' },
+    { name: 'Retail & Ecommerce', label: 'INDUSTRY', image: '/home/images/industries/retail.png' },
+    { name: 'Travel & Hospitality', label: 'INDUSTRY', image: '/home/images/industries/travel.png' },
+    { name: 'Finance & Legal', label: 'INDUSTRY', image: '/home/images/industries/finance.png' },
+    { name: 'Startups & SaaS', label: 'INDUSTRY', image: '/home/images/industries/startups.png' },
+    { name: 'Real Estate', label: 'INDUSTRY', image: '/home/images/industries/real-estate.png' },
+    { name: 'Education & Edtech', label: 'INDUSTRY', image: '/home/images/industries/education.png' }
   ];
 
   const services = [
@@ -256,8 +257,9 @@ export default function GMBServicePage({ params }) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className='text-left lg:text-center'
           >
-            <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold mb-4'>
+            <h1 className='text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4'>
               Google My Business Services in <span className='text-blue-400'>{cityName}</span>
             </h1>
             <p className='text-lg md:text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-6'>
@@ -269,8 +271,8 @@ export default function GMBServicePage({ params }) {
                 <span>253 Projects Done</span>
               </div>
               <div className='flex items-center gap-2'>
-                <IconStar size={20} className='text-yellow-400' />
-                <span>1640 Ratings</span>
+                <IconStar size={20} className='text-yellow-500 fill-yellow-500' />
+                <span>1960 Ratings</span>
               </div>
             </div>
           </motion.div>
@@ -410,14 +412,14 @@ export default function GMBServicePage({ params }) {
       </section>
 
       {/* Expert Procedures Section */}
-      <section className='py-10 bg-gray-50'>
+      <section className='py-10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className='text-center mb-12'
+            className='text-left lg:text-center mb-12'
           >
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
               Expert-Level Google My Business Procedures: Join Digital Solution 360
@@ -477,7 +479,7 @@ export default function GMBServicePage({ params }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className='text-center mb-12'
+            className='text-left lg:text-center mb-12'
           >
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
               Benefits to Choose Creating a Google Business Profile in {cityName}
@@ -489,7 +491,7 @@ export default function GMBServicePage({ params }) {
               { title: 'Better Customer Engagement', description: 'Attract more customers online.' },
               { title: 'Improved Search Engine Appearance', description: 'Show up in searches for your business category.' },
               { title: 'Gain Trust from Viewers', description: 'Build credibility with a strong online presence.' },
-              { title: 'Control on Business&apos;s Growth', description: 'Analyze growth with professional insights.' }
+              { title: "Control on Business's Growth", description: 'Analyze growth with professional insights.' }
             ].map((benefit, index) => (
               <motion.div
                 key={index}
@@ -497,7 +499,7 @@ export default function GMBServicePage({ params }) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className='bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 text-center hover:shadow-xl transition-all'
+                className='bg-white shadow-xl rounded-xl p-6 text-center hover:shadow-2xl transition-all'
               >
                 <div className='w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4'>
                   <IconCheck size={32} className='text-white' />
@@ -511,14 +513,14 @@ export default function GMBServicePage({ params }) {
       </section>
 
       {/* Services List Section */}
-      <section className='py-10 bg-gray-50'>
+      <section className='py-10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className='text-center mb-12'
+            className='text-left lg:text-center mb-12'
           >
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
               Our GMB Services in {cityName}
@@ -551,7 +553,7 @@ export default function GMBServicePage({ params }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className='text-center mb-12'
+            className='text-left lg:text-center mb-12'
           >
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
               Industries We Serve in {cityName}
@@ -566,10 +568,19 @@ export default function GMBServicePage({ params }) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                className='bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all'
+                className='bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all group'
               >
-                <div className='text-xs text-blue-600 font-semibold mb-2'>{industry.label}</div>
-                <h3 className='text-lg font-bold text-gray-900'>{industry.name}</h3>
+                <div className='relative h-40 overflow-hidden'>
+                  <img 
+                    src={industry.image} 
+                    alt={industry.name}
+                    className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-300'
+                  />
+                  <div className='absolute inset-0 bg-gradient-to-t from-black/50 to-transparent'></div>
+                </div>
+                <div className='p-4 text-center'>
+                  <h3 className='text-lg font-bold text-gray-900'>{industry.name}</h3>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -577,7 +588,7 @@ export default function GMBServicePage({ params }) {
       </section>
 
       {/* Clients Section */}
-      <section className='py-10 bg-gray-50'>
+      <section className='py-10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <Clients />
         </div>
@@ -606,10 +617,29 @@ export default function GMBServicePage({ params }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className='bg-white rounded-xl p-6 shadow-md'
+                className='bg-white rounded-xl shadow-xl overflow-hidden'
               >
-                <h3 className='text-lg font-bold text-gray-900 mb-3'>{faq.question}</h3>
-                <p className='text-gray-600 leading-relaxed'>{faq.answer}</p>
+                <button
+                  onClick={() => setOpenFaqIndex(openFaqIndex === index ? -1 : index)}
+                  className='w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors'
+                >
+                  <h3 className='text-lg font-bold text-gray-900 pr-4'>{faq.question}</h3>
+                  <IconChevronDown 
+                    size={24} 
+                    className={`flex-shrink-0 text-blue-600 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                <motion.div
+                  initial={false}
+                  animate={{ 
+                    height: openFaqIndex === index ? 'auto' : 0,
+                    opacity: openFaqIndex === index ? 1 : 0
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className='overflow-hidden'
+                >
+                  <p className='px-6 pb-4 text-gray-600 leading-relaxed'>{faq.answer}</p>
+                </motion.div>
               </motion.div>
             ))}
           </div>
@@ -618,7 +648,7 @@ export default function GMBServicePage({ params }) {
 
       {/* Conclusion & CTA */}
       <section className='py-10 bg-blue-600'>
-        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
+        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left lg:text-center'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
