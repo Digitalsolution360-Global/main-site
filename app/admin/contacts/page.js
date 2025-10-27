@@ -1,9 +1,12 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { UserButton } from '@clerk/nextjs';
+import { UserButton, useUser } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
 
 export default function ContactsPage() {
+  const { user } = useUser();
+  const router = useRouter();
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,8 +17,13 @@ export default function ContactsPage() {
   const [deleteId, setDeleteId] = useState(null);
 
   useEffect(() => {
+    // Redirect leads user
+    if (user?.username?.toLowerCase() === 'leads') {
+      router.push('/admin/leads');
+      return;
+    }
     fetchContacts();
-  }, []);
+  }, [user]);
 
   const fetchContacts = async () => {
     try {
@@ -256,7 +264,7 @@ export default function ContactsPage() {
 
       {/* View Contact Modal */}
       {selectedContact && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex justify-between items-start mb-4">
