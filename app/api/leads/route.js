@@ -3,7 +3,21 @@ import { query } from '@/lib/db';
 
 export async function GET() {
   try {
-    const sql = 'SELECT * FROM leads ORDER BY created_at DESC';
+    // Fetch leads with their latest history entry
+    const sql = `
+      SELECT 
+        l.*,
+        lh.remarks as latest_remark,
+        lh.follow_up_date as latest_follow_up_date,
+        lh.created_at as latest_remark_date
+      FROM leads l
+      LEFT JOIN (
+        SELECT lead_id, remarks, follow_up_date, created_at,
+        ROW_NUMBER() OVER (PARTITION BY lead_id ORDER BY created_at DESC) as rn
+        FROM leads_history
+      ) lh ON l.id = lh.lead_id AND lh.rn = 1
+      ORDER BY l.created_at DESC
+    `;
     const leads = await query(sql);
     return NextResponse.json({ leads });
   } catch (error) {

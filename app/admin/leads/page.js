@@ -9,8 +9,13 @@ export default function AdminLeads() {
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [showStatusModal, setShowStatusModal] = useState(false);
+  const [showHistoryModal, setShowHistoryModal] = useState(false);
   const [selectedLeadForStatus, setSelectedLeadForStatus] = useState(null);
+  const [selectedLeadForHistory, setSelectedLeadForHistory] = useState(null);
+  const [leadHistory, setLeadHistory] = useState([]);
+  const [historyLoading, setHistoryLoading] = useState(false);
   const [statusUpdate, setStatusUpdate] = useState('');
+  const [followUpDate, setFollowUpDate] = useState('');
   const [editingLead, setEditingLead] = useState(null);
   const [filterStatus, setFilterStatus] = useState('all');
   const [filterPriority, setFilterPriority] = useState('all');
@@ -129,6 +134,7 @@ export default function AdminLeads() {
   const handleStatusUpdate = (lead) => {
     setSelectedLeadForStatus(lead);
     setStatusUpdate('');
+    setFollowUpDate('');
     setShowStatusModal(true);
   };
 
@@ -140,27 +146,13 @@ export default function AdminLeads() {
     }
 
     try {
-      // Append new remark to existing remarks with timestamp
-      const timestamp = new Date().toLocaleString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-      });
-      
-      const existingRemarks = selectedLeadForStatus.remarks || '';
-      const newRemark = `[${timestamp}] ${statusUpdate}`;
-      const updatedRemarks = existingRemarks 
-        ? `${existingRemarks}\n\n${newRemark}`
-        : newRemark;
-
-      const res = await fetch(`/api/leads/${selectedLeadForStatus.id}`, {
-        method: 'PUT',
+      const res = await fetch('/api/leads/history', {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
-          ...selectedLeadForStatus,
-          remarks: updatedRemarks
+          lead_id: selectedLeadForStatus.id,
+          remarks: statusUpdate,
+          follow_up_date: followUpDate || null
         })
       });
 
@@ -169,6 +161,7 @@ export default function AdminLeads() {
         setShowStatusModal(false);
         setSelectedLeadForStatus(null);
         setStatusUpdate('');
+        setFollowUpDate('');
         fetchLeads();
       } else {
         alert('Failed to add remark');
@@ -176,6 +169,23 @@ export default function AdminLeads() {
     } catch (error) {
       console.error('Error adding remark:', error);
       alert('Failed to add remark');
+    }
+  };
+
+  const handleViewHistory = async (lead) => {
+    setSelectedLeadForHistory(lead);
+    setShowHistoryModal(true);
+    setHistoryLoading(true);
+    
+    try {
+      const res = await fetch(`/api/leads/history?lead_id=${lead.id}`);
+      const data = await res.json();
+      setLeadHistory(data.history || []);
+    } catch (error) {
+      console.error('Error fetching history:', error);
+      setLeadHistory([]);
+    } finally {
+      setHistoryLoading(false);
     }
   };
 
@@ -504,27 +514,39 @@ export default function AdminLeads() {
                         {formatDate(lead.next_follow_up_date)}
                       </td>
                       <td className="px-6 py-4 text-sm">
-                        {lead.remarks ? (
-                          <div className="max-w-xs">
-                            {(() => {
-                              const latestRemark = getLatestRemark(lead.remarks);
-                              return (
-                                <>
-                                  <p className="text-gray-700 truncate mb-1" title={latestRemark.text}>
-                                    {latestRemark.text}
+                        <div className="flex items-start gap-2">
+                          <div className="flex-1 min-w-0 max-w-50">
+                            {lead.latest_remark ? (
+                              <div>
+                                <p className="text-gray-700 truncate mb-1" title={lead.latest_remark}>
+                                  {lead.latest_remark}
+                                </p>
+                                {lead.latest_remark_date && (
+                                  <p className="text-xs text-gray-400">
+                                    {new Date(lead.latest_remark_date).toLocaleString('en-US', {
+                                      year: 'numeric',
+                                      month: 'short',
+                                      day: 'numeric',
+                                      hour: '2-digit',
+                                      minute: '2-digit'
+                                    })}
                                   </p>
-                                  {latestRemark.timestamp && (
-                                    <p className="text-xs text-gray-400">
-                                      {latestRemark.timestamp}
-                                    </p>
-                                  )}
-                                </>
-                              );
-                            })()}
+                                )}
+                              </div>
+                            ) : (
+                              <span className="text-gray-400 italic">No remarks</span>
+                            )}
                           </div>
-                        ) : (
-                          <span className="text-gray-400 italic">No remarks</span>
-                        )}
+                          <button
+                            onClick={() => handleViewHistory(lead)}
+                            className="flex-shrink-0 bg-orange-500 text-white hover:text-white p-1 rounded hover:bg-orange-600 transition-colors"
+                            title="View History"
+                          >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                          </button>
+                        </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-center">
                         <div className="flex gap-2 justify-center">
@@ -835,6 +857,18 @@ export default function AdminLeads() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Follow-up Date
+                </label>
+                <input
+                  type="date"
+                  value={followUpDate}
+                  onChange={(e) => setFollowUpDate(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Add Remark *
                 </label>
                 <textarea
@@ -847,19 +881,6 @@ export default function AdminLeads() {
                 ></textarea>
               </div>
 
-              {selectedLeadForStatus.remarks && (
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Previous Remarks
-                  </label>
-                  <div className="bg-gray-50 rounded-lg p-4 max-h-48 overflow-y-auto">
-                    <pre className="text-sm text-gray-700 whitespace-pre-wrap font-sans">
-                      {selectedLeadForStatus.remarks}
-                    </pre>
-                  </div>
-                </div>
-              )}
-
               <div className="flex justify-end gap-3 pt-4 border-t">
                 <button
                   type="button"
@@ -867,6 +888,7 @@ export default function AdminLeads() {
                     setShowStatusModal(false);
                     setSelectedLeadForStatus(null);
                     setStatusUpdate('');
+                    setFollowUpDate('');
                   }}
                   className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
                 >
@@ -880,6 +902,84 @@ export default function AdminLeads() {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* History Modal */}
+      {showHistoryModal && selectedLeadForHistory && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] flex flex-col">
+            <div className="bg-white border-b px-6 py-4 flex justify-between items-center rounded-t-lg">
+              <h2 className="text-xl font-bold text-gray-900">
+                Update History - {selectedLeadForHistory.name}
+              </h2>
+              <button
+                onClick={() => {
+                  setShowHistoryModal(false);
+                  setSelectedLeadForHistory(null);
+                  setLeadHistory([]);
+                }}
+                className="text-gray-400 hover:text-gray-600 text-2xl"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="p-6 overflow-y-auto flex-1">
+              {historyLoading ? (
+                <div className="text-center py-12">
+                  <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
+                  <p className="mt-4 text-gray-600">Loading history...</p>
+                </div>
+              ) : leadHistory.length === 0 ? (
+                <div className="text-center py-12">
+                  <p className="text-gray-500">No update history found for this lead.</p>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {leadHistory.map((entry, index) => (
+                    <div key={entry.id} className="bg-gray-50 rounded-lg p-4 border-l-4 border-purple-500">
+                      <div className="flex justify-between items-start mb-2">
+                        <div>
+                          <p className="text-sm font-medium text-gray-900">
+                            Update #{leadHistory.length - index}
+                          </p>
+                          {entry.follow_up_date && (
+                            <p className="text-xs text-blue-600 mt-1">
+                              Follow-up: {formatDate(entry.follow_up_date)}
+                            </p>
+                          )}
+                        </div>
+                        <p className="text-xs text-gray-500">
+                          {new Date(entry.created_at).toLocaleString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                          })}
+                        </p>
+                      </div>
+                      <p className="text-gray-700 whitespace-pre-wrap">{entry.remarks}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="border-t px-6 py-4 bg-gray-50 rounded-b-lg">
+              <button
+                onClick={() => {
+                  setShowHistoryModal(false);
+                  setSelectedLeadForHistory(null);
+                  setLeadHistory([]);
+                }}
+                className="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors font-medium"
+              >
+                Close
+              </button>
+            </div>
           </div>
         </div>
       )}
