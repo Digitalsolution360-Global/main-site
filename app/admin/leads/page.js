@@ -157,18 +157,26 @@ export default function AdminLeads() {
       });
 
       if (res.ok) {
-        alert('Remark added successfully!');
+        alert('Update added to history successfully!');
         setShowStatusModal(false);
-        setSelectedLeadForStatus(null);
         setStatusUpdate('');
         setFollowUpDate('');
         fetchLeads();
+        
+        // If history modal was open, refresh it
+        if (showHistoryModal && selectedLeadForHistory?.id === selectedLeadForStatus.id) {
+          const historyRes = await fetch(`/api/leads/history?lead_id=${selectedLeadForStatus.id}`);
+          const data = await historyRes.json();
+          setLeadHistory(data.history || []);
+        }
+        
+        setSelectedLeadForStatus(null);
       } else {
-        alert('Failed to add remark');
+        alert('Failed to add update');
       }
     } catch (error) {
-      console.error('Error adding remark:', error);
-      alert('Failed to add remark');
+      console.error('Error adding update:', error);
+      alert('Failed to add update');
     }
   };
 
@@ -823,13 +831,14 @@ export default function AdminLeads() {
           <div className="bg-white rounded-lg max-w-2xl w-full">
             <div className="bg-white border-b px-6 py-4 flex justify-between items-center rounded-t-lg">
               <h2 className="text-xl font-bold text-gray-900">
-                Add Remark - {selectedLeadForStatus.name}
+                Add Update to History - {selectedLeadForStatus.name}
               </h2>
               <button
                 onClick={() => {
                   setShowStatusModal(false);
                   setSelectedLeadForStatus(null);
                   setStatusUpdate('');
+                  setFollowUpDate('');
                 }}
                 className="text-gray-400 hover:text-gray-600 text-2xl"
               >
@@ -838,15 +847,6 @@ export default function AdminLeads() {
             </div>
 
             <form onSubmit={submitStatusUpdate} className="p-6 space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Current Status
-                </label>
-                <span className={`inline-block px-3 py-1 text-sm font-medium rounded-full ${getStatusColor(selectedLeadForStatus.lead_status)}`}>
-                  {selectedLeadForStatus.lead_status}
-                </span>
-              </div>
-
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Follow-up Date
@@ -861,15 +861,15 @@ export default function AdminLeads() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Add Remark *
+                  Remarks *
                 </label>
                 <textarea
                   value={statusUpdate}
                   onChange={(e) => setStatusUpdate(e.target.value)}
-                  rows="6"
+                  rows="8"
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  placeholder="Enter remark, notes, or communication details..."
+                  placeholder="Enter remarks, notes, or communication details..."
                 ></textarea>
               </div>
 
@@ -890,7 +890,7 @@ export default function AdminLeads() {
                   type="submit"
                   className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
                 >
-                  Add Update
+                  Add to History
                 </button>
               </div>
             </form>
@@ -960,7 +960,22 @@ export default function AdminLeads() {
               )}
             </div>
 
-            <div className="border-t px-6 py-4 bg-gray-50 rounded-b-lg">
+            <div className="border-t px-6 py-4 bg-gray-50 rounded-b-lg flex justify-between items-center">
+              <button
+                onClick={() => {
+                  setShowHistoryModal(false);
+                  setSelectedLeadForHistory(null);
+                  setLeadHistory([]);
+                  // Open the update modal for this lead
+                  setSelectedLeadForStatus(selectedLeadForHistory);
+                  setStatusUpdate('');
+                  setFollowUpDate('');
+                  setShowStatusModal(true);
+                }}
+                className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
+              >
+                + Add New Update
+              </button>
               <button
                 onClick={() => {
                   setShowHistoryModal(false);
