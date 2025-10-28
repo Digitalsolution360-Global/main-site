@@ -9,7 +9,11 @@ export async function GET() {
         l.*,
         lh.remarks as latest_remark,
         lh.follow_up_date as latest_follow_up_date,
-        lh.created_at as latest_remark_date
+        lh.created_at as latest_remark_date,
+        CASE 
+          WHEN DATE(l.created_at) = CURDATE() THEN 1 
+          ELSE 0 
+        END as is_created_today
       FROM leads l
       LEFT JOIN (
         SELECT lead_id, remarks, follow_up_date, created_at,
@@ -56,9 +60,9 @@ export async function POST(request) {
     const sql = `
       INSERT INTO leads (
         name, email, phone, city, website, priority, lead_status, 
-        follow_up_date, next_follow_up_date, business_type, remarks
+        follow_up_date, next_follow_up_date, business_type, remarks, created_at, updated_at
       )
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
     `;
 
     await query(sql, [

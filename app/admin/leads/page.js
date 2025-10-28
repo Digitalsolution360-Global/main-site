@@ -16,12 +16,14 @@ export default function AdminLeads() {
   const [historyLoading, setHistoryLoading] = useState(false);
   const [statusUpdate, setStatusUpdate] = useState('');
   const [followUpDate, setFollowUpDate] = useState('');
+  const [newStatus, setNewStatus] = useState('');
   const [editingLead, setEditingLead] = useState(null);
   const [filterStatus, setFilterStatus] = useState('all');
   const [filterPriority, setFilterPriority] = useState('all');
   const [filterBusinessType, setFilterBusinessType] = useState('all');
   const [filterDateFrom, setFilterDateFrom] = useState('');
   const [filterDateTo, setFilterDateTo] = useState('');
+  const [sortOrder, setSortOrder] = useState('desc'); // 'desc' for latest first, 'asc' for oldest first
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,7 +31,7 @@ export default function AdminLeads() {
     city: '',
     website: '',
     priority: 'medium',
-    lead_status: 'new',
+    lead_status: 'contacted',
     follow_up_date: '',
     next_follow_up_date: '',
     business_type: '',
@@ -46,6 +48,12 @@ export default function AdminLeads() {
     try {
       const res = await fetch('/api/leads');
       const data = await res.json();
+      console.log('Fetched leads with today flag:', data.leads?.map(l => ({ 
+        id: l.id, 
+        name: l.name, 
+        created_at: l.created_at, 
+        is_created_today: l.is_created_today 
+      })));
       setLeads(data.leads || []);
     } catch (error) {
       console.error('Error fetching leads:', error);
@@ -135,6 +143,7 @@ export default function AdminLeads() {
     setSelectedLeadForStatus(lead);
     setStatusUpdate('');
     setFollowUpDate('');
+    setNewStatus(lead.lead_status || '');
     setShowStatusModal(true);
   };
 
@@ -146,7 +155,8 @@ export default function AdminLeads() {
     }
 
     try {
-      const res = await fetch('/api/leads/history', {
+      // First add to history
+      const historyRes = await fetch('/api/leads/history', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -156,24 +166,43 @@ export default function AdminLeads() {
         })
       });
 
-      if (res.ok) {
-        alert('Update added to history successfully!');
-        setShowStatusModal(false);
-        setStatusUpdate('');
-        setFollowUpDate('');
-        fetchLeads();
-        
-        // If history modal was open, refresh it
-        if (showHistoryModal && selectedLeadForHistory?.id === selectedLeadForStatus.id) {
-          const historyRes = await fetch(`/api/leads/history?lead_id=${selectedLeadForStatus.id}`);
-          const data = await historyRes.json();
-          setLeadHistory(data.history || []);
-        }
-        
-        setSelectedLeadForStatus(null);
-      } else {
+      if (!historyRes.ok) {
         alert('Failed to add update');
+        return;
       }
+
+      // If status changed, update the lead
+      if (newStatus && newStatus !== selectedLeadForStatus.lead_status) {
+        const leadRes = await fetch(`/api/leads/${selectedLeadForStatus.id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            ...selectedLeadForStatus,
+            lead_status: newStatus
+          })
+        });
+
+        if (!leadRes.ok) {
+          alert('Failed to update lead status');
+          return;
+        }
+      }
+
+      alert('Update added to history successfully!');
+      setShowStatusModal(false);
+      setStatusUpdate('');
+      setFollowUpDate('');
+      setNewStatus('');
+      fetchLeads();
+      
+      // If history modal was open, refresh it
+      if (showHistoryModal && selectedLeadForHistory?.id === selectedLeadForStatus.id) {
+        const historyRes = await fetch(`/api/leads/history?lead_id=${selectedLeadForStatus.id}`);
+        const data = await historyRes.json();
+        setLeadHistory(data.history || []);
+      }
+      
+      setSelectedLeadForStatus(null);
     } catch (error) {
       console.error('Error adding update:', error);
       alert('Failed to add update');
@@ -216,7 +245,7 @@ export default function AdminLeads() {
       city: '',
       website: '',
       priority: 'medium',
-      lead_status: 'new',
+      lead_status: 'contacted',
       follow_up_date: '',
       next_follow_up_date: '',
       business_type: '',
@@ -269,13 +298,14 @@ export default function AdminLeads() {
 
   const getStatusColor = (status) => {
     switch(status?.toLowerCase()) {
-      case 'new': return 'bg-blue-100 text-blue-800';
       case 'contacted': return 'bg-purple-100 text-purple-800';
       case 'qualified': return 'bg-green-100 text-green-800';
       case 'proposal': return 'bg-yellow-100 text-yellow-800';
       case 'negotiation': return 'bg-orange-100 text-orange-800';
       case 'won': return 'bg-green-600 text-white';
       case 'lost': return 'bg-red-100 text-red-800';
+      case 'call not connected': return 'bg-gray-100 text-gray-800';
+      case 'on going process': return 'bg-blue-100 text-blue-800';
       default: return 'bg-gray-100 text-gray-800';
     }
   };
@@ -301,6 +331,13 @@ export default function AdminLeads() {
     }
     
     return statusMatch && priorityMatch && businessTypeMatch && dateMatch;
+  });
+
+  // Sort filtered leads
+  const sortedLeads = [...filteredLeads].sort((a, b) => {
+    const dateA = new Date(a.created_at);
+    const dateB = new Date(b.created_at);
+    return sortOrder === 'desc' ? dateB - dateA : dateA - dateB ;
   });
 
   const stats = {
@@ -367,13 +404,14 @@ export default function AdminLeads() {
               className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               <option value="all">All Status</option>
-              <option value="new">New</option>
               <option value="contacted">Contacted</option>
               <option value="qualified">Qualified</option>
               <option value="proposal">Proposal</option>
               <option value="negotiation">Negotiation</option>
               <option value="won">Won</option>
               <option value="lost">Lost</option>
+              <option value="call not connected">Call not connected</option>
+              <option value="on going process">On Going Process</option>
             </select>
             
             <select
@@ -406,6 +444,7 @@ export default function AdminLeads() {
               <option value="GMB No Not live">GMB No Not live</option>
               <option value="GMB Suspended">GMB Suspended</option>
               <option value="Software Development">Software Development</option>
+              <option value="Social Media Services">Social Media Services</option>
             </select>
 
             <input
@@ -438,6 +477,15 @@ export default function AdminLeads() {
                 Clear Filters
               </button>
             )}
+
+            <select
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
+              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            >
+              <option value="desc">Latest First</option>
+              <option value="asc">Oldest First</option>
+            </select>
           </div>
 
           <button
@@ -488,8 +536,8 @@ export default function AdminLeads() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {filteredLeads.map((lead) => (
-                    <tr key={lead.id} className="hover:bg-gray-50">
+                  {sortedLeads.map((lead) => (
+                    <tr key={lead.id} className={`hover:bg-gray-50 ${lead.is_created_today ? 'bg-green-50 border-l-4 border-l-green-500' : ''}`}>
                       <td className="px-6 py-4">
                         <div>
                           <p className="text-sm font-medium text-gray-900">{lead.name}</p>
@@ -602,8 +650,8 @@ export default function AdminLeads() {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 overflow-y-auto">
-          <div className="bg-white rounded-lg max-w-4xl w-full my-8">
-            <div className="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center rounded-t-lg">
+          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center rounded-t-lg z-10">
               <h2 className="text-xl font-bold text-gray-900">
                 {editingLead ? 'Edit Lead' : 'Add New Lead'}
               </h2>
@@ -615,7 +663,7 @@ export default function AdminLeads() {
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="p-6 space-y-4 mt-7">
+            <form onSubmit={handleSubmit} className="p-6 space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Name */}
                 <div>
@@ -720,6 +768,7 @@ export default function AdminLeads() {
                     <option value="GMB No Not live">GMB No Not live</option>
                     <option value="GMB Suspended">GMB Suspended</option>
                     <option value="Software Development">Software Development</option>
+                    <option value="Social Media Services">Social Media Services</option>
                   </select>
                 </div>
 
@@ -751,43 +800,48 @@ export default function AdminLeads() {
                     onChange={handleInputChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
-                    <option value="new">New</option>
                     <option value="contacted">Contacted</option>
                     <option value="qualified">Qualified</option>
                     <option value="proposal">Proposal</option>
                     <option value="negotiation">Negotiation</option>
                     <option value="won">Won</option>
                     <option value="lost">Lost</option>
+                    <option value="call not connected">Call not connected</option>
+                    <option value="on going process">On Going Process</option>
                   </select>
                 </div>
 
-                {/* Follow-up Date */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Follow-up Date
-                  </label>
-                  <input
-                    type="date"
-                    name="follow_up_date"
-                    value={formData.follow_up_date}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                </div>
+                {editingLead && (
+                  <>
+                    {/* Follow-up Date */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Follow-up Date
+                      </label>
+                      <input
+                        type="date"
+                        name="follow_up_date"
+                        value={formData.follow_up_date}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
+                    </div>
 
-                {/* Next Follow-up Date */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Next Follow-up Date
-                  </label>
-                  <input
-                    type="date"
-                    name="next_follow_up_date"
-                    value={formData.next_follow_up_date}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                </div>
+                    {/* Next Follow-up Date */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Next Follow-up Date
+                      </label>
+                      <input
+                        type="date"
+                        name="next_follow_up_date"
+                        value={formData.next_follow_up_date}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
+                    </div>
+                  </>
+                )}
 
                 {/* Remarks */}
                 <div className="md:col-span-2">
@@ -849,6 +903,26 @@ export default function AdminLeads() {
             <form onSubmit={submitStatusUpdate} className="p-6 space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Change Status
+                </label>
+                <select
+                  value={newStatus}
+                  onChange={(e) => setNewStatus(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                >
+                  <option value="contacted">Contacted</option>
+                  <option value="qualified">Qualified</option>
+                  <option value="proposal">Proposal</option>
+                  <option value="negotiation">Negotiation</option>
+                  <option value="won">Won</option>
+                  <option value="lost">Lost</option>
+                  <option value="call not connected">Call not connected</option>
+                  <option value="on going process">On Going Process</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Follow-up Date
                 </label>
                 <input
@@ -881,6 +955,7 @@ export default function AdminLeads() {
                     setSelectedLeadForStatus(null);
                     setStatusUpdate('');
                     setFollowUpDate('');
+                    setNewStatus('');
                   }}
                   className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
                 >
