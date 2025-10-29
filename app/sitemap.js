@@ -69,9 +69,8 @@ export default async function sitemap() {
     // Service configurations with their base paths and slug fields
     const services = [
       { path: '/market-we-serve/website-development', slugField: 'web_slug' },
-      { path: '/market-we-serve/seo', slugField: 'seo_slug' },
-      { path: '/market-we-serve/google-my-business', slugField: 'gmb_slug' },
-      // { path: '/market-we-serve/content-writing', slugField: 'content_slug' },
+      { path: '/market-we-serve/seo-service', slugField: 'seo_slug' },
+      { path: '/market-we-serve/google-my-business-listing', slugField: 'gmb_slug' },
     ];
 
     // Generate routes for all cities
