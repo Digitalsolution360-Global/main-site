@@ -1,4 +1,12 @@
-import { getAllBlogs, getAllCities, getAllStates, getAllCountriesForSitemap } from '@/lib/db';
+import { getAllBlogs, getAllBlogsForSitemap, getAllCities, getAllStates, getAllCountriesForSitemap } from '@/lib/db';
+
+// Helper function to fetch with timeout
+async function fetchWithTimeout(fetchFn, timeoutMs = 10000) {
+  const timeoutPromise = new Promise((_, reject) => 
+    setTimeout(() => reject(new Error('Fetch timeout')), timeoutMs)
+  );
+  return Promise.race([fetchFn(), timeoutPromise]);
+}
 
 // Helper function to escape XML special characters
 function escapeXml(unsafe) {
@@ -43,13 +51,14 @@ export default async function sitemap() {
     priority: route === '' ? 1 : 0.8,
   }));
 
-  // Fetch blog posts dynamically
+    // Fetch blog posts dynamically with timeout
   let blogRoutes = [];
   try {
-    const blogs = await getAllBlogs();
+    console.log('[Sitemap] Starting blog fetch with 15s timeout...');
+    const blogs = await fetchWithTimeout(() => getAllBlogsForSitemap(), 15000);
     console.log(`[Sitemap] Fetched ${blogs?.length || 0} blogs`);
     
-    if (blogs && Array.isArray(blogs)) {
+    if (blogs && Array.isArray(blogs) && blogs.length > 0) {
       blogRoutes = blogs.map((blog) => ({
         url: `${baseUrl}/${blog.slug}`,
         lastModified: new Date(blog.updated_at || blog.created_at),
@@ -58,10 +67,12 @@ export default async function sitemap() {
       }));
       console.log(`[Sitemap] Generated ${blogRoutes.length} blog routes`);
     } else {
-      console.warn('[Sitemap] getAllBlogs returned non-array or empty result:', blogs);
+      console.warn('[Sitemap] getAllBlogsForSitemap returned empty array or non-array result:', typeof blogs);
     }
   } catch (error) {
-    console.error('[Sitemap] Error fetching blogs for sitemap:', error);
+    console.error('[Sitemap] Error fetching blogs for sitemap:', error?.code || error?.message || error);
+    console.warn('[Sitemap] Continuing with 0 blog routes');
+    blogRoutes = [];
   }
 
   // Fetch location pages dynamically
