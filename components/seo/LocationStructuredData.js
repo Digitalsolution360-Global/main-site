@@ -31,9 +31,8 @@ export default function LocationStructuredData({ locationData, locationType, ser
   // Service name mapping
   const serviceNames = {
     'website-development': 'Website Development',
-    'seo': 'SEO Services',
-    'google-my-business': 'Google My Business',
-    'content-writing': 'Content Writing'
+    'seo-service': 'SEO Services',
+    'google-my-business-listing': 'Google My Business',
   };
 
   const serviceName = serviceNames[serviceType] || 'Digital Services';

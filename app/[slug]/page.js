@@ -70,7 +70,7 @@ export default function DynamicPage({ params }) {
   }
   
   // Render location page - determine which service page based on slug
-  if (slug.includes('google-my-business') || slug.includes('gmb')) {
+  if (slug.includes('google-my-business-listing') || slug.includes('gmb')) {
     return <GMBServicePage params={Promise.resolve({ slug })} />;
   } else if (slug.includes('seo-service')) {
     return <SEOServicePage params={Promise.resolve({ slug })} />;
