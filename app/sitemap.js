@@ -1,11 +1,54 @@
 import { getAllBlogs, getAllBlogsForSitemap, getAllCities, getAllStates, getAllCountriesForSitemap } from '@/lib/db';
 
-// Helper function to fetch with timeout
-async function fetchWithTimeout(fetchFn, timeoutMs = 10000) {
-  const timeoutPromise = new Promise((_, reject) => 
-    setTimeout(() => reject(new Error('Fetch timeout')), timeoutMs)
-  );
-  return Promise.race([fetchFn(), timeoutPromise]);
+/**
+ * IMPORTANT NOTE ABOUT BLOG ROUTES IN SITEMAP:
+ * 
+ * If you see "Blog routes: 0" in the build logs, it means the database query timed out.
+ * This is likely a database connectivity issue on Vercel (not localhost).
+ * 
+ * SOLUTIONS:
+ * 1. Whitelist Vercel's IP addresses in your database firewall/security group
+ *    - Vercel IPs vary by region. Check: https://vercel.com/docs/concepts/edge-network/regions
+ *    - If using AWS: Add Vercel's IP range to your security group
+ *    - If using PlanetScale/other managed DB: Add IPs to IP whitelist
+ * 
+ * 2. Check database SSL certificates (if applicable)
+ * 
+ * 3. Ensure database host is accessible from external networks
+ * 
+ * The code below will retry 3 times before giving up, so blog routes should appear
+ * once database connectivity is fixed.
+ */
+
+// Helper function to fetch with timeout and retry
+async function fetchWithTimeout(fetchFn, timeoutMs = 10000, retries = 2) {
+  let lastError;
+  
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      console.log(`[Sitemap] Attempt ${attempt}/${retries}: Starting fetch with ${timeoutMs}ms timeout...`);
+      
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Fetch timeout')), timeoutMs)
+      );
+      
+      const result = await Promise.race([fetchFn(), timeoutPromise]);
+      console.log(`[Sitemap] Attempt ${attempt} succeeded`);
+      return result;
+    } catch (error) {
+      lastError = error;
+      console.warn(`[Sitemap] Attempt ${attempt} failed:`, error?.code || error?.message);
+      
+      if (attempt < retries) {
+        // Wait before retrying (exponential backoff)
+        const waitTime = Math.min(1000 * Math.pow(2, attempt - 1), 5000);
+        console.log(`[Sitemap] Waiting ${waitTime}ms before retry...`);
+        await new Promise(resolve => setTimeout(resolve, waitTime));
+      }
+    }
+  }
+  
+  throw lastError;
 }
 
 // Helper function to escape XML special characters
@@ -51,11 +94,11 @@ export default async function sitemap() {
     priority: route === '' ? 1 : 0.8,
   }));
 
-    // Fetch blog posts dynamically with timeout
+    // Fetch blog posts dynamically with timeout and retry
   let blogRoutes = [];
   try {
-    console.log('[Sitemap] Starting blog fetch with 15s timeout...');
-    const blogs = await fetchWithTimeout(() => getAllBlogsForSitemap(), 15000);
+    console.log('[Sitemap] Starting blog fetch with retries...');
+    const blogs = await fetchWithTimeout(() => getAllBlogsForSitemap(), 8000, 3);
     console.log(`[Sitemap] Fetched ${blogs?.length || 0} blogs`);
     
     if (blogs && Array.isArray(blogs) && blogs.length > 0) {
@@ -65,13 +108,14 @@ export default async function sitemap() {
         changeFrequency: 'monthly',
         priority: 0.7,
       }));
-      console.log(`[Sitemap] Generated ${blogRoutes.length} blog routes`);
+      console.log(`[Sitemap] ✓ Generated ${blogRoutes.length} blog routes successfully`);
     } else {
-      console.warn('[Sitemap] getAllBlogsForSitemap returned empty array or non-array result:', typeof blogs);
+      console.warn('[Sitemap] getAllBlogsForSitemap returned empty array');
     }
   } catch (error) {
-    console.error('[Sitemap] Error fetching blogs for sitemap:', error?.code || error?.message || error);
-    console.warn('[Sitemap] Continuing with 0 blog routes');
+    console.error('[Sitemap] ✗ Failed to fetch blogs after retries:', error?.code || error?.message);
+    console.error('[Sitemap] IMPORTANT: Check if Vercel IP needs to be whitelisted in your database firewall');
+    console.warn('[Sitemap] Continuing with 0 blog routes - this is expected if database is unreachable');
     blogRoutes = [];
   }
 
