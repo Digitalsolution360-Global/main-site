@@ -26,23 +26,18 @@ async function fetchWithTimeout(fetchFn, timeoutMs = 10000, retries = 2) {
   
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
-      console.log(`[Sitemap] Attempt ${attempt}/${retries}: Starting fetch with ${timeoutMs}ms timeout...`);
-      
       const timeoutPromise = new Promise((_, reject) => 
         setTimeout(() => reject(new Error('Fetch timeout')), timeoutMs)
       );
       
       const result = await Promise.race([fetchFn(), timeoutPromise]);
-      console.log(`[Sitemap] Attempt ${attempt} succeeded`);
       return result;
     } catch (error) {
       lastError = error;
-      console.warn(`[Sitemap] Attempt ${attempt} failed:`, error?.code || error?.message);
       
       if (attempt < retries) {
         // Wait before retrying (exponential backoff)
         const waitTime = Math.min(1000 * Math.pow(2, attempt - 1), 5000);
-        console.log(`[Sitemap] Waiting ${waitTime}ms before retry...`);
         await new Promise(resolve => setTimeout(resolve, waitTime));
       }
     }
@@ -97,9 +92,7 @@ export default async function sitemap() {
     // Fetch blog posts dynamically with timeout and retry
   let blogRoutes = [];
   try {
-    console.log('[Sitemap] Starting blog fetch with retries...');
     const blogs = await fetchWithTimeout(() => getAllBlogsForSitemap(), 8000, 3);
-    console.log(`[Sitemap] Fetched ${blogs?.length || 0} blogs`);
     
     if (blogs && Array.isArray(blogs) && blogs.length > 0) {
       blogRoutes = blogs.map((blog) => ({
@@ -108,14 +101,9 @@ export default async function sitemap() {
         changeFrequency: 'monthly',
         priority: 0.7,
       }));
-      console.log(`[Sitemap] ✓ Generated ${blogRoutes.length} blog routes successfully`);
-    } else {
-      console.warn('[Sitemap] getAllBlogsForSitemap returned empty array');
     }
   } catch (error) {
-    console.error('[Sitemap] ✗ Failed to fetch blogs after retries:', error?.code || error?.message);
-    console.error('[Sitemap] IMPORTANT: Check if Vercel IP needs to be whitelisted in your database firewall');
-    console.warn('[Sitemap] Continuing with 0 blog routes - this is expected if database is unreachable');
+    // Silently continue with 0 blog routes if database is unavailable
     blogRoutes = [];
   }
 
@@ -127,8 +115,6 @@ export default async function sitemap() {
       getAllStates(),
       getAllCountriesForSitemap()
     ]);
-
-    console.log(`[Sitemap] Fetched ${cities?.length || 0} cities, ${states?.length || 0} states, ${countries?.length || 0} countries`);
 
     // Service configurations with their base paths and slug fields
     const services = [
@@ -185,7 +171,6 @@ export default async function sitemap() {
   }
 
   const finalRoutes = [...staticRoutes, ...blogRoutes, ...locationRoutes];
-  console.log(`[Sitemap] Final routes count: Static=${staticRoutes.length}, Blogs=${blogRoutes.length}, Locations=${locationRoutes.length}, Total=${finalRoutes.length}`);
   
   return finalRoutes;
 }
