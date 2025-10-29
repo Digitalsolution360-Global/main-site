@@ -47,14 +47,21 @@ export default async function sitemap() {
   let blogRoutes = [];
   try {
     const blogs = await getAllBlogs();
-    blogRoutes = blogs.map((blog) => ({
-      url: `${baseUrl}/${blog.slug}`,
-      lastModified: new Date(blog.updated_at || blog.created_at),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    }));
+    console.log(`[Sitemap] Fetched ${blogs?.length || 0} blogs`);
+    
+    if (blogs && Array.isArray(blogs)) {
+      blogRoutes = blogs.map((blog) => ({
+        url: `${baseUrl}/${blog.slug}`,
+        lastModified: new Date(blog.updated_at || blog.created_at),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      }));
+      console.log(`[Sitemap] Generated ${blogRoutes.length} blog routes`);
+    } else {
+      console.warn('[Sitemap] getAllBlogs returned non-array or empty result:', blogs);
+    }
   } catch (error) {
-    console.error('Error fetching blogs for sitemap:', error);
+    console.error('[Sitemap] Error fetching blogs for sitemap:', error);
   }
 
   // Fetch location pages dynamically
@@ -66,6 +73,8 @@ export default async function sitemap() {
       getAllCountriesForSitemap()
     ]);
 
+    console.log(`[Sitemap] Fetched ${cities?.length || 0} cities, ${states?.length || 0} states, ${countries?.length || 0} countries`);
+
     // Service configurations with their base paths and slug fields
     const services = [
       { path: '/market-we-serve/website-development', slugField: 'web_slug' },
@@ -74,7 +83,7 @@ export default async function sitemap() {
     ];
 
     // Generate routes for all cities
-    cities.forEach(city => {
+    cities?.forEach(city => {
       services.forEach(service => {
         if (city[service.slugField]) {
           locationRoutes.push({
@@ -88,7 +97,7 @@ export default async function sitemap() {
     });
 
     // Generate routes for all states
-    states.forEach(state => {
+    states?.forEach(state => {
       services.forEach(service => {
         if (state[service.slugField]) {
           locationRoutes.push({
@@ -102,7 +111,7 @@ export default async function sitemap() {
     });
 
     // Generate routes for all countries
-    countries.forEach(country => {
+    countries?.forEach(country => {
       services.forEach(service => {
         if (country[service.slugField]) {
           locationRoutes.push({
@@ -114,9 +123,14 @@ export default async function sitemap() {
         }
       });
     });
+
+    console.log(`[Sitemap] Generated ${locationRoutes.length} location routes`);
   } catch (error) {
-    console.error('Error fetching locations for sitemap:', error);
+    console.error('[Sitemap] Error fetching locations for sitemap:', error);
   }
 
-  return [...staticRoutes, ...blogRoutes, ...locationRoutes];
+  const finalRoutes = [...staticRoutes, ...blogRoutes, ...locationRoutes];
+  console.log(`[Sitemap] Final routes count: Static=${staticRoutes.length}, Blogs=${blogRoutes.length}, Locations=${locationRoutes.length}, Total=${finalRoutes.length}`);
+  
+  return finalRoutes;
 }
