@@ -61,40 +61,40 @@ export const metadata = {
 export default function Home() {
   return (
     <BgLayout>
-      <video
-          src="/home/videos/hero-video.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          fetchPriority="high"
-          className="hidden sm:block sm:pt-22 lg:pt-18 w-full h-auto max-h-screen object-cover"
-        />
+      {/* <video
+        src="/home/videos/hero-video.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        fetchPriority="high"
+        className="hidden sm:block sm:pt-22 lg:pt-18 w-full h-auto max-h-screen object-cover"
+      /> */}
 
-        <Services/>
+      <Services/>
         <WhyUS/>
-        <Suspense fallback={<div className="h-48" />}>
-          <Clients/>
-        </Suspense>
-        <Suspense fallback={<div className="h-48" />}>
-          <MissionVision/>
-        </Suspense>
-        <Suspense fallback={<div className="h-48" />}>
-          <WebDev/>
-        </Suspense>
-        <Suspense fallback={<div className="h-48" />}>
-          <ContactForm/>
-        </Suspense>
-        <Suspense fallback={<div className="h-48" />}>
-          <Offering/>
-        </Suspense>
-        <Suspense fallback={<div className="h-48" />}>
-          <Blogs/>
-        </Suspense>
-        <Suspense fallback={<div className="h-48" />}>
-          <Faqs/>
-        </Suspense>
+      <Suspense fallback={<div className="h-48" />}>
+        <Clients/>
+      </Suspense>
+      <Suspense fallback={<div className="h-48" />}>
+        <MissionVision/>
+      </Suspense>
+      <Suspense fallback={<div className="h-48" />}>
+        <WebDev/>
+      </Suspense>
+      <Suspense fallback={<div className="h-48" />}>
+        <ContactForm/>
+      </Suspense>
+      <Suspense fallback={<div className="h-48" />}>
+        <Offering/>
+      </Suspense>
+      <Suspense fallback={<div className="h-48" />}>
+        <Blogs/>
+      </Suspense>
+      <Suspense fallback={<div className="h-48" />}>
+        <Faqs/>
+      </Suspense>
     </BgLayout>
   );
 }
