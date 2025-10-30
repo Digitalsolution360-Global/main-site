@@ -100,6 +100,10 @@ function Services() {
                     <img
                         src={images[0].src}
                         alt={images[0].alt}
+                        loading="eager"
+                        fetchPriority="high"
+                        width={1200}
+                        height={500}
                         className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 group-hover:blur-sm"
                     />
                     {/* Animated Gradient Overlay */}
@@ -176,6 +180,9 @@ function Services() {
                             <img
                                 src={service.src}
                                 alt={service.alt}
+                                loading="lazy"
+                                width={600}
+                                height={384}
                                 className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                             />
                             

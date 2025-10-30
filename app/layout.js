@@ -162,6 +162,16 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <head>
+          {/* Preconnect to external domains */}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          
+          {/* Preload critical images */}
+          <link rel="preload" as="image" href="/home/images/offerings/digital-marketing.webp" />
+          
+          {/* DNS prefetch for analytics and external services */}
+          <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+          
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

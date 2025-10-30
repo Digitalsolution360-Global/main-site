@@ -1,13 +1,31 @@
 import BgLayout from "@/components/layout/bgLayout";
-import Blogs from "@/components/sections/blogs";
-import Clients from "@/components/sections/clients";
-import Faqs from "@/components/sections/faqs";
-import ContactForm from "@/components/sections/form";
-import MissionVision from "@/components/sections/mission-vision";
-import Offering from "@/components/sections/offering";
 import Services from "@/components/sections/services";
-import { WebDev } from "@/components/sections/web-dev";
 import WhyUS from "@/components/sections/why-us";
+import { dynamic } from "next/dynamic";
+import { Suspense } from "react";
+
+// Lazy load below-the-fold sections
+const Clients = dynamic(() => import("@/components/sections/clients"), {
+  loading: () => <div className="h-48" />,
+});
+const MissionVision = dynamic(() => import("@/components/sections/mission-vision"), {
+  loading: () => <div className="h-48" />,
+});
+const WebDev = dynamic(() => import("@/components/sections/web-dev").then(mod => mod.WebDev), {
+  loading: () => <div className="h-48" />,
+});
+const ContactForm = dynamic(() => import("@/components/sections/form"), {
+  loading: () => <div className="h-48" />,
+});
+const Offering = dynamic(() => import("@/components/sections/offering"), {
+  loading: () => <div className="h-48" />,
+});
+const Blogs = dynamic(() => import("@/components/sections/blogs"), {
+  loading: () => <div className="h-48" />,
+});
+const Faqs = dynamic(() => import("@/components/sections/faqs"), {
+  loading: () => <div className="h-48" />,
+});
 
 export const metadata = {
   title: 'Digital Solution 360 - Digital Marketing & Web Development Services',
@@ -48,18 +66,35 @@ export default function Home() {
           autoPlay
           loop
           muted
+          playsInline
+          preload="auto"
+          fetchPriority="high"
           className="hidden sm:block sm:pt-22 lg:pt-18 w-full h-auto max-h-screen object-cover"
         />
 
         <Services/>
         <WhyUS/>
-        <Clients/>
-        <MissionVision/>
-        <WebDev/>
-        <ContactForm/>
-        <Offering/>
-        <Blogs/>
-        <Faqs/>
+        <Suspense fallback={<div className="h-48" />}>
+          <Clients/>
+        </Suspense>
+        <Suspense fallback={<div className="h-48" />}>
+          <MissionVision/>
+        </Suspense>
+        <Suspense fallback={<div className="h-48" />}>
+          <WebDev/>
+        </Suspense>
+        <Suspense fallback={<div className="h-48" />}>
+          <ContactForm/>
+        </Suspense>
+        <Suspense fallback={<div className="h-48" />}>
+          <Offering/>
+        </Suspense>
+        <Suspense fallback={<div className="h-48" />}>
+          <Blogs/>
+        </Suspense>
+        <Suspense fallback={<div className="h-48" />}>
+          <Faqs/>
+        </Suspense>
     </BgLayout>
   );
 }
