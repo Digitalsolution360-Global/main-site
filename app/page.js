@@ -61,7 +61,7 @@ export const metadata = {
 export default function Home() {
   return (
     <BgLayout>
-      {/* <video
+      <video
         src="/home/videos/hero-video.mp4"
         autoPlay
         loop
@@ -70,7 +70,7 @@ export default function Home() {
         preload="auto"
         fetchPriority="high"
         className="hidden sm:block sm:pt-22 lg:pt-18 w-full h-auto max-h-screen object-cover"
-      /> */}
+      />
 
       <Services/>
         <WhyUS/>
