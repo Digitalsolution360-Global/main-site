@@ -1,25 +1,25 @@
 import { NextResponse } from 'next/server';
 import { query } from '@/lib/db';
 import { auth } from '@clerk/nextjs/server';
+import fs from 'fs';
+import path from 'path';
 
 export async function POST(request) {
   try {
-    const body = await request.json();
-    
-    const {
-      name,
-      email,
-      phone,
-      city,
-      expected_salary = null,
-      apply_for,
-      resume_filename = null
-    } = body;
+    const formData = await request.formData();
+
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const phone = formData.get('phone');
+    const city = formData.get('city');
+    const expected_salary = formData.get('expected_salary') || null;
+    const apply_for = formData.get('apply_for');
+    const resume = formData.get('resume'); // File input
 
     // Validate required fields
-    if (!name || !email || !phone || !city || !apply_for) {
+    if (!name || !email || !phone || !city || !apply_for || !resume) {
       return NextResponse.json(
-        { error: 'Name, email, phone, city, and position are required fields' },
+        { error: 'All fields including resume are required' },
         { status: 400 }
       );
     }
@@ -33,7 +33,20 @@ export async function POST(request) {
       );
     }
 
-    // Insert career application into database
+    // Ensure upload directory exists
+    const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'careers');
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true });
+    }
+
+    // Save the uploaded file
+    const resumeBytes = await resume.arrayBuffer();
+    const buffer = Buffer.from(resumeBytes);
+    const fileName = `${Date.now()}_${resume.name}`;
+    const filePath = path.join(uploadDir, fileName);
+    fs.writeFileSync(filePath, buffer);
+
+    // Save entry to DB
     const sql = `
       INSERT INTO careers 
       (name, email, phone, city, expected_salary, apply_for, resume_filename)
@@ -47,7 +60,7 @@ export async function POST(request) {
       city,
       expected_salary,
       apply_for,
-      resume_filename
+      fileName
     ];
 
     const result = await query(sql, params);
@@ -55,16 +68,17 @@ export async function POST(request) {
     return NextResponse.json(
       { 
         success: true,
-        message: 'Career application saved successfully',
-        applicationId: result.insertId
+        message: 'Career application and resume uploaded successfully',
+        applicationId: result.insertId,
+        resume_url: `/uploads/careers/${fileName}`
       },
       { status: 201 }
     );
 
   } catch (error) {
-    console.error('Error saving career application:', error);
+    console.error('Error uploading resume:', error);
     return NextResponse.json(
-      { error: 'Failed to save career application. Please try again.' },
+      { error: 'Failed to upload resume or save application.' },
       { status: 500 }
     );
   }
