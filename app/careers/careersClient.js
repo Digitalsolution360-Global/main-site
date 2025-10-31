@@ -450,7 +450,7 @@ function CareersPage() {
                     required
                     disabled={isSubmitting}
                     className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                    placeholder='Nakul Jaglan'
+                    placeholder='Enter your name'
                   />
                 </div>
 
@@ -468,7 +468,7 @@ function CareersPage() {
                     required
                     disabled={isSubmitting}
                     className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                    placeholder='nakul@example.com'
+                    placeholder='Enter your email'
                   />
                 </div>
 
@@ -486,7 +486,7 @@ function CareersPage() {
                     required
                     disabled={isSubmitting}
                     className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                    placeholder='+91 98765 43210'
+                    placeholder='Enter your phone'
                   />
                 </div>
 
@@ -504,7 +504,7 @@ function CareersPage() {
                     required
                     disabled={isSubmitting}
                     className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                    placeholder='Noida'
+                    placeholder='Enter your city'
                   />
                 </div>
 
@@ -522,7 +522,7 @@ function CareersPage() {
                     required
                     disabled={isSubmitting}
                     className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                    placeholder='₹25,000'
+                    placeholder='Enter expected salary'
                   />
                 </div>
 
