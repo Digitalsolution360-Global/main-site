@@ -61,46 +61,68 @@ function CareersPage() {
   };
 
   const handleFormSubmit = async (e) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  try {
-    const submitData = new FormData();
-    submitData.append('name', formData.name);
-    submitData.append('email', formData.email);
-    submitData.append('phone', formData.phone);
-    submitData.append('city', formData.city);
-    submitData.append('expected_salary', formData.expectedSalary || '');
-    submitData.append('apply_for', formData.applyFor);
+    try {
+      // First, save to database
+      const dbResponse = await fetch('/api/careers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          city: formData.city,
+          expected_salary: formData.expectedSalary || null,
+          apply_for: formData.applyFor,
+          resume_filename: formData.resume ? formData.resume.name : null
+        })
+      });
 
-    // Append file
-    if (formData.resume) {
-      submitData.append('resume', formData.resume);
+      if (!dbResponse.ok) {
+        throw new Error('Failed to save to database');
+      }
+
+      // Create FormData to handle file upload for email
+      const submitData = new FormData();
+      submitData.append('name', formData.name);
+      submitData.append('email', formData.email);
+      submitData.append('phone', formData.phone);
+      submitData.append('city', formData.city);
+      submitData.append('Expected Salary', formData.expectedSalary);
+      submitData.append('Apply For', formData.applyFor);
+      
+      // Append file if exists
+      if (formData.resume) {
+        submitData.append('attachment', formData.resume);
+      }
+      
+      // Add hidden fields
+      submitData.append('_captcha', 'false');
+      submitData.append('_template', 'table');
+
+      // Send email with resume attachment
+      const emailResponse = await fetch('https://formsubmit.co/globalweb3600@gmail.com', {
+        method: 'POST',
+        body: submitData
+      });
+
+      console.log('Email submission status:', emailResponse.status);
+
+      // Show success even if email fails (data is saved in DB)
+      resetForm();
+      setShowThankYou(true);
+      
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Failed to submit application. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
-
-    // Send to your backend
-    const response = await fetch('/api/careers', {
-      method: 'POST',
-      body: submitData // do NOT set headers
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) throw new Error(data.error || 'Failed to submit');
-
-    console.log('Application submitted:', data);
-
-    resetForm();
-    setShowThankYou(true);
-
-  } catch (error) {
-    console.error('Form submission error:', error);
-    alert('Failed to submit application. Please try again.');
-  } finally {
-    setIsSubmitting(false);
-  }
-};
-
+  };
 
   return (
     <BgLayout>
