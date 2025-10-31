@@ -202,7 +202,7 @@ function ContactPage() {
                       required
                       disabled={isSubmitting}
                       className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                      placeholder='Nakul Jaglan'
+                      placeholder=''
                     />
                   </div>
 
@@ -221,7 +221,7 @@ function ContactPage() {
                         required
                         disabled={isSubmitting}
                         className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                        placeholder='Your Company Name'
+                        placeholder=''
                       />
                     </div>
                     <div>
@@ -236,7 +236,7 @@ function ContactPage() {
                         onChange={handleInputChange}
                         disabled={isSubmitting}
                         className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                        placeholder='https://yourwebsite.com'
+                        placeholder=''
                       />
                     </div>
                   </div>
@@ -256,7 +256,7 @@ function ContactPage() {
                         required
                         disabled={isSubmitting}
                         className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                        placeholder='nakul@example.com'
+                        placeholder=''
                       />
                     </div>
                     <div>
@@ -285,7 +285,7 @@ function ContactPage() {
                           required
                           disabled={isSubmitting}
                           className='flex-1 px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                          placeholder='9876543210'
+                          placeholder=''
                         />
                       </div>
                     </div>
@@ -330,7 +330,7 @@ function ContactPage() {
                       rows={5}
                       disabled={isSubmitting}
                       className='w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                      placeholder='Describe your requirements, goals, and timeline...'
+                      placeholder=''
                     />
                   </div>
 
