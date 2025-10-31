@@ -34,7 +34,7 @@ export async function POST(request) {
     }
 
     // Ensure upload directory exists
-    const uploadDir = path.join(process.cwd(), 'public');
+    const uploadDir = path.join(process.cwd(), 'public','careers');
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }
