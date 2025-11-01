@@ -56,7 +56,10 @@ function PrivacyPage() {
       <div className="container max-w-7xl mx-auto px-4 md:px-8 space-y-10">
         
         {/* Section 1 */}
-        <div>
+        <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}>
           <h2 className="text-2xl font-bold mb-4">1. Information We Collect</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="p-6 bg-white rounded-2xl shadow">
@@ -85,7 +88,7 @@ function PrivacyPage() {
               </ul>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Section 2 */}
         <div>
