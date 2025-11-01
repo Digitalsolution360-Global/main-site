@@ -149,9 +149,6 @@ function Footer() {
               <Link href="/privacy-policy" className='text-gray-400 hover:text-white transition-colors'>
                 Privacy Policy
               </Link>
-              <Link href="/terms-conditions" className='text-gray-400 hover:text-white transition-colors'>
-                Terms & Conditions
-              </Link>
             </div>
           </div>
         </div>
