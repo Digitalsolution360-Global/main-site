@@ -52,52 +52,7 @@ function PrivacyPage() {
           </motion.div>
         </div>
       </section>
-
-      {/* Our Story Section */}
-      <section className='py-10'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
-            
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.4 }}
-            >
-              <h2 className='text-4xl md:text-5xl font-bold mb-6'>
-                Our <span className='text-blue-600'>Story</span>
-              </h2>
-              <div className='w-20 h-1 bg-blue-600 mb-6'></div>
-              <p className='text-lg text-gray-600 mb-4 leading-relaxed'>
-                Digital Solution 360 was founded with a simple yet powerful vision: to help businesses of all sizes harness the full potential of digital marketing and technology. What started as a small team of passionate digital enthusiasts has grown into a full-service digital agency serving clients across the globe.
-              </p>
-              <p className='text-lg text-gray-600 mb-4 leading-relaxed'>
-                Over the years, we&apos;ve evolved with the digital landscape, continuously adapting our strategies and expanding our expertise to stay ahead of industry trends. From SEO and social media marketing to custom web development and e-commerce solutions, we&apos;ve helped hundreds of businesses transform their digital presence and achieve measurable results.
-              </p>
-              <p className='text-lg text-gray-600 leading-relaxed'>
-                Today, we&apos;re proud to be recognized as trusted partners who not only deliver exceptional results but also genuinely care about our clients&apos; success. Every project we undertake is an opportunity to make a real difference in someone&apos;s business journey.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className='relative'
-            >
-              <img
-                src="/about/about-us.webp"
-                alt="Our Story"
-                className='rounded-2xl shadow-2xl w-full'
-              />
-              <div className='absolute -bottom-6 -right-6 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl -z-10'></div>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision from mission-vision component */}
+{/* Mission & Vision from mission-vision component */}
       <section className='py-10 '>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
@@ -144,6 +99,50 @@ function PrivacyPage() {
                 We envision a digital landscape where every business, from local startups to global enterprises, can leverage technology to realize its full potential and connect authentically with its audience. We strive to be the catalyst for digital transformation.
               </p>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story Section */}
+      <section className='py-10'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
+            
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.4 }}
+            >
+              <h2 className='text-4xl md:text-5xl font-bold mb-6'>
+                Our <span className='text-blue-600'>Story</span>
+              </h2>
+              <div className='w-20 h-1 bg-blue-600 mb-6'></div>
+              <p className='text-lg text-gray-600 mb-4 leading-relaxed'>
+                Digital Solution 360 was founded with a simple yet powerful vision: to help businesses of all sizes harness the full potential of digital marketing and technology. What started as a small team of passionate digital enthusiasts has grown into a full-service digital agency serving clients across the globe.
+              </p>
+              <p className='text-lg text-gray-600 mb-4 leading-relaxed'>
+                Over the years, we&apos;ve evolved with the digital landscape, continuously adapting our strategies and expanding our expertise to stay ahead of industry trends. From SEO and social media marketing to custom web development and e-commerce solutions, we&apos;ve helped hundreds of businesses transform their digital presence and achieve measurable results.
+              </p>
+              <p className='text-lg text-gray-600 leading-relaxed'>
+                Today, we&apos;re proud to be recognized as trusted partners who not only deliver exceptional results but also genuinely care about our clients&apos; success. Every project we undertake is an opportunity to make a real difference in someone&apos;s business journey.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className='relative'
+            >
+              <img
+                src="/about/about-us.webp"
+                alt="Our Story"
+                className='rounded-2xl shadow-2xl w-full'
+              />
+              <div className='absolute -bottom-6 -right-6 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl -z-10'></div>
+            </motion.div>
+
           </div>
         </div>
       </section>
