@@ -65,7 +65,7 @@ function Services() {
 
   return(
     <section className="py-10 mt-20 sm:mt-0">
-        <motion.h2 
+        <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -73,7 +73,7 @@ function Services() {
             className="text-3xl md:text-5xl font-bold text-center mx-auto mb-4"
         >
             Comprehensive <span className="text-blue-500">Digital Marketing</span> Services
-        </motion.h2>
+        </motion.h1>
         
         <motion.p 
             initial={{ opacity: 0, y: 20 }}
