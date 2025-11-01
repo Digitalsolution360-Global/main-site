@@ -114,7 +114,7 @@ function PrivacyPage() {
         <div className='absolute inset-0'>
           <img
             src="/about/hero-image.webp"
-            alt="About Us"
+            alt="Privacy Policy"
             className='w-full h-full object-cover'
           />
           {/* Overlay */}
@@ -135,7 +135,7 @@ function PrivacyPage() {
               <span>Home</span>
             </Link>
             <IconChevronRight size={16} className='text-blue-300' />
-            <span className='text-blue-200'>About Us</span>
+            <span className='text-blue-200'>Privacy Policy</span>
           </motion.div>
 
           {/* Title */}
@@ -145,11 +145,8 @@ function PrivacyPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold mb-6'>
-              About <span className='text-blue-500'>Us</span>
+              Privacy <span className='text-blue-500'>Policy</span>
             </h1>
-            <p className='text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed'>
-              Empowering businesses with innovative digital solutions that drive growth and success.
-            </p>
           </motion.div>
         </div>
       </section>
