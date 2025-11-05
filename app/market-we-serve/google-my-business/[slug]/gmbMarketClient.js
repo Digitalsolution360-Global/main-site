@@ -341,7 +341,7 @@ export default function GMBServicePage({ params }) {
                         required
                         disabled={isSubmitting}
                         className='w-full pl-10 pr-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                        placeholder='Nakul Jaglan'
+                        placeholder='Enter your name'
                       />
                     </div>
                   </div>
@@ -361,7 +361,7 @@ export default function GMBServicePage({ params }) {
                         required
                         disabled={isSubmitting}
                         className='w-full pl-10 pr-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                        placeholder='nakul@example.com'
+                        placeholder='Enter your email'
                       />
                     </div>
                   </div>
@@ -381,7 +381,7 @@ export default function GMBServicePage({ params }) {
                         required
                         disabled={isSubmitting}
                         className='w-full pl-10 pr-4 py-3 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:bg-gray-100'
-                        placeholder='+1 234 567 8900'
+                        placeholder='Enter your phone'
                       />
                     </div>
                   </div>
