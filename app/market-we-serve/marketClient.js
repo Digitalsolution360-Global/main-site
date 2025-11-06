@@ -153,7 +153,7 @@ function MarketWeServePage() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold mb-6'>
-              Markets We <span className='text-transparent bg-clip-text bg-blue-500'>Serve</span>
+              Markets Wee <span className='text-transparent bg-clip-text bg-blue-500'>Serve</span>
             </h1>
             <p className='text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed'>
               Delivering exceptional digital solutions across cities worldwide
