@@ -10,7 +10,7 @@ const services = [
   { id: 'google-my-business', name: 'Google My Business', color: 'blue' },
   { id: 'seo', name: 'SEO', color: 'green' },
   { id: 'website-development', name: 'Website Development', color: 'purple' },
-  // { id: 'content-writing', name: 'Content Writing', color: 'orange' }
+  { id: 'digital-marketing', name: 'Digital Marketing', color: 'orange' }
 ];
 
 function MarketWeServePage() {
@@ -31,6 +31,8 @@ function MarketWeServePage() {
         return city.web_slug;
       case 'content-writing':
         return city.content_slug;
+      case 'digital-marketing':
+        return city.digital_slug;
       default:
         return city.web_slug;
     }
@@ -47,6 +49,8 @@ function MarketWeServePage() {
         return state.web_slug;
       case 'content-writing':
         return state.content_slug;
+         case 'digital-marketing':
+        return city.digital_slug;
       default:
         return state.web_slug;
     }
