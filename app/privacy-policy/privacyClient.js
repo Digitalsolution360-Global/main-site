@@ -7,6 +7,16 @@ import { motion, useInView } from 'motion/react'
 import { IconTarget, IconUsers, IconTrophy, IconHeart, IconRocket, IconBulb, IconHome, IconChevronRight } from '@tabler/icons-react'
 import Link from 'next/link'
 
+// Animation variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6 }
+  }
+};
+
 function PrivacyPage() {
   return (
     <BgLayout>
