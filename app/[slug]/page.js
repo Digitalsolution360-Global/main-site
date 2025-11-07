@@ -8,6 +8,7 @@ import { notFound } from 'next/navigation';
 const WebDevServicePage = dynamic(() => import('../market-we-serve/website-development/[slug]/page'), { ssr: false });
 const SEOServicePage = dynamic(() => import('../market-we-serve/seo/[slug]/page'), { ssr: false });
 const GMBServicePage = dynamic(() => import('../market-we-serve/google-my-business/[slug]/page'), { ssr: false });
+const DigitalMarketingServicePage = dynamic(() => import('../market-we-serve/digital-marketing/[slug]/page'), { ssr: false });
 const BlogDetailPage = dynamic(() => import('../blogs/[slug]/page'), { ssr: false });
 
 export default function DynamicPage({ params }) {
@@ -76,6 +77,8 @@ export default function DynamicPage({ params }) {
     return <SEOServicePage params={Promise.resolve({ slug })} />;
   } else if (slug.includes('website-development')) {
     return <WebDevServicePage params={Promise.resolve({ slug })} />;
+  } else if (slug.includes('digital-marketing')) {
+    return <DigitalMarketingServicePage params={Promise.resolve({ slug })} />;
   }
   
   // Default to website development

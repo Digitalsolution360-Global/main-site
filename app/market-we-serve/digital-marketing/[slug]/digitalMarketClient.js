@@ -145,38 +145,38 @@ export default function DigitalServicePage({ params }) {
   ];
 
   const services = [
-    'Claiming and Verifying Your Business Profile',
-    'Consistent and Accurate NAP Data',
-    'Category and Attribute Optimization',
-    'High-Quality Photos and Videos Upload',
-    'Regular GMB Posts and Offers',
-    'Review Generation and Reputation Management',
-    'Adding Products, Services, and Menus',
-    'Keyword and Location Optimization in Descriptions',
-    'Google Q&A Management and Optimization',
-    'Advanced Messaging and Appointment Features'
+    'Search Engine Optimization (SEO) - Technical & On-Page',
+    'Strategic Social Media Marketing & Management',
+    'Pay-Per-Click (PPC) Advertising & Google Ads',
+    'Content Marketing & Authority Building',
+    'Advanced Lead Generation & Automation',
+    'Brand Promotion & Reputation Management',
+    'Email Marketing & Customer Retention',
+    'Conversion Rate Optimization (CRO)',
+    'Analytics & Performance Tracking',
+    'Marketing Strategy & Consulting'
   ];
 
   const faqs = [
     {
-      question: `What is Google My Business in ${cityName}?`,
-      answer: `Google My Business (GMB) is a free tool that helps businesses in ${cityName} manage their online presence on Google Search and Maps. It allows you to connect with customers, post updates, and manage your business information.`
+      question: `What digital marketing services do you offer in ${cityName}?`,
+      answer: `We offer comprehensive digital marketing services in ${cityName} including SEO, social media marketing, PPC advertising, content marketing, lead generation, brand promotion, email marketing, and conversion optimization.`
     },
     {
-      question: `Why is GMB important for businesses in ${cityName}?`,
-      answer: `GMB is crucial for local visibility in ${cityName}. It helps your business appear in local searches, Google Maps, and the local 3-pack, making it easier for customers in ${cityName} to find and contact you.`
+      question: `Why should I outsource digital marketing in ${cityName}?`,
+      answer: `Outsourcing digital marketing in ${cityName} gives you access to expert professionals, advanced tools, and proven strategies without the overhead of hiring a full in-house team. It's cost-effective and delivers better results faster.`
     },
     {
-      question: `How long does it take to see results from GMB optimization in ${cityName}?`,
-      answer: `Most businesses in ${cityName} start seeing improved visibility within 2-4 weeks of proper GMB optimization. However, building a strong presence with reviews and regular updates takes consistent effort over 3-6 months.`
+      question: `How long does it take to see results from digital marketing in ${cityName}?`,
+      answer: `SEO typically shows results in 3-6 months, while PPC and social media can generate immediate visibility. We focus on both quick wins and long-term sustainable growth for businesses in ${cityName}.`
     },
     {
-      question: `Do you provide GMB services for all types of businesses in ${cityName}?`,
-      answer: `Yes! We provide GMB services for all types of businesses in ${cityName} - from local shops and restaurants to professional services, healthcare, real estate, and more.`
+      question: `Is digital marketing affordable for small businesses in ${cityName}?`,
+      answer: `Absolutely! We offer affordable digital marketing packages designed specifically for small businesses and startups in ${cityName}. Our goal is to make professional marketing accessible to all businesses, regardless of size.`
     },
     {
-      question: `What makes your GMB services different in ${cityName}?`,
-      answer: `Our team has deep expertise in ${cityName}'s local market. We use advanced strategies, maintain transparency, provide regular reports, and focus on generating real business results, not just profile views.`
+      question: `What makes Digital Solution 360 different in ${cityName}?`,
+      answer: `We combine advanced AI technology with human creativity, offer transparent reporting, provide personalized strategies for the ${cityName} market, and focus on building long-term partnerships rather than just selling services.`
     }
   ];
 
@@ -250,7 +250,7 @@ export default function DigitalServicePage({ params }) {
                 <IconChevronRight size={16} className='text-blue-400' />
               </>
             )}
-            <span className='text-blue-400'>GMB in {cityName}</span>
+            <span className='text-blue-400'>Digital Marketing in {cityName}</span>
           </motion.div>
 
           <motion.div
@@ -260,10 +260,10 @@ export default function DigitalServicePage({ params }) {
             className='text-left lg:text-center'
           >
             <h1 className='text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4'>
-              Google My Business Services in <span className='text-blue-400'>{cityName}</span>
+              Digital Marketing Services in <span className='text-blue-400'>{cityName}</span>
             </h1>
             <p className='text-lg md:text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-6'>
-              Boost local visibility, manage your Google Business Profile, and attract more customers with expert strategies in {cityName}.
+              Transform your business with expert digital marketing strategies including SEO, social media, PPC, and content marketing in {cityName}.
             </p>
             <div className='flex flex-wrap items-center justify-center gap-6 text-sm md:text-base'>
               <div className='flex items-center gap-2'>
@@ -291,23 +291,39 @@ export default function DigitalServicePage({ params }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>Introduction</h2>
+                <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>The Hidden Secret of Digital Growth in {cityName}</h2>
                 
                 <div className='prose prose-lg max-w-none space-y-4 text-gray-700 leading-relaxed'>
                   <p>
-                    The digital world is full of competition for any business that has zero or negligible online reach. When it comes to customers, they search on Google for any of their required products and services.
+                    Have you ever thought why certain businesses in {cityName} are expanding at a greater rate than others online? In the new digital world, nothing matters more than visibility. Whether you&apos;re a startup or an established business, finding the right audience at the right time is what success is.
                   </p>
                   
                   <p>
-                    Is your business listed in Google My Business? If not, you will miss the right audience at the right time. If you want to appear to your suitable customers, go with the advanced Google My Business option.
+                    That&apos;s where DigitalSolution 360, the most popular digital marketing service provider, intervenes to help make your brand shine. We don&apos;t build temporary campaigns - we create lasting digital success.
                   </p>
                   
                   <p>
-                    This is no longer optional for businesses that seek local visibility, better customer engagement, and convert their viewers into loyal or permanent customers. At Digital Solution 360, we specialize in helping businesses unlock the full potential of Google My Business.
+                    This comprehensive guide explores how effective coordination of strategic keywords, quality content, and data-driven campaigns can create a powerful, measurable digital strategy. We assist businesses with genuine, quality digital marketing, optimization, paid searches, social media management, and sophisticated lead generation solutions.
+                  </p>
+
+                  <h3 className='text-2xl font-bold text-gray-900 mt-8 mb-4'>The Increasing Digital Marketing Requirement: An International Platform</h3>
+                  
+                  <p>
+                    {cityName} is developing at an unprecedented pace and establishing itself as a business hub. Enterprises don&apos;t simply compete in local markets anymore, but at a global, 24/7 digital level. Whether you&apos;re an energetic e-commerce brand or a major real estate developer, all require a solid, sturdy web presence.
                   </p>
                   
                   <p>
-                    Here, we just don&apos;t set up profiles but unlock the power of Google My Business free ads using advanced strategies, marketing integrations, and high-quality visuals. With years of experience, our talented experts can handle all the tasks to elevate your business&apos;s online reach in {cityName} or other parts of the country.
+                    That&apos;s why quality and strategic digital marketing services have gained ultimate necessity. Conventional marketing approaches are no longer accurate or measurable in terms of ROI needed in business today. Nowadays, customers browse, scroll, compare and eventually shop online.
+                  </p>
+
+                  <h3 className='text-2xl font-bold text-gray-900 mt-8 mb-4'>Digital Marketing Outsourcing: The Smart Business Action</h3>
+                  
+                  <p>
+                    Outsourcing digital marketing has been a brilliant and strategic business decision for many developing businesses in {cityName}. Rather than shouldering the enormous overhead and recruitment expenses of managing a full-fledged in-house staff, companies turn to specialized agencies like Digital Solution 360.
+                  </p>
+
+                  <p>
+                    This provides direct access to the entire range of professional competence and high-level marketing technology. Outsourcing costs very little to run, efficiency and productivity is boosted tremendously, and the results are always better since you share the experience and high level of operating that is superior to the market.
                   </p>
                 </div>
               </motion.div>
@@ -412,7 +428,7 @@ export default function DigitalServicePage({ params }) {
       </section>
 
       {/* Expert Procedures Section */}
-      <section className='py-10'>
+      <section className='py-10 bg-gray-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -422,30 +438,38 @@ export default function DigitalServicePage({ params }) {
             className='text-left lg:text-center mb-12'
           >
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
-              Expert-Level Google My Business Procedures: Join Digital Solution 360
+              Comprehensive Digital Marketing Solutions in {cityName}
             </h2>
             <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
-              Are you searching to elevate your online stature with Google My Business in {cityName}? Digital Solution 360 is the best choice for those seeking comprehensive services in Google Business Marketing.
+              DigitalSolution 360 offers an entire integrated package of digital marketing services built to accommodate every facet of online expansion.
             </p>
           </motion.div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
             {[
               {
-                title: 'Better Management in GMB and Local SEO',
-                description: 'Customizable content and SEO strategies help your business grow online effortlessly.'
+                title: 'Advanced Search Engine Optimization (SEO)',
+                description: 'Our certified SEO specialists develop roadmaps that make your business rise higher in rankings on Google. We embrace intelligent keyword placement, technical optimization, and ethical link building to develop authority and secure constant, high-value organic traffic.'
               },
               {
-                title: 'Advanced Tools and Customizations',
-                description: 'We use the latest methods to stay ahead of Google algorithm changes.'
+                title: 'Strategic Social Media Marketing (SMM)',
+                description: 'Social media is where brand loyalty and viral growth occur. Our team designs engaging posts, conducts targeted advertising campaigns, and professionally manages your profiles to ensure your audience is hooked and loyal.'
               },
               {
-                title: 'Maintain Transparency with Customers',
-                description: 'We maintain transparency and awareness to keep every detail proper on GMB.'
+                title: 'Pay-Per-Click (PPC) Advertising',
+                description: 'Get immediate, laser-like visibility with PPC advertising. Our professional PPC services are aimed at high ROI, making every single click worth real value with optimized Google Ads and targeted social media efforts.'
               },
               {
-                title: 'Client-Specific Attributes',
-                description: 'Every strategy is client-focused, with tracking and analysis for performance.'
+                title: 'Authority-Building Content Marketing',
+                description: 'Great content is the most powerful engine which generates trust. Our brilliant writers and strategists compose interesting content - blogs, web pages, case studies that not only inform but also drive action using highly targeted long-tail keywords.'
+              },
+              {
+                title: 'Advanced Lead Generation Services',
+                description: 'We offer advanced lead generation platforms enabling you to successfully transform website traffic into prospective customers with data-driven targeting, advanced automation, and custom messaging for a healthy, consistent sales pipeline.'
+              },
+              {
+                title: 'Brand Promotion and Trust Building',
+                description: 'Differentiation depends on brand promotion. We incorporate strategic keywords in all content and advertisement campaigns, solidifying your brand name and making your business a positive memory in the minds of your target audience.'
               }
             ].map((item, index) => (
               <motion.div
@@ -482,16 +506,19 @@ export default function DigitalServicePage({ params }) {
             className='text-left lg:text-center mb-12'
           >
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
-              Benefits to Choose Creating a Google Business Profile in {cityName}
+              Why Choose Digital Marketing with Digital Solution 360 in {cityName}
             </h2>
+            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
+              SEO and Social Media: The Ideal Growth Combo - When digital channels harmonize seamlessly, maximum growth potential is unleashed.
+            </p>
           </motion.div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
             {[
-              { title: 'Better Customer Engagement', description: 'Attract more customers online.' },
-              { title: 'Improved Search Engine Appearance', description: 'Show up in searches for your business category.' },
-              { title: 'Gain Trust from Viewers', description: 'Build credibility with a strong online presence.' },
-              { title: "Control on Business's Growth", description: 'Analyze growth with professional insights.' }
+              { title: 'Client Partnership Model', description: 'Strategic partnership with transparency and mutual empowerment throughout the process.' },
+              { title: 'Affordable Solutions', description: 'Professional digital marketing without straining your budget - quality for all businesses.' },
+              { title: 'Personalized Strategies', description: 'Highly personalized campaigns tailored to your specific target audience and market.' },
+              { title: 'Future-Ready Marketing', description: 'Blend of advanced AI technology with human-centered creativity for genuine campaigns.' }
             ].map((benefit, index) => (
               <motion.div
                 key={index}
@@ -513,7 +540,7 @@ export default function DigitalServicePage({ params }) {
       </section>
 
       {/* Services List Section */}
-      <section className='py-10'>
+      <section className='py-10 bg-gray-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -523,7 +550,7 @@ export default function DigitalServicePage({ params }) {
             className='text-left lg:text-center mb-12'
           >
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
-              Our GMB Services in {cityName}
+              Our Digital Marketing Services in {cityName}
             </h2>
           </motion.div>
 
