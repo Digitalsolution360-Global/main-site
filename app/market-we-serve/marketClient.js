@@ -49,8 +49,8 @@ function MarketWeServePage() {
         return state.web_slug;
       case 'content-writing':
         return state.content_slug;
-         case 'digital-marketing':
-        return city.digital_slug;
+      case 'digital-marketing':
+        return state.digital_slug;
       default:
         return state.web_slug;
     }

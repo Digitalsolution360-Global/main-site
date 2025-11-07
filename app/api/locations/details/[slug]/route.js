@@ -34,6 +34,8 @@ export async function GET(request, { params }) {
       serviceType = 'seo';
     } else if (location.content_slug === slug) {
       serviceType = 'content-writing';
+    } else if (location.digital_slug === slug) {
+      serviceType = 'digital-marketing';
     } else if (location.web_slug === slug) {
       serviceType = 'website-development';
     }
@@ -46,6 +48,9 @@ export async function GET(request, { params }) {
       } else if (serviceType === 'seo') {
         location.state_slug = location.state_seo_slug;
         location.country_slug = location.country_seo_slug;
+      } else if (serviceType === 'digital-marketing') {
+        location.state_slug = location.state_digital_slug;
+        location.country_slug = location.country_digital_slug;
       } else {
         location.state_slug = location.state_web_slug;
         location.country_slug = location.country_web_slug;
@@ -55,6 +60,8 @@ export async function GET(request, { params }) {
         location.country_slug = location.country_gmb_slug;
       } else if (serviceType === 'seo') {
         location.country_slug = location.country_seo_slug;
+      } else if (serviceType === 'digital-marketing') {
+        location.country_slug = location.country_digital_slug;
       } else {
         location.country_slug = location.country_web_slug;
       }
