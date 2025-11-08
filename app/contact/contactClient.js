@@ -419,7 +419,7 @@ function ContactPage() {
                     <IconMapPin size={24} className='text-blue-600 flex-shrink-0' />
                     <div>
                       <p className='font-semibold text-gray-900'>Address</p>
-                      <p className='text-gray-600'>B-76, Basement, Noida Sector-2, Near Noida Sector-15 Metro Station, Uttar Pradesh - 201301</p>
+                      <p className='text-gray-600'>Juma Suhail Building | 11, 27 street | Port Saeed, Deira, Dubai, Dubai Municipality</p>
                     </div>
                   </div>
                   

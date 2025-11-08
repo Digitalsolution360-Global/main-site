@@ -215,7 +215,7 @@ function PrivacyPage() {
               <span className="font-semibold">Phone:</span> +91 99905 56217
             </li>
             <li>
-              <span className="font-semibold">Address:</span> B-76, Basement, Noida Sector-2, Near Noida Sector-15 Metro Station, Uttar Pradesh – 201301
+              <span className="font-semibold">Address:</span> Juma Suhail Building | 11, 27 street | Port Saeed, Deira, Dubai, Dubai Municipality
             </li>
           </ul>
         </motion.div>

@@ -118,9 +118,9 @@ function Footer() {
               <li className='flex items-start gap-3'>
                 <FaMapMarkerAlt size={20} className='text-blue-500 flex-shrink-0 mt-1' />
                 <span className='text-gray-400 text-sm'>
-                  B-76, Basement, Noida Sector-2,<br />
-                  Near Noida Sector-15 Metro Station,<br />
-                  Uttar Pradesh - 201301
+                  Juma Suhail Building,<br />
+                  11, 27 street,<br />
+                  Port Saeed, Deira, Dubai, Dubai Municipality
                 </span>
               </li>
               <li className='flex items-center gap-3'>
