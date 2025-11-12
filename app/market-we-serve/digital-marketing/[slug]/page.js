@@ -20,12 +20,12 @@ export async function generateMetadata({ params }) {
   const { slug } = await params
   const data = await getLocationData(slug)
   
-  if (!data || !data.location) {
-    return {
-      title: 'Digital Marketing Services | Digital Solution 360',
-      description: 'Professional digital marketing services to grow your business online with proven strategies.',
-    }
-  }
+  // if (!data || !data.location) {
+  //   return {
+  //     title: 'Digital Marketing Services | Digital Solution 360',
+  //     description: 'Professional digital marketing services to grow your business online with proven strategies.',
+  //   }
+  // }
 
   const { location, locationType } = data
   const locationName = locationType === 'city' 
