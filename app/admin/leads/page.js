@@ -572,7 +572,7 @@ export default function AdminLeads() {
                           {lead.priority || 'N/A'}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-500">
                         {formatDate(lead.next_follow_up_date)}
                       </td>
                       <td className="px-6 py-4 text-sm">
