@@ -34,9 +34,9 @@ export async function generateMetadata({ params }) {
     ? location.name 
     : location.name
 
-  const title = `Website Development Company in ${locationName} | Digital Solution 360`
-  const description = `Looking for professional website development services in ${locationName}? Digital Solution 360 offers custom web design, e-commerce solutions, and responsive websites. Get a free quote today!`
-  const keywords = `website development ${locationName}, web design ${locationName}, website company ${locationName}, custom website ${locationName}, responsive website ${locationName}, e-commerce website ${locationName}, Digital Solution 360`
+  const title = `Transform Your Business with Expert Web Development in ${locationName} | Digital Solution 360`
+  const description = `Top Web Development Company in ${locationName}. We craft custom, high-performance websites and e-commerce solutions that drive measurable business growth and dominate search rankings. Future-proof your digital presence.`
+  const keywords = `web development company ${locationName}, web development companies in ${locationName}, ${locationName} web development company, web development company in ${locationName}, web design company ${locationName}, web development ${locationName}, best web development company in ${locationName}, web development agency, web development services, web development ${locationName}, web design company in ${locationName}`
 
   return {
     title,
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title,
       description,
-      url: `https://www.digitalsolution360.com/market-we-serve/website-development/${slug}`,
+      url: `https://www.digitalsolution360.com/${slug}`,
       siteName: 'Digital Solution 360',
       images: [
         {
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }) {
       images: ['https://www.digitalsolution360.com/services/services-hero.webp'],
     },
     alternates: {
-      canonical: `https://www.digitalsolution360.com/market-we-serve/website-development/${slug}`,
+      canonical: `https://www.digitalsolution360.com/${slug}`,
     },
   }
 }

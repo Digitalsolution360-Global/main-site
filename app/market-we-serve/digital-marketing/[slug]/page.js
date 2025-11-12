@@ -34,9 +34,9 @@ export async function generateMetadata({ params }) {
     ? location.name 
     : location.name
 
-  const title = `Digital Marketing Services in ${locationName} | Top Agency | Digital Solution 360`
-  const description = `Grow your business with expert digital marketing services in ${locationName}. Digital Solution 360 offers SEO, social media marketing, PPC, content marketing, and more. Get a free consultation today!`
-  const keywords = `digital marketing services ${locationName}, digital marketing agency ${locationName}, online marketing ${locationName}, social media marketing ${locationName}, PPC services ${locationName}, Digital Solution 360`
+  const title = `Elevate Your Brand with ${locationName}'s Digital Marketing Services`
+  const description = `Build your success in the ${locationName} digital marketing. We offer expert SEO services in ${locationName} and across the Emirates, creating responsive, high-performance websites optimized for business growth.`
+  const keywords = `digital marketing services in ${locationName}, digital marketing services ${locationName}, digital marketing services in ${locationName}, digital marketing services in ${locationName}, ecommerce digital marketing services ${locationName}, best digital marketing services, digital marketing services company, agency digital marketing services, ${locationName} digital marketing services, affordable digital marketing services in ${locationName}`
 
   return {
     title,
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title,
       description,
-      url: `https://www.digitalsolution360.com/market-we-serve/digital-marketing/${slug}`,
+      url: `https://www.digitalsolution360.com/${slug}`,
       siteName: 'Digital Solution 360',
       images: [
         {
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }) {
       images: ['https://www.digitalsolution360.com/services/services-hero.webp'],
     },
     alternates: {
-      canonical: `https://www.digitalsolution360.com/market-we-serve/digital-marketing/${slug}`,
+      canonical: `https://www.digitalsolution360.com/${slug}`,
     },
   }
 }
