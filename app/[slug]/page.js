@@ -8,13 +8,13 @@ import BlogDetailPageClient from '../blogs/[slug]/blogSlugClient';
 // Fetch location or blog data
 async function getPageData(slug) {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ;
-    
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
     // First, check if it's a blog post
     const blogResponse = await fetch(`${baseUrl}/api/blogs/${slug}`, {
       cache: 'no-store'
     });
-    
+
     if (blogResponse.ok) {
       const blogData = await blogResponse.json();
       if (blogData.blog) {
@@ -27,11 +27,11 @@ async function getPageData(slug) {
       cache: 'no-store'
     });
     const locationData = await locationResponse.json();
-    
+
     if (locationData.error || !locationData.location) {
       return { type: 'notfound' };
     }
-    
+
     return { type: 'location', data: locationData };
   } catch (error) {
     console.error('Error fetching page data:', error);
@@ -43,7 +43,7 @@ async function getPageData(slug) {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const pageData = await getPageData(slug);
-  
+
   if (pageData.type === 'notfound') {
     return {
       title: 'Page Not Found | Digital Solution 360',
@@ -88,7 +88,7 @@ export async function generateMetadata({ params }) {
 
   // For location pages
   const { location, locationType, serviceType } = pageData.data;
-  const locationName = locationType === 'city' 
+  const locationName = locationType === 'city'
     ? location.city || location.name
     : location.name;
 
@@ -106,14 +106,14 @@ export async function generateMetadata({ params }) {
       serviceKeywords = `SEO services ${locationName}, SEO company ${locationName}, search engine optimization ${locationName}, local SEO ${locationName}`;
       break;
     case 'digital-marketing':
-      serviceTitle = `Digital Marketing Services in ${locationName} | Top Agency | Digital Solution 360`;
-      serviceDescription = `Grow your business with expert digital marketing services in ${locationName}. SEO, social media marketing, PPC, content marketing, and more. Get a free consultation today!`;
-      serviceKeywords = `digital marketing services ${locationName}, digital marketing agency ${locationName}, online marketing ${locationName}, social media marketing ${locationName}`;
+      serviceTitle = `Elevate Your Brand with ${locationName}'s Digital Marketing Services`
+      serviceDescription = `Build your success in the ${locationName} digital marketing. We offer expert SEO services in ${locationName} and across the Emirates, creating responsive, high-performance websites optimized for business growth.`
+      serviceKeywords = `digital marketing services in ${locationName}, digital marketing services ${locationName}, digital marketing services in ${locationName}, digital marketing services in ${locationName}, ecommerce digital marketing services ${locationName}, best digital marketing services, digital marketing services company, agency digital marketing services, ${locationName} digital marketing services, affordable digital marketing services in ${locationName}`
       break;
     default:
-      serviceTitle = `Website Development Services in ${locationName} | Digital Solution 360`;
-      serviceDescription = `Professional website development services in ${locationName}. Custom web design, e-commerce solutions, and responsive websites that drive results.`;
-      serviceKeywords = `website development ${locationName}, web design ${locationName}, web development services ${locationName}, website design ${locationName}`;
+      serviceTitle = `Transform Your Business with Expert Web Development in ${locationName} | Digital Solution 360`
+      serviceDescription = `Top Web Development Company in ${locationName}. We craft custom, high-performance websites and e-commerce solutions that drive measurable business growth and dominate search rankings. Future-proof your digital presence.`
+      serviceKeywords = `web development company ${locationName}, web development companies in ${locationName}, ${locationName} web development company, web development company in ${locationName}, web design company ${locationName}, web development ${locationName}, best web development company in ${locationName}, web development agency, web development services, web development ${locationName}, web design company in ${locationName}`
   }
 
   return {
@@ -151,7 +151,7 @@ export async function generateMetadata({ params }) {
 export default async function DynamicPage({ params }) {
   const { slug } = await params;
   const pageData = await getPageData(slug);
-  
+
   if (pageData.type === 'notfound') {
     notFound();
   }
@@ -160,10 +160,10 @@ export default async function DynamicPage({ params }) {
   if (pageData.type === 'blog') {
     return <BlogDetailPageClient params={params} />;
   }
-  
+
   // Render location page - determine which service page based on serviceType from API
   const { serviceType } = pageData.data;
-  
+
   switch (serviceType) {
     case 'google-my-business':
       return <GMBServicePageClient params={params} />;
