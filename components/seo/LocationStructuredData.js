@@ -40,17 +40,12 @@ export default function LocationStructuredData({ locationData, locationType, ser
   const structuredData = {
     "@context": "https://schema.org/",
     "@type": "Product",
-    "name": `Digital Solution 360 - ${serviceName} in ${locationName}`,
+    "name": `Digital Solution 360`,
     "image": "https://www.digitalsolution360.com/logo.png",
     "description": `Digital Solution 360 offers professional ${serviceName.toLowerCase()} services in ${locationName}. Get world-class quality at affordable prices. Contact us at +919990556217 for custom solutions tailored to your business needs.`,
     "brand": {
       "@type": "Brand",
       "name": "Digital Solution 360"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
     },
     "aggregateRating": {
       "@type": "AggregateRating",
