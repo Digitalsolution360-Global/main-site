@@ -1,7 +1,7 @@
 "use client";
 
 import BgLayout from '@/components/layout/bgLayout';
-import React, { useState, useEffect, use } from 'react';
+import React, { useState, useEffect} from 'react';
 import { motion } from 'motion/react';
 import { IconHome, IconChevronRight, IconMapPin, IconCheck, IconStar, IconPhone, IconMail, IconUser, IconChevronDown } from '@tabler/icons-react';
 import Link from 'next/link';
