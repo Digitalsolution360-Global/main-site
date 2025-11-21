@@ -9,7 +9,7 @@ import Clients from '@/components/sections/clients';
 import LocationStructuredData from '@/components/seo/LocationStructuredData';
 import { useParams } from 'next/navigation';
 
-export default function DigitalServicePage({ params }) {
+export default function DigitalServicePage() {
   const { slug } = useParams();
   const [locationData, setLocationData] = useState(null);
   const [locationType, setLocationType] = useState(null);
