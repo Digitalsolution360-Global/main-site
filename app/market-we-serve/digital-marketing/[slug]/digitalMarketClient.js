@@ -7,9 +7,10 @@ import { IconHome, IconChevronRight, IconMapPin, IconCheck, IconStar, IconPhone,
 import Link from 'next/link';
 import Clients from '@/components/sections/clients';
 import LocationStructuredData from '@/components/seo/LocationStructuredData';
+import { useParams } from 'next/navigation';
 
 export default function DigitalServicePage({ params }) {
-  const { slug } = use(params);
+  const { slug } = useParams();
   const [locationData, setLocationData] = useState(null);
   const [locationType, setLocationType] = useState(null);
   const [serviceType, setServiceType] = useState(null);
