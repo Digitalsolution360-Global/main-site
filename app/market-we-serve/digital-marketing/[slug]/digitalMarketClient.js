@@ -130,7 +130,7 @@ export default function DigitalServicePage() {
   
   const stateName = locationData?.state_name || locationData?.state || '';
   const countryName = locationData?.country_name || locationData?.country || '';
-  const reviewCount = locationData?.city_id != null
+  const revNum = locationData?.city_id != null
   ? locationData.city_id + 1000
   : '';
   
@@ -211,8 +211,7 @@ const reviewSchema = {
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": 4.5,
-    "reviewCount": reviewCount, // number of reviews
-    "ratingCount": reviewCount  // number of ratings (required by Google)
+    "reviewCount": revNum, // number of reviews
   }
 };
 
