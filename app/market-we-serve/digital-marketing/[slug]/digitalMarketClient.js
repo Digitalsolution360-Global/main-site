@@ -131,7 +131,14 @@ export default function DigitalServicePage() {
   const stateName = locationData?.state_name || locationData?.state || '';
   const countryName = locationData?.country_name || locationData?.country || '';
   const revNum = locationData?.city_id || locationData?.id || 847;
-  
+
+  const locationId =
+  locationType === 'city' ? locationData?.city_id || locationData?.id || 0 :
+  locationType === 'state' ? locationData?.state_id || locationData?.id || 0 :
+  locationType === 'country' ? locationData?.id || 0 : 0;
+
+  const revNum = locationId + 1000;
+
   // Get parent slugs
   const countrySlug = locationData?.country_slug;
   const stateSlug = locationData?.state_slug;
