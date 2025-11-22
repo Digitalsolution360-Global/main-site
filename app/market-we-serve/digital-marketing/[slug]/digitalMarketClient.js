@@ -211,7 +211,8 @@ const reviewSchema = {
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": 4.5,
-    "reviewCount": reviewCount
+    "reviewCount": reviewCount, // number of reviews
+    "ratingCount": reviewCount  // number of ratings (required by Google)
   }
 };
 
