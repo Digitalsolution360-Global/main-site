@@ -210,7 +210,7 @@ const reviewSchema = {
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.5",
+    "ratingValue": 4.5,
     "reviewCount": reviewCount
   }
 };
