@@ -38,7 +38,7 @@ export default function LocationStructuredData({ locationData, locationType, ser
   const serviceName = serviceNames[serviceType] || 'Digital Services';
 
   const structuredData = {
-    "@context": "https://schema.org/",
+    "@context": "https://schema.org",
     "@type": "Product",
     "name": `Digital Solution 360`,
     "image": "https://www.digitalsolution360.com/logo.png",
@@ -50,7 +50,7 @@ export default function LocationStructuredData({ locationData, locationType, ser
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.5",
-      "reviewCount": reviewCount.toString()
+      "reviewCount": reviewCount
     }
   };
 
