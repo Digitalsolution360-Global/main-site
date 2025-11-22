@@ -49,7 +49,7 @@ export default function LocationStructuredData({ locationData, locationType, ser
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.5",
+      "ratingValue": 4.5,
       "reviewCount": reviewCount
     }
   };
