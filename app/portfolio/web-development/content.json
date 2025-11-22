@@ -1,25 +1,25 @@
 {
   "projects": [
     {
-      "id": 1,
-      "title": "Sri Polyclinic",
-      "subtitle": "Modern Multi-Specialty Clinic Website",
-      "description": "Developed from scratch using Frontend, HTML5, CSS3, Bootstrap 5, Responsive Design, and JavaScript to ensure complete control over design and performance.",
-      "image": "/portfolio/website/sripolyclinic.webp",
-      "tags": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript", "Responsive Design"],
-      "highlights": [
-        "Modern & Responsive Design - Clean, professional interface that looks beautiful on all devices",
-        "Fast Loading & Optimized Performance - Lightweight coding and optimized images ensure quick loading",
-        "Professional Branding - Carefully selected color palette, fonts, and icons match the clinic's image",
-        "Service Showcase - Detailed sections highlight medical treatments and healthcare solutions",
-        "Patient-Friendly Navigation - Clear menus and call-to-action buttons guide patients effortlessly",
-        "Integrated Features - Appointment booking, contact forms, Google Maps integration, and SEO-friendly",
-        "Secure & Scalable - Built with best practices for security and future upgrades",
-        "Engaging Visuals & Animations - Professional look that enhances user experience"
-      ],
-      "isLink": true,
-      "link": "https://www.sripolyclinic.com/"
-    },
+  "id": 1,
+  "title": "Sri Poly Clinic",
+  "subtitle": "Modern Multi-Specialty Clinic Website",
+  "description": "A fully customized medical website built using Next.js, HTML5, CSS3, Tailwind CSS, JavaScript, and responsive design principles. Optimized for speed, security, and seamless user experience with Vercel hosting and Google Analytics (GA4).",
+  "image": "/portfolio/website/sripolyclinic.webp",
+  "tags": ["Next.js", "HTML5", "CSS3", "Tailwind CSS", "JavaScript", "Responsive Design"],
+  "highlights": [
+    "Modern & Responsive Design – Clean, professional interface optimized for all screen sizes",
+    "Fast Loading & High Performance – Next.js optimization, priority hints, and lightweight assets",
+    "Professional Branding – Strategically selected colors, fonts, and icons for a trusted medical identity",
+    "Service Showcase – Dedicated sections highlighting treatments, specialties, and healthcare services",
+    "Patient-Friendly Navigation – Smooth and intuitive menus with clear call-to-action elements",
+    "Integrated Features – Appointment booking, contact forms, Google Maps, SEO-optimized, and Open Graph",
+    "Secure & Scalable – Built with HSTS, best coding practices, and Vercel’s scalable cloud platform",
+    "Enhanced User Experience – Modern animations, clean layout, and accessibility-focused design"
+  ],
+  "isLink": true,
+  "link": "https://www.sripolyclinic.com/"
+},
     {
       "id": 2,
       "title": "Andheri Dental Care",
