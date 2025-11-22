@@ -6,14 +6,15 @@ export default function LocationStructuredData({ locationData, locationType, ser
   if (!locationData) return null;
 
   // Get the appropriate ID based on location type
-  let locationId = 0;
-  if (locationType === 'city') {
-    locationId = locationData.city_id || locationData.id || 0;
-  } else if (locationType === 'state') {
-    locationId = locationData.state_id || locationData.id || 0;
-  } else if (locationType === 'country') {
-    locationId = locationData.id || 0;
-  }
+  let locationId = 1;
+
+if (locationType === 'city') {
+  locationId = locationData?.city_id || locationData?.id || 0;
+} else if (locationType === 'state') {
+  locationId = locationData?.state_id || locationData?.id || 0;
+} else if (locationType === 'country') {
+  locationId = locationData?.id || 0;
+}
 
   // Calculate review count: ID + 1000
   const reviewCount = locationId + 1000;
