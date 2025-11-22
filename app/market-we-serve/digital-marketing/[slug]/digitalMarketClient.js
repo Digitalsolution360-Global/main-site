@@ -130,7 +130,7 @@ export default function DigitalServicePage() {
   
   const stateName = locationData?.state_name || locationData?.state || '';
   const countryName = locationData?.country_name || locationData?.country || '';
-  const revNum = locationData?.city_id || locationData?.id || 0;
+  const revNum = locationData?.city_id || locationData?.id || 847;
   
   // Get parent slugs
   const countrySlug = locationData?.country_slug;
