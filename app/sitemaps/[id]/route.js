@@ -7,6 +7,16 @@ import {
   getAllCountriesForSitemap
 } from "@/lib/db";
 
+// Function to escape XML special characters
+function escapeXml(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/'/g, "&apos;")
+    .replace(/"/g, "&quot;");
+}
+
 export async function GET(req, { params }) {
   const baseUrl = "https://www.digitalsolution360.com";
   const chunkSize = 1000;
@@ -74,20 +84,20 @@ export async function GET(req, { params }) {
   const end = start + chunkSize;
   const chunk = routes.slice(start, end);
 
-  // Generate XML
+  // Generate XML with escaped URLs
   const xml = `
-  <?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    ${chunk
-      .map(
-        (url) => `
-      <url>
-        <loc>${url}</loc>
-      </url>
-    `
-      )
-      .join("")}
-  </urlset>`;
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${chunk
+    .map(
+      (url) => `
+  <url>
+    <loc>${escapeXml(url)}</loc>
+  </url>
+  `
+    )
+    .join("")}
+</urlset>`;
 
   return new Response(xml.trim(), {
     headers: { "Content-Type": "application/xml" },
