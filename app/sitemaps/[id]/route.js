@@ -10,9 +10,16 @@ import {
 export async function GET(req, { params }) {
   const baseUrl = "https://www.digitalsolution360.com";
   const chunkSize = 1000;
-  const index = parseInt(params.id) - 1;
 
-  // Fetch all URLs again
+  // Extract the number from params.id (e.g., "sitemap-1.xml" → 1)
+  const match = params.id.match(/(\d+)/);
+  if (!match) {
+    return new Response("Invalid sitemap index", { status: 400 });
+  }
+  const id = Number(match[1]);
+  const index = id - 1;
+
+  // Fetch all URLs
   const [blogs, cities, states, countries] = await Promise.all([
     getAllBlogsForSitemap(),
     getAllCities(),
@@ -67,6 +74,7 @@ export async function GET(req, { params }) {
   const end = start + chunkSize;
   const chunk = routes.slice(start, end);
 
+  // Generate XML
   const xml = `
   <?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
