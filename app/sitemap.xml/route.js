@@ -1,16 +1,24 @@
-import { getAllBlogsForSitemap, getAllCities, getAllStates, getAllCountriesForSitemap } from "@/lib/db";
+export const dynamic = "force-dynamic";
+
+import { 
+  getAllBlogsForSitemap, 
+  getAllCities, 
+  getAllStates, 
+  getAllCountriesForSitemap 
+} from "@/lib/db";
 
 export async function GET() {
   const baseUrl = "https://www.digitalsolution360.com";
 
-  // Fetch all routes
   let routes = [];
 
-  // Combine all your logic
-  const blogs = await getAllBlogsForSitemap();
-  const cities = await getAllCities();
-  const states = await getAllStates();
-  const countries = await getAllCountriesForSitemap();
+  // Fetch all routes
+  const [blogs, cities, states, countries] = await Promise.all([
+    getAllBlogsForSitemap(),
+    getAllCities(),
+    getAllStates(),
+    getAllCountriesForSitemap()
+  ]);
 
   const staticPages = [
     "",
@@ -33,23 +41,24 @@ export async function GET() {
   ];
 
   routes = [
-    ...staticPages.map((p) => baseUrl + p),
-    ...servicePages.map((p) => baseUrl + p),
-    ...blogs.map((b) => `${baseUrl}/${b.slug}`)
+    ...staticPages.map(p => baseUrl + p),
+    ...servicePages.map(p => baseUrl + p),
+    ...blogs.filter(b => b?.slug).map(b => `${baseUrl}/${b.slug}`)
   ];
 
-  // Add location routes (simplified)
+  // Add location routes
   const services = [
-    { slugField: "web_slug" },
-    { slugField: "seo_slug" },
-    { slugField: "gmb_slug" },
+    "web_slug",
+    "seo_slug",
+    "gmb_slug"
   ];
 
-  const addLocation = (items) => {
+  const addLocation = items => {
     items.forEach(item => {
-      services.forEach(service => {
-        if (item[service.slugField])
-          routes.push(`${baseUrl}/${item[service.slugField]}`);
+      services.forEach(slug => {
+        if (item?.[slug]) {
+          routes.push(`${baseUrl}/${item[slug]}`);
+        }
       });
     });
   };
@@ -58,13 +67,12 @@ export async function GET() {
   addLocation(states);
   addLocation(countries);
 
-  console.log("Total URLs:", routes.length);
-
   // Chunk into groups of 1000
   const chunkSize = 1000;
   const sitemapCount = Math.ceil(routes.length / chunkSize);
 
-  const sitemapIndexXml = `<?xml version="1.0" encoding="UTF-8"?>
+  const sitemapIndexXml = `
+  <?xml version="1.0" encoding="UTF-8"?>
   <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${Array.from({ length: sitemapCount })
       .map(
@@ -77,7 +85,7 @@ export async function GET() {
       .join("")}
   </sitemapindex>`;
 
-  return new Response(sitemapIndexXml, {
+  return new Response(sitemapIndexXml.trim(), {
     headers: { "Content-Type": "application/xml" },
   });
 }
