@@ -2,11 +2,12 @@
 
 import React, { useRef, useState, useEffect } from 'react'
 import { motion, useAnimationFrame, useMotionValue, useTransform, useInView } from 'motion/react'
+import { IconUsers, IconBriefcase, IconCalendar, IconThumbUp } from '@tabler/icons-react'
 
 function Clients() {
   const statsRef = useRef(null);
   const isInView = useInView(statsRef, { once: true, margin: "-100px" });
-  
+
   const [counts, setCounts] = useState({
     clients: 0,
     projects: 0,
@@ -67,7 +68,7 @@ function Clients() {
   ];
 
   // Duplicate clients array multiple times for seamless infinite scroll
-  const duplicatedClients = [...clients, ...clients,...clients, ...clients];
+  const duplicatedClients = [...clients, ...clients, ...clients, ...clients];
 
   const [isPaused, setIsPaused] = useState(false);
   const xPos = useMotionValue(0);
@@ -76,10 +77,10 @@ function Clients() {
     if (!isPaused) {
       // Move left by 1 pixel per frame
       const newValue = xPos.get() - 1;
-      
+
       // Card width (192px) + gap (32px) = 224px per item
       const resetPoint = -(224 * clients.length);
-      
+
       if (newValue <= resetPoint) {
         xPos.set(0);
       } else {
@@ -146,22 +147,57 @@ function Clients() {
         className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16'
       >
         <div className='grid grid-cols-2 md:grid-cols-4 gap-8'>
-          <div className='text-center'>
-            <p className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>{counts.clients}+</p>
-            <p className='text-gray-600 font-medium'>Happy Clients</p>
-          </div>
-          <div className='text-center'>
-            <p className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>{counts.projects}+</p>
-            <p className='text-gray-600 font-medium'>Projects Completed</p>
-          </div>
-          <div className='text-center'>
-            <p className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>{counts.years}+</p>
-            <p className='text-gray-600 font-medium'>Years Experience</p>
-          </div>
-          <div className='text-center'>
-            <p className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>{counts.satisfaction}%</p>
-            <p className='text-gray-600 font-medium'>Client Satisfaction</p>
-          </div>
+          <motion.div 
+            whileHover={{ y: -8 }}
+            className='relative text-center bg-white hover:bg-blue-600 rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 pt-16 pb-8 px-6 group'
+          >
+            <div className='absolute -top-8 left-1/2 -translate-x-1/2'>
+              <div className='w-16 h-16 bg-blue-600 group-hover:bg-blue-700 rounded-full flex items-center justify-center shadow-lg transition-colors duration-300'>
+                <IconUsers className='w-8 h-8 text-white' stroke={2} />
+              </div>
+            </div>
+            <p className='text-4xl md:text-5xl font-bold text-blue-600 group-hover:text-white mb-2 transition-colors duration-300'>{counts.clients}+</p>
+            <p className='text-gray-600 group-hover:text-white font-medium transition-colors duration-300'>Happy Clients</p>
+          </motion.div>
+
+          <motion.div 
+            whileHover={{ y: -8 }}
+            className='relative text-center bg-white hover:bg-blue-600 rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 pt-16 pb-8 px-6 group'
+          >
+            <div className='absolute -top-8 left-1/2 -translate-x-1/2'>
+              <div className='w-16 h-16 bg-blue-600 group-hover:bg-blue-700 rounded-full flex items-center justify-center shadow-lg transition-colors duration-300'>
+                <IconBriefcase className='w-8 h-8 text-white' stroke={2} />
+              </div>
+            </div>
+            <p className='text-4xl md:text-5xl font-bold text-blue-600 group-hover:text-white mb-2 transition-colors duration-300'>{counts.projects}+</p>
+            <p className='text-gray-600 group-hover:text-white font-medium transition-colors duration-300'>Projects Completed</p>
+          </motion.div>
+
+          <motion.div 
+            whileHover={{ y: -8 }}
+            className='relative text-center bg-white hover:bg-blue-600 rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 pt-16 pb-8 px-6 group'
+          >
+            <div className='absolute -top-8 left-1/2 -translate-x-1/2'>
+              <div className='w-16 h-16 bg-blue-600 group-hover:bg-blue-700 rounded-full flex items-center justify-center shadow-lg transition-colors duration-300'>
+                <IconCalendar className='w-8 h-8 text-white' stroke={2} />
+              </div>
+            </div>
+            <p className='text-4xl md:text-5xl font-bold text-blue-600 group-hover:text-white mb-2 transition-colors duration-300'>{counts.years}+</p>
+            <p className='text-gray-600 group-hover:text-white font-medium transition-colors duration-300'>Years Experience</p>
+          </motion.div>
+
+          <motion.div 
+            whileHover={{ y: -8 }}
+            className='relative text-center bg-white hover:bg-blue-600 rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 pt-16 pb-8 px-6 group'
+          >
+            <div className='absolute -top-8 left-1/2 -translate-x-1/2'>
+              <div className='w-16 h-16 bg-blue-600 group-hover:bg-blue-700 rounded-full flex items-center justify-center shadow-lg transition-colors duration-300'>
+                <IconThumbUp className='w-8 h-8 text-white' stroke={2} />
+              </div>
+            </div>
+            <p className='text-4xl md:text-5xl font-bold text-blue-600 group-hover:text-white mb-2 transition-colors duration-300'>{counts.satisfaction}%</p>
+            <p className='text-gray-600 group-hover:text-white font-medium transition-colors duration-300'>Client Satisfaction</p>
+          </motion.div>
         </div>
       </motion.div>
     </section>

@@ -8,14 +8,14 @@
   "image": "/portfolio/website/sripolyclinic.webp",
   "tags": ["Next.js", "HTML5", "CSS3", "Tailwind CSS", "JavaScript", "Responsive Design"],
   "highlights": [
-    "Modern & Responsive Design – Clean, professional interface optimized for all screen sizes",
-    "Fast Loading & High Performance – Next.js optimization, priority hints, and lightweight assets",
-    "Professional Branding – Strategically selected colors, fonts, and icons for a trusted medical identity",
-    "Service Showcase – Dedicated sections highlighting treatments, specialties, and healthcare services",
-    "Patient-Friendly Navigation – Smooth and intuitive menus with clear call-to-action elements",
-    "Integrated Features – Appointment booking, contact forms, Google Maps, SEO-optimized, and Open Graph",
-    "Secure & Scalable – Built with HSTS, best coding practices, and Vercel’s scalable cloud platform",
-    "Enhanced User Experience – Modern animations, clean layout, and accessibility-focused design"
+    "Modern & Responsive Design - Clean, professional interface optimized for all screen sizes",
+    "Fast Loading & High Performance - Next.js optimization, priority hints, and lightweight assets",
+    "Professional Branding - Strategically selected colors, fonts, and icons for a trusted medical identity",
+    "Service Showcase - Dedicated sections highlighting treatments, specialties, and healthcare services",
+    "Patient-Friendly Navigation - Smooth and intuitive menus with clear call-to-action elements",
+    "Integrated Features - Appointment booking, contact forms, Google Maps, SEO-optimized, and Open Graph",
+    "Secure & Scalable - Built with HSTS, best coding practices, and Vercel’s scalable cloud platform",
+    "Enhanced User Experience - Modern animations, clean layout, and accessibility-focused design"
   ],
   "isLink": true,
   "link": "https://www.sripolyclinic.com/"

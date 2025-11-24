@@ -1,5 +1,6 @@
 import BgLayout from "@/components/layout/bgLayout";
 import Services from "@/components/sections/services";
+import Testimonials from "@/components/sections/testimonials";
 import WhyUS from "@/components/sections/why-us";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
@@ -91,6 +92,9 @@ export default function Home() {
       </Suspense>
       <Suspense fallback={<div className="h-48" />}>
         <Blogs/>
+      </Suspense>
+      <Suspense fallback={<div className="h-48" />}>
+        <Testimonials/>
       </Suspense>
       <Suspense fallback={<div className="h-48" />}>
         <Faqs/>

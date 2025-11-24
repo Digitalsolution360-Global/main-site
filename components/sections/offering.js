@@ -7,68 +7,64 @@ import { IconCheck } from '@tabler/icons-react'
 function Offering() {
   const offerings = [
     {
-      heading: "ECOMMERCE WEBSITE DEVELOPMENT",
-      description: "Build your ecommerce website and grow the business online. Create the online store in any of the below platforms and manage products, orders, payments, etc.",
+      heading: "WEBSITE DEVELOPMENT",
+      description: "Design and build fast, responsive, and accessible websites tailored to your brand using modern frameworks and CMS platforms.",
       points: [
-        "Custom ECommerce",
-        "Shopify",
-        "OpenCart",
-        "Adobe Commerce (Magento)",
-        "WooCommerce",
-        "Optimizely",
-        "Squarespace",
-        "Ecwid",
-        "PrestaShop",
-        "NopCommerce"
+        "Landing Pages",
+        "Corporate Websites",
+        "Ecommerce Stores (Shopify/WooCommerce)",
+        "Headless CMS",
+        "Performance Optimization",
+        "Responsive & Mobile-first Design",
+        "Accessibility (WCAG)"
       ],
       image: "/home/images/ecomm.webp",
       imagePosition: "right"
     },
     {
-      heading: "CMS WEBSITE DEVELOPMENT",
-      description: "Creative, responsive website design and redesign services expertly tailored to elevate your unique brand across industries and market segments, driving measurable online growth and engagement.",
+      heading: "DIGITAL MARKETING",
+      description: "Data-driven marketing to grow traffic, leads and revenue across search, social and paid channels.",
       points: [
-        "WordPress",
-        "Laravel",
-        "Webflow",
-        "ReactJS",
-        "Contentful",
-        "Node.js",
-        "Umbraco CMS",
-        "AngularJS",
-        "Evolution CMS",
-        "Vue.js",
-        "Craft CMS",
-        "Yii",
-        "Strapi",
-        "CodeIgniter",
-        "Wix",
-        "ASP.NET"
+        "Search Engine Optimization (SEO)",
+        "Paid Search (Google Ads)",
+        "Social Media Marketing",
+        "Content Marketing",
+        "Email & Automation",
+        "Analytics & Conversion Optimization",
+        "Local & Performance Campaigns"
       ],
       image: "/home/images/cms.webp",
       imagePosition: "left"
     },
     {
-      heading: "DIGITAL MARKETING",
-      description: "Promote your services or products through different online platforms to increase your customers and business. Our certified team will take your business to the next level.",
+      heading: "APP & CRM DEVELOPMENT",
+      description: "Custom mobile apps, PWAs and CRM systems to automate business processes and improve customer engagement.",
       points: [
-        "LinkedIn",
-        "Google Ads",
-        "Instagram",
-        "Bing Ads",
-        "Facebook",
-        "WhatsApp",
-        "Twitter",
-        "Messenger",
-        "YouTube",
-        "SMS Marketing",
-        "Snapchat",
-        "Email Marketing",
-        "TikTok",
-        "SEO"
+        "iOS & Android Apps",
+        "Progressive Web Apps (PWAs)",
+        "Custom CRM & Dashboards",
+        "API Integrations",
+        "Admin Panels & Reporting",
+        "Payments & Authentication",
+        "Ongoing Maintenance"
       ],
       image: "/home/images/digital-marketing.webp",
       imagePosition: "right"
+    },
+    {
+      heading: "SEO & GOOGLE MY BUSINESS",
+      description: "Improve local visibility and search rankings with technical SEO, on-page optimization and Google Business Profile management.",
+      points: [
+        "GMB / Google Business Profile Setup & Optimization",
+        "Local Citations & Listings",
+        "On-page & Technical SEO",
+        "Reputation & Review Management",
+        "Structured Data & Schema",
+        "Local Content Strategy",
+        "SEO Audits & Monitoring"
+      ],
+      image: "/home/images/cms.webp",
+      imagePosition: "left"
     }
   ];
 
