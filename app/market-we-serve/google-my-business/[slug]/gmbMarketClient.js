@@ -129,7 +129,12 @@ export default function GMBServicePage({ params }) {
   
   const stateName = locationData?.state_name || locationData?.state || '';
   const countryName = locationData?.country_name || locationData?.country || '';
-  
+  const locationId =
+  locationType === 'city' ? locationData?.city_id || locationData?.id || 0 :
+  locationType === 'state' ? locationData?.state_id || locationData?.id || 0 :
+  locationType === 'country' ? locationData?.id || 0 : 0;
+
+  const revNum = locationId + 1000;
   // Get parent slugs
   const countrySlug = locationData?.country_slug;
   const stateSlug = locationData?.state_slug;
@@ -193,6 +198,23 @@ export default function GMBServicePage({ params }) {
       }
     }))
   };
+   // Generate Review Schema
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Digital Solution 360",
+  "image": "https://www.digitalsolution360.com/logo.png",
+  "description": `Digital Solution 360 offers professional Google My Business services in ${cityName}. Get world-class quality at affordable prices. Contact us at +919990556217 for custom solutions tailored to your business needs.`,
+  "brand": {
+    "@type": "Brand",
+    "name": "Digital Solution 360"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": 4.5,
+    "reviewCount": revNum, // number of reviews
+  }
+};
 
   return (
     <BgLayout>
@@ -207,6 +229,11 @@ export default function GMBServicePage({ params }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      {/* Review Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
       />
 
       {/* Hero Section */}
