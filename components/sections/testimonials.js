@@ -61,7 +61,21 @@ function Testimonials() {
         }
     ];
 
-    const itemsPerView = 3; // Number of cards visible at once
+    const [itemsPerView, setItemsPerView] = useState(3); // Number of cards visible at once (responsive)
+
+    // Responsive items per view
+    useEffect(() => {
+        const updateItems = () => {
+            const w = window.innerWidth;
+            if (w < 768) setItemsPerView(1);
+            else if (w < 1024) setItemsPerView(2);
+            else setItemsPerView(3);
+        };
+
+        updateItems();
+        window.addEventListener('resize', updateItems);
+        return () => window.removeEventListener('resize', updateItems);
+    }, []);
 
     // Auto-advance slider
     useEffect(() => {
@@ -95,7 +109,7 @@ function Testimonials() {
 
     return (
         <section className='py-10 '>
-            <div className='max-w-[100rem] mx-auto px-4'>
+            <div className='w-full lg:max-w-[100rem] mx-auto px-4'>
 
                 {/* Section Header */}
                 <div className='text-center mb-16'>
@@ -123,7 +137,7 @@ function Testimonials() {
                     {/* Navigation Buttons */}
                     <button
                         onClick={handlePrev}
-                        className='absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-xl rounded-full p-3 transition-all duration-300 hover:scale-110 group'
+                        className='hidden md:absolute md:left-0 md:top-1/2 md:-translate-y-1/2 md:flex z-20 bg-white/90 hover:bg-white shadow-xl rounded-full p-3 transition-all duration-300 hover:scale-110 group'
                         aria-label="Previous testimonial"
                     >
                         <IconChevronLeft className='w-6 h-6 text-gray-700 group-hover:text-blue-600' />
@@ -131,7 +145,7 @@ function Testimonials() {
 
                     <button
                         onClick={handleNext}
-                        className='absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-xl rounded-full p-3 transition-all duration-300 hover:scale-110 group'
+                        className='hidden md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 md:flex z-20 bg-white/90 hover:bg-white shadow-xl rounded-full p-3 transition-all duration-300 hover:scale-110 group'
                         aria-label="Next testimonial"
                     >
                         <IconChevronRight className='w-6 h-6 text-gray-700 group-hover:text-blue-600' />
@@ -203,6 +217,25 @@ function Testimonials() {
                         </div>
                     </div>
 
+                    {/* Mobile nav buttons (below cards) */}
+                    <div className='flex md:hidden justify-center gap-4 mt-6'>
+                        <button
+                            onClick={handlePrev}
+                            className='bg-white/90 hover:bg-white shadow rounded-full p-3 transition-all duration-200'
+                            aria-label="Previous testimonial"
+                        >
+                            <IconChevronLeft className='w-5 h-5 text-gray-700' />
+                        </button>
+
+                        <button
+                            onClick={handleNext}
+                            className='bg-white/90 hover:bg-white shadow rounded-full p-3 transition-all duration-200'
+                            aria-label="Next testimonial"
+                        >
+                            <IconChevronRight className='w-5 h-5 text-gray-700' />
+                        </button>
+                    </div>
+
                     {/* Pagination Dots */}
                     <div className='flex justify-center gap-2 mt-8'>
                         {testimonials.map((_, index) => (
@@ -213,8 +246,8 @@ function Testimonials() {
                                     setCurrentIndex(index);
                                 }}
                                 className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                                        ? 'w-8 bg-blue-600'
-                                        : 'w-2 bg-gray-300 hover:bg-gray-400'
+                                    ? 'w-8 bg-blue-600'
+                                    : 'w-2 bg-gray-300 hover:bg-gray-400'
                                     }`}
                                 aria-label={`Go to testimonial ${index + 1}`}
                             />
