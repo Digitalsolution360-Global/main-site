@@ -109,7 +109,7 @@ function Testimonials() {
                             What Our <span className='text-blue-600'>Clients </span>Say
                         </h2>
                         <p className='text-lg text-gray-600 max-w-2xl mx-auto'>
-                            Don't just take our word for it. Here's what our satisfied clients have to say about working with us.
+                            Don&apos;t just take our word for it. Here&apos;s what our satisfied clients have to say about working with us.
                         </p>
                     </motion.div>
                 </div>
@@ -183,7 +183,7 @@ function Testimonials() {
 
                                         {/* Testimonial Content */}
                                         <p className='text-gray-700 mb-6 leading-relaxed text-base'>
-                                            "{testimonial.content}"
+                                            &quot;{testimonial.content}&quot;
                                         </p>
 
                                         {/* Author Info */}
