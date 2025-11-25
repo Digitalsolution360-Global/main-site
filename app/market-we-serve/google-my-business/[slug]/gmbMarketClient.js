@@ -204,7 +204,7 @@ const reviewSchema = {
   "@type": "Product",
   "name": "Digital Solution 360",
   "image": "https://www.digitalsolution360.com/logo.png",
-  "description": `Digital Solution 360 offers professional Google My Business services in ${cityName}. Get world-class quality at affordable prices. Contact us at +919990556217 for custom solutions tailored to your business needs.`,
+  "description": `Digital Solution 360 offers professional Google My Business Listing services in ${cityName}. Get world-class quality at affordable prices. Contact us at +919990556217 for custom solutions tailored to your business needs.`,
   "brand": {
     "@type": "Brand",
     "name": "Digital Solution 360"
