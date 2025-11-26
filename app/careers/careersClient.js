@@ -85,6 +85,7 @@ function CareersPage() {
 
     if (response.ok) {
       alert("Application submitted successfully!");
+      resetForm();
     } else {
       alert("Error: " + data.message);
     }
