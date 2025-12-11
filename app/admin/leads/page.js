@@ -313,6 +313,7 @@ export default function AdminLeads() {
       case 'lost': return 'bg-red-100 text-red-800';
       case 'call not connected': return 'bg-gray-100 text-gray-800';
       case 'on going process': return 'bg-blue-100 text-blue-800';
+      case 'work done outside': return 'bg-pink-100 text-pink-800';
       default: return 'bg-gray-100 text-gray-800';
     }
   };
@@ -419,6 +420,7 @@ export default function AdminLeads() {
               <option value="lost">Lost</option>
               <option value="call not connected">Call not connected</option>
               <option value="on going process">On Going Process</option>
+              <option value="work done outside">Work Done Outside</option>
             </select>
             
             <select
@@ -646,19 +648,19 @@ export default function AdminLeads() {
                       <td className="p-2 whitespace-nowrap text-right text-xs font-medium">
                         <button
                           onClick={() => handleStatusUpdate(lead)}
-                          className="text-purple-600 hover:text-purple-900 mr-3"
+                          className="text-purple-600 hover:text-purple-900 mr-3 text-xs"
                         >
                           Update
                         </button>
                         <button
                           onClick={() => handleEdit(lead)}
-                          className="text-blue-600 hover:text-blue-900 mr-3"
+                          className="text-blue-600 hover:text-blue-900 mr-3 text-xs"
                         >
                           Edit
                         </button>
                         <button
                           onClick={() => handleDelete(lead.id)}
-                          className="text-red-600 hover:text-red-900"
+                          className="text-red-600 hover:text-red-900 text-xs"
                         >
                           Delete
                         </button>
@@ -833,6 +835,7 @@ export default function AdminLeads() {
                     <option value="lost">Lost</option>
                     <option value="call not connected">Call not connected</option>
                     <option value="on going process">On Going Process</option>
+                    <option value="work done outside">Work Done Outside</option>
                   </select>
                 </div>
 
@@ -943,6 +946,7 @@ export default function AdminLeads() {
                   <option value="lost">Lost</option>
                   <option value="call not connected">Call not connected</option>
                   <option value="on going process">On Going Process</option>
+                  <option value="work done outside">Work Done Outside</option>
                 </select>
               </div>
 
