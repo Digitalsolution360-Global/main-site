@@ -554,7 +554,7 @@ export default function AdminLeads() {
                     >
                       <td className="p-2">
                         <div>
-                          <p className="text-sm font-medium text-gray-900">{lead.name}</p>
+                          <p className="text-xs font-medium text-gray-900">{lead.name}</p>
                           <p className="text-xs text-gray-500">{lead.phone}</p>
                           {lead.email && (
                             <p className="text-xs text-gray-500">{lead.email}</p>
@@ -564,7 +564,7 @@ export default function AdminLeads() {
                           )}
                         </div>
                       </td>
-                      <td className="p-2 whitespace-nowrap text-sm text-gray-900">
+                      <td className="p-2 whitespace-nowrap text-xs text-gray-900">
                         {lead.business_type || 'N/A'}
                       </td>
                       <td className="p-2 whitespace-nowrap">
@@ -572,10 +572,10 @@ export default function AdminLeads() {
                           {lead.priority || 'N/A'}
                         </span>
                       </td>
-                      <td className="p-2 whitespace-nowrap text-sm font-semibold text-gray-500">
+                      <td className="p-2 whitespace-nowrap text-xs font-semibold text-gray-500">
                         {formatDate(lead.next_follow_up_date)}
                       </td>
-                      <td className="p-2 text-sm">
+                      <td className="p-2 text-xs">
                         {lead.remarks ? (
                           <div>
                             <p className="text-gray-700 truncate max-w-30" title={lead.remarks}>
@@ -586,7 +586,7 @@ export default function AdminLeads() {
                           <span className="text-gray-400 italic">No remarks</span>
                         )}
                       </td>
-                      <td className="p-2 text-sm">
+                      <td className="p-2 text-xs">
                         <div className="flex items-start gap-2">
                           <div className="flex-1 min-w-0 max-w-50">
                             {lead.latest_remark ? (
