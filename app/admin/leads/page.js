@@ -552,7 +552,7 @@ export default function AdminLeads() {
                       onClick={() => handleViewLead(lead)}
                       className={`cursor-pointer hover:bg-gray-100 transition-colors ${lead.is_created_today ? 'bg-green-50 border-l-4 border-l-green-500' : ''}`}
                     >
-                      <td className="px-6 py-4">
+                      <td className="p-2">
                         <div>
                           <p className="text-sm font-medium text-gray-900">{lead.name}</p>
                           <p className="text-xs text-gray-500">{lead.phone}</p>
@@ -564,18 +564,18 @@ export default function AdminLeads() {
                           )}
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      <td className="p-2 whitespace-nowrap text-sm text-gray-900">
                         {lead.business_type || 'N/A'}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="p-2 whitespace-nowrap">
                         <span className={`px-2 py-1 text-xs font-medium rounded-full ${getPriorityColor(lead.priority)}`}>
                           {lead.priority || 'N/A'}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-500">
+                      <td className="p-2 whitespace-nowrap text-sm font-semibold text-gray-500">
                         {formatDate(lead.next_follow_up_date)}
                       </td>
-                      <td className="px-6 py-4 text-sm">
+                      <td className="p-2 text-sm">
                         {lead.remarks ? (
                           <div>
                             <p className="text-gray-700 truncate max-w-30" title={lead.remarks}>
@@ -586,7 +586,7 @@ export default function AdminLeads() {
                           <span className="text-gray-400 italic">No remarks</span>
                         )}
                       </td>
-                      <td className="px-6 py-4 text-sm">
+                      <td className="p-2 text-sm">
                         <div className="flex items-start gap-2">
                           <div className="flex-1 min-w-0 max-w-50">
                             {lead.latest_remark ? (
@@ -621,7 +621,7 @@ export default function AdminLeads() {
                           </button>
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-center">
+                      <td className="p-2 whitespace-nowrap text-center">
                         <div className="flex gap-2 justify-center">
                           <button
                             onClick={() => handleCall(lead.phone)}
@@ -643,7 +643,7 @@ export default function AdminLeads() {
                           </button>
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <td className="p-2 whitespace-nowrap text-right text-sm font-medium">
                         <button
                           onClick={() => handleStatusUpdate(lead)}
                           className="text-purple-600 hover:text-purple-900 mr-3"
