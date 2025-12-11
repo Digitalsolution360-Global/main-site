@@ -643,7 +643,7 @@ export default function AdminLeads() {
                           </button>
                         </div>
                       </td>
-                      <td className="p-2 whitespace-nowrap text-right text-sm font-medium">
+                      <td className="p-2 whitespace-nowrap text-right text-xs font-medium">
                         <button
                           onClick={() => handleStatusUpdate(lead)}
                           className="text-purple-600 hover:text-purple-900 mr-3"
