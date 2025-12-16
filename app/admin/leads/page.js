@@ -1,4 +1,4 @@
-'use client';
+i'use client';
 import dynamic from 'next/dynamic'; 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -169,7 +169,7 @@ export default function AdminLeads() {
         body: JSON.stringify({ 
           lead_id: selectedLeadForStatus.id,
           remarks: statusUpdate,
-          follow_up_date: followUpDate || null
+          follow_up_date: followUpDate || ''
         })
       });
 
