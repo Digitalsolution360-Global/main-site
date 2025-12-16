@@ -10,7 +10,7 @@ export async function GET(request) {
       return NextResponse.json(
         { error: 'Lead ID is required' },
         { status: 400 }
-      );
+      ); 
     }
 
     const sql = `
