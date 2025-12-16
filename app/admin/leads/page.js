@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { UserButton, useUser } from '@clerk/nextjs';
+import { FaPhoneAlt, FaWhatsapp, FaHistory } from 'react-icons/fa';
 const DataTable = dynamic(
   () => import('react-data-table-component'),
   { ssr: false }
@@ -402,6 +403,52 @@ export default function AdminLeads() {
       )
     ),
   },
+  {
+  name: 'Contact',
+  cell: row => (
+    <div className="flex gap-2">
+      
+      {/* Call */}
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          handleCall(row.phone);
+        }}
+        className="text-blue-600 hover:text-blue-800"
+        title="Call"
+      >
+        <FaPhoneAlt size={14} />
+      </button>
+
+      {/* WhatsApp */}
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          handleWhatsApp(row.phone);
+        }}
+        className="text-green-600 hover:text-green-800"
+        title="WhatsApp"
+      >
+        <FaWhatsapp size={15} />
+      </button>
+
+      {/* History */}
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          handleViewHistory(row);
+        }}
+        className="text-orange-500 hover:text-orange-700"
+        title="History"
+      >
+        <FaHistory size={14} />
+      </button>
+
+    </div>
+  ),
+  ignoreRowClick: true,
+},
+
   {
     name: 'Actions',
     cell: row => (
