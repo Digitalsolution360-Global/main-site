@@ -403,7 +403,7 @@ export default function AdminLeads() {
       )
     ),
   },
-  {
+  
  {
   name: 'Contact',
   cell: row => (
