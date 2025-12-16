@@ -2,7 +2,10 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { UserButton, useUser } from '@clerk/nextjs';
-import DataTable from 'react-data-table-component';
+const DataTable = dynamic(
+  () => import('react-data-table-component'),
+  { ssr: false }
+);
 
 export default function AdminLeads() {
   const { user } = useUser();
