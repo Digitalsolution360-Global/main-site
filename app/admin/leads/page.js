@@ -169,7 +169,7 @@ export default function AdminLeads() {
         body: JSON.stringify({ 
           lead_id: selectedLeadForStatus.id,
           remarks: statusUpdate,
-          follow_up_date: followUpDate || ''
+          follow_up_date: followUpDate || follow_up_date
         })
       });
 
