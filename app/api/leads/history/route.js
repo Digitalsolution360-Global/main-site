@@ -42,12 +42,18 @@ export async function POST(request) {
       );
     }
 
+   const finalFollowUpDate =
+  follow_up_date.trim() !== ''
+    ? follow_up_date
+    : new Date().toISOString().split('T')[0];
+
     const sql = `
       INSERT INTO leads_history (lead_id, remarks, follow_up_date)
       VALUES (?, ?, ?)
     `;
 
-    await query(sql, [lead_id, remarks, follow_up_date]);
+    await query(sql, [lead_id, remarks, finalFollowUpDate]);
+
 
     return NextResponse.json({ 
       message: 'History entry created successfully' 
