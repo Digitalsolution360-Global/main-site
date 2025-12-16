@@ -404,18 +404,39 @@ export default function AdminLeads() {
     ),
   },
   {
+ {
   name: 'Contact',
   cell: row => (
-    <div className="flex gap-2">
+    <div className="flex items-center gap-3">
       
+      {/* History */}
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          handleViewHistory(row);
+        }}
+        title="History"
+        className="
+          w-9 h-9 flex items-center justify-center
+          rounded-lg bg-orange-100 text-orange-600
+          hover:bg-orange-200 transition
+        "
+      >
+        <FaHistory size={14} />
+      </button>
+
       {/* Call */}
       <button
         onClick={(e) => {
           e.stopPropagation();
           handleCall(row.phone);
         }}
-        className="text-blue-600 hover:text-blue-800"
         title="Call"
+        className="
+          w-9 h-9 flex items-center justify-center
+          rounded-lg bg-blue-100 text-blue-600
+          hover:bg-blue-200 transition
+        "
       >
         <FaPhoneAlt size={14} />
       </button>
@@ -426,28 +447,21 @@ export default function AdminLeads() {
           e.stopPropagation();
           handleWhatsApp(row.phone);
         }}
-        className="text-green-600 hover:text-green-800"
         title="WhatsApp"
+        className="
+          w-9 h-9 flex items-center justify-center
+          rounded-lg bg-green-100 text-green-600
+          hover:bg-green-200 transition
+        "
       >
         <FaWhatsapp size={15} />
-      </button>
-
-      {/* History */}
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          handleViewHistory(row);
-        }}
-        className="text-orange-500 hover:text-orange-700"
-        title="History"
-      >
-        <FaHistory size={14} />
       </button>
 
     </div>
   ),
   ignoreRowClick: true,
 },
+
 
   {
     name: 'Actions',
