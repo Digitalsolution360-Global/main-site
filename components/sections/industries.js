@@ -36,7 +36,7 @@ export default function Industries() {
       <div className="max-w-7xl mx-auto px-4">
 
         {/* Heading */}
-        <div className="text-center mb-14">
+        <div className="md:text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-bold">
             Industries We Serve
           </h2>
