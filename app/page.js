@@ -2,7 +2,7 @@ import BgLayout from "@/components/layout/bgLayout";
 import Services from "@/components/sections/services";
 import Testimonials from "@/components/sections/testimonials";
 import WhyUS from "@/components/sections/why-us";
-import Industries from "@/components/industries";
+import Industries from "@/components/sections/industries";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
