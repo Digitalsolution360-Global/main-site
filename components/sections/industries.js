@@ -60,32 +60,36 @@ export default function Industries() {
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
-          {duplicatedIndustries.map((item, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              className="
-                relative flex-shrink-0
-                w-[90vw] sm:w-[320px] lg:w-[360px]
-                h-[260px] rounded-3xl overflow-hidden
-                shadow-xl cursor-pointer
-              "
-            >
+         {duplicatedIndustries.map((item, index) => (
+          <motion.div
+            key={index}
+            whileHover={{ y: -6 }}
+            className="
+              relative flex-shrink-0
+              w-[90vw] sm:w-[320px] lg:w-[360px]
+              bg-white rounded-3xl
+              shadow-xl overflow-hidden
+              cursor-pointer
+            "
+          >
+            {/* Image Section */}
+            <div className="h-[190px] overflow-hidden rounded-t-3xl">
               <img
                 src={item.image}
                 alt={item.name}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
               />
+            </div>
+        
+            {/* Title Section */}
+            <div className="p-6 text-center">
+              <h3 className="text-xl font-semibold text-slate-800">
+                {item.name}
+              </h3>
+            </div>
+          </motion.div>
+        ))}
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-
-              <div className="absolute bottom-6 left-6 right-6">
-                <h3 className="text-white text-2xl font-semibold">
-                  {item.name}
-                </h3>
-              </div>
-            </motion.div>
-          ))}
         </motion.div>
       </div>
     </section>
