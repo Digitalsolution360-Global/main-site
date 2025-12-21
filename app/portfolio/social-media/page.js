@@ -11,7 +11,7 @@ export const metadata = {
     siteName: 'Digital Solution 360',
     images: [
       {
-        url: 'https://www.digitalsolution360.com/services/services-hero.webp',
+        url: 'https://www.digitalsolution360.com/Social-media-portfolio.webp',
         width: 1200,
         height: 630,
         alt: 'Social Media Portfolio',
@@ -24,7 +24,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Social Media Portfolio - Successful Campaigns & Results | Digital Solution 360',
     description: 'View our social media marketing portfolio showcasing engaging campaigns.',
-    images: ['https://www.digitalsolution360.com/services/services-hero.webp'],
+    images: ['https://www.digitalsolution360.com/Social-media-portfolio.webp'],
   },
   alternates: {
     canonical: 'https://www.digitalsolution360.com/portfolio/social-media',
