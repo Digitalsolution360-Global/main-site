@@ -11,7 +11,7 @@ export const metadata = {
     siteName: 'Digital Solution 360',
     images: [
       {
-        url: 'https://www.digitalsolution360.com/portfolio/gmb-hero.webp',
+        url: 'https://www.digitalsolution360.com/portfolio/gmb-og-image.webp',
         width: 1200,
         height: 630,
         alt: 'Google My Business Portfolio',
@@ -24,7 +24,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Google My Business Portfolio - GMB Success Stories | Digital Solution 360',
     description: 'See our Google My Business optimization portfolio with real results.',
-    images: ['https://www.digitalsolution360.com/portfolio/gmb-hero.webp'],
+    images: ['https://www.digitalsolution360.com/portfolio/gmb-og-image.webp'],
   },
   alternates: {
     canonical: 'https://www.digitalsolution360.com/portfolio/google-my-business',
