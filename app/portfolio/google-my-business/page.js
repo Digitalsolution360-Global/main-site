@@ -10,7 +10,7 @@ export const metadata = {
   openGraph: {
     title: 'Google My Business Portfolio - GMB Success Stories | Digital Solution 360',
     description:
-      'See our Google My Business optimization portfolio. Real results from local businesses we helped.',
+      'See our Google My Business optimization portfolio. Real results from local businesses we helped. See our Google My Business optimization portfolio. Real results from local businesses we helped. See our Google My Business optimization portfolio. Real results from local businesses we helped. See our Google My Business optimization portfolio. Real results from local businesses we helped.',
     url: '/portfolio/google-my-business',
     siteName: 'Digital Solution 360',
     images: [
