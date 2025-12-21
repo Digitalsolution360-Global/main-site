@@ -44,7 +44,7 @@
         "90+ five-star reviews collected"
       ],
       "services": ["Profile Creation", "Keyword Research", "Post Management", "Reputation Building"]
-    }
+    },
      {
       "id": 4,
       "title": "Jay Ganesh Event Management",
@@ -53,12 +53,57 @@
       "beforeImage": "/portfolio/gmb/raj-nursing-home.webp",
       "afterImage": "/portfolio/gmb/raj-nursing-home.webp",
       "results": [
+        "450% increase in booking inquiries",
+        "380% growth in profile engagement",
+        "Featured in Google 3-Pack",
+        "95+ five-star reviews collected"
+      ],
+      "services": ["Profile Creation", "Keyword Research", "Post Management", "Reputation Building"]
+    },
+    {
+      "id": 5,
+      "title": "Maxalign Dental Clinic",
+      "location": "Marathahalli, Bengaluru, Karnataka ",
+      "description": "At Maxalign Dental Clinic, we are committed to delivering exceptional dental care with a personal touch. Our modern, patient-friendly facility ensures comfort, cleanliness, and clinical excellence.",
+      "beforeImage": "/portfolio/gmb/max-align-dental.webp",
+      "afterImage": "/portfolio/gmb/max-align-dental.webp",
+      "results": [
+        "250% increase in booking inquiries",
+        "380% growth in profile engagement",
+        "Featured in Google 3-Pack",
+        "90+ five-star reviews collected"
+      ],
+      "services": ["Profile Creation", "Keyword Research", "Post Management", "Reputation Building"]
+    },
+      {
+      "id": 5,
+      "title": "Maxalign Dental Clinic",
+      "location": "Marathahalli, Bengaluru, Karnataka ",
+      "description": "At Maxalign Dental Clinic, we are committed to delivering exceptional dental care with a personal touch. Our modern, patient-friendly facility ensures comfort, cleanliness, and clinical excellence.",
+      "beforeImage": "/portfolio/gmb/max-align-dental.webp",
+      "afterImage": "/portfolio/gmb/max-align-dental.webp",
+      "results": [
         "350% increase in booking inquiries",
         "280% growth in profile engagement",
         "Featured in Google 3-Pack",
         "90+ five-star reviews collected"
       ],
       "services": ["Profile Creation", "Keyword Research", "Post Management", "Reputation Building"]
-    }
+    },
+       {
+      "id": 6,
+      "title": "The White Ibis ",
+      "location": " Sivasagar, Assam ",
+      "description": "Our range of exclusive room options—Suite, Executive, Deluxe, and Standard—are thoughtfully designed to provide a distinctive blend of comfort and style. ",
+      "beforeImage": "/portfolio/gmb/The-White-IBIS.webp",
+      "afterImage": "/portfolio/gmb/The-White-IBIS.webp",
+      "results": [
+        "450% increase in booking inquiries",
+        "180% growth in profile engagement",
+        "Featured in Google 3-Pack",
+        "90+ five-star reviews collected"
+      ],
+      "services": ["Profile Creation", "Keyword Research", "Post Management", "Reputation Building"]
+    },
   ]
 }
