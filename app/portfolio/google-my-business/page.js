@@ -9,7 +9,7 @@ export const metadata = {
     title: 'Google My Business Portfolio - GMB Success Stories | Digital Solution 360',
     description:
       'See our Google My Business optimization portfolio. Real results from local businesses we helped.',
-    url: 'https://www.digitalsolution360.com/portfolio/google-my-business?v=2',
+    url: 'https://www.digitalsolution360.com/portfolio/google-my-business',
     siteName: 'Digital Solution 360',
     images: [
       {
