@@ -14,6 +14,8 @@ export const metadata = {
     images: [
       {
         url: 'https://www.digitalsolution360.com/portfolio/gmb-og-image.webp',
+        width: 1200,
+        height: 630,
         alt: 'Google My Business Portfolio',
       },
     ],
