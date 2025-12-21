@@ -1,8 +1,6 @@
 import GoogleBusinessPageClient from './gmbPortClient'
 
 export const metadata = {
-  metadataBase: new URL('https://www.digitalsolution360.com'),
-
   title: 'Google My Business Portfolio - GMB Success Stories | Digital Solution 360',
   description:
     'See our Google My Business optimization portfolio. Real results from local businesses we helped with GMB management, local SEO, and online visibility.',
@@ -10,14 +8,12 @@ export const metadata = {
   openGraph: {
     title: 'Google My Business Portfolio - GMB Success Stories | Digital Solution 360',
     description:
-      'See our Google My Business optimization portfolio. Real results from local businesses we helped. See our Google My Business optimization portfolio. Real results from local businesses we helped. See our Google My Business optimization portfolio. Real results from local businesses we helped. See our Google My Business optimization portfolio. Real results from local businesses we helped.',
-    url: '/portfolio/google-my-business',
+      'See our Google My Business optimization portfolio. Real results from local businesses we helped.',
+    url: 'https://www.digitalsolution360.com/portfolio/google-my-business',
     siteName: 'Digital Solution 360',
     images: [
       {
-        url: '/portfolio/gmb-og-image.webp',
-        width: 1200,
-        height: 630,
+        url: 'https://www.digitalsolution360.com/portfolio/gmb-og-image.webp',
         alt: 'Google My Business Portfolio',
       },
     ],
@@ -30,11 +26,11 @@ export const metadata = {
     title: 'Google My Business Portfolio - GMB Success Stories | Digital Solution 360',
     description:
       'See our Google My Business optimization portfolio with real results.',
-    images: ['/portfolio/gmb-og-image.webp'],
+    images: ['https://www.digitalsolution360.com/portfolio/gmb-og-image.webp'],
   },
 
   alternates: {
-    canonical: '/portfolio/google-my-business',
+    canonical: 'https://www.digitalsolution360.com/portfolio/google-my-business',
   },
 }
 
