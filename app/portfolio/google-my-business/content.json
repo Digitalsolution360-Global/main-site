@@ -45,5 +45,20 @@
       ],
       "services": ["Profile Creation", "Keyword Research", "Post Management", "Reputation Building"]
     }
+     {
+      "id": 4,
+      "title": "Jay Ganesh Event Management",
+      "location": "Hapur, Uttar Pradesh ",
+      "description": "We are committed to making advanced healthcare affordable and accessible for all. Our facility is equipped with modern operation theatres, ICU support, ultrasound and X-ray machines, and emergency pharmacy services — available 24/7. ",
+      "beforeImage": "/portfolio/gmb/raj-nursing-home.webp",
+      "afterImage": "/portfolio/gmb/raj-nursing-home.webp",
+      "results": [
+        "350% increase in booking inquiries",
+        "280% growth in profile engagement",
+        "Featured in Google 3-Pack",
+        "90+ five-star reviews collected"
+      ],
+      "services": ["Profile Creation", "Keyword Research", "Post Management", "Reputation Building"]
+    }
   ]
 }
