@@ -89,6 +89,36 @@
       ],
       "testimonial": "Their expertise in healthcare social media is unmatched. We've become the go-to dental clinic in our area!",
       "color": "from-teal-500 to-green-600"
+    },
+     {
+      "id": 4,
+      "name": "Andheri Dental Clinic",
+      "handle": "@andheri_dental_clinic_",
+      "instagramUrl": "https://www.instagram.com/andheri_dental_clinic_",
+      "niche": "Dental Care & Oral Health",
+      "description": "Strengthened digital presence through patient-focused reels, educational content, and trust-building visuals.",
+      "stats": {
+        "followers": "8K+",
+        "engagement": "9.6%",
+        "reach": "120K+",
+        "posts": "280+"
+      },
+      "services": [
+        "Social Media Management",
+        "Reels & Video Content",
+        "Dental Awareness Content",
+        "Brand Trust Building",
+        "Clinic Photography",
+        "Local SEO Support"
+      ],
+      "results": [
+        "600% increase in Instagram followers",
+        "12.3% engagement rate (3x industry average)",
+        "150K+ monthly impressions",
+        "500+ direct sales through Instagram"
+      ],
+      "testimonial": "The team's creativity and strategic approach helped us build a strong brand identity. Our sales have skyrocketed!",
+      "color": "from-blue-500 to-cyan-600"
     }
   ]
 }
