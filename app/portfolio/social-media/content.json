@@ -117,8 +117,41 @@
         "150K+ monthly impressions",
         "500+ direct sales through Instagram"
       ],
-      "testimonial": "The team's creativity and strategic approach helped us build a strong brand identity. Our sales have skyrocketed!",
-      "color": "from-blue-500 to-cyan-600"
+      "testimonial": "The team’s professional approach and patient-focused content helped us build strong trust online. We’ve seen a noticeable increase in appointment inquiries and patient engagement.",
+      "color": "from-emerald-500 to-teal-600"
+
+    },
+     {
+      "id": 5,
+      "name": "Sri Poly Clinic",
+      "handle": "@sripoly.clinic",
+      "instagramUrl": "https://www.instagram.com/sripoly.clinic",
+      "niche": "Multi-Specialty Healthcare",
+      "description": "Enhanced Sri Poly Clinic’s digital presence with patient-centric healthcare content, educational posts, and trust-building reels. Focused on awareness, doctor expertise, and treatment highlights to attract local patients and increase appointment inquiries.",
+      "stats": {
+        "followers": "6K+",
+        "engagement": "8.9%",
+        "reach": "70K+",
+        "posts": "220+"
+      },
+      "services": [
+      "Healthcare Social Media Management",
+      "Doctor & Treatment Awareness Content",
+      "Reels & Informative Video Creation",
+      "Patient Education Campaigns",
+      "Clinic Branding & Visual Identity",
+      "Local Patient Outreach Support"
+    ],
+    "results": [
+      "300% increase in Instagram followers",
+      "Strong and consistent patient engagement",
+      "Improved local reach across Telangana",
+      "Increase in appointment inquiries through social media"
+    ],
+    "testimonial": "The team understood our clinic’s vision perfectly. Their healthcare-focused content helped us build patient trust and improved our online visibility significantly.",
+    "color": "from-sky-500 to-indigo-600"
+
+
     }
   ]
 }
