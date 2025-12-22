@@ -90,6 +90,28 @@
         "90+ five-star reviews collected"
       ],
       "services": ["Profile Creation", "Keyword Research", "Post Management", "Reputation Building"]
-    }
+    },
+    {
+  "id": 7,
+  "title": "Tej Bahadur Memorial Dental Clinic & Maxillofacial Center",
+  "location": "Mirzapur-cum-Vindhyachal, Uttar Pradesh",
+  "description": "A trusted dental and maxillofacial care center offering advanced treatments with a strong focus on patient safety, hygiene, and clinical excellence. The clinic is known for its high patient satisfaction and consistent positive reviews on Google.",
+  "beforeImage": "/portfolio/gmb/Tej-Bahadur-memorial-dental-clinic.webp",
+  "afterImage": "/portfolio/gmb/Tej-Bahadur-memorial-dental-clinic.webp",
+  "results": [
+    "300% increase in appointment inquiries",
+    "High visibility in local Google search results",
+    "4.9+ stars rating with 180+ Google reviews",
+    "Improved patient trust and clinic credibility"
+  ],
+  "services": [
+    "Google Business Profile Optimization",
+    "Local SEO & Keyword Research",
+    "Regular Post Management",
+    "Review & Reputation Management",
+    "Clinic Information Optimization"
+  ]
+}
+
   ]
 }
