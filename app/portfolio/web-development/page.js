@@ -11,7 +11,7 @@ export const metadata = {
     siteName: 'Digital Solution 360',
     images: [
       {
-        url: 'https://www.digitalsolution360.com/portfolio/web-dev-hero.webp',
+        url: 'https://www.digitalsolution360.com/portfolio/web development.webp',
         width: 1200,
         height: 630,
         alt: 'Web Development Portfolio',
@@ -24,7 +24,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Web Development Portfolio - Our Best Projects | Digital Solution 360',
     description: 'Explore our web development portfolio featuring custom websites and web applications.',
-    images: ['https://www.digitalsolution360.com/portfolio/web-dev-hero.webp'],
+    images: ['https://www.digitalsolution360.com/portfolio/web development.webp'],
   },
   alternates: {
     canonical: 'https://www.digitalsolution360.com/portfolio/web-development',
