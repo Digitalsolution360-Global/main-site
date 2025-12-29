@@ -96,36 +96,40 @@ function Services() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group rounded-2xl overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-2xl bg-gradient-to-br ${service.gradient}`}
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className={`group flex flex-col rounded-2xl overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-2xl bg-gradient-to-br ${service.gradient}`}
+          >
+            {/* Image */}
+            <div className="relative w-full h-64 sm:h-72">
+              <img
+                src={service.src}
+                alt={service.alt}
+                className="w-full h-full object-cover rounded-t-2xl transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          
+            {/* Content */}
+            <div className="p-6 flex flex-col flex-grow">
+              <div className="mb-4">
+                <h3 className="text-xl font-bold text-black mb-2">{service.title}</h3>
+                <p className="text-gray-800 text-sm">{service.description}</p>
+              </div>
+          
+              {/* Read More Button */}
+              <a
+              href={service.link}
+              className="mt-auto inline-block text-white bg-sky-500 hover:bg-sky-600 font-semibold py-2 px-4 rounded-full text-center transition-colors duration-300"
             >
-              {/* Image */}
-              <div className="relative w-full h-64 sm:h-72">
-                <img
-                  src={service.src}
-                  alt={service.alt}
-                  className="w-full h-full object-cover rounded-t-2xl transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
+              Read More
+            </a>
 
-              {/* Title & Description */}
-              <div className="p-6 flex flex-col justify-between h-full">
-                <div>
-                  <h3 className="text-xl font-bold text-black mb-2">{service.title}</h3>
-                  <p className="text-gray-800 text-sm mb-4">{service.description}</p>
-                </div>
-                <a
-                  href={service.link}
-                  className="inline-block mt-auto text-white bg-black hover:bg-gray-800 font-semibold py-2 px-4 rounded-full transition-colors duration-300"
-                >
-                  Read More
-                </a>
-              </div>
-            </motion.div>
+            </div>
+          </motion.div>
+
           ))}
         </div>
       </div>
