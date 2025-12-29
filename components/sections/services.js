@@ -95,14 +95,13 @@ function Services() {
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <motion.a
+            <motion.div
               key={index}
-              href={service.link}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group block rounded-2xl overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-2xl bg-gradient-to-br ${service.gradient}`}
+              className={`group rounded-2xl overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-2xl bg-gradient-to-br ${service.gradient}`}
             >
               {/* Image */}
               <div className="relative w-full h-64 sm:h-72">
@@ -114,11 +113,19 @@ function Services() {
               </div>
 
               {/* Title & Description */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-black mb-2">{service.title}</h3>
-                <p className="text-gray-800 text-sm">{service.description}</p>
+              <div className="p-6 flex flex-col justify-between h-full">
+                <div>
+                  <h3 className="text-xl font-bold text-black mb-2">{service.title}</h3>
+                  <p className="text-gray-800 text-sm mb-4">{service.description}</p>
+                </div>
+                <a
+                  href={service.link}
+                  className="inline-block mt-auto text-white bg-black hover:bg-gray-800 font-semibold py-2 px-4 rounded-full transition-colors duration-300"
+                >
+                  Read More
+                </a>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>
