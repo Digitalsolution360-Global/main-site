@@ -77,14 +77,14 @@ function Services() {
     gradient: "from-amber-100 to-amber-200",
     },
     {
-  src: "/home/images/offerings/orm.png",
-  title: "ORM Services",
-  description:
-    "Manage and improve your brand reputation online with strategic ORM solutions.",
-  link: "/orm-services",
-  alt: "ORM Services",
-  gradient: "from-indigo-100 to-indigo-200",
-  },
+      src: "/home/images/offerings/orm-service.webp",
+      title: "ORM Services",
+      description:
+        "Manage and improve your brand reputation online with strategic ORM solutions.",
+      link: "/orm-services",
+      alt: "ORM Services",
+      gradient: "from-indigo-100 to-indigo-200",
+    },
 
 
   ];
