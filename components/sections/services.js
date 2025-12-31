@@ -67,6 +67,26 @@ function Services() {
       alt: "Managed Services",
       gradient: "from-teal-100 to-teal-200",
     },
+    {
+    src: "/home/images/offerings/content-marketing.jpg",
+    title: "Content Marketing",
+    description:
+      "Boost your brand visibility and engagement with strategic content creation and marketing campaigns.",
+    link: "/content-marketing",
+    alt: "Content Marketing",
+    gradient: "from-amber-100 to-amber-200",
+    },
+    {
+  src: "/home/images/offerings/orm.png",
+  title: "ORM Services",
+  description:
+    "Manage and improve your brand reputation online with strategic ORM solutions.",
+  link: "/orm-services",
+  alt: "ORM Services",
+  gradient: "from-indigo-100 to-indigo-200",
+  },
+
+
   ];
 
   return (
