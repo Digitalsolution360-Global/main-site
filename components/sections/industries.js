@@ -11,6 +11,13 @@ const industries = [
   { name: "IT, SaaS & Tech Startups", image: "/market/gmb/images/industries/startups.jpg" },
   { name: "Real Estate & Property Developers", image: "/market/gmb/images/industries/real-estate.png" },
   { name: "Education & Coaching Institutes", image: "/market/gmb/images/industries/education.jpg" },
+  { name: "Professional Services: Lawyers, CA Firms, Consultants", image: "/market/gmb/images/industries/img8.webp" },
+  { name: "Manufacturing & B2B Industrial Companies", image: "/market/gmb/images/industries/img9.jpeg" },
+  { name: "Beauty, Wellness & Fitness", image: "/market/gmb/images/industries/img10.webp" },
+  { name: "Home Services", image: "/market/gmb/images/industries/img11.png" },
+ 
+  
+  
 ];
 
 // duplicate for seamless loop
