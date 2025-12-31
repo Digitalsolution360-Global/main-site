@@ -4,13 +4,13 @@ import React, { useState } from "react";
 import { motion, useAnimationFrame, useMotionValue } from "motion/react";
 
 const industries = [
-  { name: "Healthcare", image: "/market/gmb/images/industries/healthcare.jpg" },
-  { name: "Retail & Ecommerce", image: "/market/gmb/images/industries/retail.png" },
-  { name: "Travel & Hospitality", image: "/market/gmb/images/industries/travel.jpg" },
-  { name: "Finance & Legal", image: "/market/gmb/images/industries/finance.jpg" },
-  { name: "Startups & SaaS", image: "/market/gmb/images/industries/startups.jpg" },
-  { name: "Real Estate", image: "/market/gmb/images/industries/real-estate.png" },
-  { name: "Education & Edtech", image: "/market/gmb/images/industries/education.jpg" },
+  { name: "Healthcare & Medical services", image: "/market/gmb/images/industries/healthcare.jpg" },
+  { name: "E-commerce & D2C Brands", image: "/market/gmb/images/industries/retail.png" },
+  { name: "Restaurants, Cafes & Cloud Kitchens", image: "/market/gmb/images/industries/travel.jpg" },
+  { name: "Finance & Insurance", image: "/market/gmb/images/industries/finance.jpg" },
+  { name: "IT, SaaS & Tech Startups", image: "/market/gmb/images/industries/startups.jpg" },
+  { name: "Real Estate & Property Developers", image: "/market/gmb/images/industries/real-estate.png" },
+  { name: "Education & Coaching Institutes", image: "/market/gmb/images/industries/education.jpg" },
 ];
 
 // duplicate for seamless loop
