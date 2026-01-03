@@ -304,7 +304,27 @@
   ],
   "isLink": true,
   "link": "https://www.atithihome.com/"
+},
+    {
+  "id": 16,
+  "title": "Ceilkraft",
+  "subtitle": "False Ceiling & Interior Solutions",
+  "description": "A professional false ceiling contractor delivering high-quality ceiling installations for residential and commercial spaces with modern designs, durable materials, and expert craftsmanship.",
+  "image": "/portfolio/website/ceilkraft.webp",
+  "tags": ["False Ceiling", "Interior Design", "Installation", "Gypsum Ceilings", "Acoustic Solutions"],
+  "highlights": [
+    "Premium False Ceiling Installations - Gypsum, POP & Designer ceilings for homes and offices",
+    "Armstrong Grid & Tile Ceilings - Perfect for commercial and institutional spaces",
+    "Waterproof PVC & Metal Ceilings - Moisture-resistant and easy maintenance solutions",
+    "Acoustic Ceiling Options - Noise control systems for enhanced interior comfort",
+    "Authorized Brickwood Ceiling System Contractor - Certified and quality-focused services",
+    "Customized Design Solutions - Tailored ceiling aesthetics based on client needs",
+    "Service Across Bengaluru - Including Gunjur, Nagegere, Varthur, Whitefield & Sarjapur Road"
+  ],
+  "isLink": true,
+  "link": "https://www.ceilkraft.com/"
 }
+
 
   ]
 }
