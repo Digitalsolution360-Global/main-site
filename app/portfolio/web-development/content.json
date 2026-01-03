@@ -42,7 +42,7 @@
     },
     {
       "id": 3,
-      "title": "Max Align Dental",
+      "title": "maxaligndental.webp",
       "subtitle": "Modern Dental Clinic Website",
       "description": "Developed from scratch using Frontend, HTML5, CSS3, Bootstrap 5, Responsive Design, and JavaScript to ensure complete control over design and performance.",
       "image": "/portfolio/website/Max-Align-Dental.png",
@@ -285,6 +285,26 @@
       ],
       "isLink": true,
       "link": "https://bdservices.in/"
-    }
+    },
+    {
+  "id": 15,
+  "title": "Atithi Home",
+  "subtitle": "Premium Homestay & Hospitality Website",
+  "description": "Designed and developed a modern hospitality website with a focus on comfort, trust, and seamless booking experience, ensuring responsiveness and user-friendly navigation.",
+  "image": "/portfolio/website/Atithi-Home-stay.webp",
+  "tags": ["HTML5", "CSS3", "JavaScript", "Hospitality", "SEO"],
+  "highlights": [
+    "Custom Website Design - Clean and elegant layout tailored for homestay and hospitality services",
+    "Responsive Development - Optimized for mobile, tablet, and desktop devices",
+    "Hospitality-Focused UI/UX - Warm visuals, intuitive navigation, and guest-friendly structure",
+    "Room & Property Showcase - High-quality imagery and detailed accommodation sections",
+    "SEO Optimization - Search-engine-friendly structure to improve online visibility",
+    "Inquiry & Contact Integration - Easy booking inquiries and contact forms",
+    "Performance Optimized - Fast loading pages for smooth user experience"
+  ],
+  "isLink": true,
+  "link": "https://www.atithihome.com/"
+}
+
   ]
 }
