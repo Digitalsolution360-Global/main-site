@@ -371,7 +371,7 @@ function Header() {
                                         )}
                                     </AnimatePresence>
                                 </li>
-                                <li><Link href="/portfolio" onClick={() => setMobileMenuOpen(false)}>Portfolio</Link></li>
+                                <li><Link href="/portfolio" onClick={() => setMobileMenuOpen(false)}>Our Work</Link></li>
                                 <li><Link href="/careers" onClick={() => setMobileMenuOpen(false)}>Careers</Link></li>
                                 <li><Link href="/blogs" onClick={() => setMobileMenuOpen(false)}>Blogs</Link></li>
                                 <li><Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link></li>
