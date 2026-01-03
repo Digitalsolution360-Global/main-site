@@ -223,7 +223,7 @@ function Header() {
                                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
                                     />
                                 )}
-                                <span className='relative z-20'>Portfolio</span>
+                                <span className='relative z-20'>Our Work</span>
                             </Link>
                         </li>
                         <li className='relative'>
