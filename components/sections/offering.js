@@ -6,21 +6,7 @@ import { IconCheck } from '@tabler/icons-react'
 
 function Offering() {
   const offerings = [
-    {
-      heading: "WEBSITE DEVELOPMENT",
-      description: "Design and build fast, responsive, and accessible websites tailored to your brand using modern frameworks and CMS platforms.",
-      points: [
-        "Landing Pages",
-        "Corporate Websites",
-        "Ecommerce Stores (Shopify/WooCommerce)",
-        "Headless CMS",
-        "Performance Optimization",
-        "Responsive & Mobile-first Design",
-        "Accessibility (WCAG)"
-      ],
-      image: "/home/images/ecomm.webp",
-      imagePosition: "right"
-    },
+   
     {
       heading: "DIGITAL MARKETING",
       description: "Data-driven marketing to grow traffic, leads and revenue across search, social and paid channels.",
@@ -52,20 +38,72 @@ function Offering() {
       imagePosition: "right"
     },
     {
-      heading: "SEO & GOOGLE MY BUSINESS",
-      description: "Improve local visibility and search rankings with technical SEO, on-page optimization and Google Business Profile management.",
+      heading: "Search Engine Optimization (SEO Services and SEO Company).",
+      description: "Our search engine optimization is aimed at companies who desire long-term development. Being an oriented SEO company, we aim at ranking improvements, organic traffic, and the quality of leads.",
       points: [
-        "GMB / Google Business Profile Setup & Optimization",
-        "Local Citations & Listings",
-        "On-page & Technical SEO",
-        "Reputation & Review Management",
-        "Structured Data & Schema",
-        "Local Content Strategy",
-        "SEO Audits & Monitoring"
+        "Business localized search engine optimization.",
+        "On page optimization and technical SEO.",
+        "Content-led SEO strategies",
+        "Local Leads Google My Business optimization",
+      
       ],
       image: "/home/images/cms.webp",
-      imagePosition: "left"
-    }
+      imagePosition: "left",
+      cta: {
+        label: "Improve your standings through Digital Solution 360",
+        link: "/seo-services"
+      }
+    },
+    {
+      heading: "The Social Media Marketing Services that will create actual engagement.",
+      description:
+        "Our social media marketing services assist companies to reach out to merchants where they are doing most of their time. We handle platforms, which create engagement and conversions, between strategy and execution.",
+      points: [
+        "Content generation and social media strategy.",
+        "Content generation and social media strategy.",
+        "Reputation management of the brand",
+        "Performance measurement and improvement.",
+      ],
+      image: "/home/images/digital-marketing.webp",
+      imagePosition: "right",
+      cta: {
+        label: "Begin social media advertising with Digital Solution 360 now.",
+        link: "/app-crm-development"
+      }
+    },
+     {
+      heading: "Instant Visibility with Pay per Click Management.",
+      description:
+        "Need instant leads and traffic? Our pay per click Management Company provides prompt and focused service by the use of Google Ads and paid campaigns.",
+      points: [
+        "High-converting ad copy",
+        "Smart bidding strategies",
+        "Tracking conversion and analytics.",
+        "Constant ROI optimization",
+      ],
+      image: "/home/images/digital-marketing.webp",
+      imagePosition: "left",
+      cta: {
+        label: ":Create immediate leads - PPC with Digital Solution 360.",
+        link: "/app-crm-development"
+      }
+    },
+     {
+      heading: "Reliable Web Development Agency to Scale to Digital.",
+      description: "Your online presence is your online base. As one of the most powerful web development firms, we create and develop websites, which are rapid, safe, and conversion-oriented.",
+      points: [
+        "Website Development Services That Work.",
+        "We even specialize in developing our websites in terms of performance, usability, and SEO.",
+        "Web development of websites at low prices.",
+        "Mobile first design and responsiveness.",
+        "SEO-friendly structure",
+        "Optimization of speed and performance.",
+      ],
+      image: "/home/images/ecomm.webp",
+      imagePosition: "Develop a great site using Digital Solution 360 - Reserve a free consultation"
+    },
+
+
   ];
 
   return (
@@ -81,11 +119,10 @@ function Offering() {
           className='text-center mb-16'
         >
           <h2 className='text-4xl md:text-5xl font-bold mb-4'>
-            Our <span className='text-blue-600'>Offerings</span>
+            All-In-One <span className='text-blue-600'>Digital Marketing Services</span> With Results. 
           </h2>
           <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
-            Comprehensive digital solutions to transform your business and drive growth in the digital age.
-          </p>
+            We are a performance based digital marketing agency and we provide end-to-end services that emphasize on ROI. Our plans are evidence-based, consumer-focused and constantly adjusted.</p>
         </div>
 
         {/* Offerings */}
@@ -136,7 +173,21 @@ function Offering() {
                       </div>
                     ))}
                   </div>
+                  {offering.cta && (
+                <div className="mt-10">
+                  <a
+                    href={offering.cta.link}
+                    className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold
+                              hover:bg-blue-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  >
+                    {offering.cta.label}
+                  </a>
                 </div>
+              )}
+                </div>
+                {/* CTA Button (Optional) */}
+
+
 
                 {/* Image Side */}
                 <div

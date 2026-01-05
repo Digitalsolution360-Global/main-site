@@ -8,17 +8,17 @@ import { IconCheck } from '@tabler/icons-react'
 function WhyUS() {
   const features = [
     {
-      title: "Tailored, Scalable Strategies",
-      description: "We reject one-size-fits-all solutions. Your campaign is custom-built from the ground up to meet your specific business goals and scale with your growth."
+      // title: "Tailored, Scalable Strategies",
+      description: "Whether it is digital marketing services or development of a dedicated web site, we are able to assist the brands develop a robust digital presence that is able to attract, engage and convert the right audience. "
     },
     {
-      title: "Transparency & Measurable Results",
-      description: "Gain full visibility into your campaign's performance with our detailed analytics and clear reporting. We focus on KPIs that matter: leads, sales, and revenue."
+      // title: "Transparency & Measurable Results",
+      description: "Be it a startup, small or established business, our bespoke solutions are in place to bring measurable success."
     },
-    {
-      title: "A Partnership, Not Just a Service",
-      description: "We integrate with your team, becoming an extension of your business. Your success is our only metric, and we're committed to achieving it together."
-    }
+    // {
+    //   title: "A Partnership, Not Just a Service",
+    //   description: "We integrate with your team, becoming an extension of your business. Your success is our only metric, and we're committed to achieving it together."
+    // }
   ];
 
   return (
@@ -35,11 +35,12 @@ function WhyUS() {
               transition={{ duration: 0.6 }}
             >
               <h2 className='text-4xl md:text-5xl font-bold mb-4'>
-                Why Choose <span className='text-blue-600'>Us</span>
+                <span className='text-blue-600'>Digital Solution 360 </span>
+                Welcome to Your Growth-Oriented Digital Marketing Agency.
               </h2>
             </motion.div>
 
-            <motion.h3
+            {/* <motion.h3
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -47,7 +48,7 @@ function WhyUS() {
               className='text-2xl md:text-3xl font-semibold text-gray-700 mb-6'
             >
               Your Success, Engineered by Our Expertise
-            </motion.h3>
+            </motion.h3> */}
 
             <motion.p
               initial={{ opacity: 0, x: -30 }}
@@ -56,8 +57,8 @@ function WhyUS() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className='text-lg text-gray-600 mb-8 leading-relaxed'
             >
-              In a digital world crowded with noise, standing out requires more than just tactics—it demands a strategic partner. We blend cutting-edge technology with proven marketing fundamentals to deliver a clear competitive advantage.
-            </motion.p>
+              Need a digital marketing agency that actually comprehends business development? This is Welcome to Digital Solution 360 where strategy is met by creativity and performance is what drives all we do. We are not an ordinary online marketing firm. We are your long-term result-oriented, visibility-oriented, conversion-oriented, digital growth partner.
+              </motion.p>
 
             {/* Features */}
             <div className='space-y-6 mb-8'>
@@ -77,7 +78,7 @@ function WhyUS() {
                   </div>
                   <div>
                     <h4 className='text-xl font-semibold text-gray-800 mb-2'>
-                      {feature.title}
+                      {/* {feature.title} */}
                     </h4>
                     <p className='text-gray-600 leading-relaxed'>
                       {feature.description}
@@ -93,12 +94,21 @@ function WhyUS() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-              <Link 
+              {/* <Link 
                 href="/about"
                 className='inline-block bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-1'
               >
                 About Us
-              </Link>
+              </Link> */}
+              <Link
+              href="tel:+91 99905 56217"
+              className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold
+                        hover:bg-blue-700 transition-all duration-300
+                        hover:shadow-lg hover:-translate-y-1"
+            >
+              Build Your Business Online – Call Now
+            </Link>
+
             </motion.div>
           </div>
 

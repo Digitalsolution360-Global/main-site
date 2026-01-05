@@ -21,10 +21,10 @@ export const viewport = {
 export const metadata = {
   metadataBase: new URL('https://www.digitalsolution360.com'),
   title: {
-    default: "Digital Solution 360 - Expert SEO, Digital Marketing & Web Development",
+    default: "Digital Solution 360 Digital Marketing Agency, SEO Services and Web Development Company.",
     template: "%s | Digital Solution 360"
   },
-  description: "Elevate your brand with Digital Solution 360's tailored digital marketing, SEO services, website & e-commerce development. Proven strategies, expert team, results you can see. Free consultation available.",
+  description: "Digital Solution 360 is a performance based digital marketing firm that provides solutions to web development, SEO solutions, social media marketing, PPC management, and lead generation solutions to growing businesses.",
   keywords: [
     "digital marketing",
     "SEO services",

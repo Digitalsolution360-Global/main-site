@@ -28,6 +28,18 @@ const Blogs = dynamic(() => import("@/components/sections/blogs"), {
 const Faqs = dynamic(() => import("@/components/sections/faqs"), {
   loading: () => <div className="h-48" />,
 });
+const GrowthServices = dynamic(() => import("@/components/sections/GrowthServices"), {
+  loading: () => <div className="h-48" />,
+});
+const BusinessGrowthSection = dynamic(() => import("@/components/sections/BusinessGrowthSection"), {
+  loading: () => <div className="h-48" />,
+});
+const WhyDS360Section = dynamic(() => import("@/components/sections/WhyDS360Section"), {
+  loading: () => <div className="h-48" />,
+});
+
+
+
 
 export const metadata = {
   title: 'Digital Solution 360 - Digital Marketing & Web Development Services',
@@ -91,7 +103,17 @@ export default function Home() {
       <Suspense fallback={<div className="h-48" />}>
         <Offering/>
       </Suspense>
+      <Suspense fallback={<div className="h-48" />}>
+        <GrowthServices/>
+      </Suspense>
+      
       <Industries/>
+      <Suspense fallback={<div className="h-48" />}>
+        <BusinessGrowthSection/>
+      </Suspense>
+      <Suspense fallback={<div className="h-48" />}>
+        <WhyDS360Section/>
+      </Suspense>
       <Suspense fallback={<div className="h-48" />}>
       <Blogs/>
     </Suspense>
