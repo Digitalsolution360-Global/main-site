@@ -61,7 +61,7 @@ function Services() {
       alt: "Managed Services",
     },
     {
-      src: "/home/images/offerings/content-marketing.jpg",
+      src: "/home/images/offerings/content-marketing.webp",
       title: "Content Marketing",
       description:
         "Boost your brand visibility and engagement with strategic content creation and marketing campaigns.",
