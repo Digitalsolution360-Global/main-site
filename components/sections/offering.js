@@ -19,7 +19,7 @@ function Offering() {
         "Analytics & Conversion Optimization",
         "Local & Performance Campaigns"
       ],
-      image: "/home/images/cms.webp",
+      image: "/home/images/digital-marketing.webp",
       imagePosition: "left"
     },
     {
@@ -34,7 +34,7 @@ function Offering() {
         "Payments & Authentication",
         "Ongoing Maintenance"
       ],
-      image: "/home/images/digital-marketing.webp",
+      image: "/home/images/app.webp",
       imagePosition: "right"
     },
     {
@@ -47,7 +47,7 @@ function Offering() {
         "Local Leads Google My Business optimization",
       
       ],
-      image: "/home/images/cms.webp",
+      image: "/home/images/seo.webp",
       imagePosition: "left",
       cta: {
         label: "Improve your standings through Digital Solution 360",
@@ -64,7 +64,7 @@ function Offering() {
         "Reputation management of the brand",
         "Performance measurement and improvement.",
       ],
-      image: "/home/images/digital-marketing.webp",
+      image: "/home/images/Social-Media.webp",
       imagePosition: "right",
       cta: {
         label: "Begin social media advertising with Digital Solution 360 now.",
@@ -81,7 +81,7 @@ function Offering() {
         "Tracking conversion and analytics.",
         "Constant ROI optimization",
       ],
-      image: "/home/images/digital-marketing.webp",
+      image: "/home/images/Pay-per-Click.webp",
       imagePosition: "left",
       cta: {
         label: ":Create immediate leads - PPC with Digital Solution 360.",
@@ -99,7 +99,7 @@ function Offering() {
         "SEO-friendly structure",
         "Optimization of speed and performance.",
       ],
-      image: "/home/images/ecomm.webp",
+      image: "/home/images/Web-Development-Agency.webp",
       imagePosition: "Develop a great site using Digital Solution 360 - Reserve a free consultation"
     },
 
