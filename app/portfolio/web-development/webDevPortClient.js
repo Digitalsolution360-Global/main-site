@@ -83,10 +83,10 @@ function WebDevPage() {
             className='grid grid-cols-2 md:grid-cols-4 gap-6 mb-16'
           >
             {[
-              { number: '150+', label: 'Websites Built' },
-              { number: '100%', label: 'Client Satisfaction' },
-              { number: '50+', label: 'Active Projects' },
-              { number: '5+ Years', label: 'Experience' }
+              { number: '1000+', label: 'Websites Built' },
+              { number: '98%', label: 'Client Satisfaction' },
+              { number: '500+', label: 'Happy Clients' },
+              { number: '11+ Years', label: 'Experience' }
             ].map((stat, index) => (
               <motion.div
                 key={index}

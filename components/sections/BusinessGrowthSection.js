@@ -17,7 +17,7 @@ export default function BusinessGrowthSection() {
       ],
       cta: "Get more local leads - Optimize your Google My Business with us.",
       link: "/google-my-business-optimization",
-      gradient: "from-blue-500 to-blue-300",
+      gradient: "from-blue-900 to-blue-600",
     },
     {
       title: "Branding and Innovative Design Services That Stand out.",
@@ -30,7 +30,7 @@ export default function BusinessGrowthSection() {
       ],
       cta: "Develop a strong brand name with Digital Solution 360.",
       link: "/branding-services",
-      gradient: "from-purple-500 to-purple-300",
+      gradient: "from-purple-900 to-purple-600",
     },
     {
       title: "Smarter Growth Marketing Automation Services.",
@@ -43,7 +43,7 @@ export default function BusinessGrowthSection() {
       ],
       cta: "Automate your marketing - Book a demo with Digital Solution 360.",
       link: "/marketing-automation",
-      gradient: "from-green-500 to-green-300",
+      gradient: "from-green-900 to-green-600",
     },
     {
       title: "Business Automation CRM Development Services.",
@@ -56,7 +56,7 @@ export default function BusinessGrowthSection() {
       ],
       cta: "Automate your business operations using Digital Solution 360 CRM solutions.",
       link: "/crm-development",
-      gradient: "from-yellow-400 to-yellow-200",
+      gradient: "from-yellow-900 to-yellow-600",
     },
   ];
 

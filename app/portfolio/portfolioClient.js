@@ -24,8 +24,8 @@ function PortfolioPage() {
       const totalFrames = duration / frameRate;
 
       const targets = {
-        projects: 830,
-        clients: 300,
+        projects: 1000,
+        clients: 500,
         industries: 50,
         success: 98
       };
