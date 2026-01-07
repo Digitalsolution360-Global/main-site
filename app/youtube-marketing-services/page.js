@@ -6,44 +6,44 @@ import Link from "next/link";
 import {
   IconHome,
   IconChevronRight,
-  IconBrandInstagram,
-  IconCamera,
+  IconBrandYoutube,
+  IconPlayerPlay,
   IconRocket,
   IconChartBar,
   IconCheck,
 } from "@tabler/icons-react";
 
-export default function InstagramMarketingPage() {
+export default function YouTubeMarketingPage() {
   const services = [
     {
-      icon: IconBrandInstagram,
-      title: "Profile Optimization",
-      desc: "Optimize your Instagram profile to attract and retain followers effectively.",
+      icon: IconBrandYoutube,
+      title: "YouTube Channel Optimization",
+      desc: "Optimize your YouTube channel for branding, SEO, and higher discoverability.",
     },
     {
-      icon: IconCamera,
-      title: "Content Creation",
-      desc: "High-quality visuals and stories tailored for your brand and audience.",
+      icon: IconPlayerPlay,
+      title: "Video Content Strategy",
+      desc: "Create engaging video strategies that increase watch time and subscribers.",
     },
     {
       icon: IconRocket,
-      title: "Campaigns & Promotions",
-      desc: "Run targeted Instagram ad campaigns to increase engagement and conversions.",
+      title: "YouTube Ads Campaigns",
+      desc: "Run targeted YouTube ads for brand awareness, leads, and conversions.",
     },
     {
       icon: IconChartBar,
-      title: "Analytics & Reporting",
-      desc: "Track performance, analyze insights, and refine your Instagram strategy.",
+      title: "Analytics & Growth Tracking",
+      desc: "Track views, engagement, conversions, and continuously optimize performance.",
     },
   ];
 
   const process = [
-    "Audit current Instagram presence",
-    "Create a content calendar",
-    "Design visuals and stories",
-    "Launch campaigns & promotions",
-    "Monitor insights & analytics",
-    "Optimize strategy for better engagement",
+    "Understand business & video goals",
+    "Optimize YouTube channel & branding",
+    "Plan content & video strategy",
+    "Launch YouTube ads & promotions",
+    "Track views, leads & engagement",
+    "Optimize for better reach & ROI",
   ];
 
   return (
@@ -52,8 +52,8 @@ export default function InstagramMarketingPage() {
       <section className="relative h-[55vh] mt-21 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/services/instagram-marketing-hero.webp"
-            alt="Instagram Marketing Services"
+            src="/services/youtube-marketing-hero.webp"
+            alt="YouTube Marketing Services"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/70" />
@@ -61,11 +61,11 @@ export default function InstagramMarketingPage() {
 
         <div className="relative z-10 max-w-5xl px-6 text-center text-white">
           <div className="flex justify-center items-center gap-2 text-sm mb-6">
-            <Link href="/" className="flex items-center gap-1 hover:text-blue-400">
+            <Link href="/" className="flex items-center gap-1 hover:text-red-400">
               <IconHome size={18} /> Home
             </Link>
             <IconChevronRight size={16} />
-            <span className="text-blue-300">Instagram Marketing</span>
+            <span className="text-red-400">YouTube Marketing</span>
           </div>
 
           <motion.h1
@@ -73,11 +73,11 @@ export default function InstagramMarketingPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-bold mb-6"
           >
-            Instagram <span className="text-blue-400">Marketing</span>
+            YouTube <span className="text-red-500">Marketing</span>
           </motion.h1>
 
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Boost your Instagram presence, engage your audience, and grow your brand with our Instagram marketing services.
+          <p className="text-xl text-red-100 max-w-3xl mx-auto">
+            Grow your brand with powerful video marketing and result-driven YouTube strategies.
           </p>
         </div>
       </section>
@@ -96,26 +96,26 @@ export default function InstagramMarketingPage() {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-4xl font-bold mb-6">
-                Effective <span className="text-blue-600">Instagram Marketing</span>
+                Result-Driven <span className="text-red-600">YouTube Marketing</span>
               </h2>
 
               <p className="text-gray-600 text-lg mb-4">
-                Instagram is a powerful platform for brand building, lead generation, and audience engagement.
+                YouTube is the world’s second largest search engine and the most powerful video platform.
               </p>
 
               <p className="text-gray-600 text-lg mb-4">
-                We create strategies and content that help your brand stand out and grow organically on Instagram.
+                We help brands grow subscribers, engagement, and conversions through strategic video marketing.
               </p>
 
               <p className="text-gray-600 text-lg">
-                From visuals to analytics, we handle everything for a strong Instagram presence.
+                Our YouTube marketing solutions focus on long-term growth and measurable results.
               </p>
             </motion.div>
 
             {/* SERVICES */}
             <div>
               <h2 className="text-4xl font-bold mb-10">
-                Our <span className="text-blue-600">Instagram Services</span>
+                Our <span className="text-red-600">YouTube Services</span>
               </h2>
 
               <div className="grid md:grid-cols-2 gap-8">
@@ -127,7 +127,7 @@ export default function InstagramMarketingPage() {
                       whileHover={{ y: -6 }}
                       className="bg-white p-8 rounded-2xl shadow-lg"
                     >
-                      <div className="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
+                      <div className="w-14 h-14 bg-red-600 rounded-xl flex items-center justify-center mb-4">
                         <Icon size={28} className="text-white" />
                       </div>
                       <h3 className="text-xl font-bold mb-3">{item.title}</h3>
@@ -141,7 +141,7 @@ export default function InstagramMarketingPage() {
             {/* PROCESS */}
             <div>
               <h2 className="text-4xl font-bold mb-10">
-                Our <span className="text-blue-600">Process</span>
+                Our <span className="text-red-600">Process</span>
               </h2>
 
               <div className="grid md:grid-cols-2 gap-6">
@@ -150,7 +150,7 @@ export default function InstagramMarketingPage() {
                     key={i}
                     className="flex items-center gap-4 bg-white p-6 rounded-xl shadow"
                   >
-                    <IconCheck className="text-blue-600" />
+                    <IconCheck className="text-red-600" />
                     <span className="text-lg font-medium">{step}</span>
                   </div>
                 ))}
@@ -158,19 +158,19 @@ export default function InstagramMarketingPage() {
             </div>
 
             {/* CTA */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-3xl p-12 text-center">
+            <div className="bg-gradient-to-br from-red-600 to-red-800 text-white rounded-3xl p-12 text-center">
               <IconRocket size={48} className="mx-auto mb-4" />
               <h2 className="text-3xl font-bold mb-4">
-                Grow Your Instagram Presence
+                Grow Faster on YouTube
               </h2>
-              <p className="text-blue-100 mb-8">
-                Let us manage your Instagram marketing to boost engagement and build your brand.
+              <p className="text-red-100 mb-8">
+                Let our experts manage your YouTube marketing and video growth strategy.
               </p>
               <Link
                 href="/contact"
-                className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold"
+                className="inline-block bg-white text-red-600 px-8 py-4 rounded-lg font-semibold"
               >
-                Get Instagram Marketing
+                Start YouTube Marketing
               </Link>
             </div>
 
@@ -185,10 +185,10 @@ export default function InstagramMarketingPage() {
             <ul className="space-y-3 text-gray-700">
               <li><Link href="/social-media-marketing-services/">Social Media Marketing</Link></li>
               <li><Link href="/social-media-management-services/">Social Media Management</Link></li>
-              <li className="font-medium text-blue-600">Instagram Marketing</li>
+              <li><Link href="/instagram-marketing-services/">Instagram Marketing</Link></li>
               <li><Link href="/facebook-marketing-services/">Facebook Marketing</Link></li>
               <li><Link href="/linkedin-marketing-services/">LinkedIn Marketing</Link></li>
-              <li><Link href="/youtube-marketing-services/">YouTube Marketing</Link></li>
+              <li className="font-medium text-red-600">YouTube Marketing</li>
               <li><Link href="/influencer-marketing-services/">Influencer Marketing</Link></li>
               <li><Link href="/short-video-marketing/">Short Video Marketing</Link></li>
             </ul>

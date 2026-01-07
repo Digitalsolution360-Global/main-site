@@ -6,44 +6,44 @@ import Link from "next/link";
 import {
   IconHome,
   IconChevronRight,
-  IconBrandInstagram,
-  IconCamera,
+  IconUsers,
+  IconSpeakerphone,
   IconRocket,
   IconChartBar,
   IconCheck,
 } from "@tabler/icons-react";
 
-export default function InstagramMarketingPage() {
+export default function InfluencerMarketingPage() {
   const services = [
     {
-      icon: IconBrandInstagram,
-      title: "Profile Optimization",
-      desc: "Optimize your Instagram profile to attract and retain followers effectively.",
+      icon: IconUsers,
+      title: "Influencer Research & Selection",
+      desc: "Identify the right influencers that align with your brand and target audience.",
     },
     {
-      icon: IconCamera,
-      title: "Content Creation",
-      desc: "High-quality visuals and stories tailored for your brand and audience.",
+      icon: IconSpeakerphone,
+      title: "Campaign Planning & Execution",
+      desc: "End-to-end influencer campaign planning for maximum reach and engagement.",
     },
     {
       icon: IconRocket,
-      title: "Campaigns & Promotions",
-      desc: "Run targeted Instagram ad campaigns to increase engagement and conversions.",
+      title: "Brand Awareness Campaigns",
+      desc: "Boost brand visibility and trust through authentic influencer promotions.",
     },
     {
       icon: IconChartBar,
-      title: "Analytics & Reporting",
-      desc: "Track performance, analyze insights, and refine your Instagram strategy.",
+      title: "Performance Tracking & ROI",
+      desc: "Measure engagement, reach, conversions, and ROI from influencer campaigns.",
     },
   ];
 
   const process = [
-    "Audit current Instagram presence",
-    "Create a content calendar",
-    "Design visuals and stories",
-    "Launch campaigns & promotions",
-    "Monitor insights & analytics",
-    "Optimize strategy for better engagement",
+    "Understand brand & campaign goals",
+    "Research and shortlist influencers",
+    "Plan content & collaboration strategy",
+    "Launch influencer campaigns",
+    "Monitor engagement & performance",
+    "Optimize campaigns for better ROI",
   ];
 
   return (
@@ -52,8 +52,8 @@ export default function InstagramMarketingPage() {
       <section className="relative h-[55vh] mt-21 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/services/instagram-marketing-hero.webp"
-            alt="Instagram Marketing Services"
+            src="/services/influencer-marketing-hero.webp"
+            alt="Influencer Marketing Services"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/70" />
@@ -65,7 +65,7 @@ export default function InstagramMarketingPage() {
               <IconHome size={18} /> Home
             </Link>
             <IconChevronRight size={16} />
-            <span className="text-blue-300">Instagram Marketing</span>
+            <span className="text-blue-300">Influencer Marketing</span>
           </div>
 
           <motion.h1
@@ -73,11 +73,11 @@ export default function InstagramMarketingPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-bold mb-6"
           >
-            Instagram <span className="text-blue-400">Marketing</span>
+            Influencer <span className="text-blue-400">Marketing</span>
           </motion.h1>
 
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Boost your Instagram presence, engage your audience, and grow your brand with our Instagram marketing services.
+            Build trust, boost reach, and drive conversions with powerful influencer marketing campaigns.
           </p>
         </div>
       </section>
@@ -96,26 +96,26 @@ export default function InstagramMarketingPage() {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-4xl font-bold mb-6">
-                Effective <span className="text-blue-600">Instagram Marketing</span>
+                Result-Oriented <span className="text-blue-600">Influencer Marketing</span>
               </h2>
 
               <p className="text-gray-600 text-lg mb-4">
-                Instagram is a powerful platform for brand building, lead generation, and audience engagement.
+                Influencer marketing is one of the most effective ways to build trust and credibility online.
               </p>
 
               <p className="text-gray-600 text-lg mb-4">
-                We create strategies and content that help your brand stand out and grow organically on Instagram.
+                We connect your brand with the right influencers to drive authentic engagement.
               </p>
 
               <p className="text-gray-600 text-lg">
-                From visuals to analytics, we handle everything for a strong Instagram presence.
+                Our influencer strategies focus on real results, not just followers.
               </p>
             </motion.div>
 
             {/* SERVICES */}
             <div>
               <h2 className="text-4xl font-bold mb-10">
-                Our <span className="text-blue-600">Instagram Services</span>
+                Our <span className="text-blue-600">Influencer Services</span>
               </h2>
 
               <div className="grid md:grid-cols-2 gap-8">
@@ -161,16 +161,16 @@ export default function InstagramMarketingPage() {
             <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-3xl p-12 text-center">
               <IconRocket size={48} className="mx-auto mb-4" />
               <h2 className="text-3xl font-bold mb-4">
-                Grow Your Instagram Presence
+                Start Influencer Campaigns Today
               </h2>
               <p className="text-blue-100 mb-8">
-                Let us manage your Instagram marketing to boost engagement and build your brand.
+                Let us help you grow your brand with authentic influencer collaborations.
               </p>
               <Link
                 href="/contact"
                 className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold"
               >
-                Get Instagram Marketing
+                Get Influencer Marketing
               </Link>
             </div>
 
@@ -185,11 +185,11 @@ export default function InstagramMarketingPage() {
             <ul className="space-y-3 text-gray-700">
               <li><Link href="/social-media-marketing-services/">Social Media Marketing</Link></li>
               <li><Link href="/social-media-management-services/">Social Media Management</Link></li>
-              <li className="font-medium text-blue-600">Instagram Marketing</li>
+              <li><Link href="/instagram-marketing-services/">Instagram Marketing</Link></li>
               <li><Link href="/facebook-marketing-services/">Facebook Marketing</Link></li>
               <li><Link href="/linkedin-marketing-services/">LinkedIn Marketing</Link></li>
               <li><Link href="/youtube-marketing-services/">YouTube Marketing</Link></li>
-              <li><Link href="/influencer-marketing-services/">Influencer Marketing</Link></li>
+              <li className="font-medium text-blue-600">Influencer Marketing</li>
               <li><Link href="/short-video-marketing/">Short Video Marketing</Link></li>
             </ul>
           </aside>

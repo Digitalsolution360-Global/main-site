@@ -6,44 +6,44 @@ import Link from "next/link";
 import {
   IconHome,
   IconChevronRight,
-  IconBrandInstagram,
-  IconCamera,
+  IconBrandLinkedin,
+  IconBriefcase,
   IconRocket,
   IconChartBar,
   IconCheck,
 } from "@tabler/icons-react";
 
-export default function InstagramMarketingPage() {
+export default function LinkedInMarketingPage() {
   const services = [
     {
-      icon: IconBrandInstagram,
-      title: "Profile Optimization",
-      desc: "Optimize your Instagram profile to attract and retain followers effectively.",
+      icon: IconBrandLinkedin,
+      title: "Profile & Page Optimization",
+      desc: "Optimize LinkedIn profiles and company pages for credibility and visibility.",
     },
     {
-      icon: IconCamera,
-      title: "Content Creation",
-      desc: "High-quality visuals and stories tailored for your brand and audience.",
+      icon: IconBriefcase,
+      title: "B2B Content Strategy",
+      desc: "Professional content designed to attract decision-makers and business leaders.",
     },
     {
       icon: IconRocket,
-      title: "Campaigns & Promotions",
-      desc: "Run targeted Instagram ad campaigns to increase engagement and conversions.",
+      title: "LinkedIn Ad Campaigns",
+      desc: "Targeted LinkedIn ads for lead generation, brand awareness, and hiring.",
     },
     {
       icon: IconChartBar,
-      title: "Analytics & Reporting",
-      desc: "Track performance, analyze insights, and refine your Instagram strategy.",
+      title: "Analytics & Lead Tracking",
+      desc: "Measure performance, track leads, and optimize campaigns for maximum ROI.",
     },
   ];
 
   const process = [
-    "Audit current Instagram presence",
-    "Create a content calendar",
-    "Design visuals and stories",
-    "Launch campaigns & promotions",
-    "Monitor insights & analytics",
-    "Optimize strategy for better engagement",
+    "Understand business & B2B goals",
+    "Optimize LinkedIn profiles & pages",
+    "Create content & ad strategy",
+    "Launch LinkedIn campaigns",
+    "Track leads & engagement",
+    "Optimize campaigns for better ROI",
   ];
 
   return (
@@ -52,8 +52,8 @@ export default function InstagramMarketingPage() {
       <section className="relative h-[55vh] mt-21 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/services/instagram-marketing-hero.webp"
-            alt="Instagram Marketing Services"
+            src="/services/linkedin-marketing-hero.webp"
+            alt="LinkedIn Marketing Services"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/70" />
@@ -65,7 +65,7 @@ export default function InstagramMarketingPage() {
               <IconHome size={18} /> Home
             </Link>
             <IconChevronRight size={16} />
-            <span className="text-blue-300">Instagram Marketing</span>
+            <span className="text-blue-300">LinkedIn Marketing</span>
           </div>
 
           <motion.h1
@@ -73,11 +73,11 @@ export default function InstagramMarketingPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-bold mb-6"
           >
-            Instagram <span className="text-blue-400">Marketing</span>
+            LinkedIn <span className="text-blue-400">Marketing</span>
           </motion.h1>
 
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Boost your Instagram presence, engage your audience, and grow your brand with our Instagram marketing services.
+            Generate high-quality B2B leads and build professional brand authority with LinkedIn marketing.
           </p>
         </div>
       </section>
@@ -96,26 +96,26 @@ export default function InstagramMarketingPage() {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-4xl font-bold mb-6">
-                Effective <span className="text-blue-600">Instagram Marketing</span>
+                Powerful <span className="text-blue-600">LinkedIn Marketing</span>
               </h2>
 
               <p className="text-gray-600 text-lg mb-4">
-                Instagram is a powerful platform for brand building, lead generation, and audience engagement.
+                LinkedIn is the #1 platform for B2B marketing, lead generation, and professional networking.
               </p>
 
               <p className="text-gray-600 text-lg mb-4">
-                We create strategies and content that help your brand stand out and grow organically on Instagram.
+                We help businesses connect with decision-makers and convert leads into customers.
               </p>
 
               <p className="text-gray-600 text-lg">
-                From visuals to analytics, we handle everything for a strong Instagram presence.
+                Our LinkedIn marketing strategies focus on quality leads and long-term growth.
               </p>
             </motion.div>
 
             {/* SERVICES */}
             <div>
               <h2 className="text-4xl font-bold mb-10">
-                Our <span className="text-blue-600">Instagram Services</span>
+                Our <span className="text-blue-600">LinkedIn Services</span>
               </h2>
 
               <div className="grid md:grid-cols-2 gap-8">
@@ -161,16 +161,16 @@ export default function InstagramMarketingPage() {
             <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-3xl p-12 text-center">
               <IconRocket size={48} className="mx-auto mb-4" />
               <h2 className="text-3xl font-bold mb-4">
-                Grow Your Instagram Presence
+                Get More B2B Leads from LinkedIn
               </h2>
               <p className="text-blue-100 mb-8">
-                Let us manage your Instagram marketing to boost engagement and build your brand.
+                Let our experts handle your LinkedIn marketing for consistent lead generation.
               </p>
               <Link
                 href="/contact"
                 className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold"
               >
-                Get Instagram Marketing
+                Start LinkedIn Marketing
               </Link>
             </div>
 
@@ -185,9 +185,9 @@ export default function InstagramMarketingPage() {
             <ul className="space-y-3 text-gray-700">
               <li><Link href="/social-media-marketing-services/">Social Media Marketing</Link></li>
               <li><Link href="/social-media-management-services/">Social Media Management</Link></li>
-              <li className="font-medium text-blue-600">Instagram Marketing</li>
+              <li><Link href="/instagram-marketing-services/">Instagram Marketing</Link></li>
               <li><Link href="/facebook-marketing-services/">Facebook Marketing</Link></li>
-              <li><Link href="/linkedin-marketing-services/">LinkedIn Marketing</Link></li>
+              <li className="font-medium text-blue-600">LinkedIn Marketing</li>
               <li><Link href="/youtube-marketing-services/">YouTube Marketing</Link></li>
               <li><Link href="/influencer-marketing-services/">Influencer Marketing</Link></li>
               <li><Link href="/short-video-marketing/">Short Video Marketing</Link></li>
