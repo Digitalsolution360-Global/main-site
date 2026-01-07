@@ -6,45 +6,46 @@ import Link from "next/link";
 import {
   IconHome,
   IconChevronRight,
-  IconBuildingStore,
-  IconShoppingCart,
-  IconSettings,
-  IconTrendingUp,
+  IconSettingsAutomation,
+  IconRobot,
+  IconMail,
+  IconChartLine,
+  IconUsers,
   IconCheck,
   IconRocket,
 } from "@tabler/icons-react";
 
-export default function ShopifyDevelopmentServicesPage() {
+export default function MarketingAutomationPage() {
   const services = [
     {
-      icon: IconBuildingStore,
-      title: "Custom Shopify Store Development",
-      desc: "High-converting Shopify stores tailored to your brand and business goals.",
+      icon: IconRobot,
+      title: "Automated Campaign Management",
+      desc: "Run intelligent, rule-based marketing campaigns without manual effort.",
     },
     {
-      icon: IconShoppingCart,
-      title: "Shopify Theme Customization",
-      desc: "Unique storefront designs with optimized user experience.",
+      icon: IconMail,
+      title: "Email & Drip Automation",
+      desc: "Personalized automated email workflows to nurture and convert leads.",
     },
     {
-      icon: IconSettings,
-      title: "App Integration & Customization",
-      desc: "Integrate and customize Shopify apps for advanced functionality.",
+      icon: IconUsers,
+      title: "Lead Nurturing Automation",
+      desc: "Automatically engage prospects based on behavior and interests.",
     },
     {
-      icon: IconTrendingUp,
-      title: "Conversion & Speed Optimization",
-      desc: "Fast-loading, SEO-friendly and conversion-optimized stores.",
+      icon: IconChartLine,
+      title: "Performance Tracking & Analytics",
+      desc: "Track, measure, and optimize automated campaigns in real-time.",
     },
   ];
 
   const process = [
-    "Business & product analysis",
-    "Store architecture & planning",
-    "Theme design & customization",
-    "App integration & configuration",
-    "Testing, optimization & QA",
-    "Store launch & ongoing support",
+    "Business & goal analysis",
+    "Customer journey mapping",
+    "Automation tool selection",
+    "Workflow & trigger setup",
+    "Testing & optimization",
+    "Monitoring & scaling",
   ];
 
   return (
@@ -53,8 +54,8 @@ export default function ShopifyDevelopmentServicesPage() {
       <section className="relative h-[55vh] mt-21 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/services/shopify-development-hero.webp"
-            alt="Shopify Development Services"
+            src="/services/marketing-automation-hero.webp"
+            alt="Marketing Automation Services"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/70" />
@@ -66,7 +67,7 @@ export default function ShopifyDevelopmentServicesPage() {
               <IconHome size={18} /> Home
             </Link>
             <IconChevronRight size={16} />
-            <span className="text-blue-300">Shopify Development</span>
+            <span className="text-blue-300">Marketing Automation</span>
           </div>
 
           <motion.h1
@@ -74,11 +75,11 @@ export default function ShopifyDevelopmentServicesPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-bold mb-6"
           >
-            Shopify <span className="text-blue-400">Development</span>
+            Marketing <span className="text-blue-400">Automation</span> Services
           </motion.h1>
 
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Scalable, secure and high-performing Shopify stores that sell more.
+            Automate, personalize, and scale your marketing for higher ROI.
           </p>
         </div>
       </section>
@@ -97,26 +98,28 @@ export default function ShopifyDevelopmentServicesPage() {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-4xl font-bold mb-6">
-                Expert <span className="text-blue-600">Shopify Development</span>
+                Smart <span className="text-blue-600">Marketing Automation</span>
               </h2>
 
               <p className="text-gray-600 text-lg mb-4">
-                Shopify is one of the most powerful eCommerce platforms available today.
+                Marketing automation helps businesses streamline repetitive tasks,
+                improve lead engagement, and boost conversion rates.
               </p>
 
               <p className="text-gray-600 text-lg mb-4">
-                We build Shopify stores that are visually appealing and conversion-driven.
+                We design automation workflows that deliver the right message to the
+                right audience at the right time.
               </p>
 
               <p className="text-gray-600 text-lg">
-                From startups to enterprises, we deliver scalable Shopify solutions.
+                From startups to enterprises, our solutions scale with your growth.
               </p>
             </motion.div>
 
             {/* SERVICES */}
             <div>
               <h2 className="text-4xl font-bold mb-10">
-                Our <span className="text-blue-600">Shopify Services</span>
+                Our <span className="text-blue-600">Automation Services</span>
               </h2>
 
               <div className="grid md:grid-cols-2 gap-8">
@@ -142,7 +145,7 @@ export default function ShopifyDevelopmentServicesPage() {
             {/* PROCESS */}
             <div>
               <h2 className="text-4xl font-bold mb-10">
-                Our <span className="text-blue-600">Development Process</span>
+                Our <span className="text-blue-600">Automation Process</span>
               </h2>
 
               <div className="grid md:grid-cols-2 gap-6">
@@ -162,16 +165,16 @@ export default function ShopifyDevelopmentServicesPage() {
             <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-3xl p-12 text-center">
               <IconRocket size={48} className="mx-auto mb-4" />
               <h2 className="text-3xl font-bold mb-4">
-                Ready to Launch Your Shopify Store?
+                Ready to Automate Your Marketing?
               </h2>
               <p className="text-blue-100 mb-8">
-                Let’s build a Shopify store that drives sales and growth.
+                Save time, increase conversions, and grow faster with automation.
               </p>
               <Link
                 href="/contact"
                 className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold"
               >
-                Start Shopify Project
+                Get Started
               </Link>
             </div>
 
@@ -180,27 +183,30 @@ export default function ShopifyDevelopmentServicesPage() {
           {/* RIGHT SIDEBAR */}
           <aside className="bg-white shadow-xl rounded-2xl p-6 sticky top-28">
             <h3 className="text-xl font-bold mb-4 border-b pb-2">
-              Website Development
+              Automation Solutions
             </h3>
 
             <ul className="space-y-3 text-gray-700">
-              <li>
-                <Link href="/website-development-services/">Website Development</Link>
-              </li>
-              <li>
-                <Link href="/web-design-services/">Web Design Services</Link>
-              </li>
-              <li>
-                <Link href="/ui-ux-design-services/">UI / UX Design</Link>
-              </li>
-              <li>
-                <Link href="/wordpress-development-services/">WordPress Development</Link>
-              </li>
               <li className="font-medium text-blue-600">
-                Shopify Development
+                Marketing Automation
               </li>
               <li>
-                <Link href="/landing-page-design-services/">Landing Page Design</Link>
+                <Link href="/crm-automation-solutions/">CRM Automation</Link>
+              </li>
+              <li>
+                <Link href="/lead-automation-services/">Lead Automation</Link>
+              </li>
+              <li>
+                <Link href="/email-marketing-automation/">Email Automation</Link>
+              </li>
+              <li>
+                <Link href="/whatsapp-automation-services/">WhatsApp Automation</Link>
+              </li>
+              <li>
+                <Link href="/sales-funnel-automation/">Sales Funnel Automation</Link>
+              </li>
+              <li>
+                <Link href="/ai-marketing-automation/">AI Marketing Automation</Link>
               </li>
             </ul>
           </aside>
