@@ -12,7 +12,7 @@ function Testimonials() {
 
     const testimonials = [
         {
-            name: "Dr. Sarah Johnson",
+            name: "Dr. Poonam Brahmadeen Singh",
             role: "Clinic Owner, Andheri Dental Care",
             content: "Digital360 transformed our online presence completely. Our patient bookings increased by 150% within 3 months of launching the new website. Their team understood our needs perfectly.",
             rating: 5,
@@ -37,22 +37,22 @@ function Testimonials() {
         },
         {
             name: "Priya Sharma",
-            role: "Director, The Tickle Toe",
+            role: "Director, Ceilkraft",
             content: "Professional, responsive, and creative team. They delivered our website ahead of schedule and the design exceeded our expectations. Highly recommend their services!",
             rating: 5,
             image: "/testimonials/avatar-4.jpg",
-            company: "The Tickle Toe"
+            company: "Ceilkraft"
         },
         {
-            name: "John Matthews",
-            role: "Managing Partner, SKC Investment",
+            name: " Dr. A. Srilatha",
+            role: "Managing Partner, Sri Poly Clinic",
             content: "Digital360 built us a sophisticated CRM system that streamlined our entire client management process. The custom features they developed were exactly what we needed.",
             rating: 5,
             image: "/testimonials/avatar-5.jpg",
-            company: "SKC Investment Advisors"
+            company: "Sri Poly Clinic"
         },
         {
-            name: "Amit Patel",
+            name: " Dr. Vipin Kumar Sharma",
             role: "Owner, Raj Nursing Home",
             content: "Their SEO and Google My Business optimization helped us become the top-ranked healthcare facility in our area. Patient inquiries have increased significantly.",
             rating: 5,
