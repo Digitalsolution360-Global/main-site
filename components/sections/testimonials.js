@@ -36,7 +36,7 @@ function Testimonials() {
             company: "WattGuru"
         },
         {
-            name: "Priya Sharma",
+            name: "Sarvajeet Verma",
             role: "Director, Ceilkraft",
             content: "Professional, responsive, and creative team. They delivered our website ahead of schedule and the design exceeded our expectations. Highly recommend their services!",
             rating: 5,
@@ -195,22 +195,23 @@ function Testimonials() {
                                             ))}
                                         </div>
 
-                                        {/* Testimonial Content */}
-                                        <p className='text-gray-700 mb-6 leading-relaxed text-base'>
-                                            &quot;{testimonial.content}&quot;
-                                        </p>
+                                      {/* Testimonial Content */}
+<p className='text-gray-700 mb-6 leading-relaxed text-base max-w-xl mx-auto'>
+    &quot;{testimonial.content}&quot;
+</p>
 
-                                        {/* Author Info */}
-                                        <div className='flex items-center gap-4 pt-4 border-t border-gray-100'>
-                                            <div className='w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-lg flex-shrink-0'>
-                                                {testimonial.name.charAt(0)}
-                                            </div>
-                                            <div>
-                                                <h4 className='font-semibold text-gray-900'>{testimonial.name}</h4>
-                                                <p className='text-sm text-gray-600'>{testimonial.role}</p>
-                                                <p className='text-xs text-blue-600 font-medium mt-1'>{testimonial.company}</p>
-                                            </div>
-                                        </div>
+<div className='flex flex-col md:flex-row items-center md:items-start gap-4 pt-4 border-t border-gray-100 text-center md:text-left max-w-xl mx-auto'>
+    <div className='w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-lg flex-shrink-0 mx-auto md:mx-0'>
+        {testimonial.name.charAt(0)}
+    </div>
+    <div>
+        <h4 className='font-semibold text-gray-900'>{testimonial.name}</h4>
+        <p className='text-sm text-gray-600'>{testimonial.role}</p>
+        <p className='text-xs text-blue-600 font-medium mt-1'>{testimonial.company}</p>
+    </div>
+</div>
+
+
                                     </motion.div>
                                 ))}
                             </AnimatePresence>
