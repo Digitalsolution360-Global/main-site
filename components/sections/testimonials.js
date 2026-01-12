@@ -196,20 +196,20 @@ function Testimonials() {
                                         </div>
 
                                       {/* Testimonial Content */}
-<p className='text-gray-700 mb-6 leading-relaxed text-base max-w-xl mx-auto'>
-    &quot;{testimonial.content}&quot;
-</p>
+                                    <p className='text-gray-700 mb-6 leading-relaxed text-base max-w-xl mx-auto'>
+                                        &quot;{testimonial.content}&quot;
+                                    </p>
 
-<div className='flex flex-col md:flex-row items-center md:items-start gap-4 pt-4 border-t border-gray-100 text-center md:text-left max-w-xl mx-auto'>
-    <div className='w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-lg flex-shrink-0 mx-auto md:mx-0'>
-        {testimonial.name.charAt(0)}
-    </div>
-    <div>
-        <h4 className='font-semibold text-gray-900'>{testimonial.name}</h4>
-        <p className='text-sm text-gray-600'>{testimonial.role}</p>
-        <p className='text-xs text-blue-600 font-medium mt-1'>{testimonial.company}</p>
-    </div>
-</div>
+                                    <div className='flex flex-col md:flex-row items-center md:items-start gap-4 pt-4 border-t border-gray-100 text-center md:text-left max-w-xl mx-auto'>
+                                        <div className='w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-lg flex-shrink-0 mx-auto md:mx-0'>
+                                            {testimonial.name.charAt(0)}
+                                        </div>
+                                        <div>
+                                            <h4 className='font-semibold text-gray-900'>{testimonial.name}</h4>
+                                            <p className='text-sm text-gray-600'>{testimonial.role}</p>
+                                            <p className='text-xs text-blue-600 font-medium mt-1'>{testimonial.company}</p>
+                                        </div>
+                                    </div>
 
 
                                     </motion.div>
