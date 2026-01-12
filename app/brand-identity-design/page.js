@@ -65,6 +65,9 @@ export default function BrandIdentityDesignPage() {
             <Link href="/" className="flex items-center gap-1 hover:text-blue-400">
               <IconHome size={18} /> Home
             </Link>
+             <Link href="/branding-services" className="flex items-center gap-1 hover:text-blue-400">
+                         <IconChevronRight size={16} />Brand & Creative
+                          </Link>
             <IconChevronRight size={16} />
             <span className="text-blue-300">Brand Identity Design</span>
           </div>
