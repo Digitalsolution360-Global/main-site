@@ -60,7 +60,6 @@ function Clients() {
     { name: 'Atithi Home', logo: '/clients/atithi.png' },
     { name: 'Ceilkraft', logo: '/clients/ceilkraft.png' },
     { name: 'Sri Poly Clinic', logo: '/clients/sri-poly-clinic.png' },
-    { name: 'Client 9', logo: '/clients/client9.webp' },
     { name: 'Master Dinesh', logo: '/clients/master-dinesh.webp' },
     { name: 'Maxalign Dental', logo: '/clients/maxalign-dental.webp' },
     { name: 'Preesha Global', logo: '/clients/preesha-global.webp' },

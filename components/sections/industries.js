@@ -4,17 +4,17 @@ import React, { useState } from "react";
 import { motion, useAnimationFrame, useMotionValue } from "motion/react";
 
 const industries = [
-  { name: "Healthcare & Medical services", image: "/market/gmb/images/industries/healthcare.jpg" },
-  { name: "E-commerce & D2C Brands", image: "/market/gmb/images/industries/retail.png" },
+  { name: "Healthcare & Medical services", image: "/market/gmb/images/industries/Healthcare.webp" },
+  { name: "E-commerce & D2C Brands", image: "/market/gmb/images/industries/E-commerce.webp" },
   { name: "Restaurants, Cafes & Cloud Kitchens", image: "/market/gmb/images/industries/travel.jpg" },
-  { name: "Finance & Insurance", image: "/market/gmb/images/industries/finance.jpg" },
-  { name: "IT, SaaS & Tech Startups", image: "/market/gmb/images/industries/startups.jpg" },
-  { name: "Real Estate & Property Developers", image: "/market/gmb/images/industries/real-estate.png" },
-  { name: "Education & Coaching Institutes", image: "/market/gmb/images/industries/education.jpg" },
-  { name: "Professional Services: Lawyers, CA Firms, Consultants", image: "/market/gmb/images/industries/img8.webp" },
-  { name: "Manufacturing & B2B Industrial Companies", image: "/market/gmb/images/industries/img9.jpeg" },
-  { name: "Beauty, Wellness & Fitness", image: "/market/gmb/images/industries/img10.webp" },
-  { name: "Home Services", image: "/market/gmb/images/industries/img11.png" },
+  { name: "Finance & Insurance", image: "/market/gmb/images/industries/Finance & Insurance.webp" },
+  { name: "IT, SaaS & Tech Startups", image: "/market/gmb/images/industries/IT, SaaS.webp" },
+  { name: "Real Estate & Property Developers", image: "/market/gmb/images/industries/Real-Estate.webp" },
+  { name: "Education & Coaching Institutes", image: "/market/gmb/images/industries/Education & Coaching.webp" },
+  { name: "Professional Services: Lawyers, CA Firms, Consultants", image: "/market/gmb/images/industries/Professional Services.webp "},
+  { name: "Manufacturing & B2B Industrial Companies", image: "/market/gmb/images/industries/Manufacturing.webp" },
+  { name: "Beauty, Wellness & Fitness", image: "/market/gmb/images/industries/Beauty.webp" },
+  { name: "Home Services", image: "/market/gmb/images/industries/Home Services.webp" },
  
   
   

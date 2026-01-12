@@ -14,6 +14,12 @@ function Header() {
   const [showForm, setShowForm] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);
   const ref = useRef(null);
+const [activeService, setActiveService] = useState(null);
+const [mobileActiveService, setMobileActiveService] = useState(null);
+
+
+
+
 
   const { scrollY } = useScroll({
     target: ref,
@@ -27,6 +33,93 @@ function Header() {
       setVisible(false);
     }
   });
+
+  const servicesMenu = [
+  {
+    title: "Digital Marketing",
+    slug: "/digital-marketing-services",
+    children: [
+      { title: "Performance Marketing", slug: "/performance-marketing-services" },
+      { title: "Growth Marketing", slug: "/growth-marketing-services" },
+      { title: "Google Ads Management", slug: "/google-ads-management-services" },
+      { title: "Facebook & Instagram Ads", slug: "/facebook-instagram-ads-services" },
+    ],
+  },
+  {
+    title: "Website Development",
+    slug: "/website-development-services",
+    children: [
+      { title: "Web Design Services", slug: "/web-design-services" },
+      { title: "UI/UX Design", slug: "/ui-ux-design-services" },
+      { title: "WordPress Development", slug: "/wordpress-development-services" },
+      { title: "Shopify Development", slug: "/shopify-development-services" },
+      { title: "Landing Page Design", slug: "/landing-page-design-services" },
+    ],
+  },
+  {
+    title: "SEO Services",
+    slug: "/seo-services",
+    children: [
+      { title: "Local SEO", slug: "/local-seo-services" },
+      { title: "Ecommerce SEO", slug: "/ecommerce-seo-services" },
+      { title: "Technical SEO", slug: "/technical-seo-services" },
+      { title: "On-Page SEO", slug: "/on-page-seo-services" },
+      { title: "Off-Page SEO", slug: "/off-page-seo-services" },
+      { title: "SEO Audit", slug: "/seo-audit-services" },
+      { title: "AI SEO", slug: "/ai-seo-services" },
+    ],
+  },
+  {
+    title: "Brand & Creative",
+    slug: "/branding-services",
+    children: [
+      { title: "Brand Identity Design", slug: "/brand-identity-design" },
+      { title: "Logo Design", slug: "/logo-design-services" },
+      { title: "Graphic Design", slug: "/graphic-design-services" },
+      { title: "Creative for Ads", slug: "/creative-design-for-ads" },
+      { title: "Performance Creatives", slug: "/performance-creatives" },
+    ],
+  },
+  {
+    title: "Social Media Marketing",
+    slug: "/social-media-marketing-services",
+    children: [
+      { title: "Social Media Management", slug: "/social-media-management-services" },
+      { title: "Instagram Marketing", slug: "/instagram-marketing-services" },
+      { title: "Facebook Marketing", slug: "/facebook-marketing-services" },
+      { title: "LinkedIn Marketing", slug: "/linkedin-marketing-services" },
+      { title: "YouTube Marketing", slug: "/youtube-marketing-services" },
+      { title: "Influencer Marketing", slug: "/influencer-marketing-services" },
+      { title: "Short Video Marketing", slug: "/short-video-marketing" },
+    ],
+  },
+  {
+    title: "Automation Solutions",
+    slug: "/marketing-automation-services",
+    children: [
+      { title: "CRM Automation", slug: "/crm-automation-solutions" },
+      { title: "Lead Automation", slug: "/lead-automation-services" },
+      { title: "Email Automation", slug: "/email-marketing-automation" },
+      { title: "WhatsApp Automation", slug: "/whatsapp-automation-services" },
+      { title: "Sales Funnel Automation", slug: "/sales-funnel-automation" },
+      { title: "AI Marketing Automation", slug: "/ai-marketing-automation" },
+    ],
+  },
+  {
+    title: "Managed Services",
+    slug: "/digital-marketing-managed-services",
+    children: [
+      { title: "SEO Managed Services", slug: "/seo-managed-services" },
+      { title: "PPC Managed Services", slug: "/ppc-managed-services" },
+      { title: "Social Media Managed", slug: "/social-media-managed-services" },
+      { title: "Startup Marketing", slug: "/startup-marketing-services" },
+      { title: "SaaS Marketing", slug: "/saas-marketing-services" },
+      { title: "Ecommerce Marketing", slug: "/ecommerce-marketing-services" },
+      { title: "B2B Marketing", slug: "/b2b-digital-marketing-services" },
+    ],
+  },
+];
+
 
   // Prevent body scroll when form is open
   useEffect(() => {
@@ -176,39 +269,77 @@ function Header() {
                                 <IconChevronDown size={18} className='relative z-20' />
                             </button>
                             
-                            {/* Services Dropdown */}
-                            <AnimatePresence>
-                                {servicesOpen && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: -10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -10 }}
-                                        className='absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl py-2 min-w-[220px]'
-                                    >
-                                        <Link href="/digital-marketing" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
-                                            Digital Marketing
-                                        </Link>
-                                        <Link href="/web-app-development" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
-                                            Website Development
-                                        </Link>
-                                        <Link href="/seo" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
-                                            SEO Services
-                                        </Link>
-                                        <Link href="/brand-creative" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
-                                            Brand & Creative
-                                        </Link>
-                                        <Link href="/media-advertising" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
-                                            Social Media Marketing
-                                        </Link>
-                                        <Link href="/automation-solution" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
-                                            Automation Solutions
-                                        </Link>
-                                        <Link href="/managed-service" className='block px-6 py-3 hover:bg-gray-100 transition-colors'>
-                                            Managed Services
-                                        </Link>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
+                {/* Services Dropdown – Desktop */}
+<AnimatePresence>
+  {servicesOpen && (
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+     className="absolute top-full left-0 mt-4 bg-white rounded-2xl 
+        shadow-[0_20px_40px_rgba(0,0,0,0.12)] 
+        border border-gray-200 flex z-50 overflow-hidden"
+
+      onMouseLeave={() => setActiveService(null)}
+    >
+      {/* LEFT: MAIN SERVICES */}
+      <div className="w-64 border-r">
+        {servicesMenu.map((service, index) => (
+          <div
+            key={service.title}
+            onMouseEnter={() => setActiveService(index)}
+            className={`px-6 py-3 cursor-pointer transition
+              ${
+                activeService === index
+                  ? "bg-gray-100 font-semibold text-blue-600"
+                  : "hover:bg-gray-50"
+              }`}
+          >
+            {service.title}
+          </div>
+        ))}
+      </div>
+
+      {/* RIGHT: SUB SERVICES (ONLY ON HOVER) */}
+<AnimatePresence>
+  {activeService !== null && (
+    <motion.div
+      initial={{ opacity: 0, x: 10 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 10 }}
+      className="w-72 p-4 flex flex-col gap-3"
+    >
+      {/* Overview Link */}
+      <Link
+        href={servicesMenu[activeService].slug}
+        className="block font-semibold text-blue-600 mb-2 hover:underline"
+      >
+        {servicesMenu[activeService].title} Overview
+      </Link>
+
+      {/* Sub-services as separate card-like boxes */}
+      {servicesMenu[activeService].children.map((child) => (
+        <div
+          key={child.title}
+          className="border border-gray-200 rounded-xl p-3 hover:shadow-md transition cursor-pointer bg-white"
+        >
+          <Link
+            href={child.slug}
+            className="block text-gray-700 font-medium hover:text-blue-600"
+          >
+            {child.title}
+          </Link>
+        </div>
+      ))}
+    </motion.div>
+  )}
+</AnimatePresence>
+
+    </motion.div>
+  )}
+</AnimatePresence>
+
+
                         </li>
                         <li className='relative'>
                             <Link 
@@ -345,33 +476,88 @@ function Header() {
                             <ul className='flex flex-col gap-4 text-lg'>
                                 <li><Link href="/" onClick={() => setMobileMenuOpen(false)}>Home</Link></li>
                                 <li><Link href="/about" onClick={() => setMobileMenuOpen(false)}>About</Link></li>
-                                <li>
-                                    <button 
-                                        onClick={() => setServicesOpen(!servicesOpen)}
-                                        className='flex items-center gap-2 w-full'
+                               <li>
+                                <button
+                                    onClick={() => setServicesOpen(!servicesOpen)}
+                                    className="flex justify-between items-center w-full font-semibold"
+                                >
+                                    Services
+                                    <IconChevronDown
+                                    className={`transition-transform ${
+                                        servicesOpen ? "rotate-180" : ""
+                                    }`}
+                                    />
+                                </button>
+
+                                <AnimatePresence>
+                                    {servicesOpen && (
+                                    <motion.div
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: "auto", opacity: 1 }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        className="ml-3 mt-3 flex flex-col gap-3 overflow-hidden"
                                     >
-                                        Services <IconChevronDown size={18} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
-                                    </button>
-                                    <AnimatePresence>
-                                        {servicesOpen && (
-                                            <motion.ul
+                                        {servicesMenu.map((service, index) => (
+                                        <div key={service.title}>
+                                            {/* Parent */}
+                                            <button
+                                            onClick={() =>
+                                                setMobileActiveService(
+                                                mobileActiveService === index ? null : index
+                                                )
+                                            }
+                                            className="flex justify-between w-full text-left font-medium"
+                                            >
+                                            {service.title}
+                                            <span
+                                                className={`transition-transform ${
+                                                mobileActiveService === index ? "rotate-180" : ""
+                                                }`}
+                                            >
+                                                ▼
+                                            </span>
+                                            </button>
+
+                                            {/* Sub services */}
+                                            <AnimatePresence>
+                                            {mobileActiveService === index && (
+                                                <motion.ul
                                                 initial={{ height: 0, opacity: 0 }}
                                                 animate={{ height: "auto", opacity: 1 }}
                                                 exit={{ height: 0, opacity: 0 }}
-                                                className='ml-4 mt-2 flex flex-col gap-2 overflow-hidden'
-                                            >
-                                                <li><Link href="/digital-marketing" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>Digital Marketing</Link></li>
-                                                <li><Link href="/web-app-development" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>Website Development</Link></li>
-                                                <li><Link href="/seo" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>SEO Services</Link></li>
-                                                <li><Link href="/brand-creative" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>Brand & Creative</Link></li>
-                                                <li><Link href="/media-advertising" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>Social Media Marketing</Link></li>
-                                                <li><Link href="/automation-solution" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>Automation Solutions</Link></li>
-                                                <li><Link href="/managed-service" onClick={() => setMobileMenuOpen(false)} className='text-gray-600'>Managed Services</Link></li>
-                                            </motion.ul>
-                                        )}
-                                    </AnimatePresence>
+                                                className="ml-4 mt-2 space-y-2"
+                                                >
+                                                <li>
+                                                    <Link
+                                                    href={service.slug}
+                                                    onClick={() => setMobileMenuOpen(false)}
+                                                    className="text-blue-600 text-sm font-semibold"
+                                                    >
+                                                    {service.title} Overview
+                                                    </Link>
+                                                </li>
+
+                                                {service.children.map((child) => (
+                                                    <li key={child.title}>
+                                                    <Link
+                                                        href={child.slug}
+                                                        onClick={() => setMobileMenuOpen(false)}
+                                                        className="text-gray-600 text-sm"
+                                                    >
+                                                        {child.title}
+                                                    </Link>
+                                                    </li>
+                                                ))}
+                                                </motion.ul>
+                                            )}
+                                            </AnimatePresence>
+                                        </div>
+                                        ))}
+                                    </motion.div>
+                                    )}
+                                </AnimatePresence>
                                 </li>
-                                <li><Link href="/portfolio" onClick={() => setMobileMenuOpen(false)}>Our Work</Link></li>
+                       <li><Link href="/portfolio" onClick={() => setMobileMenuOpen(false)}>Our Work</Link></li>
                                 <li><Link href="/careers" onClick={() => setMobileMenuOpen(false)}>Careers</Link></li>
                                 <li><Link href="/blogs" onClick={() => setMobileMenuOpen(false)}>Blogs</Link></li>
                                 <li><Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link></li>
