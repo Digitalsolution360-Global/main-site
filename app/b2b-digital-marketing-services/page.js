@@ -64,6 +64,9 @@ export default function B2BMarketingPage() {
             <Link href="/" className="flex items-center gap-1 hover:text-blue-400">
               <IconHome size={18} /> Home
             </Link>
+             <Link href="/digital-marketing-managed-services" className="flex items-center gap-1 hover:text-blue-400">
+                          <IconChevronRight size={16} />Managed Services
+                           </Link>
             <IconChevronRight size={16} />
             <span className="text-blue-300">B2B Marketing</span>
           </div>

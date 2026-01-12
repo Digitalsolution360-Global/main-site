@@ -64,6 +64,9 @@ export default function InfluencerMarketingPage() {
             <Link href="/" className="flex items-center gap-1 hover:text-blue-400">
               <IconHome size={18} /> Home
             </Link>
+             <Link href="/social-media-marketing-services" className="flex items-center gap-1 hover:text-blue-400">
+               <IconChevronRight size={16} />Social Media Marketing
+             </Link>
             <IconChevronRight size={16} />
             <span className="text-blue-300">Influencer Marketing</span>
           </div>

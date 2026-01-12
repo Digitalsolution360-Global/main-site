@@ -71,16 +71,81 @@ export default async function sitemap() {
     '/market-we-serve',
   ];
 
-  // Service pages
-  const servicePages = [
-    '/digital-marketing',
-    '/web-app-development',
-    '/seo',
-    '/brand-creative',
-    '/media-advertising',
-    '/automation-solution',
-    '/managed-service',
-  ];
+// Service pages (BASE + ALL DETAILED SERVICES)
+const servicePages = [
+
+  // 🔹 Base / Parent Service Pages (OLD – KEEP)
+  '/digital-marketing',
+  '/web-app-development',
+  '/seo',
+  '/brand-creative',
+  '/media-advertising',
+  '/automation-solution',
+  '/managed-service',
+
+  // 🔹 Digital Marketing Services
+  '/digital-marketing-services/',
+  '/performance-marketing-services/',
+  '/growth-marketing-services/',
+  '/google-ads-management-services/',
+  '/facebook-instagram-ads-services/',
+
+  // 🔹 Website Development
+  '/website-development-services/',
+  '/web-design-services/',
+  '/ui-ux-design-services/',
+  '/wordpress-development-services/',
+  '/shopify-development-services/',
+  '/landing-page-design-services/',
+
+  // 🔹 SEO Services
+  '/seo-services/',
+  '/local-seo-services/',
+  '/ecommerce-seo-services/',
+  '/technical-seo-services/',
+  '/on-page-seo-services/',
+  '/off-page-seo-services/',
+  '/seo-audit-services/',
+  '/ai-seo-services/',
+
+  // 🔹 Brand & Creative
+  '/branding-services/',
+  '/brand-identity-design/',
+  '/logo-design-services/',
+  '/graphic-design-services/',
+  '/creative-design-for-ads/',
+  '/performance-creatives/',
+
+  // 🔹 Social Media Marketing
+  '/social-media-marketing-services/',
+  '/social-media-management-services/',
+  '/instagram-marketing-services/',
+  '/facebook-marketing-services/',
+  '/linkedin-marketing-services/',
+  '/youtube-marketing-services/',
+  '/influencer-marketing-services/',
+  '/short-video-marketing/',
+
+  // 🔹 Automation Solutions
+  '/marketing-automation-services/',
+  '/crm-automation-solutions/',
+  '/lead-automation-services/',
+  '/email-marketing-automation/',
+  '/whatsapp-automation-services/',
+  '/sales-funnel-automation/',
+  '/ai-marketing-automation/',
+
+  // 🔹 Managed Services
+  '/digital-marketing-managed-services/',
+  '/seo-managed-services/',
+  '/ppc-managed-services/',
+  '/social-media-managed-services/',
+  '/startup-marketing-services/',
+  '/saas-marketing-services/',
+  '/ecommerce-marketing-services/',
+  '/b2b-digital-marketing-services/',
+];
+
 
   const staticRoutes = [...staticPages, ...servicePages].map((route) => ({
     url: `${baseUrl}${route}`,
