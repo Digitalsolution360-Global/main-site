@@ -110,54 +110,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Digital Solution 360',
-    url: 'https://www.digitalsolution360.com',
-    logo: 'https://www.digitalsolution360.com/logo.png',
-    description: 'Expert digital marketing, SEO services, and web development agency',
-    telephone: '+919990556217',
-    email: 'globalweb3600@gmail.com',
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'AE',
-    },
-    sameAs: [
-      // Add your social media links here when available
-    ],
-    offers: {
-      '@type': 'AggregateOffer',
-      offerCount: '7',
-      offers: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Digital Marketing Services',
-            description: 'Comprehensive digital marketing solutions including SEO, social media, and PPC advertising',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Website Development',
-            description: 'Custom website and e-commerce development services',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'SEO Services',
-            description: 'Search engine optimization to improve your online visibility',
-          },
-        },
-      ],
-    },
-  };
-
   return (
     <ClerkProvider>
       <html lang="en">
