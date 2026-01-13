@@ -73,7 +73,7 @@ export const metadata = {
 }
 
 export default function Home() {
-  const jsonLd = {
+  const jsonHome = {
   "@context": "https://schema.org",
   "@graph": [
     {
