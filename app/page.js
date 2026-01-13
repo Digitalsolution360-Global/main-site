@@ -96,6 +96,10 @@ export default function Home() {
 
   return (
     <BgLayout>
+     <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
       <video
         src="/home/videos/hero-video.mp4"
         autoPlay
