@@ -73,6 +73,27 @@ export const metadata = {
 }
 
 export default function Home() {
+  const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.digitalsolution360.com/#organization",
+      "name": "Digital Solution 360 Arpit",
+      "url": "https://www.digitalsolution360.com/",
+      "logo": "https://www.digitalsolution360.com/logo.png",
+      "image": "https://www.digitalsolution360.com/logo.png",
+      "description": "Digital Solution 360 is a global digital marketing and web development agency offering SEO, social media marketing, and website development services.",
+      "sameAs": [
+        "https://www.facebook.com/digitalsolution360india",
+        "https://www.instagram.com/digitalsolution.360/",
+        "https://www.linkedin.com/company/digital-solution-360-global",
+        "https://www.youtube.com/@digitalsolution360"
+      ]
+    }
+  ]
+};
+
   return (
     <BgLayout>
       <video
