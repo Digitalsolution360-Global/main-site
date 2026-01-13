@@ -124,10 +124,7 @@ export default function RootLayout({ children }) {
           {/* DNS prefetch for analytics and external services */}
           <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
           
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          />
+         
           
         </head>
         <body
