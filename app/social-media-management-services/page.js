@@ -1,204 +1,46 @@
-"use client";
+import SocialMediaManagementPage from "./client";
 
-import BgLayout from "@/components/layout/bgLayout";
-import { motion } from "motion/react";
-import Link from "next/link";
-import {
-  IconHome,
-  IconChevronRight,
-  IconUsers,
-  IconCalendarEvent,
-  IconRocket,
-  IconChartBar,
-  IconCheck,
-} from "@tabler/icons-react";
+export const metadata = {
+  title: "Social Media Management Services in India | Account Handling Experts",
+  description:
+    "Professional social media management services to handle content, posting, engagement, and performance tracking. Grow your brand on Facebook, Instagram, LinkedIn & more.",
+  keywords: [
+    "social media management services",
+    "social media account management",
+    "social media handling services",
+    "instagram management services",
+    "facebook page management",
+    "linkedin account management",
+    "social media agency india",
+  ],
+  alternates: {
+    canonical: "https://www.digitalsolution360.com/social-media-management-services",
+  },
+  openGraph: {
+    title: "Social Media Management Services | Digital Solution 360",
+    description:
+      "Let experts manage your social media accounts with strategic content, posting & performance optimization.",
+    url: "https://www.digitalsolution360.com/social-media-management-services",
+    siteName: "Digital Solution 360",
+    images: [
+      {
+        url: "/services/social-media-management-hero.webp",
+        width: 1200,
+        height: 630,
+        alt: "Social Media Management Services",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Social Media Management Services | Digital Solution 360",
+    description:
+      "Complete social media account management to grow engagement, reach & brand trust.",
+    images: ["/services/social-media-management-hero.webp"],
+  },
+};
 
-export default function SocialMediaManagementPage() {
-  const services = [
-    {
-      icon: IconUsers,
-      title: "Account Management",
-      desc: "Professional handling of all your social media accounts to maintain consistency and engagement.",
-    },
-    {
-      icon: IconCalendarEvent,
-      title: "Content Scheduling",
-      desc: "Plan and schedule posts strategically to reach your audience at the right time.",
-    },
-    {
-      icon: IconRocket,
-      title: "Campaign Execution",
-      desc: "Run targeted campaigns across platforms to boost engagement and conversions.",
-    },
-    {
-      icon: IconChartBar,
-      title: "Performance Monitoring",
-      desc: "Track and analyze results to optimize your social media strategy continuously.",
-    },
-  ];
-
-  const process = [
-    "Audit & review current social presence",
-    "Plan content calendar & strategy",
-    "Create & schedule engaging content",
-    "Execute campaigns & promotions",
-    "Monitor analytics & KPIs",
-    "Optimize strategy for better results",
-  ];
-
-  return (
-    <BgLayout>
-      {/* ================= HERO ================= */}
-      <section className="relative h-[55vh] mt-21 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/services/social-media-management-hero.webp"
-            alt="Social Media Management"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/70" />
-        </div>
-
-        <div className="relative z-10 max-w-5xl px-6 text-center text-white">
-          <div className="flex justify-center items-center gap-2 text-sm mb-6">
-            <Link href="/" className="flex items-center gap-1 hover:text-blue-400">
-              <IconHome size={18} /> Home
-            </Link>
-             <Link href="/social-media-marketing-services" className="flex items-center gap-1 hover:text-blue-400">
-                           <IconChevronRight size={16} />Social Media Marketing
-                          </Link>
-            <IconChevronRight size={16} />
-            <span className="text-blue-300">Social Media Management</span>
-          </div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
-          >
-            Social Media <span className="text-blue-400">Management</span>
-          </motion.h1>
-
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Let us manage your social media accounts to increase engagement, build your brand, and drive results.
-          </p>
-        </div>
-      </section>
-
-      {/* ================= CONTENT ================= */}
-      <section className="py-14">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-12 items-start">
-
-          {/* LEFT CONTENT */}
-          <div className="lg:col-span-2 space-y-20">
-
-            {/* INTRO */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 className="text-4xl font-bold mb-6">
-                Complete <span className="text-blue-600">Social Media Management</span>
-              </h2>
-
-              <p className="text-gray-600 text-lg mb-4">
-                Our social media management services handle everything from content creation to audience engagement, so your brand stays active and relevant online.
-              </p>
-
-              <p className="text-gray-600 text-lg mb-4">
-                We ensure consistent posting, timely responses, and strategic campaigns that align with your business goals.
-              </p>
-
-              <p className="text-gray-600 text-lg">
-                Focus on your business while we grow your social media presence professionally.
-              </p>
-            </motion.div>
-
-            {/* SERVICES */}
-            <div>
-              <h2 className="text-4xl font-bold mb-10">
-                Our <span className="text-blue-600">Management Services</span>
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                {services.map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <motion.div
-                      key={i}
-                      whileHover={{ y: -6 }}
-                      className="bg-white p-8 rounded-2xl shadow-lg"
-                    >
-                      <div className="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
-                        <Icon size={28} className="text-white" />
-                      </div>
-                      <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                      <p className="text-gray-600">{item.desc}</p>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* PROCESS */}
-            <div>
-              <h2 className="text-4xl font-bold mb-10">
-                Our <span className="text-blue-600">Process</span>
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                {process.map((step, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-4 bg-white p-6 rounded-xl shadow"
-                  >
-                    <IconCheck className="text-blue-600" />
-                    <span className="text-lg font-medium">{step}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* CTA */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-3xl p-12 text-center">
-              <IconRocket size={48} className="mx-auto mb-4" />
-              <h2 className="text-3xl font-bold mb-4">
-                Let Us Manage Your Social Media
-              </h2>
-              <p className="text-blue-100 mb-8">
-                Focus on your business while we grow your social media presence effectively.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold"
-              >
-                Get Social Media Management
-              </Link>
-            </div>
-
-          </div>
-
-          {/* RIGHT SIDEBAR */}
-          <aside className="bg-white shadow-xl rounded-2xl p-6 sticky top-28">
-            <h3 className="text-xl font-bold mb-4 border-b pb-2">
-              Social Media Marketing
-            </h3>
-
-            <ul className="space-y-3 text-gray-700">
-              <li><Link href="/social-media-marketing-services/">Social Media Marketing</Link></li>
-              <li className="font-medium text-blue-600">Social Media Management</li>
-              <li><Link href="/instagram-marketing-services/">Instagram Marketing</Link></li>
-              <li><Link href="/facebook-marketing-services/">Facebook Marketing</Link></li>
-              <li><Link href="/linkedin-marketing-services/">LinkedIn Marketing</Link></li>
-              <li><Link href="/youtube-marketing-services/">YouTube Marketing</Link></li>
-              <li><Link href="/influencer-marketing-services/">Influencer Marketing</Link></li>
-              <li><Link href="/short-video-marketing/">Short Video Marketing</Link></li>
-            </ul>
-          </aside>
-
-        </div>
-      </section>
-    </BgLayout>
-  );
+export default function Page() {
+  return <SocialMediaManagementPage />;
 }

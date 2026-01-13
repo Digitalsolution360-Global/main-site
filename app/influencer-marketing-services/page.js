@@ -1,204 +1,57 @@
-"use client";
+// app/influencer-marketing-services/page.js
+import InfluencerMarketingPage from "./client";
 
-import BgLayout from "@/components/layout/bgLayout";
-import { motion } from "motion/react";
-import Link from "next/link";
-import {
-  IconHome,
-  IconChevronRight,
-  IconUsers,
-  IconSpeakerphone,
-  IconRocket,
-  IconChartBar,
-  IconCheck,
-} from "@tabler/icons-react";
+export const metadata = {
+  title: "Influencer Marketing Services | Influencer Campaign Management Agency",
+  description:
+    "Boost your brand with expert influencer marketing services. We connect you with the right influencers to drive engagement, trust, leads, and sales.",
+  keywords: [
+    "Influencer Marketing Services",
+    "Influencer Marketing Agency",
+    "Influencer Campaign Management",
+    "Social Media Influencer Marketing",
+    "Brand Awareness Campaigns",
+    "Influencer Collaboration",
+    "Digital Marketing Agency",
+    "Influencer Promotions",
+    "ROI Driven Influencer Campaigns",
+    "Digital Solution 360",
+  ],
+  alternates: {
+    canonical: "https://www.digitalsolution360.com/influencer-marketing-services",
+  },
+  openGraph: {
+    title: "Influencer Marketing Services | Connect with the Right Influencers",
+    description:
+      "Increase brand reach, engagement, and conversions with our professional influencer marketing campaigns and collaborations.",
+    url: "https://www.digitalsolution360.com/influencer-marketing-services",
+    siteName: "Digital Solution 360",
+    images: [
+      {
+        url: "https://www.digitalsolution360.com/services/influencer-marketing-hero.webp",
+        width: 1200,
+        height: 630,
+        alt: "Influencer Marketing Services",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Influencer Marketing Services | Boost Engagement & Brand Awareness",
+    description:
+      "Professional influencer marketing agency connecting brands with the right social media influencers for measurable results.",
+    images: [
+      "https://www.digitalsolution360.com/services/influencer-marketing-hero.webp",
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
-export default function InfluencerMarketingPage() {
-  const services = [
-    {
-      icon: IconUsers,
-      title: "Influencer Research & Selection",
-      desc: "Identify the right influencers that align with your brand and target audience.",
-    },
-    {
-      icon: IconSpeakerphone,
-      title: "Campaign Planning & Execution",
-      desc: "End-to-end influencer campaign planning for maximum reach and engagement.",
-    },
-    {
-      icon: IconRocket,
-      title: "Brand Awareness Campaigns",
-      desc: "Boost brand visibility and trust through authentic influencer promotions.",
-    },
-    {
-      icon: IconChartBar,
-      title: "Performance Tracking & ROI",
-      desc: "Measure engagement, reach, conversions, and ROI from influencer campaigns.",
-    },
-  ];
-
-  const process = [
-    "Understand brand & campaign goals",
-    "Research and shortlist influencers",
-    "Plan content & collaboration strategy",
-    "Launch influencer campaigns",
-    "Monitor engagement & performance",
-    "Optimize campaigns for better ROI",
-  ];
-
-  return (
-    <BgLayout>
-      {/* ================= HERO ================= */}
-      <section className="relative h-[55vh] mt-21 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/services/influencer-marketing-hero.webp"
-            alt="Influencer Marketing Services"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/70" />
-        </div>
-
-        <div className="relative z-10 max-w-5xl px-6 text-center text-white">
-          <div className="flex justify-center items-center gap-2 text-sm mb-6">
-            <Link href="/" className="flex items-center gap-1 hover:text-blue-400">
-              <IconHome size={18} /> Home
-            </Link>
-             <Link href="/social-media-marketing-services" className="flex items-center gap-1 hover:text-blue-400">
-               <IconChevronRight size={16} />Social Media Marketing
-             </Link>
-            <IconChevronRight size={16} />
-            <span className="text-blue-300">Influencer Marketing</span>
-          </div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
-          >
-            Influencer <span className="text-blue-400">Marketing</span>
-          </motion.h1>
-
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Build trust, boost reach, and drive conversions with powerful influencer marketing campaigns.
-          </p>
-        </div>
-      </section>
-
-      {/* ================= CONTENT ================= */}
-      <section className="py-14">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-12 items-start">
-
-          {/* LEFT CONTENT */}
-          <div className="lg:col-span-2 space-y-20">
-
-            {/* INTRO */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 className="text-4xl font-bold mb-6">
-                Result-Oriented <span className="text-blue-600">Influencer Marketing</span>
-              </h2>
-
-              <p className="text-gray-600 text-lg mb-4">
-                Influencer marketing is one of the most effective ways to build trust and credibility online.
-              </p>
-
-              <p className="text-gray-600 text-lg mb-4">
-                We connect your brand with the right influencers to drive authentic engagement.
-              </p>
-
-              <p className="text-gray-600 text-lg">
-                Our influencer strategies focus on real results, not just followers.
-              </p>
-            </motion.div>
-
-            {/* SERVICES */}
-            <div>
-              <h2 className="text-4xl font-bold mb-10">
-                Our <span className="text-blue-600">Influencer Services</span>
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                {services.map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <motion.div
-                      key={i}
-                      whileHover={{ y: -6 }}
-                      className="bg-white p-8 rounded-2xl shadow-lg"
-                    >
-                      <div className="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
-                        <Icon size={28} className="text-white" />
-                      </div>
-                      <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                      <p className="text-gray-600">{item.desc}</p>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* PROCESS */}
-            <div>
-              <h2 className="text-4xl font-bold mb-10">
-                Our <span className="text-blue-600">Process</span>
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                {process.map((step, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-4 bg-white p-6 rounded-xl shadow"
-                  >
-                    <IconCheck className="text-blue-600" />
-                    <span className="text-lg font-medium">{step}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* CTA */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-3xl p-12 text-center">
-              <IconRocket size={48} className="mx-auto mb-4" />
-              <h2 className="text-3xl font-bold mb-4">
-                Start Influencer Campaigns Today
-              </h2>
-              <p className="text-blue-100 mb-8">
-                Let us help you grow your brand with authentic influencer collaborations.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold"
-              >
-                Get Influencer Marketing
-              </Link>
-            </div>
-
-          </div>
-
-          {/* RIGHT SIDEBAR */}
-          <aside className="bg-white shadow-xl rounded-2xl p-6 sticky top-28">
-            <h3 className="text-xl font-bold mb-4 border-b pb-2">
-              Social Media Marketing
-            </h3>
-
-            <ul className="space-y-3 text-gray-700">
-              <li><Link href="/social-media-marketing-services/">Social Media Marketing</Link></li>
-              <li><Link href="/social-media-management-services/">Social Media Management</Link></li>
-              <li><Link href="/instagram-marketing-services/">Instagram Marketing</Link></li>
-              <li><Link href="/facebook-marketing-services/">Facebook Marketing</Link></li>
-              <li><Link href="/linkedin-marketing-services/">LinkedIn Marketing</Link></li>
-              <li><Link href="/youtube-marketing-services/">YouTube Marketing</Link></li>
-              <li className="font-medium text-blue-600">Influencer Marketing</li>
-              <li><Link href="/short-video-marketing/">Short Video Marketing</Link></li>
-            </ul>
-          </aside>
-
-        </div>
-      </section>
-    </BgLayout>
-  );
+export default function Page() {
+  return <InfluencerMarketingPage />;
 }

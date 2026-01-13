@@ -1,217 +1,53 @@
-"use client";
+// app/ai-marketing-automation/page.js
+import AIMarketingAutomationPage from "./client";
 
-import BgLayout from "@/components/layout/bgLayout";
-import { motion } from "motion/react";
-import Link from "next/link";
-import {
-  IconHome,
-  IconChevronRight,
-  IconRobot,
-  IconChartBar,
-  IconTarget,
-  IconCheck,
-  IconRocket,
-} from "@tabler/icons-react";
+export const metadata = {
+  title: "AI Marketing Automation | Smarter Campaigns with AI",
+  description:
+    "Automate your marketing campaigns using AI. Optimize audience targeting, predictive analytics, and campaign performance with Digital Solution 360.",
+  keywords: [
+    "AI Marketing Automation",
+    "AI Campaigns",
+    "Predictive Analytics",
+    "Audience Segmentation",
+    "Automated Marketing",
+    "Digital Solution 360",
+  ],
+  alternates: {
+    canonical: "https://www.digitalsolution360.com/ai-marketing-automation",
+  },
+  openGraph: {
+    title: "AI Marketing Automation | Smarter Campaigns with AI",
+    description:
+      "Leverage AI to automate marketing campaigns, optimize targeting, and maximize ROI with Digital Solution 360.",
+    url: "https://www.digitalsolution360.com/ai-marketing-automation",
+    siteName: "Digital Solution 360",
+    images: [
+      {
+        url: "https://www.digitalsolution360.com/services/ai-marketing-automation-hero.webp",
+        width: 1200,
+        height: 630,
+        alt: "AI Marketing Automation Services",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Marketing Automation | Smarter Campaigns with AI",
+    description:
+      "Automate marketing campaigns using AI for smarter targeting, predictive analytics, and optimized performance.",
+    images: [
+      "https://www.digitalsolution360.com/services/ai-marketing-automation-hero.webp",
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
-export default function AIMarketingAutomationPage() {
-  const services = [
-    {
-      icon: IconRobot,
-      title: "AI-Powered Campaigns",
-      desc: "Leverage AI to run smart marketing campaigns that maximize reach and conversions.",
-    },
-    {
-      icon: IconChartBar,
-      title: "Predictive Analytics",
-      desc: "Analyze customer behavior and predict trends for better marketing decisions.",
-    },
-    {
-      icon: IconTarget,
-      title: "Audience Segmentation",
-      desc: "Automatically segment your audience for personalized messaging and higher engagement.",
-    },
-    {
-      icon: IconRocket,
-      title: "Automated Optimization",
-      desc: "Continuously optimize campaigns using AI for improved performance and ROI.",
-    },
-  ];
-
-  const process = [
-    "Analyze business goals & data",
-    "Set up AI-driven campaigns",
-    "Automate audience targeting",
-    "Run predictive analytics & reports",
-    "Optimize campaigns automatically",
-    "Scale high-performing strategies",
-  ];
-
-  return (
-    <BgLayout>
-      {/* ================= HERO ================= */}
-      <section className="relative h-[55vh] mt-21 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/services/ai-marketing-automation-hero.webp"
-            alt="AI Marketing Automation Services"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/70" />
-        </div>
-
-        <div className="relative z-10 max-w-5xl px-6 text-center text-white">
-          <div className="flex justify-center items-center gap-2 text-sm mb-6">
-            <Link href="/" className="flex items-center gap-1 hover:text-blue-400">
-              <IconHome size={18} /> Home
-            </Link>
-             <Link href="/marketing-automation-services" className="flex items-center gap-1 hover:text-blue-400">
-                         <IconChevronRight size={16} />Automation Solutions
-                          </Link>
-            <IconChevronRight size={16} />
-            <span className="text-blue-300">AI Marketing Automation</span>
-          </div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
-          >
-            AI <span className="text-blue-400">Marketing Automation</span>
-          </motion.h1>
-
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Automate your marketing with AI to increase efficiency, engagement, and conversions.
-          </p>
-        </div>
-      </section>
-
-      {/* ================= CONTENT ================= */}
-      <section className="py-14">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-12 items-start">
-
-          {/* LEFT CONTENT */}
-          <div className="lg:col-span-2 space-y-20">
-
-            {/* INTRO */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 className="text-4xl font-bold mb-6">
-                Smarter <span className="text-blue-600">Marketing with AI</span>
-              </h2>
-
-              <p className="text-gray-600 text-lg mb-4">
-                AI-powered marketing allows businesses to automate campaigns, predict trends, and optimize strategies for maximum impact.
-              </p>
-
-              <p className="text-gray-600 text-lg mb-4">
-                From audience segmentation to campaign optimization, AI handles repetitive tasks and delivers actionable insights.
-              </p>
-
-              <p className="text-gray-600 text-lg">
-                Focus on strategy while AI drives engagement, conversions, and growth for your business.
-              </p>
-            </motion.div>
-
-            {/* SERVICES */}
-            <div>
-              <h2 className="text-4xl font-bold mb-10">
-                Our <span className="text-blue-600">AI Marketing Services</span>
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                {services.map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <motion.div
-                      key={i}
-                      whileHover={{ y: -6 }}
-                      className="bg-white p-8 rounded-2xl shadow-lg"
-                    >
-                      <div className="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
-                        <Icon size={28} className="text-white" />
-                      </div>
-                      <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                      <p className="text-gray-600">{item.desc}</p>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* PROCESS */}
-            <div>
-              <h2 className="text-4xl font-bold mb-10">
-                Our <span className="text-blue-600">AI Process</span>
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                {process.map((step, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-4 bg-white p-6 rounded-xl shadow"
-                  >
-                    <IconCheck className="text-blue-600" />
-                    <span className="text-lg font-medium">{step}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* CTA */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-3xl p-12 text-center">
-              <IconRocket size={48} className="mx-auto mb-4" />
-              <h2 className="text-3xl font-bold mb-4">
-                Automate Your Marketing with AI
-              </h2>
-              <p className="text-blue-100 mb-8">
-                Let AI handle your campaigns for smarter, faster, and better marketing results.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold"
-              >
-                Start AI Marketing Automation
-              </Link>
-            </div>
-
-          </div>
-
-          {/* RIGHT SIDEBAR */}
-          <aside className="bg-white shadow-xl rounded-2xl p-6 sticky top-28">
-            <h3 className="text-xl font-bold mb-4 border-b pb-2">
-              Automation Solutions
-            </h3>
-
-            <ul className="space-y-3 text-gray-700">
-              <li>
-                <Link href="/marketing-automation-services/">Marketing Automation</Link>
-              </li>
-              <li>
-                <Link href="/crm-automation-solutions/">CRM Automation</Link>
-              </li>
-              <li>
-                <Link href="/lead-automation-services/">Lead Automation</Link>
-              </li>
-              <li>
-                <Link href="/email-marketing-automation/">Email Automation</Link>
-              </li>
-              <li>
-                <Link href="/whatsapp-automation-services/">WhatsApp Automation</Link>
-              </li>
-              <li>
-                <Link href="/sales-funnel-automation/">Sales Funnel Automation</Link>
-              </li>
-              <li className="font-medium text-blue-600">
-                AI Marketing Automation
-              </li>
-            </ul>
-          </aside>
-
-        </div>
-      </section>
-    </BgLayout>
-  );
+export default function Page() {
+  return <AIMarketingAutomationPage />;
 }
