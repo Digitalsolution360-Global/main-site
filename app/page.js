@@ -5,6 +5,7 @@ import WhyUS from "@/components/sections/why-us";
 import Industries from "@/components/sections/industries";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
+import Script from "next/script";
 
 // Lazy load below-the-fold sections
 const Clients = dynamic(() => import("@/components/sections/clients"), {
@@ -96,10 +97,12 @@ export default function Home() {
 
   return (
     <BgLayout>
-     <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          />
+     <Script
+        id="organization-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <video
         src="/home/videos/hero-video.mp4"
         autoPlay
