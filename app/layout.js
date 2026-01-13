@@ -176,10 +176,7 @@ export default function RootLayout({ children }) {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           />
-            <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonHome) }}
-          />
+          
         </head>
         <body
           className={`${figtree.variable} antialiased`}
