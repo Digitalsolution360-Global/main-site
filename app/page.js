@@ -79,7 +79,7 @@ export default function Home() {
     {
       "@type": "Organization",
       "@id": "https://www.digitalsolution360.com/#organization",
-      "name": "Digital Solution 360 Arpit",
+      "name": "Digital Solution 360",
       "url": "https://www.digitalsolution360.com/",
       "logo": "https://www.digitalsolution360.com/logo.png",
       "image": "https://www.digitalsolution360.com/logo.png",
@@ -89,6 +89,117 @@ export default function Home() {
         "https://www.instagram.com/digitalsolution.360/",
         "https://www.linkedin.com/company/digital-solution-360-global",
         "https://www.youtube.com/@digitalsolution360"
+      ]
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "https://www.digitalsolution360.com/#website",
+      "url": "https://www.digitalsolution360.com/",
+      "name": "Digital Solution 360",
+      "publisher": {
+        "@id": "https://www.digitalsolution360.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.digitalsolution360.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.digitalsolution360.com/#localbusiness",
+      "name": "Digital Solution 360",
+      "url": "https://www.digitalsolution360.com/",
+      "logo": "https://www.digitalsolution360.com/logo.png",
+      "image": "https://www.digitalsolution360.com/logo.png",
+      "description": "Digital Solution 360 provides professional digital marketing and website development services for businesses in India and Dubai.",
+      "sameAs": [
+        "https://www.facebook.com/digitalsolution360india",
+        "https://www.instagram.com/digitalsolution.360/",
+        "https://www.linkedin.com/company/digital-solution-360-global",
+        "https://www.youtube.com/@digitalsolution360"
+      ],
+      "areaServed": [
+        { "@type": "Country", "name": "India" },
+        { "@type": "Country", "name": "United Arab Emirates" }
+      ],
+      "priceRange": "$$"
+    },
+
+    {
+      "@type": "Service",
+      "@id": "https://www.digitalsolution360.com/#seo-service",
+      "name": "Search Engine Optimization Services",
+      "serviceType": "SEO Services",
+      "provider": {
+        "@id": "https://www.digitalsolution360.com/#organization"
+      },
+      "areaServed": ["India", "United Arab Emirates"],
+      "description": "SEO services to improve Google rankings, organic traffic, and online visibility for businesses."
+    },
+
+    {
+      "@type": "Service",
+      "@id": "https://www.digitalsolution360.com/#smm-service",
+      "name": "Social Media Marketing Services",
+      "serviceType": "Social Media Marketing",
+      "provider": {
+        "@id": "https://www.digitalsolution360.com/#organization"
+      },
+      "areaServed": ["India", "United Arab Emirates"],
+      "description": "Social media marketing services to build brand awareness, engagement, and lead generation."
+    },
+
+    {
+      "@type": "Service",
+      "@id": "https://www.digitalsolution360.com/#web-development-service",
+      "name": "Website Development Services",
+      "serviceType": "Web Development",
+      "provider": {
+        "@id": "https://www.digitalsolution360.com/#organization"
+      },
+      "areaServed": ["India", "United Arab Emirates"],
+      "description": "Custom website development services including business websites and landing pages."
+    },
+
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.digitalsolution360.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services does Digital Solution 360 provide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Digital Solution 360 provides SEO services, social media marketing, website development, branding, and digital growth solutions for businesses."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Digital Solution 360 provide services in India and Dubai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Digital Solution 360 offers digital marketing and web development services to clients in India and the United Arab Emirates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Digital Solution 360 suitable for small businesses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Digital Solution 360 works with startups, small businesses, and enterprises, offering scalable digital marketing solutions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I contact Digital Solution 360?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can contact Digital Solution 360 through their official website or social media profiles for inquiries and consultations."
+          }
+        }
       ]
     }
   ]
