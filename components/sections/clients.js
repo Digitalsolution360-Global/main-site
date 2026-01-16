@@ -60,14 +60,12 @@ function Clients() {
     { name: 'Atithi Home', logo: '/clients/atithi.png' },
     { name: 'Ceilkraft', logo: '/clients/ceilkraft.png' },
     { name: 'Sri Poly Clinic', logo: '/clients/sri-poly-clinic.png' },
-    { name: 'Master Dinesh', logo: '/clients/master-dinesh.webp' },
     { name: 'Maxalign Dental', logo: '/clients/maxalign-dental.webp' },
     { name: 'Preesha Global', logo: '/clients/preesha-global.webp' },
     { name: 'Prime Holidays', logo: '/clients/prime-holidays.webp' },
     { name: 'Prudent BV', logo: '/clients/prudentbv.webp' },
     { name: 'Raj Nursing Home', logo: '/clients/raj-nursing-home.webp' },
     { name: 'The Great Herbal', logo: '/clients/the-great-herbal.webp' },
-    { name: 'The Tickle Toe', logo: '/clients/the-tickle-toe.webp' },
    
     
   ];
