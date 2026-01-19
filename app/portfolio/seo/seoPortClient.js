@@ -70,7 +70,7 @@ export default function SEOPage() {
         <div className="max-w-7xl mx-auto px-6 text-center">
 
           <span className="inline-flex items-center gap-2 text-orange-500 font-semibold mb-4">
-            <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
             Our Success Stories
           </span>
 
@@ -139,7 +139,7 @@ export default function SEOPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
               {clients[0].stats.map((stat, i) => (
                 <div key={i}>
-                  <h4 className="text-3xl md:text-4xl font-extrabold text-orange-500 mb-2">
+                  <h4 className="text-3xl md:text-4xl font-extrabold text-blue-500 mb-2">
                     {stat.value}
                   </h4>
                   <p className="text-gray-700 text-sm md:text-base leading-snug">
