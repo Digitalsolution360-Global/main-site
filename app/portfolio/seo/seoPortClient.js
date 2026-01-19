@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import BgLayout from "@/components/layout/bgLayout"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -9,151 +10,159 @@ import "swiper/css"
 import "swiper/css/navigation"
 
 import data from "./content.json"
-
 import { IconHome, IconChevronRight } from "@tabler/icons-react"
 
 export default function SEOPage() {
   const clients = data.client
+  const [activeIndex, setActiveIndex] = useState(0)
 
   return (
     <BgLayout>
 
       {/* ================= HERO ================= */}
-      <section className='relative h-[50vh] mt-21 lg:mt-15 flex items-center justify-center overflow-hidden'>
-        <div className='absolute inset-0'>
+      <section className="relative h-[45vh] md:h-[50vh] mt-21 lg:mt-15 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
           <img
             src="/portfolio/web-dev-hero.webp"
             alt="Web Development Portfolio"
-            className='w-full h-full object-cover'
+            className="w-full h-full object-cover"
           />
-          <div className='absolute inset-0 bg-black/70'></div>
+          <div className="absolute inset-0 bg-black/70" />
         </div>
 
-        <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white'>
-          {/* Breadcrumbs */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className='flex items-center justify-center gap-2 text-sm mb-6'
+            className="flex items-center justify-center gap-2 text-sm mb-6"
           >
-            <Link href='/' className='flex items-center gap-1 hover:text-blue-200 transition-colors'>
-              <IconHome size={18} />
-              <span>Home</span>
+            <Link href="/" className="flex items-center gap-1 hover:text-blue-200">
+              <IconHome size={18} /> Home
             </Link>
-            <IconChevronRight size={16} className='text-blue-300' />
-            <Link href='/portfolio' className='hover:text-blue-200 transition-colors'>
-              Portfolio
-            </Link>
-            <IconChevronRight size={16} className='text-blue-300' />
-            <span className='text-blue-200'>Seo  Development</span>
+            <IconChevronRight size={16} />
+            <Link href="/portfolio">Portfolio</Link>
+            <IconChevronRight size={16} />
+            <span className="text-blue-200">SEO Development</span>
           </motion.div>
 
-          {/* Title */}
-          <motion.div
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4"
           >
-            <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold mb-6'>
-              SEO Development <span className='text-blue-500'>Portfolio</span>
-            </h1>
-            <p className='text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed'>
-              Custom websites, e-commerce platforms, and web applications built with modern technologies.
-            </p>
-          </motion.div>
+            SEO Development <span className="text-blue-500">Portfolio</span>
+          </motion.h1>
+
+          <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto">
+            Data-driven SEO strategies that deliver traffic, leads & revenue.
+          </p>
         </div>
       </section>
 
       {/* ================= INTRO ================= */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+      <section className="py-20 bg-white text-center">
+        <span className="inline-flex items-center gap-2 text-orange-500 font-semibold mb-4">
+          <span className="w-2 h-2 bg-blue-500 rounded-full" />
+          Our Success Stories
+        </span>
 
-          <span className="inline-flex items-center gap-2 text-orange-500 font-semibold mb-4">
-            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-            Our Success Stories
-          </span>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          Proven Results Through
+          <span className="text-blue-600"> SEO Excellence</span>
+        </h2>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Proven Results Through
-            <span className="text-blue-600"> SEO Excellence</span>
-          </h2>
-
-          <p className="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed">
-            We help brands dominate search results with data-driven SEO strategies
-            that deliver consistent traffic, leads, and revenue growth.
-          </p>
-
-        </div>
+        <p className="max-w-3xl mx-auto text-base sm:text-lg text-gray-600">
+          We help brands dominate search results with measurable growth.
+        </p>
       </section>
 
-      {/* ================= SUCCESS STORIES SWIPER ================= */}
-      <section className="pb-32 bg-gray-50 relative">
-        <div className="max-w-7xl mx-auto px-6 relative">
+      {/* ================= SLIDER ================= */}
+      <section className="md:pb-28  bg-gray-50 relative">
+        <div className="max-w-7xl mx-auto px-6">
 
           <Swiper
             modules={[Navigation, Autoplay]}
             navigation
             autoplay={{ delay: 5000 }}
-            className="relative"
+            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           >
             {clients.map((client, index) => (
               <SwiperSlide key={index}>
-                <div className="relative h-[620px] shadow-lg rounded-[40px] overflow-hidden">
-
-                  {/* Background Image */}
+                <div className="
+                  relative
+                  h-[340px] sm:h-[420px] md:h-[620px]
+                  rounded-[24px] md:rounded-[40px]
+                  overflow-hidden shadow-lg
+                ">
                   <img
                     src={client.bg}
                     alt={client.name}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
+                  <div className="absolute inset-0 bg-black/60" />
 
-                  {/* Dark Overlay */}
-                  <div className="absolute inset-0 bg-black/60"></div>
-
-                {/* Logo Centered */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {/* White rounded background for logo */}
-                  <div className="bg-white rounded-full p-4 md:p-6 shadow-lg">
-                    <img
-                      src={client.logo}
-                      alt={client.name}
-                      className="max-h-20  object-contain"
-                    />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white rounded-full 
+                                    p-3 sm:p-4 md:p-6 shadow-xl">
+                      <img
+                        src={client.logo}
+                        alt={client.name}
+                        className="max-h-12 sm:max-h-16 md:max-h-20 object-contain"
+                      />
+                    </div>
                   </div>
-                </div>
-
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
 
-        
         </div>
       </section>
 
-      {/* ================= STATS CARD ================= */}
-      <div className="relative">
-        <div className="absolute left-1/2 -translate-x-1/2 -top-52 w-[90%] md:w-[85%] lg:w-[75%] z-60">
-          <div className="bg-white rounded-[32px] shadow-2xl px-8 md:px-14 py-10 md:py-12 transform transition-transform hover:-translate-y-2">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
-              {clients[0].stats.map((stat, i) => (
+      {/* ================= DYNAMIC STATS ================= */}
+      <div className="relative mb-20">
+
+        <div className="
+          relative
+          md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-52
+          w-[92%] sm:w-[80%] md:w-[75%] lg:w-[70%]
+          px-4
+          z-20
+          mt-12 md:mt-0
+        ">
+          <div className="bg-white rounded-[24px] md:rounded-[32px]
+                          shadow-2xl
+                          px-6 sm:px-8 md:px-14
+                          py-8 sm:py-10 md:py-12">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4
+                            gap-6 sm:gap-8 md:gap-10 text-center">
+              {clients[activeIndex].stats.map((stat, i) => (
                 <div key={i}>
-                  <h4 className="text-3xl md:text-4xl font-extrabold text-blue-500 mb-2">
+                  <motion.h4
+                    key={stat.value}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="text-2xl sm:text-3xl md:text-4xl
+                               font-extrabold text-blue-500 mb-2"
+                  >
                     {stat.value}
-                  </h4>
-                  <p className="text-gray-700 text-sm md:text-base leading-snug">
+                  </motion.h4>
+
+                  <p className="text-gray-700 text-sm sm:text-base">
                     {stat.label}
                   </p>
                 </div>
               ))}
             </div>
+
           </div>
         </div>
       </div>
 
-
-     
     </BgLayout>
   )
 }
