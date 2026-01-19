@@ -46,7 +46,7 @@ export default function SEOPage() {
               Portfolio
             </Link>
             <IconChevronRight size={16} className='text-blue-300' />
-            <span className='text-blue-200'>Web Development</span>
+            <span className='text-blue-200'>Seo  Development</span>
           </motion.div>
 
           {/* Title */}
