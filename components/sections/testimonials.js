@@ -151,7 +151,7 @@ function Testimonials() {
                         <IconChevronRight className='w-6 h-6 text-gray-700 group-hover:text-blue-600' />
                     </button>
 
-                    <div className='overflow-hidden px-16'>
+                       <div className='overflow-hidden px-2 sm:px-4 md:px-8 lg:px-16'>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                             <AnimatePresence mode='popLayout' initial={false}>
                                 {getVisibleTestimonials().map((testimonial, index) => (

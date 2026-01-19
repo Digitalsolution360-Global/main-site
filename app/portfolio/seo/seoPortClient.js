@@ -92,7 +92,7 @@ export default function SEOPage() {
               <SwiperSlide key={index}>
                 <div className="
                   relative
-                  h-[340px] sm:h-[420px] md:h-[620px]
+                  h-[240px] sm:h-[220px] md:h-[620px]
                   rounded-[24px] md:rounded-[40px]
                   overflow-hidden shadow-lg
                 ">
