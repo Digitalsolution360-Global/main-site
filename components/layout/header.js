@@ -36,7 +36,7 @@ const [mobileActiveService, setMobileActiveService] = useState(null);
 
   const servicesMenu = [
   {
-    title: "Digital Marketing",
+    title: "Digital Marketing Services",
     slug: "/digital-marketing-services",
     children: [
       { title: "Performance Marketing", slug: "/performance-marketing-services" },
@@ -70,7 +70,7 @@ const [mobileActiveService, setMobileActiveService] = useState(null);
     ],
   },
   {
-    title: "Brand & Creative",
+    title: "Branding Services",
     slug: "/branding-services",
     children: [
       { title: "Brand Identity Design", slug: "/brand-identity-design" },
@@ -97,6 +97,7 @@ const [mobileActiveService, setMobileActiveService] = useState(null);
     title: "Automation Solutions",
     slug: "/marketing-automation-services",
     children: [
+    { title: "Marketing Automation", slug: "/marketing-automation-services" },
       { title: "CRM Automation", slug: "/crm-automation-solutions" },
       { title: "Lead Automation", slug: "/lead-automation-services" },
       { title: "Email Automation", slug: "/email-marketing-automation" },
@@ -109,6 +110,7 @@ const [mobileActiveService, setMobileActiveService] = useState(null);
     title: "Managed Services",
     slug: "/digital-marketing-managed-services",
     children: [
+      { title: "Digital Marketing Managed", slug: "/digital-marketing-managed-services" },
       { title: "SEO Managed Services", slug: "/seo-managed-services" },
       { title: "PPC Managed Services", slug: "/ppc-managed-services" },
       { title: "Social Media Managed", slug: "/social-media-managed-services" },
@@ -314,14 +316,14 @@ const [mobileActiveService, setMobileActiveService] = useState(null);
         href={servicesMenu[activeService].slug}
         className="block font-semibold text-blue-600 mb-2 hover:underline"
       >
-        {servicesMenu[activeService].title} Overview
+        {servicesMenu[activeService].title} 
       </Link>
 
       {/* Sub-services as separate card-like boxes */}
       {servicesMenu[activeService].children.map((child) => (
         <div
           key={child.title}
-          className="border border-gray-200 rounded-xl p-3 hover:shadow-md transition cursor-pointer bg-white"
+          className="p-2 hover:shadow-md transition cursor-pointer bg-white"
         >
           <Link
             href={child.slug}

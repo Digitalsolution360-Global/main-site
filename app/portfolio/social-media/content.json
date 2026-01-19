@@ -1,7 +1,101 @@
 {
   "clients": [
+
     {
       "id": 1,
+      "name": "Honey Dale",
+      "handle": "@honeydaleofficial",
+      "instagramUrl": "https://www.instagram.com/honeydaleofficial/",
+      "niche": "Fashion & Lifestyle Brand",
+      "description": "Built a premium Instagram presence for Honey Dale by showcasing product aesthetics, lifestyle shoots, and brand-focused reels. Our strategy focused on visual storytelling, influencer-style content, and consistent branding to elevate brand perception.",
+      "stats": {
+        "followers": "12K+",
+        "engagement": "9.8%",
+        "reach": "150K+",
+        "posts": "300+"
+      },
+      "services": [
+        "Brand Content Strategy",
+        "Product Photography Direction",
+        "Reels & Short Video Content",
+        "Creative Caption Writing",
+        "Hashtag & Trend Research",
+        "Instagram Growth Management"
+      ],
+      "results": [
+        "500% increase in brand visibility",
+        "9.8% average engagement rate",
+        "Strong brand recall among target audience",
+        "Consistent inbound queries via Instagram"
+      ],
+      "testimonial": "Digital Solution 360 helped us transform our Instagram into a premium brand showcase. The growth and engagement exceeded our expectations.",
+      "color": "from-blue-500 to-pink-600"
+    },
+
+    {
+      "id": 2,
+      "name": "Form-Focus Fitness",
+      "handle": "@sharma_ruchiofficial",
+      "instagramUrl": "https://www.instagram.com/sharma_ruchiofficial",
+      "niche": "Fitness & Personal Training",
+      "description": "Developed a strong personal brand for Form-Focus Fitness through educational fitness reels, transformation stories, workout tutorials, and motivational content. Focused on authority-building and audience trust.",
+      "stats": {
+        "followers": "18K+",
+        "engagement": "11.5%",
+        "reach": "200K+",
+        "posts": "350+"
+      },
+      "services": [
+        "Personal Brand Building",
+        "Fitness Reels & Video Editing",
+        "Workout & Transformation Content",
+        "Caption & CTA Strategy",
+        "Community Engagement",
+        "Instagram Profile Optimization"
+      ],
+      "results": [
+        "600% growth in followers",
+        "11.5% engagement rate",
+        "High-quality leads for online & offline coaching",
+        "Established as a trusted fitness authority"
+      ],
+      "testimonial": "Their content strategy helped me build credibility and connect deeply with my audience. Leads and engagement improved drastically.",
+      "color": "from-yellow-500 to-orange-700"
+    },
+
+    {
+      "id": 3,
+      "name": "Praveen Yogashala",
+      "handle": "@praveen_yogashalain",
+      "instagramUrl": "https://www.instagram.com/praveen_yogashala",
+      "niche": "Yoga & Wellness",
+      "description": "Strengthened Praveen Yogashala’s digital presence with calming yoga reels, educational wellness content, and spiritual branding. Focused on authenticity, discipline, and community growth.",
+      "stats": {
+        "followers": "10K+",
+        "engagement": "10.1%",
+        "reach": "130K+",
+        "posts": "260+"
+      },
+      "services": [
+        "Yoga & Wellness Content Creation",
+        "Reels & Meditation Videos",
+        "Educational Yoga Awareness Posts",
+        "Brand Aesthetic Development",
+        "Community Growth Strategy",
+        "Local & Online Class Promotion"
+      ],
+      "results": [
+        "450% growth in followers",
+        "10.1% engagement rate",
+        "Increased yoga class enrollments",
+        "Strong and loyal wellness community built"
+      ],
+      "testimonial": "Their team beautifully captured the essence of yoga and wellness. Instagram became our strongest platform for student engagement.",
+      "color": "from-emerald-500 to-teal-600"
+    },
+ 
+    {
+      "id": 4,
       "name": "Raj Nursing Home Hapur",
       "handle": "@rajnursinghomehapur",
       "instagramUrl": "https://www.instagram.com/rajnursinghomehapur",
@@ -30,38 +124,9 @@
       "testimonial": "Digital Solution 360 transformed our social media presence. We've seen remarkable growth in both engagement and patient inquiries!",
       "color": "from-pink-500 to-purple-600"
     },
+    
     {
-      "id": 2,
-      "name": "This Is Dehi",
-      "handle": "@thisisdehi",
-      "instagramUrl": "https://www.instagram.com/thisisdehi",
-      "niche": "Fashion & Lifestyle",
-      "description": "Elevated a fashion brand's Instagram presence with stunning visuals, trendy reels, and strategic influencer collaborations. Created a cohesive aesthetic that resonated with the target audience.",
-      "stats": {
-        "followers": "12K+",
-        "engagement": "12.3%",
-        "reach": "150K+",
-        "posts": "350+"
-      },
-      "services": [
-        "Content Creation",
-        "Reels Production",
-        "Influencer Marketing",
-        "Brand Aesthetics",
-        "Product Photography",
-        "Campaign Management"
-      ],
-      "results": [
-        "600% increase in Instagram followers",
-        "12.3% engagement rate (3x industry average)",
-        "150K+ monthly impressions",
-        "500+ direct sales through Instagram"
-      ],
-      "testimonial": "The team's creativity and strategic approach helped us build a strong brand identity. Our sales have skyrocketed!",
-      "color": "from-blue-500 to-cyan-600"
-    },
-    {
-      "id": 3,
+      "id": 5,
       "name": "MaxAlign Dental",
       "handle": "@maxalign.dental",
       "instagramUrl": "https://www.instagram.com/maxalign.dental",
@@ -91,7 +156,7 @@
       "color": "from-teal-500 to-green-600"
     },
      {
-      "id": 4,
+      "id": 6,
       "name": "Andheri Dental Clinic",
       "handle": "@andheri_dental_clinic_",
       "instagramUrl": "https://www.instagram.com/andheri_dental_clinic_",
@@ -123,7 +188,7 @@
 
     },
      {
-      "id": 5,
+      "id": 7,
       "name": "Sri Poly Clinic",
       "handle": "@sripoly.clinic",
       "instagramUrl": "https://www.instagram.com/sripoly.clinic",
