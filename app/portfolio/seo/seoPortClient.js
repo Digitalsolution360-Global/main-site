@@ -79,23 +79,48 @@ export default function SEOPage() {
       </section>
 
       {/* ================= SLIDER ================= */}
-      <section className="md:pb-28  bg-gray-50 relative">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="relative bg-gray-50 md:pb-32">
+        <div className="relative max-w-7xl mx-auto px-6">
+
+          {/* LEFT / RIGHT ARROWS (OUTSIDE IMAGE) */}
+          <div className="hidden md:flex absolute inset-y-0 left-0 right-0 
+                          items-center justify-between -mx-16 z-20">
+            <button
+              className="seo-prev w-14 h-14 rounded-full bg-white shadow-xl
+                         flex items-center justify-center text-2xl
+                         hover:bg-blue-500 hover:text-white transition"
+            >
+              ‹
+            </button>
+
+            <button
+              className="seo-next w-14 h-14 rounded-full bg-white shadow-xl
+                         flex items-center justify-center text-2xl
+                         hover:bg-blue-500 hover:text-white transition"
+            >
+              ›
+            </button>
+          </div>
 
           <Swiper
             modules={[Navigation, Autoplay]}
-            navigation
+            navigation={{
+              prevEl: ".seo-prev",
+              nextEl: ".seo-next",
+            }}
             autoplay={{ delay: 5000 }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           >
             {clients.map((client, index) => (
               <SwiperSlide key={index}>
-                <div className="
-                  relative
-                  h-[240px] sm:h-[220px] md:h-[620px]
-                  rounded-[24px] md:rounded-[40px]
-                  overflow-hidden shadow-lg
-                ">
+                <div
+                  className="
+                    relative
+                    h-[240px] sm:h-[220px] md:h-[620px]
+                    rounded-[24px] md:rounded-[40px]
+                    overflow-hidden shadow-lg
+                  "
+                >
                   <img
                     src={client.bg}
                     alt={client.name}
@@ -104,8 +129,7 @@ export default function SEOPage() {
                   <div className="absolute inset-0 bg-black/60" />
 
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-white rounded-full 
-                                    p-3 sm:p-4 md:p-6 shadow-xl">
+                    <div className="bg-white rounded-full p-3 sm:p-4 md:p-6 shadow-xl">
                       <img
                         src={client.logo}
                         alt={client.name}
@@ -117,28 +141,31 @@ export default function SEOPage() {
               </SwiperSlide>
             ))}
           </Swiper>
-
         </div>
       </section>
 
-      {/* ================= DYNAMIC STATS ================= */}
+      {/* ================= STATS ================= */}
       <div className="relative mb-20">
-
-        <div className="
-          relative
-          md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-52
-          w-[92%] sm:w-[80%] md:w-[75%] lg:w-[70%]
-          px-4
-          z-20
-          mt-12 md:mt-0
-        ">
-          <div className="bg-white rounded-[24px] md:rounded-[32px]
-                          shadow-2xl
-                          px-6 sm:px-8 md:px-14
-                          py-8 sm:py-10 md:py-12">
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4
-                            gap-6 sm:gap-8 md:gap-10 text-center">
+        <div
+          className="
+            relative
+            md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-52
+            w-[92%] sm:w-[80%] md:w-[75%] lg:w-[70%]
+            px-4
+            z-20
+            mt-12 md:mt-0
+          "
+        >
+          <div
+            className="bg-white rounded-[24px] md:rounded-[32px]
+                       shadow-2xl
+                       px-6 sm:px-8 md:px-14
+                       py-8 sm:py-10 md:py-12"
+          >
+            <div
+              className="grid grid-cols-2 md:grid-cols-4
+                         gap-6 sm:gap-8 md:gap-10 text-center"
+            >
               {clients[activeIndex].stats.map((stat, i) => (
                 <div key={i}>
                   <motion.h4
@@ -158,7 +185,6 @@ export default function SEOPage() {
                 </div>
               ))}
             </div>
-
           </div>
         </div>
       </div>
