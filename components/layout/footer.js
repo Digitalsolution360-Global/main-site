@@ -16,7 +16,8 @@ function Footer() {
 
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         {/* WhatsApp Floating Chat Button */}
-       <div className="hidden md:block fixed bottom-4 right-4 z-50">
+       <div className="hidden md:flex fixed bottom-5 right-5 z-40 max-w-full">
+
 
           <button
             onClick={() => window.open("https://wa.me/919990556217", "_blank")}
