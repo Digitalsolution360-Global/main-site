@@ -1,7 +1,36 @@
 {
+ 
+  
   "projects": [
-    {
+     {
+  
   "id": 1,
+  "title": "French Club Jammu",
+  "subtitle": "Restaurant, Cafe & Fine Dining Experience",
+  "description": "A premium restaurant and cafe in Jammu offering an elegant fine-dining experience with a fusion of French and continental cuisine, stylish interiors, and a welcoming ambience for families, couples, and gatherings.",
+  "image": "/portfolio/website/frenchclubjammu.webp",
+  "tags": [
+    "Restaurant Website",
+    "Cafe",
+    "Fine Dining",
+    "Hospitality",
+    "Food & Beverage"
+  ],
+  "highlights": [
+    "Premium Restaurant & Cafe Experience - Fine dining with a modern French-inspired ambience",
+    "Elegant Interior Design - Stylish seating and aesthetic decor for a luxury feel",
+    "Multi-Cuisine Menu - French, continental, and fusion food offerings",
+    "Ideal for Gatherings - Perfect for family dinners, dates, and celebrations",
+    "Professional Online Presence - Visually rich website showcasing menu & ambience",
+    "Mobile-Friendly Design - Optimized for all devices and screen sizes",
+    "Located in Jammu - A popular destination for food lovers"
+  ],
+  "isLink": true,
+  "link": "https://www.frenchclubjammu.com/"
+},
+
+    {
+  "id": 2,
   "title": "Ceilkraft",
   "subtitle": "False Ceiling & Interior Solutions",
   "description": "A professional false ceiling contractor delivering high-quality ceiling installations for residential and commercial spaces with modern designs, durable materials, and expert craftsmanship.",
@@ -20,7 +49,7 @@
   "link": "https://www.ceilkraft.com/"
 },
  {
-  "id": 2,
+  "id": 3,
   "title": "Atithi Home",
   "subtitle": "Premium Homestay & Hospitality Website",
   "description": "Designed and developed a modern hospitality website with a focus on comfort, trust, and seamless booking experience, ensuring responsiveness and user-friendly navigation.",
@@ -39,7 +68,7 @@
   "link": "https://www.atithihome.com/"
 },
 {
-      "id": 3,
+      "id": 4,
       "title": "Max Align Dental",
       "subtitle": "Modern Dental Clinic Website",
       "description": "Developed from scratch using Frontend, HTML5, CSS3, Bootstrap 5, Responsive Design, and JavaScript to ensure complete control over design and performance.",
@@ -60,7 +89,7 @@
     },
 
     {
-  "id": 4,
+  "id": 5,
   "title": "Sri Poly Clinic",
   "subtitle": "Modern Multi-Specialty Clinic Website",
   "description": "A fully customized medical website built using Next.js, HTML5, CSS3, Tailwind CSS, JavaScript, and responsive design principles. Optimized for speed, security, and seamless user experience with Vercel hosting and Google Analytics (GA4).",
@@ -80,7 +109,7 @@
   "link": "https://www.sripolyclinic.com/"
 },
     {
-      "id": 5,
+      "id": 6,
       "title": "Andheri Dental Care",
       "subtitle": "Modern Dental Clinic Website",
       "description": "Developed from scratch using Frontend, HTML5, CSS3, Bootstrap 5, Responsive Design, and JavaScript to ensure complete control over design and performance.",
@@ -101,7 +130,7 @@
     },
     
     {
-      "id": 6,
+      "id": 7,
       "title": "Preesha Global",
       "subtitle": "Corporate Business Website",
       "description": "Built on WordPress for flexibility, easy management, and scalability tailored to corporate business needs.",
@@ -124,7 +153,7 @@
       "link": "https://preeshaglobal.com"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "Bliss32 Dental Care",
       "subtitle": "Dental Clinic Website",
       "description": "Developed from scratch using Frontend, HTML5, CSS3, Bootstrap 5, Responsive Design, Backend, Dynamic Blog Management and JavaScript to ensure complete control over design and performance.",
@@ -144,7 +173,7 @@
       "link": "https://bliss32.com"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "The Great Herbal",
       "subtitle": "E-commerce Redesign",
       "description": "Built on WordPress for flexibility, easy management, and scalability tailored to skincare & cosmetics industries.",
@@ -166,7 +195,7 @@
       "link": "https://thegreatherbal.com"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "Prudent Business Ventures",
       "subtitle": "Corporate Web Presence",
       "description": "Built on WordPress for flexibility, scalability, and ease of content management without technical complexity.",
@@ -189,7 +218,7 @@
       "link": "https://prudentbv.nl/"
     },
     {
-      "id": 10,
+      "id": 11,
       "title": "Raj Nursing Home",
       "subtitle": "Local SEO Boost",
       "description": "Developed from scratch using HTML5, CSS3, Bootstrap 5, and JavaScript to ensure complete control over design and performance.",
