@@ -108,7 +108,7 @@ function Testimonials() {
     };
 
     return (
-        <section className='py-10 '>
+        <section className="py-10 overflow-x-hidden">
             <div className='w-full lg:max-w-[100rem] mx-auto px-4'>
 
                 {/* Section Header */}
@@ -157,17 +157,18 @@ function Testimonials() {
                                 {getVisibleTestimonials().map((testimonial, index) => (
                                     <motion.div
                                         key={testimonial.key}
-                                        initial={{
-                                            opacity: 0,
-                                            x: direction > 0 ? 300 : -300
+                                       initial={{
+                                        opacity: 0,
+                                        x: direction > 0 ? "100%" : "-100%"
                                         }}
+
                                         animate={{
                                             opacity: 1,
                                             x: 0
                                         }}
-                                        exit={{
-                                            opacity: 0,
-                                            x: direction > 0 ? -300 : 300
+                                       exit={{
+                                        opacity: 0,
+                                        x: direction > 0 ? "-100%" : "100%"
                                         }}
                                         transition={{
                                             type: "spring",

@@ -112,7 +112,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" className="overflow-x-hidden">
+
         <head>
           {/* Preconnect to external domains */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -128,8 +129,9 @@ export default function RootLayout({ children }) {
           
         </head>
         <body
-          className={`${figtree.variable} antialiased`}
-        >
+  className={`${figtree.variable} antialiased overflow-x-hidden`}
+>
+
           {children}
         </body>
       </html>
