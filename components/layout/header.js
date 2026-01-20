@@ -452,8 +452,9 @@ const [mobileActiveService, setMobileActiveService] = useState(null);
                 stiffness: 200,
                 damping: 50,
             }}
-            className='fixed top-0 left-0 right-0 bg-white flex lg:hidden flex-col max-w-[calc(100vw-2rem)] mx-auto mt-4 rounded-xl shadow-2xl z-50'
-        >
+            className='fixed top-0 inset-x-0 bg-white flex lg:hidden flex-col 
+w-full px-2 mt-4 rounded-xl shadow-2xl z-50 overflow-x-hidden'
+ >
             <div className='flex flex-row justify-between items-center px-4 py-4'>
                 <Link href="/">
                     <img src="/logo.png" alt="Digital Solution 360 Logo" className='w-55' />
