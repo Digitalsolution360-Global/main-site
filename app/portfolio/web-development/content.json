@@ -3,31 +3,34 @@
   
   "projects": [
      {
-  
+
   "id": 1,
   "title": "French Club Jammu",
-  "subtitle": "Restaurant, Cafe & Fine Dining Experience",
-  "description": "A premium restaurant and cafe in Jammu offering an elegant fine-dining experience with a fusion of French and continental cuisine, stylish interiors, and a welcoming ambience for families, couples, and gatherings.",
+  "subtitle": "French Language Institute & Training Center",
+  "description": "French Club Jammu is a professional language institute offering structured French language courses from beginner to advanced levels. The institute focuses on practical communication, certified training, flexible timings, and both online and offline learning options for students, professionals, and language enthusiasts.",
   "image": "/portfolio/website/frenchclubjammu.webp",
   "tags": [
-    "Restaurant Website",
-    "Cafe",
-    "Fine Dining",
-    "Hospitality",
-    "Food & Beverage"
+    "French Language Institute",
+    "Language Classes Website",
+    "Education",
+    "Online Learning",
+    "Training Institute"
   ],
   "highlights": [
-    "Premium Restaurant & Cafe Experience - Fine dining with a modern French-inspired ambience",
-    "Elegant Interior Design - Stylish seating and aesthetic decor for a luxury feel",
-    "Multi-Cuisine Menu - French, continental, and fusion food offerings",
-    "Ideal for Gatherings - Perfect for family dinners, dates, and celebrations",
-    "Professional Online Presence - Visually rich website showcasing menu & ambience",
-    "Mobile-Friendly Design - Optimized for all devices and screen sizes",
-    "Located in Jammu - A popular destination for food lovers"
+    "Certified & Experienced French Trainers",
+    "Courses from Beginner (A1–A2) to Advanced (C1–C2)",
+    "DELF & DALF Exam Preparation",
+    "Online & Offline Classes Available",
+    "Personal Attention with Flexible Timings",
+    "Spoken French & School/College Coaching",
+    "Professional Educational Website Design",
+    "Mobile-Friendly & User-Centric Layout",
+    "Located in Jammu"
   ],
   "isLink": true,
   "link": "https://www.frenchclubjammu.com/"
 },
+
 
     {
   "id": 2,
