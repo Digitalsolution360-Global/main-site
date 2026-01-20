@@ -54,18 +54,16 @@ function Clients() {
   const clients = [
    
     { name: 'Bliss 32 Dental', logo: '/clients/Bliss-32-Dental.webp' },
-    { name: 'BD Services', logo: '/clients/bd-services.webp' },
-    { name: 'Client 12', logo: '/clients/client12.webp' },
-    { name: 'Client 8', logo: '/clients/client8.webp' },
     { name: 'Atithi Home', logo: '/clients/atithi.png' },
+    { name: 'French club', logo: '/clients/French-club.png' },
     { name: 'Ceilkraft', logo: '/clients/ceilkraft.png' },
     { name: 'Sri Poly Clinic', logo: '/clients/sri-poly-clinic.png' },
     { name: 'Maxalign Dental', logo: '/clients/maxalign-dental.webp' },
     { name: 'Preesha Global', logo: '/clients/preesha-global.webp' },
-    { name: 'Prime Holidays', logo: '/clients/prime-holidays.webp' },
     { name: 'Prudent BV', logo: '/clients/prudentbv.webp' },
     { name: 'Raj Nursing Home', logo: '/clients/raj-nursing-home.webp' },
     { name: 'The Great Herbal', logo: '/clients/the-great-herbal.webp' },
+    
    
     
   ];
