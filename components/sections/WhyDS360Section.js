@@ -15,7 +15,7 @@ export default function WhyDS360Section() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-r from-gray-50 via-gray-100 to-gray-50">
+    <section className="py-24 bg-gradient-to-r from-gray-50 via-gray-100 to-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Heading */}
