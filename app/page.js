@@ -212,37 +212,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
     <BgLayout>
-      <video
-        src="/home/videos/hero-video.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        fetchPriority="high"
-        className="hidden sm:block sm:pt-22 lg:pt-18 w-full h-auto max-h-screen object-cover"
-      />
-
-      <Services/>
-        <WhyUS/>
-      <Suspense fallback={<div className="h-48" />}>
-        <Clients/>
-      </Suspense>
-      <Suspense fallback={<div className="h-48" />}>
-        <MissionVision/>
-      </Suspense>
-      <Suspense fallback={<div className="h-48" />}>
-        <WebDev/>
-      </Suspense>
-      <Suspense fallback={<div className="h-48" />}>
-        <ContactForm/>
-      </Suspense>
-      <Suspense fallback={<div className="h-48" />}>
-        <Offering/>
-      </Suspense>
-      <Suspense fallback={<div className="h-48" />}>
-        <GrowthServices/>
-      </Suspense>
+      
       
       <Industries/>
       <Suspense fallback={<div className="h-48" />}>
