@@ -244,7 +244,18 @@ export default function Home() {
         <GrowthServices/>
       </Suspense>
       
-
+ <Suspense fallback={<div className="h-48" />}>
+        <WhyDS360Section/>
+      </Suspense>
+      <Suspense fallback={<div className="h-48" />}>
+      <Blogs/>
+    </Suspense>
+     <Suspense fallback={<div className="h-48" />}>
+        <Testimonials/>
+      </Suspense>
+      <Suspense fallback={<div className="h-48" />}>
+        <Faqs/>
+      </Suspense>
     </BgLayout>
           </>
   );
