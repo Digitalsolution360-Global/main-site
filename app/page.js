@@ -247,7 +247,9 @@ export default function Home() {
       <Suspense fallback={<div className="h-48" />}>
         <BusinessGrowthSection/>
       </Suspense>
-     
+     <Suspense fallback={<div className="h-48" />}>
+        <WhyDS360Section/>
+      </Suspense>
 
     </BgLayout>
           </>
