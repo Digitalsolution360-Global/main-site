@@ -314,14 +314,14 @@ function GoogleBusinessPage() {
                 {selectedImage.title}
               </div>
 
-              {/* Image */}
-              <div className='bg-white rounded-2xl p-2 shadow-2xl'>
-                <img
-                  src={selectedImage.image}
-                  alt={selectedImage.title}
-                  className='w-full max-w-180 mx-auto h-auto object-contain rounded-lg'
-                />
-              </div>
+             <div className='bg-white rounded-2xl p-4 shadow-2xl max-h-[75vh] overflow-y-auto'>
+  <img
+    src={selectedImage.image}
+    alt={selectedImage.title}
+    className='w-full mx-auto object-contain rounded-lg'
+  />
+</div>
+
             </motion.div>
           </motion.div>
         )}
