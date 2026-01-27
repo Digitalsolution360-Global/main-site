@@ -11,13 +11,22 @@ function Offering() {
       heading: "DIGITAL MARKETING",
       description: "Data-driven marketing to grow traffic, leads and revenue across search, social and paid channels.",
       points: [
-        "Search Engine Optimization (SEO)",
+        "Search Engine Optimization (SEO)", 
         "Paid Search (Google Ads)",
         "Social Media Marketing",
         "Content Marketing",
         "Email & Automation",
         "Analytics & Conversion Optimization",
         "Local & Performance Campaigns"
+      ],
+      links: [
+        "/seo-services", // point 0
+        "/google-ads-management-services",  // point 1
+        "/social-media", // point 2
+        null,            // point 3
+        "/email-marketing-automation",            // point 4
+        null,            // point 5
+        null,            // point 6
       ],
       image: "/home/images/digital-marketing.webp",
       imagePosition: "left"
@@ -47,6 +56,13 @@ function Offering() {
         "Local Leads Google My Business optimization",
       
       ],
+       links: [
+        null,
+        "/on-page-seo-services",  
+         null,
+        "/local-seo-services",          
+      
+      ],
       image: "/home/images/seo.webp",
       imagePosition: "left",
       cta: {
@@ -64,6 +80,14 @@ function Offering() {
         "Reputation management of the brand",
         "Performance measurement and improvement.",
       ],
+        links: [
+        null,
+          null,
+         null,
+        "/performance-creatives",          
+      
+      ],
+     
       image: "/home/images/Social-Media.webp",
       imagePosition: "right",
       cta: {
@@ -99,6 +123,16 @@ function Offering() {
         "SEO-friendly structure",
         "Optimization of speed and performance.",
       ],
+       links: [
+        "/website-development-services",
+        "/web-design-services",
+        "/website-development-services",
+         null,
+         "seo-services",
+        "/performance-creatives",          
+      
+      ],
+     
       image: "/home/images/Web-Development-Agency.webp",
       imagePosition: "Develop a great site using Digital Solution 360 - Reserve a free consultation"
     },
@@ -151,28 +185,45 @@ function Offering() {
                     </p>
                   </div>
 
-                  {/* Points Grid */}
-                  <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
-                    {offering.points.map((point, pointIndex) => (
-                      <div
+                              {/* Points Grid */}
+              <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
+                {offering.points.map((point, pointIndex) => {
+                  // Check if the offering has a links array and a link for this point
+                  const link = offering.links ? offering.links[pointIndex] : null;
+
+                  if (link) {
+                    return (
+                      <a
                         key={pointIndex}
-                        // initial={{ opacity: 0, y: 10 }}
-                        // whileInView={{ opacity: 1, y: 0 }}
-                        // viewport={{ once: true, margin: "0px" }}
-                        // transition={{ duration: 0.3, delay: 0.3 + (pointIndex * 0.05) }}
-                        // whileHover={{ scale: 1.02, x: 5 }}
-                        className='flex items-center gap-3 p-3 rounded-lg bg-gray-100 hover:bg-blue-100 transition-all duration-300 group cursor-default'
+                        href={link}
+                        className='flex items-center gap-3 p-3 rounded-lg bg-gray-100 hover:bg-blue-100 transition-all duration-300 group'
                       >
                         <div className='w-6 h-6 rounded-full bg-blue-100 group-hover:bg-blue-600 flex items-center justify-center transition-all duration-300 flex-shrink-0'>
-                          {/* <IconCheck size={16} className='text-blue-600 group-hover:text-white transition-colors duration-300' /> */}
                           <p className='text-blue-600 group-hover:text-white transition-colors duration-300'>✓</p>
                         </div>
                         <span className='text-gray-700 group-hover:text-gray-900 text-base md:text-lg font-medium transition-colors duration-300'>
                           {point}
                         </span>
+                      </a>
+                    );
+                  }
+
+                  return (
+                    <div
+                      key={pointIndex}
+                      className='flex items-center gap-3 p-3 rounded-lg bg-gray-100 hover:bg-blue-100 transition-all duration-300 group'
+                    >
+                      <div className='w-6 h-6 rounded-full bg-blue-100 group-hover:bg-blue-600 flex items-center justify-center transition-all duration-300 flex-shrink-0'>
+                        <p className='text-blue-600 group-hover:text-white transition-colors duration-300'>✓</p>
                       </div>
-                    ))}
-                  </div>
+                      <span className='text-gray-700 group-hover:text-gray-900 text-base md:text-lg font-medium transition-colors duration-300'>
+                        {point}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+
                   {offering.cta && (
                 <div className="mt-10">
                   <a
