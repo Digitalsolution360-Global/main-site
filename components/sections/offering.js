@@ -14,19 +14,19 @@ function Offering() {
         "Search Engine Optimization (SEO)", 
         "Paid Search (Google Ads)",
         "Social Media Marketing",
-        "Content Marketing",
+        "Growth Marketing",
         "Email & Automation",
-        "Analytics & Conversion Optimization",
-        "Local & Performance Campaigns"
+        "Performance Marketing",
+        "Facebook & Instagram Ads"
       ],
       links: [
         "/seo-services", // point 0
         "/google-ads-management-services",  // point 1
         "/social-media", // point 2
-        null,            // point 3
+        "/growth-marketing-services",            // point 3
         "/email-marketing-automation",            // point 4
-        null,            // point 5
-        null,            // point 6
+        "/performance-marketing-services",            // point 5
+        "/facebook-instagram-ads-services",            // point 6
       ],
       image: "/home/images/digital-marketing.webp",
       imagePosition: "left"
@@ -50,17 +50,21 @@ function Offering() {
       heading: "Search Engine Optimization (SEO Services and SEO Company).",
       description: "Our search engine optimization is aimed at companies who desire long-term development. Being an oriented SEO company, we aim at ranking improvements, organic traffic, and the quality of leads.",
       points: [
-        "Business localized search engine optimization.",
+        "Business localized Ecommerce SEO.",
         "On page optimization and technical SEO.",
-        "Content-led SEO strategies",
+        "OFF page optimization and technical SEO.",
+        "Technical SEO",
         "Local Leads Google My Business optimization",
+        "SEO Audit",
       
       ],
        links: [
-        null,
-        "/on-page-seo-services",  
-         null,
-        "/local-seo-services",          
+        "/ecommerce-seo-services",
+        "/on-page-seo-services", 
+         "/off-page-seo-services",  
+         "/technical-seo-services",
+        "/local-seo-services",  
+        "/seo-audit-services",        
       
       ],
       image: "/home/images/seo.webp",
@@ -75,15 +79,15 @@ function Offering() {
       description:
         "Our social media marketing services assist companies to reach out to merchants where they are doing most of their time. We handle platforms, which create engagement and conversions, between strategy and execution.",
       points: [
-        "Content generation and social media strategy.",
-        "Content generation and social media strategy.",
-        "Reputation management of the brand",
+        "Instagram Marketing",
+        "Social Media Management",
+        "YouTube Marketing",
         "Performance measurement and improvement.",
       ],
         links: [
-        null,
-          null,
-         null,
+        "/instagram-marketing-services",
+        "/social-media-management-services",
+         "/youtube-marketing-services",
         "/performance-creatives",          
       
       ],
@@ -119,7 +123,7 @@ function Offering() {
         "Website Development Services That Work.",
         "We even specialize in developing our websites in terms of performance, usability, and SEO.",
         "Web development of websites at low prices.",
-        "Mobile first design and responsiveness.",
+        "UI/UX Design",
         "SEO-friendly structure",
         "Optimization of speed and performance.",
       ],
@@ -127,7 +131,7 @@ function Offering() {
         "/website-development-services",
         "/web-design-services",
         "/website-development-services",
-         null,
+         "/ui-ux-design-services",
          "seo-services",
         "/performance-creatives",          
       
