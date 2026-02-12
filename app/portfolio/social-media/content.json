@@ -1,6 +1,5 @@
 {
   "clients": [
-
     {
       "id": 1,
       "name": "Honey Dale",
@@ -31,7 +30,6 @@
       "testimonial": "Digital Solution 360 helped us transform our Instagram into a premium brand showcase. The growth and engagement exceeded our expectations.",
       "color": "from-blue-500 to-pink-600"
     },
-
     {
       "id": 2,
       "name": "Form-Focus Fitness",
@@ -62,7 +60,6 @@
       "testimonial": "Their content strategy helped me build credibility and connect deeply with my audience. Leads and engagement improved drastically.",
       "color": "from-yellow-500 to-orange-700"
     },
-
     {
       "id": 3,
       "name": "Praveen Yogashala",
@@ -93,7 +90,6 @@
       "testimonial": "Their team beautifully captured the essence of yoga and wellness. Instagram became our strongest platform for student engagement.",
       "color": "from-emerald-500 to-teal-600"
     },
- 
     {
       "id": 4,
       "name": "Raj Nursing Home Hapur",
@@ -124,7 +120,6 @@
       "testimonial": "Digital Solution 360 transformed our social media presence. We've seen remarkable growth in both engagement and patient inquiries!",
       "color": "from-pink-500 to-purple-600"
     },
-    
     {
       "id": 5,
       "name": "MaxAlign Dental",
@@ -155,7 +150,7 @@
       "testimonial": "Their expertise in healthcare social media is unmatched. We've become the go-to dental clinic in our area!",
       "color": "from-teal-500 to-green-600"
     },
-     {
+    {
       "id": 6,
       "name": "Andheri Dental Clinic",
       "handle": "@andheri_dental_clinic_",
@@ -184,10 +179,8 @@
       ],
       "testimonial": "The team’s professional approach and patient-focused content helped us build strong trust online. We’ve seen a noticeable increase in appointment inquiries and patient engagement.",
       "color": "from-yellow-400 via-orange-500 to-pink-600"
-
-
     },
-     {
+    {
       "id": 7,
       "name": "Sri Poly Clinic",
       "handle": "@sripoly.clinic",
@@ -201,24 +194,21 @@
         "posts": "220+"
       },
       "services": [
-      "Healthcare Social Media Management",
-      "Doctor & Treatment Awareness Content",
-      "Reels & Informative Video Creation",
-      "Patient Education Campaigns",
-      "Clinic Branding & Visual Identity",
-      "Local Patient Outreach Support"
-    ],
-    "results": [
-      "300% increase in Instagram followers",
-      "Strong and consistent patient engagement",
-      "Improved local reach across Telangana",
-      "Increase in appointment inquiries through social media"
-    ],
-    "testimonial": "The team understood our clinic’s vision perfectly. Their healthcare-focused content helped us build patient trust and improved our online visibility significantly.",
-    "color": "from-stone-800 via-amber-900 to-amber-500"
-
-
-
+        "Healthcare Social Media Management",
+        "Doctor & Treatment Awareness Content",
+        "Reels & Informative Video Creation",
+        "Patient Education Campaigns",
+        "Clinic Branding & Visual Identity",
+        "Local Patient Outreach Support"
+      ],
+      "results": [
+        "300% increase in Instagram followers",
+        "Strong and consistent patient engagement",
+        "Improved local reach across Telangana",
+        "Increase in appointment inquiries through social media"
+      ],
+      "testimonial": "The team understood our clinic’s vision perfectly. Their healthcare-focused content helped us build patient trust and improved our online visibility significantly.",
+      "color": "from-stone-800 via-amber-900 to-amber-500"
     }
   ]
 }

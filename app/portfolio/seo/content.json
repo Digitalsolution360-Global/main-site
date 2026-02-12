@@ -6,10 +6,22 @@
       "bg": "/seo3.jpg",
       "logo": "/clients/maxalign-dental.webp",
       "stats": [
-        { "value": "135%", "label": "Increase in keyword visibility" },
-        { "value": "328%", "label": "Growth in organic users" },
-        { "value": "89%", "label": "Increase in organic orders" },
-        { "value": "105%", "label": "Growth in organic revenue" }
+        {
+          "value": "135%",
+          "label": "Increase in keyword visibility"
+        },
+        {
+          "value": "328%",
+          "label": "Growth in organic users"
+        },
+        {
+          "value": "89%",
+          "label": "Increase in organic orders"
+        },
+        {
+          "value": "105%",
+          "label": "Growth in organic revenue"
+        }
       ]
     },
     {
@@ -18,10 +30,22 @@
       "bg": "/seo3.jpg",
       "logo": "/clients/raj-nursing-home.webp",
       "stats": [
-        { "value": "220%", "label": "Improvement in search visibility" },
-        { "value": "410%", "label": "Increase in organic traffic" },
-        { "value": "170%", "label": "Growth in patient inquiries" },
-        { "value": "90+", "label": "Monthly organic leads generated" }
+        {
+          "value": "220%",
+          "label": "Improvement in search visibility"
+        },
+        {
+          "value": "410%",
+          "label": "Increase in organic traffic"
+        },
+        {
+          "value": "170%",
+          "label": "Growth in patient inquiries"
+        },
+        {
+          "value": "90+",
+          "label": "Monthly organic leads generated"
+        }
       ]
     },
     {
@@ -30,10 +54,22 @@
       "bg": "/seo3.jpg",
       "logo": "/clients/thewhite-ibis.png",
       "stats": [
-        { "value": "180%", "label": "Increase in online bookings" },
-        { "value": "250%", "label": "Growth in organic traffic" },
-        { "value": "95%", "label": "Increase in page engagement" },
-        { "value": "120%", "label": "Revenue growth from SEO" }
+        {
+          "value": "180%",
+          "label": "Increase in online bookings"
+        },
+        {
+          "value": "250%",
+          "label": "Growth in organic traffic"
+        },
+        {
+          "value": "95%",
+          "label": "Increase in page engagement"
+        },
+        {
+          "value": "120%",
+          "label": "Revenue growth from SEO"
+        }
       ]
     },
     {
@@ -42,10 +78,22 @@
       "bg": "/seo3.jpg",
       "logo": "/clients/andheri.png",
       "stats": [
-        { "value": "200%", "label": "Improvement in keyword rankings" },
-        { "value": "350%", "label": "Growth in patient inquiries" },
-        { "value": "88%", "label": "Increase in organic orders" },
-        { "value": "95%", "label": "Growth in local search traffic" }
+        {
+          "value": "200%",
+          "label": "Improvement in keyword rankings"
+        },
+        {
+          "value": "350%",
+          "label": "Growth in patient inquiries"
+        },
+        {
+          "value": "88%",
+          "label": "Increase in organic orders"
+        },
+        {
+          "value": "95%",
+          "label": "Growth in local search traffic"
+        }
       ]
     },
     {
@@ -54,10 +102,22 @@
       "bg": "/seo3.jpg",
       "logo": "/clients/atithi.png",
       "stats": [
-        { "value": "190%", "label": "Increase in organic bookings" },
-        { "value": "310%", "label": "Growth in website visits" },
-        { "value": "75%", "label": "Improvement in local SEO visibility" },
-        { "value": "85%", "label": "Increase in online enquiries" }
+        {
+          "value": "190%",
+          "label": "Increase in organic bookings"
+        },
+        {
+          "value": "310%",
+          "label": "Growth in website visits"
+        },
+        {
+          "value": "75%",
+          "label": "Improvement in local SEO visibility"
+        },
+        {
+          "value": "85%",
+          "label": "Increase in online enquiries"
+        }
       ]
     },
     {
@@ -66,10 +126,22 @@
       "bg": "/seo3.jpg",
       "logo": "/clients/sri-poly-clinic.png",
       "stats": [
-        { "value": "210%", "label": "Growth in search visibility" },
-        { "value": "400%", "label": "Increase in organic traffic" },
-        { "value": "160%", "label": "Growth in patient appointments" },
-        { "value": "100+", "label": "Monthly organic leads generated" }
+        {
+          "value": "210%",
+          "label": "Growth in search visibility"
+        },
+        {
+          "value": "400%",
+          "label": "Increase in organic traffic"
+        },
+        {
+          "value": "160%",
+          "label": "Growth in patient appointments"
+        },
+        {
+          "value": "100+",
+          "label": "Monthly organic leads generated"
+        }
       ]
     }
   ]

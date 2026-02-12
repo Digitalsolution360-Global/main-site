@@ -1,48 +1,47 @@
 {
   "projects": [
     {
-  "id": 1,
-  "title": "ShareMarket Skills Academy",
-  "location": "Ghaziabad & Delhi NCR",
-  "description": "Complete Google My Business setup and optimization for a stock market and cryptocurrency training academy. Improved local visibility, trust, and student inquiries through keyword-rich content, professional branding, and regular updates.",
-  "beforeImage": "/portfolio/gmb/Share-Market.webp",
-  "afterImage": "/portfolio/gmb/Share-Market.webp",
-  "results": [
-    "400% increase in profile visibility",
-    "300% growth in calls & website visits",
-    "200+ monthly course inquiries",
-    "4.9 star rating with 150+ student reviews"
-  ],
-  "services": [
-    "GMB Profile Setup & Optimization",
-    "Course Keyword Optimization",
-    "Review Generation & Management",
-    "Local SEO for Training Institutes",
-    "Weekly Posts & Updates"
-  ]
-},
-{
-  "id": 2,
-  "title": "Bliss 32 Dental & Implant Centre",
-  "location": "Greater Noida, Uttar Pradesh",
-  "description": "Complete Google My Business setup and optimization for a premium dental clinic in Greater Noida. Improved local search visibility, patient trust, and appointment bookings through professional branding, keyword-optimized content, and consistent profile updates.",
-  "beforeImage": "/portfolio/gmb/bliss-dental.webp",
-  "afterImage": "/portfolio/gmb/bliss-dental.webp",
-  "results": [
-    "350% increase in profile views",
-    "280% growth in calls & direction requests",
-    "180+ monthly appointment inquiries",
-    "5.0 star Google rating with 120+ patient reviews"
-  ],
-  "services": [
-    "GMB Profile Setup & Optimization",
-    "Dental Service Keyword Optimization",
-    "Review Generation & Reputation Management",
-    "Local SEO for Dental Clinics",
-    "Weekly GMB Posts & Treatment Updates"
-  ]
-},
-
+      "id": 1,
+      "title": "ShareMarket Skills Academy",
+      "location": "Ghaziabad & Delhi NCR",
+      "description": "Complete Google My Business setup and optimization for a stock market and cryptocurrency training academy. Improved local visibility, trust, and student inquiries through keyword-rich content, professional branding, and regular updates.",
+      "beforeImage": "/portfolio/gmb/Share-Market.webp",
+      "afterImage": "/portfolio/gmb/Share-Market.webp",
+      "results": [
+        "400% increase in profile visibility",
+        "300% growth in calls & website visits",
+        "200+ monthly course inquiries",
+        "4.9 star rating with 150+ student reviews"
+      ],
+      "services": [
+        "GMB Profile Setup & Optimization",
+        "Course Keyword Optimization",
+        "Review Generation & Management",
+        "Local SEO for Training Institutes",
+        "Weekly Posts & Updates"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Bliss 32 Dental & Implant Centre",
+      "location": "Greater Noida, Uttar Pradesh",
+      "description": "Complete Google My Business setup and optimization for a premium dental clinic in Greater Noida. Improved local search visibility, patient trust, and appointment bookings through professional branding, keyword-optimized content, and consistent profile updates.",
+      "beforeImage": "/portfolio/gmb/bliss-dental.webp",
+      "afterImage": "/portfolio/gmb/bliss-dental.webp",
+      "results": [
+        "350% increase in profile views",
+        "280% growth in calls & direction requests",
+        "180+ monthly appointment inquiries",
+        "5.0 star Google rating with 120+ patient reviews"
+      ],
+      "services": [
+        "GMB Profile Setup & Optimization",
+        "Dental Service Keyword Optimization",
+        "Review Generation & Reputation Management",
+        "Local SEO for Dental Clinics",
+        "Weekly GMB Posts & Treatment Updates"
+      ]
+    },
     {
       "id": 3,
       "title": "Andheri Dental Clinic",
@@ -56,7 +55,12 @@
         "150+ new patient inquiries per month",
         "4.8 star rating with 100+ reviews"
       ],
-      "services": ["Profile Optimization", "Review Management", "Local SEO", "Photo Enhancement"]
+      "services": [
+        "Profile Optimization",
+        "Review Management",
+        "Local SEO",
+        "Photo Enhancement"
+      ]
     },
     {
       "id": 4,
@@ -71,7 +75,12 @@
         "180% more website clicks",
         "Enhanced local pack rankings"
       ],
-      "services": ["Multi-Location Setup", "Category Optimization", "Content Strategy", "Q&A Management"]
+      "services": [
+        "Multi-Location Setup",
+        "Category Optimization",
+        "Content Strategy",
+        "Q&A Management"
+      ]
     },
     {
       "id": 5,
@@ -86,10 +95,15 @@
         "Featured in Google 3-Pack",
         "90+ five-star reviews collected"
       ],
-      "services": ["Profile Creation", "Keyword Research", "Post Management", "Reputation Building"]
+      "services": [
+        "Profile Creation",
+        "Keyword Research",
+        "Post Management",
+        "Reputation Building"
+      ]
     },
-     {
-       "id": 6,
+    {
+      "id": 6,
       "title": "Raj Nursing Home",
       "location": "Hapur, Uttar Pradesh",
       "description": "We are committed to making advanced healthcare affordable and accessible for all. Our facility is equipped with modern operation theatres, ICU support, ultrasound and X-ray machines, and emergency pharmacy services — available 24/7. ",
@@ -101,10 +115,15 @@
         "Featured in Google 3-Pack",
         "95+ five-star reviews collected"
       ],
-      "services": ["Profile Creation", "Keyword Research", "Post Management", "Reputation Building"]
+      "services": [
+        "Profile Creation",
+        "Keyword Research",
+        "Post Management",
+        "Reputation Building"
+      ]
     },
     {
-       "id": 7,
+      "id": 7,
       "title": "Maxalign Dental Clinic",
       "location": "Marathahalli, Bengaluru, Karnataka",
       "description": "At Maxalign Dental Clinic, we are committed to delivering exceptional dental care with a personal touch. Our modern, patient-friendly facility ensures comfort, cleanliness, and clinical excellence.",
@@ -116,11 +135,15 @@
         "Featured in Google 3-Pack",
         "90+ five-star reviews collected"
       ],
-      "services": ["Profile Creation", "Keyword Research", "Post Management", "Reputation Building"]
+      "services": [
+        "Profile Creation",
+        "Keyword Research",
+        "Post Management",
+        "Reputation Building"
+      ]
     },
-    
-       {
-     "id": 8,
+    {
+      "id": 8,
       "title": "The White Ibis",
       "location": "Sivasagar, Assam",
       "description": "Our range of exclusive room options—Suite, Executive, Deluxe, and Standard—are thoughtfully designed to provide a distinctive blend of comfort and style. ",
@@ -132,29 +155,33 @@
         "Featured in Google 3-Pack",
         "90+ five-star reviews collected"
       ],
-      "services": ["Profile Creation", "Keyword Research", "Post Management", "Reputation Building"]
+      "services": [
+        "Profile Creation",
+        "Keyword Research",
+        "Post Management",
+        "Reputation Building"
+      ]
     },
     {
-  "id": 9,
-  "title": "Tej Bahadur Memorial Dental Clinic & Maxillofacial Center",
-  "location": "Mirzapur-cum-Vindhyachal, Uttar Pradesh",
-  "description": "A trusted dental and maxillofacial care center offering advanced treatments with a strong focus on patient safety, hygiene, and clinical excellence. The clinic is known for its high patient satisfaction and consistent positive reviews on Google.",
-  "beforeImage": "/portfolio/gmb/Tej-Bahadur-memorial-dental-clinic.webp",
-  "afterImage": "/portfolio/gmb/Tej-Bahadur-memorial-dental-clinic.webp",
-  "results": [
-    "300% increase in appointment inquiries",
-    "High visibility in local Google search results",
-    "4.9+ stars rating with 180+ Google reviews",
-    "Improved patient trust and clinic credibility"
-  ],
-  "services": [
-    "Google Business Profile Optimization",
-    "Local SEO & Keyword Research",
-    "Regular Post Management",
-    "Review & Reputation Management",
-    "Clinic Information Optimization"
-  ]
-}
-
+      "id": 9,
+      "title": "Tej Bahadur Memorial Dental Clinic & Maxillofacial Center",
+      "location": "Mirzapur-cum-Vindhyachal, Uttar Pradesh",
+      "description": "A trusted dental and maxillofacial care center offering advanced treatments with a strong focus on patient safety, hygiene, and clinical excellence. The clinic is known for its high patient satisfaction and consistent positive reviews on Google.",
+      "beforeImage": "/portfolio/gmb/Tej-Bahadur-memorial-dental-clinic.webp",
+      "afterImage": "/portfolio/gmb/Tej-Bahadur-memorial-dental-clinic.webp",
+      "results": [
+        "300% increase in appointment inquiries",
+        "High visibility in local Google search results",
+        "4.9+ stars rating with 180+ Google reviews",
+        "Improved patient trust and clinic credibility"
+      ],
+      "services": [
+        "Google Business Profile Optimization",
+        "Local SEO & Keyword Research",
+        "Regular Post Management",
+        "Review & Reputation Management",
+        "Clinic Information Optimization"
+      ]
+    }
   ]
 }
