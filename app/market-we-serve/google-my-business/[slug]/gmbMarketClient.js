@@ -140,13 +140,17 @@ export default function GMBServicePage({ params }) {
   const stateSlug = locationData?.state_slug;
 
   const industries = [
-    { name: 'Healthcare', label: 'INDUSTRY', image: '/market/gmb/images/industries/healthcare.webp' },
-    { name: 'Retail & Ecommerce', label: 'INDUSTRY', image: '/market/gmb/images/industries/retail.webp' },
-    { name: 'Travel & Hospitality', label: 'INDUSTRY', image: '/market/gmb/images/industries/travel.webp' },
-    { name: 'Finance & Legal', label: 'INDUSTRY', image: '/market/gmb/images/industries/finance.webp' },
-    { name: 'Startups & SaaS', label: 'INDUSTRY', image: '/market/gmb/images/industries/startups.webp' },
-    { name: 'Real Estate', label: 'INDUSTRY', image: '/market/gmb/images/industries/real-estate.webp' },
-    { name: 'Education & Edtech', label: 'INDUSTRY', image: '/market/gmb/images/industries/education.webp' }
+     { name: "Healthcare & Medical services", image: "/market/gmb/images/industries/Healthcare.webp" },
+     { name: "E-commerce & D2C Brands", image: "/market/gmb/images/industries/E-commerce.webp" },
+     { name: "Restaurants, Cafes & Cloud Kitchens", image: "/market/gmb/images/industries/travel.jpg" },
+     { name: "Finance & Insurance", image: "/market/gmb/images/industries/Finance & Insurance.webp" },
+     { name: "IT, SaaS & Tech Startups", image: "/market/gmb/images/industries/IT, SaaS.webp" },
+     { name: "Real Estate & Property Developers", image: "/market/gmb/images/industries/Real-Estate.webp" },
+     { name: "Education & Coaching Institutes", image: "/market/gmb/images/industries/Education & Coaching.webp" },
+     { name: "Professional Services: Lawyers, CA Firms, Consultants", image: "/market/gmb/images/industries/Professional Services.webp "},
+     { name: "Manufacturing & B2B Industrial Companies", image: "/market/gmb/images/industries/Manufacturing.webp" },
+     { name: "Beauty, Wellness & Fitness", image: "/market/gmb/images/industries/Beauty.webp" },
+     { name: "Home Services", image: "/market/gmb/images/industries/Home Services.webp" },
   ];
 
   const services = [
