@@ -104,7 +104,7 @@ function WebDevPage() {
 
           {/* Projects List */}
           <div className='space-y-16'>
-            {portfolioData.projects.map((project, index) => {
+            {portfolioData.projects.reverse().map((project, index) => {
               // Alternate layout: even index = image left, odd index = image right
               const isEven = index % 2 === 0;
               

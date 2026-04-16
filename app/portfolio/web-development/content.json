@@ -15,7 +15,7 @@
       ],
       "highlights": [
         "Certified & Experienced French Trainers",
-        "Courses from Beginner (A1-A2) to Advanced (C1-C2)",
+        "Courses from Beginner (A1–A2) to Advanced (C1–C2)",
         "DELF & DALF Exam Preparation",
         "Online & Offline Classes Available",
         "Personal Attention with Flexible Timings",
@@ -124,7 +124,7 @@
         "Service Showcase - Dedicated sections highlighting treatments, specialties, and healthcare services",
         "Patient-Friendly Navigation - Smooth and intuitive menus with clear call-to-action elements",
         "Integrated Features - Appointment booking, contact forms, Google Maps, SEO-optimized, and Open Graph",
-        "Secure & Scalable - Built with HSTS, best coding practices, and Vercel's scalable cloud platform",
+        "Secure & Scalable - Built with HSTS, best coding practices, and Vercel’s scalable cloud platform",
         "Enhanced User Experience - Modern animations, clean layout, and accessibility-focused design"
       ],
       "isLink": true,
@@ -294,6 +294,141 @@
       ],
       "isLink": true,
       "link": "https://www.rajnursinghome.com/"
-    }
+    },
+    {
+  "id": 12,
+  "title": "St. Joseph’s Convent School Jharsuguda",
+  "subtitle": "CBSE Affiliated School & Educational Institution",
+  "description": "St. Joseph’s Convent School, Jharsuguda is a reputed CBSE-affiliated institution dedicated to providing quality education with strong moral values. The school focuses on holistic student development through academics, co-curricular activities, discipline, and modern teaching methodologies, ensuring students excel in both education and life skills.",
+  "image": "/portfolio/website/sjcsjharsuguda.webp",
+  "tags": [
+    "School Website",
+    "CBSE School",
+    "Education",
+    "Academic Institution",
+    "Student Portal"
+  ],
+  "highlights": [
+    "CBSE Curriculum with Modern Teaching Methods",
+    "Focus on Academic Excellence & Moral Values",
+    "Well-Equipped Classrooms & Facilities",
+    "Co-Curricular Activities & Student Development",
+    "Experienced & Qualified Faculty",
+    "Student-Friendly Learning Environment",
+    "Admission & Academic Information Online",
+    "Responsive & Mobile-Friendly Website",
+    "Easy Navigation for Parents & Students"
+  ],
+  "isLink": true,
+  "link": "https://www.sjcsjharsuguda.in/"
+},
+{
+  "id": 13,
+  "title": "Mayfair Hill Resort",
+  "subtitle": "Luxury Resort & Hospitality Experience",
+  "description": "Mayfair Hill Resort is a premium hospitality destination offering a luxurious and relaxing stay experience amidst scenic surroundings. The resort provides world-class amenities, elegant accommodations, fine dining, and a serene atmosphere, making it ideal for vacations, corporate events, and special occasions.",
+  "image": "/portfolio/website/mayfairhillresort.webp",
+  "tags": [
+    "Resort Website",
+    "Hospitality",
+    "Luxury Stay",
+    "Travel & Tourism",
+    "Hotel Booking"
+  ],
+  "highlights": [
+    "Premium Luxury Resort Experience",
+    "Scenic Location with Nature Views",
+    "Well-Furnished Rooms & Suites",
+    "Online Booking & Reservation System",
+    "Fine Dining & Multi-Cuisine Restaurant",
+    "Event & Conference Facilities",
+    "Spa, Wellness & Recreational Services",
+    "Elegant & Visually Rich Website Design",
+    "Mobile-Friendly & Fast Performance"
+  ],
+  "isLink": true,
+  "link": "https://www.mayfairhillresort.in/"
+},
+{
+  "id": 14,
+  "title": "Farsan Gold",
+  "subtitle": "Premium Snacks & Namkeen Brand",
+  "description": "Farsan Gold is a well-known brand offering a wide range of high-quality snacks and traditional namkeen products. The website showcases their diverse product lineup, commitment to taste and hygiene, and modern packaging standards, making it easy for customers to explore and connect with the brand.",
+  "image": "/portfolio/website/farsangold.webp",
+  "tags": [
+    "Food Brand Website",
+    "Snacks & Namkeen",
+    "FMCG",
+    "Product Showcase",
+    "Ecommerce Ready"
+  ],
+  "highlights": [
+    "Wide Variety of Snacks & Namkeen Products",
+    "High-Quality Ingredients & Hygiene Standards",
+    "Attractive Product Showcase Design",
+    "Brand-Focused Visual Identity",
+    "Easy Navigation for Product Categories",
+    "Distributor & Business Inquiry Support",
+    "Responsive & Mobile-Friendly Layout",
+    "Fast Loading & SEO Optimized",
+    "Modern FMCG Website Design"
+  ],
+  "isLink": true,
+  "link": "https://www.farsangold.com/"
+},
+{
+  "id": 15,
+  "title": "Geo Decision Analytics",
+  "subtitle": "Data Analytics & Geospatial Intelligence Solutions",
+  "description": "Geo Decision Analytics is a technology-driven company specializing in data analytics, geospatial intelligence, and decision support solutions. The website highlights their expertise in transforming complex data into actionable insights for businesses, governments, and organizations through advanced analytics and innovative technologies.",
+  "image": "/portfolio/website/geodecisionanalytics.webp",
+  "tags": [
+    "Corporate Website",
+    "Data Analytics",
+    "Geospatial Technology",
+    "IT Services",
+    "Business Intelligence"
+  ],
+  "highlights": [
+    "Advanced Data Analytics & Visualization Solutions",
+    "Geospatial Intelligence & Mapping Services",
+    "Business Decision Support Systems",
+    "Technology-Driven Corporate Website",
+    "Service-Oriented Clean Design",
+    "Detailed Service & Solution Pages",
+    "Client-Focused Approach & Case Studies",
+    "Responsive & Professional UI/UX",
+    "SEO Optimized & Fast Performance"
+  ],
+  "isLink": true,
+  "link": "https://www.geodecisionanalytics.com/"
+},
+{
+  "id": 16,
+  "title": "Aerospace Aluminum",
+  "subtitle": "Aluminum Products & Industrial Supply Solutions",
+  "description": "Aerospace Aluminum is a leading supplier of high-quality aluminum products catering to aerospace, industrial, and engineering sectors. The website showcases a wide range of aluminum sheets, plates, rods, and custom solutions designed to meet precision and durability standards required in modern manufacturing industries.",
+  "image": "/portfolio/website/aerospacealuminum.webp",
+  "tags": [
+    "Corporate Website",
+    "Manufacturing",
+    "Aluminum Industry",
+    "Industrial Supply",
+    "B2B Services"
+  ],
+  "highlights": [
+    "Wide Range of Aluminum Products & Grades",
+    "Aerospace & Industrial Grade Materials",
+    "Detailed Product Specifications & Categories",
+    "Clean & Professional Industrial Website Design",
+    "Easy Navigation for B2B Customers",
+    "Responsive & Mobile-Friendly Layout",
+    "Fast Loading & SEO Optimized Structure",
+    "Strong Focus on Product Showcase",
+    "Inquiry & Contact-Oriented Design"
+  ],
+  "isLink": true,
+  "link": "https://www.aerospacealuminum.in/"
+}
   ]
 }
