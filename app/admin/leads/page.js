@@ -391,7 +391,7 @@ export default function AdminLeads() {
     cell: row => (
       row.latest_remark ? (
         <div>
-          <p className="text-xs truncate max-w-[200px]">{row.latest_remark}</p>
+          <p className="text-xs whitespace-pre-wrap">{row.latest_remark}</p>
           {row.latest_remark_date && (
             <p className="text-xs text-gray-400">
               {new Date(row.latest_remark_date).toLocaleString()}
