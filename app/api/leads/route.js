@@ -4,7 +4,7 @@ import { query } from '@/lib/db';
 export async function GET() {
   try {
     // Fetch leads with their latest history entry
-    const sql = `
+    const sqlbk = `
       SELECT 
         l.*,
         lh.remarks as latest_remark,
@@ -21,6 +21,23 @@ export async function GET() {
         FROM leads_history
       ) lh ON l.id = lh.lead_id AND lh.rn = 1
       ORDER BY l.created_at DESC
+    `;
+    const sql = `SELECT 
+    l.*,
+  COALESCE(lh.remarks, l.remarks) as latest_remark,
+  lh.follow_up_date as latest_follow_up_date,
+  lh.created_at as latest_remark_date,
+  CASE 
+    WHEN DATE(l.created_at) = CURDATE() THEN 1 
+    ELSE 0 
+  END as is_created_today
+FROM leads l
+LEFT JOIN (
+  SELECT lead_id, remarks, follow_up_date, created_at,
+  ROW_NUMBER() OVER (PARTITION BY lead_id ORDER BY created_at DESC) as rn
+  FROM leads_history
+) lh ON l.id = lh.lead_id AND lh.rn = 1
+ORDER BY l.created_at DESC
     `;
     const leads = await query(sql);
     return NextResponse.json({ leads });

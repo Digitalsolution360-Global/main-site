@@ -381,13 +381,13 @@ export default function AdminLeads() {
       </span>
     ),
   },
+  // {
+  //   name: 'Next Follow-up',
+  //   sortable: true,
+  //   cell: row => formatDate(row.next_follow_up_date),
+  // },
   {
-    name: 'Next Follow-up',
-    sortable: true,
-    cell: row => formatDate(row.next_follow_up_date),
-  },
-  {
-    name: 'Latest Update',
+    name: 'Latest Remark',
     cell: row => (
       row.latest_remark ? (
         <div>
