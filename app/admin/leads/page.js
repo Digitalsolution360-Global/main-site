@@ -403,7 +403,11 @@ export default function AdminLeads() {
       )
     ),
   },
-  
+  {
+    name: 'Date',
+    sortable: true,
+    cell: row => formatDate(row.created_at),
+  }, 
  {
   name: 'Contact',
   cell: row => (
