@@ -354,6 +354,68 @@ export default function AdminLeads() {
     return sortOrder === 'desc' ? dateB - dateA : dateA - dateB ;
   });
 
+  const handleShareLead = async (lead) => {
+  try {
+    // Create the share URL with lead ID parameter
+    const baseUrl = window.location.origin;
+    const shareUrl = `${baseUrl}/admin/leads?lead_id=${lead.id}&action=update`;
+    
+    // Format the message
+    const message = `Lead Details:\n\n` +
+      `Name: ${lead.name}\n` +
+      `Phone: ${lead.phone}\n` +
+      `Business Type: ${lead.business_type || 'N/A'}\n\n` +
+      `Click here to view and update: ${shareUrl}`;
+    
+    // Copy to clipboard
+    await navigator.clipboard.writeText(message);
+    
+    alert('Lead details copied to clipboard!\n\nShare this with your team member.');
+  } catch (error) {
+    console.error('Error sharing lead:', error);
+    alert('Failed to copy lead details. Please try again.');
+  }
+};
+useEffect(() => {
+  // Check URL parameters when component mounts
+  const urlParams = new URLSearchParams(window.location.search);
+  const leadId = urlParams.get('lead_id');
+  const action = urlParams.get('action');
+  
+  if (leadId && action === 'update') {
+    // Find the lead and open update modal
+    const fetchAndOpenUpdate = async () => {
+      try {
+        // First fetch leads if not loaded
+        if (leads.length === 0) {
+          await fetchLeads();
+        }
+        
+        // Find the lead
+        const lead = leads.find(l => l.id.toString() === leadId);
+        if (lead) {
+          // Open the status update modal
+          setSelectedLeadForStatus(lead);
+          setStatusUpdate('');
+          setFollowUpDate('');
+          setNewStatus(lead.lead_status || '');
+          setShowStatusModal(true);
+          
+          // Clean up URL without refreshing the page
+          window.history.replaceState({}, document.title, window.location.pathname);
+        } else {
+          console.error('Lead not found');
+          alert('Lead not found. It may have been deleted.');
+        }
+      } catch (error) {
+        console.error('Error opening lead update:', error);
+      }
+    };
+    
+    fetchAndOpenUpdate();
+  }
+}, [leads]); // Add leads as dependency
+
   const columns = [
   {
     name: 'Lead Info',
@@ -408,6 +470,29 @@ export default function AdminLeads() {
     sortable: true,
     cell: row => formatDate(row.created_at),
   }, 
+  {
+  name: 'Share',
+  cell: row => (
+    <button
+      onClick={async (e) => {
+        e.stopPropagation();
+        await handleShareLead(row);
+      }}
+      title="Share Lead"
+      className="
+        w-9 h-9 flex items-center justify-center
+        rounded-lg bg-indigo-100 text-indigo-600
+        hover:bg-indigo-200 transition
+      "
+    >
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+          d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+      </svg>
+    </button>
+  ),
+  ignoreRowClick: true,
+},
  {
   name: 'Contact',
   cell: row => (
