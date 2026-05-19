@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { UserButton, useUser } from '@clerk/nextjs';
 import { FaPhoneAlt, FaWhatsapp, FaHistory } from 'react-icons/fa';
+import './lead.css';
 const DataTable = dynamic(
   () => import('react-data-table-component'),
   { ssr: false }
@@ -405,7 +406,7 @@ useEffect(() => {
           window.history.replaceState({}, document.title, window.location.pathname);
         } else {
           console.error('Lead not found');
-          alert('Lead not found. It may have been deleted.');
+          
         }
       } catch (error) {
         console.error('Error opening lead update:', error);
@@ -415,6 +416,21 @@ useEffect(() => {
     fetchAndOpenUpdate();
   }
 }, [leads]); // Add leads as dependency
+
+const [isMobile, setIsMobile] = useState(false);
+
+// Add this useEffect to detect screen size
+useEffect(() => {
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+  
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+  
+  return () => window.removeEventListener('resize', checkMobile);
+}, []);
+
 
   const columns = [
   {
@@ -434,7 +450,7 @@ useEffect(() => {
     selector: row => row.business_type,
     sortable: true,
   },
-  {
+  ...(isMobile ? [] : [{
     name: 'Priority',
     sortable: true,
     cell: row => (
@@ -442,7 +458,7 @@ useEffect(() => {
         {row.priority}
       </span>
     ),
-  },
+  }]),
   // {
   //   name: 'Next Follow-up',
   //   sortable: true,
@@ -466,12 +482,12 @@ useEffect(() => {
     ),
   },
   
- {
-  name: 'Contact',
-  cell: row => (
-    <div className="flex items-center gap-3">
-     {/* Share */}
-      <button
+{
+    name: 'Contact',
+    cell: row => (
+      <div className="flex items-center gap-1.5 md:gap-3"
+      >
+<button
         onClick={async (e) => {
           e.stopPropagation();
           await handleShareLead(row);
@@ -497,59 +513,62 @@ useEffect(() => {
           />
         </svg>
       </button>
-      
-      {/* History */}
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          handleViewHistory(row);
-        }}
-        title="History"
-        className="
-          w-9 h-9 flex items-center justify-center
-          rounded-lg bg-orange-100 text-orange-600
-          hover:bg-orange-200 transition
-        "
-      >
-        <FaHistory size={14} />
-      </button>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            handleViewHistory(row);
+          }}
+          title="History"
+          className="
+            w-8 h-8 md:w-9 md:h-9 
+            flex items-center justify-center
+            rounded-lg bg-orange-100 text-orange-600
+            hover:bg-orange-200 transition
+            active:bg-orange-300
+          "
+        >
+          <FaHistory size={isMobile ? 12 : 14} />
+        </button>
 
-      {/* Call */}
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          handleCall(row.phone);
-        }}
-        title="Call"
-        className="
-          w-9 h-9 flex items-center justify-center
-          rounded-lg bg-blue-100 text-blue-600
-          hover:bg-blue-200 transition
-        "
-      >
-        <FaPhoneAlt size={14} />
-      </button>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            handleCall(row.phone);
+          }}
+          title="Call"
+          className="
+            w-8 h-8 md:w-9 md:h-9 
+            flex items-center justify-center
+            rounded-lg bg-blue-100 text-blue-600
+            hover:bg-blue-200 transition
+            active:bg-blue-300
+          "
+        >
+          <FaPhoneAlt size={isMobile ? 12 : 14} />
+        </button>
 
-      {/* WhatsApp */}
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          handleWhatsApp(row.phone);
-        }}
-        title="WhatsApp"
-        className="
-          w-9 h-9 flex items-center justify-center
-          rounded-lg bg-green-100 text-green-600
-          hover:bg-green-200 transition
-        "
-      >
-        <FaWhatsapp size={15} />
-      </button>
-
-    </div>
-  ),
-  ignoreRowClick: true,
-},
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            handleWhatsApp(row.phone);
+          }}
+          title="WhatsApp"
+          className="
+            w-8 h-8 md:w-9 md:h-9 
+            flex items-center justify-center
+            rounded-lg bg-green-100 text-green-600
+            hover:bg-green-200 transition
+            active:bg-green-300
+          "
+        >
+          <FaWhatsapp size={isMobile ? 13 : 15} />
+        </button>
+      </div>
+    ),
+    ignoreRowClick: true,
+    width: isMobile ? '130px' : 'auto',
+    minWidth: '110px',
+  },
 
 
   {
