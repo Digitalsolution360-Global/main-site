@@ -2,11 +2,11 @@ import WebsiteDevelopmentServicesPage from "./client";
 
 export const metadata = {
   title:
-    "Website Development Services | Custom & SEO-Friendly Websites - Digital Solution 360",
+    "Best Website Development Service in India | Digital Solution 360",
   description:
-    "Digital Solution 360 offers professional website development services including custom websites, responsive design, SEO-friendly architecture, and conversion-focused development.",
+    "Looking for website development service in India? Digital Solution 360 builds responsive, SEO-friendly websites designed to drive leads and growth.",
   keywords:
-    "website development services, web development company, custom website development, responsive web design, SEO friendly websites, website developers in India, Digital Solution 360",
+    "Website Development Company in India, Professional Website Development Services, Web Development Services India, Custom Website Development Services, Business Website Development Company, Website Design and Development Services, Responsive Website Development, SEO Friendly Website Development, Website Development Agency, Professional Web Development Company, Ecommerce Website Development Services, Business Website Development Services, Portfolio Website Development Services, WordPress Website Development Services, Landing Page Design Services, Corporate Website Development Services, Shopify Development Services, Custom Web Development Company, Website Designing Company India, Affordable Website Development Services, Best Web Development Company India, Website Development Solutions, Ecommerce Website Design Company, WordPress Development Company India, Shopify Website Development Company",
 
   alternates: {
     canonical:
