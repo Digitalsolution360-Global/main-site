@@ -102,7 +102,7 @@ export default function WebsiteDevelopmentServicesPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-bold mb-6"
           >
-            Website <span className="text-blue-400">Development</span>
+             <span className="text-blue-400"> Website Development</span> Service in India
           </motion.h1>
 
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
