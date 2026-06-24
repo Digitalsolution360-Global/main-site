@@ -10,8 +10,8 @@ import {
   IconLayout,
   IconDeviceLaptop,
   IconRocket,
-  IconCheck,
-  IconPlus, IconMinus, IconMessageQuestion,
+  IconPlus, 
+  IconMinus,
 } from "@tabler/icons-react";
 
 export default function WebsiteDevelopmentServicesPage() {
@@ -130,7 +130,7 @@ export default function WebsiteDevelopmentServicesPage() {
         <p className='text-lg text-gray-600 mb-4 leading-relaxed'>Our development framework relies on modern tech. Ensure your platform is prepared for tomorrow's traffic demands. </p>
         <p className='text-lg text-gray-600 mb-4 leading-relaxed'>We focus on creating a perfect and seamless journey for clients through better content engagement and keyword            stuffing. It builds your brand’s reputation and gives long-term reliability in a crowded marketplace like         India. </p>
        <p className='text-lg text-gray-600 mb-4 leading-relaxed'>Let’s go through the key performance insights of Digital Solution 360: </p>
-         <ul className="space-y-3 text-gray-700 mb-4">
+         <ul className="space-y-3 text-gray-700 mb-4 list-disc">
             <li>Prevent user abandonment.</li>
             <li>Increase business conversion rates.</li>
             <li>Safeguard user data against modern security threats.</li>
@@ -146,7 +146,7 @@ export default function WebsiteDevelopmentServicesPage() {
         <p className='text-lg text-gray-600 mb-4 leading-relaxed'>A versatile <strong> Business Website Development Company</strong> always finds its way to align various strategic targets. We provide flexible <strong> Web Development Services India</strong> that scale smoothly across all corporate domains. </p>
         <p className='text-lg text-gray-600 mb-4 leading-relaxed'>Our specialized <strong> Portfolio Website Development Services</strong> and tailored <strong> Corporate Website Development Services</strong> can deliver functional art that converts. </p>
         <p className='text-lg text-gray-600 mb-4 leading-relaxed'>With Digital Solution 360, there is no going back from success and assurance of growth: </p>
-        <ul className="space-y-3 text-gray-700 mb-4">
+        <ul className="space-y-3 text-gray-700 mb-4 list-disc">
             <li>Optimized single-page landing layouts capture high-quality business leads.</li>
             <li>Secure multi-level user authentication preserves data privacy.</li>
             <li>Tailored application structures ensure maximum code reusability.</li>
@@ -165,7 +165,7 @@ export default function WebsiteDevelopmentServicesPage() {
  <p className='text-lg text-gray-600 mb-4 leading-relaxed'>Digital Solution 360 provides elite Business Website Development Services. We act as an accessible <strong> Website Development Company for Small Businesses</strong> too. That’s how we are great for enterprise-grade <strong> Website Development Services for Enterprises.</strong></p>
  <p className='text-lg text-gray-600 mb-4 leading-relaxed'>The services are integrated with the complex ERP, CRM, and cloud systems. Also, we are an <strong> Affordable Website Development Company in India</strong> with experience and expertise. Our Professional Website Development Services for Businesses build the foundation for small to large businesses, too. </p>
  <p className='text-lg text-gray-600 mb-4 leading-relaxed'>Services we provide at Digital Solution 360: </p>
-      <ul className="space-y-3 text-gray-700 mb-4">
+      <ul className="space-y-3 text-gray-700 mb-4 list-disc">
             <li>Web Design Services</li>
             <li>Web Design Services</li>
             <li>UI/UX Design</li>
