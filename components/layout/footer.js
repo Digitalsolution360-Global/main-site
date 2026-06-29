@@ -26,7 +26,7 @@ function Footer() {
 
         {/* Main Footer Content */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12'>
-          
+
           {/* Company Info */}
           <div>
             <img src="/logo.png" alt="Digital Solution 360 Logo" className='w-50 mb-4 brightness-0 invert' />
@@ -35,7 +35,7 @@ function Footer() {
             </p>
             {/* Social Links */}
             <div className='flex gap-4'>
-              <motion.a 
+              <motion.a
                 href="https://www.facebook.com/digitalsolution360india"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -45,7 +45,7 @@ function Footer() {
               >
                 <FaFacebook size={20} />
               </motion.a>
-              <motion.a 
+              <motion.a
                 href="https://www.instagram.com/digitalsolution.360/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -55,7 +55,7 @@ function Footer() {
               >
                 <FaInstagram size={20} />
               </motion.a>
-              <motion.a 
+              <motion.a
                 href="https://www.linkedin.com/company/digital-solution-360-global"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -65,7 +65,7 @@ function Footer() {
               >
                 <FaLinkedin size={20} />
               </motion.a>
-              <motion.a 
+              <motion.a
                 href="https://www.youtube.com/@digitalsolution360"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -75,7 +75,7 @@ function Footer() {
               >
                 <FaYoutube size={20} />
               </motion.a>
-            </div> 
+            </div>
             <div className='mt-4'>
               <Link href="/market-we-serve" className='text-gray-300 hover:text-white transition-colors text-lg underline hover:no-underline'>
                 Markets We Serve
@@ -94,6 +94,7 @@ function Footer() {
               <li><Link href="/careers" className='text-gray-400 hover:text-white transition-colors'>Careers</Link></li>
               <li><Link href="/blogs" className='text-gray-400 hover:text-white transition-colors'>Blogs</Link></li>
               <li><Link href="/contact" className='text-gray-400 hover:text-white transition-colors'>Contact Us</Link></li>
+              <li><Link href="/website-development-company-dubai" className='text-gray-400 hover:text-white transition-colors'>Dubai</Link></li>
             </ul>
           </div>
 

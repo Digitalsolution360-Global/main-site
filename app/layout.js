@@ -111,7 +111,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    // <ClerkProvider>
       <html lang="en" className="overflow-x-hidden">
 
         <head>
@@ -135,6 +135,6 @@ export default function RootLayout({ children }) {
           {children}
         </body>
       </html>
-    </ClerkProvider>
+    // </ClerkProvider>
   );
 }
