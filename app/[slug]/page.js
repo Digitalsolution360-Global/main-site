@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { notFound } from 'next/navigation';
 import WebDevServicePageClient from '../market-we-serve/website-development/[slug]/webMarketClient';
 import SEOServicePageClient from '../market-we-serve/seo/[slug]/seoMarketClient';
