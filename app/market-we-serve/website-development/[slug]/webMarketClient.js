@@ -3,7 +3,7 @@
 import BgLayout from '@/components/layout/bgLayout';
 import React, { useState, useEffect, use } from 'react';
 import { motion } from 'motion/react';
-import { IconHome, IconChevronRight, IconMapPin, IconCheck, IconStar, IconPhone, IconMail, IconUser, IconCode, IconDeviceMobile, IconShoppingCart, IconRocket, IconLock, IconBolt, IconTrendingUp, IconChevronDown } from '@tabler/icons-react';
+import { IconHome, IconChevronRight, IconMapPin, IconCheck, IconStar,IconStarFilled, IconPhone, IconMail, IconUser, IconCode, IconDeviceMobile, IconShoppingCart, IconRocket, IconLock, IconBolt, IconTrendingUp, IconChevronDown,IconArrowRight, IconChecks   } from '@tabler/icons-react';
 import Link from 'next/link';
 import Clients from '@/components/sections/clients';
 import LocationStructuredData from '@/components/seo/LocationStructuredData';
@@ -190,6 +190,33 @@ export default function WebDevServicePage({ params }) {
     }
   ];
 
+  const serviceCards = [
+  {
+    title: "Lorem Custom Business Website Development in {cityName}",
+    desc: "Lorem Build fast, responsive, and SEO-friendly business websites tailored to your brand. We create professional websites that help businesses in {cityName} attract more customers and establish a strong online presence."
+  },
+  {
+    title: "E-Commerce Website Development",
+    desc: "Launch a powerful online store with secure payments, product management, inventor's standard dummy text ever sincnce. Our e-commerce solutions help businesses in {cityName} increase online sales."
+  },
+  {
+    title: "Responsive Web Design",
+    desc: "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley"
+  },
+  {
+    title: "CMS & WordPress Development",
+    desc: "Manage your website effortlessly with custom CMS and Word's standard dummy text ever since websites that give businesses in {cityName} complete control over their content."
+  },
+  {
+    title: "Website Maintenance & Optimization",
+    desc: "Keep your website secure, updated, and orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 196 in {cityName}."
+  },
+  {
+    title: "SEO-Friendly Website Development",
+    desc: "Develop websites with clean code, fast loading speeds, structured data, and's standard dummy text ever sincto improve search engine rankings and help businesses in {cityName} generate more organic traffic."
+  }
+];
+
   const faqs = [
     {
       question: `How long does it take to build a website in ${cityName}?`,
@@ -263,76 +290,126 @@ const reviewSchema = {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
       />
-      
       {/* Hero Section */}
-      <section className='relative h-[50vh] mt-21 lg:mt-19 flex items-center justify-center overflow-hidden'>
-        <div className='absolute inset-0'>
-          <img
-            src="/portfolio/web-dev-hero.webp"
-            alt={`Website Development in ${cityName}`}
-            className='w-full h-full object-cover'
-          />
-          <div className='absolute inset-0 bg-black/70'></div>
-        </div>
+<section className='relative min-h-[55vh] flex items-center px-4 md:px-8 lg:px-16 pt-24 pb-12 overflow-hidden'>
+  <div className='absolute inset-0 z-0'>
+    <div className='absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-800/90 to-purple-900/70 z-10' />
+    <img
+      src="/portfolio/web-dev-hero.webp"
+      alt={`Website Development in ${cityName}`}
+      className='w-full h-full object-cover'
+    />
+  </div>
 
-        <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white'>
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className='flex items-center justify-center gap-2 text-sm mb-6 flex-wrap'
-          >
-            <Link href='/' className='flex items-center gap-1 hover:text-blue-400 transition-colors'>
-              <IconHome size={18} />
-              <span>Home</span>
-            </Link>
-            <IconChevronRight size={16} className='text-blue-400' />
-            {/* Show country for both city and state */}
-            {(locationType === 'city' || locationType === 'state') && countryName && countrySlug && (
+  <div className='max-w-7xl mx-auto relative z-20 w-full'>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      {/* Breadcrumb */}
+      <nav className='py-3 pl-0 px-4 md:px-8 md:pl-0 lg:px-16 lg:pl-0 mb-4 inline-block'>
+        <div className='mx-auto'>
+          <ol className='flex flex-wrap items-center gap-1 text-xs'>
+            <li>
+              <Link
+                href="/"
+                className="text-white hover:text-amber-500 transition-colors"
+              >
+                Home
+              </Link>
+            </li>
+
+            {(locationType === "city" || locationType === "state") &&
+              countryName &&
+              countrySlug && (
+                <>
+                  <li className="text-white">›</li>
+                  <li>
+                    <Link
+                      href={`/${countrySlug}`}
+                      className="text-white hover:text-amber-500 transition-colors"
+                    >
+                      {countryName}
+                    </Link>
+                  </li>
+                </>
+              )}
+
+            {locationType === "city" && stateName && stateSlug && (
               <>
-                <Link href={`/${countrySlug}`} className='hover:text-blue-400 transition-colors'>
-                  {countryName}
-                </Link>
-                <IconChevronRight size={16} className='text-blue-400' />
+                <li className="text-white">›</li>
+                <li>
+                  <Link
+                    href={`/${stateSlug}`}
+                    className="text-white hover:text-amber-500 transition-colors"
+                  >
+                    {stateName}
+                  </Link>
+                </li>
               </>
             )}
-            {/* Show state only for city */}
-            {locationType === 'city' && stateName && stateSlug && (
-              <>
-                <Link href={`/${stateSlug}`} className='hover:text-blue-400 transition-colors'>
-                  {stateName}
-                </Link>
-                <IconChevronRight size={16} className='text-blue-400' />
-              </>
-            )}
-            <span className='text-blue-400'>Web Development in {cityName}</span>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className='text-left lg:text-center'
-          >
-            <h1 className='text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4'>
-              Online Presence Empowerment through Professional Website Development Services in <span className='text-blue-400'>{cityName}</span>
-            </h1>
-            <p className='text-lg md:text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-6'>
-              Digital Solution 360 - Your Trusted Partner for Web Development
-            </p>
-            <div className='flex flex-wrap items-center justify-center gap-6 text-sm md:text-base'>
-              <div className='flex items-center gap-2'>
-                <IconCheck size={20} className='text-green-400' />
-                <span>253 Projects Done</span>
-              </div>
-              <div className='flex items-center gap-2'>
-                <IconStar size={20} className='text-yellow-500 fill-yellow-500' />
-                <span>2010 Ratings</span>
-              </div>
-            </div>
-          </motion.div>
+            <li className="text-white">›</li>
+            <li>
+              <span className="text-amber-500 font-medium">
+                Web Development in {cityName}
+              </span>
+            </li>
+          </ol>
         </div>
-      </section>
+      </nav>
+
+      {/* Heading */}
+      <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 max-w-5xl'>
+        Online Presence Empowerment through Professional Website Development
+        Services in <span className="text-amber-400">{cityName}</span>
+      </h1>
+
+      {/* Description */}
+      <p className='text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mb-8'>
+        Digital Solution 360 - Your Trusted Partner for Web Development
+      </p>
+
+      {/* CTA */}
+      <div className='flex flex-wrap gap-4 mb-8'>
+        <button
+          onClick={() => window.dispatchEvent(new Event("openFloatPopup"))}
+          className='bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl inline-flex items-center gap-2'
+        >
+          Get Free Consultation
+          <IconArrowRight className='w-5 h-5' />
+        </button>
+      </div>
+
+      {/* Stats */}
+      <div className='flex flex-wrap gap-6'>
+        <div className='flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20'>
+          <div className='flex items-center gap-1'>
+            {[...Array(5)].map((_, i) => (
+              <IconStarFilled
+                key={i}
+                className='w-4 h-4 text-amber-400'
+              />
+            ))}
+          </div>
+
+          <div>
+            <div className='text-2xl font-bold text-white'>2010</div>
+            <div className='text-sm text-gray-300'>Ratings</div>
+          </div>
+        </div>
+         <div className='flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20'>
+          <IconChecks className='w-6 h-6 text-emerald-400' />
+          <div>
+            <div className='text-2xl font-bold text-white'>253+</div>
+            <div className='text-sm text-gray-300'>Projects Done</div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</section>
 
       {/* Introduction Section with Form */}
       <section className='py-10'>
@@ -541,6 +618,45 @@ const reviewSchema = {
           </div>
         </div>
       </section>
+      {/* Service Cards from Content */}
+
+                <section className='py-20 px-4 md:px-8 lg:px-16 bg-slate-900'>
+                    <div className='max-w-7xl mx-auto'>
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className='text-center mb-16'
+                        >
+                            <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4'>
+                                Website Development Services in {cityName}
+                            </h2>
+                            <p className='text-lg text-gray-300 max-w-3xl mx-auto'>
+                                Explore our comprehensive website development solutions designed for {cityName} businesses.
+                            </p>
+                            <div className='mx-auto mt-4 h-1 w-24 rounded-full bg-linear-to-r from-teal-500 to-cyan-500' />
+                        </motion.div>
+
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                            {serviceCards.map((card, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                                    className='group rounded-xl bg-white/5 backdrop-blur-sm p-6 text-white ring-1 ring-white/10 hover:ring-teal-400/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl'
+                                >
+                                    <div className='h-0.5 w-12 bg-linear-to-r from-teal-400 to-cyan-400 rounded-full mb-4' />
+                                    <h3 className='text-lg font-semibold mb-3'>{card.title.replace(/\{cityName\}/g, cityName)}</h3>
+                                    <p className='text-slate-300 text-sm leading-relaxed'>{card.desc.replace(/\{cityName\}/g, cityName)}</p>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+         
 
       {/* Services Overview */}
       <section className='py-10'>
