@@ -365,7 +365,14 @@ export default function AdminLeads() {
     const message = `Lead Details:\n\n` +
       `Name: ${lead.name}\n` +
       `Phone: ${lead.phone}\n` +
-      `Business Type: ${lead.business_type || 'N/A'}\n\n` +
+      `Business Type: ${lead.business_type || 'N/A'}\n` +
+      `Date: ${new Date(lead.created_at).toLocaleString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                          })}\n\n` +
       `Click here to view and update: ${shareUrl}`;
     
     // Copy to clipboard
