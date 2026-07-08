@@ -239,71 +239,120 @@ const reviewSchema = {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
       />
-
       {/* Hero Section */}
-      <section className='relative h-[50vh] mt-21 lg:mt-19 flex items-center justify-center overflow-hidden'>
-        <div className='absolute inset-0'>
+      <section className='relative min-h-[55vh] flex items-center px-4 md:px-8 lg:px-16 pt-24 pb-12 overflow-hidden'>
+        <div className='absolute inset-0 z-0'>
+          <div className='absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-800/90 to-purple-900/70 z-10' />
           <img
             src="/portfolio/gmb-hero.webp"
             alt={`Google My Business in ${cityName}`}
             className='w-full h-full object-cover'
           />
-          <div className='absolute inset-0 bg-black/70'></div>
         </div>
-
-        <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white'>
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className='flex items-center justify-center gap-2 text-sm mb-6 flex-wrap'
-          >
-            <Link href='/' className='flex items-center gap-1 hover:text-blue-400 transition-colors'>
-              <IconHome size={18} />
-              <span>Home</span>
-            </Link>
-            <IconChevronRight size={16} className='text-blue-400' />
-            {/* Show country for both city and state */}
-            {(locationType === 'city' || locationType === 'state') && countryName && countrySlug && (
-              <>
-                <Link href={`/${countrySlug}`} className='hover:text-blue-400 transition-colors'>
-                  {countryName}
-                </Link>
-                <IconChevronRight size={16} className='text-blue-400' />
-              </>
-            )}
-            {/* Show state only for city */}
-            {locationType === 'city' && stateName && stateSlug && (
-              <>
-                <Link href={`/${stateSlug}`} className='hover:text-blue-400 transition-colors'>
-                  {stateName}
-                </Link>
-                <IconChevronRight size={16} className='text-blue-400' />
-              </>
-            )}
-            <span className='text-blue-400'>GMB in {cityName}</span>
-          </motion.div>
-
+      
+        <div className='max-w-7xl mx-auto relative z-20 w-full'>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className='text-left lg:text-center'
+            transition={{ duration: 0.8 }}
           >
-            <h1 className='text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4'>
-              Google My Business Services in <span className='text-blue-400'>{cityName}</span>
-            </h1>
-            <p className='text-lg md:text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-6'>
-              Boost local visibility, manage your Google Business Profile, and attract more customers with expert strategies in {cityName}.
-            </p>
-            <div className='flex flex-wrap items-center justify-center gap-6 text-sm md:text-base'>
-              <div className='flex items-center gap-2'>
-                <IconCheck size={20} className='text-green-400' />
-                <span>253 Projects Done</span>
+            {/* Breadcrumb */}
+            <nav className='py-3 pl-0 px-4 md:px-8 md:pl-0 lg:px-16 lg:pl-0 mb-4 inline-block'>
+              <div className='mx-auto'>
+                <ol className='flex flex-wrap items-center gap-1 text-xs'>
+                  <li>
+                    <Link
+                      href="/"
+                      className="text-white hover:text-amber-500 transition-colors"
+                    >
+                      Home
+                    </Link>
+                  </li>
+      
+                  {(locationType === "city" || locationType === "state") &&
+                    countryName &&
+                    countrySlug && (
+                      <>
+                        <li className="text-white">›</li>
+                        <li>
+                          <Link
+                            href={`/${countrySlug}`}
+                            className="text-white hover:text-amber-500 transition-colors"
+                          >
+                            {countryName}
+                          </Link>
+                        </li>
+                      </>
+                    )}
+      
+                  {locationType === "city" && stateName && stateSlug && (
+                    <>
+                      <li className="text-white">›</li>
+                      <li>
+                        <Link
+                          href={`/${stateSlug}`}
+                          className="text-white hover:text-amber-500 transition-colors"
+                        >
+                          {stateName}
+                        </Link>
+                      </li>
+                    </>
+                  )}
+      
+                  <li className="text-white">›</li>
+                  <li>
+                    <span className="text-amber-500 font-medium">
+                       Google My Business Services in {cityName}
+                    </span>
+                  </li>
+                </ol>
               </div>
-              <div className='flex items-center gap-2'>
-                <IconStar size={20} className='text-yellow-500 fill-yellow-500' />
-                <span>1960 Ratings</span>
+            </nav>
+      
+            {/* Heading */}
+            <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 max-w-5xl'>
+              Google My Business Services in <span className="text-amber-400">{cityName}</span>
+            </h1>
+      
+            {/* Description */}
+            <p className='text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mb-8'>
+              Boost local visibility, manage your Google Business Profile, and attract more customers with expert strategies in {cityName}
+            </p>
+      
+            {/* CTA */}
+            <div className='flex flex-wrap gap-4 mb-8'>
+              <button
+                onClick={() => window.dispatchEvent(new Event("openFloatPopup"))}
+                className='bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl inline-flex items-center gap-2'
+              >
+                Get Free Consultation
+                <IconArrowRight className='w-5 h-5' />
+              </button>
+            </div>
+      
+            {/* Stats */}
+            <div className='flex flex-wrap gap-6'>
+              <div className='flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20'>
+                <div className='flex items-center gap-1'>
+                  {[...Array(5)].map((_, i) => (
+                    <IconStarFilled
+                      key={i}
+                      className='w-4 h-4 text-amber-400'
+                    />
+                  ))}
+                </div>
+      
+                <div>
+                  <div className='text-2xl font-bold text-white'>1960</div>
+                  <div className='text-sm text-gray-300'>Ratings</div>
+                </div>
+              </div>
+               <div className='flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20'>
+                <IconChecks className='w-6 h-6 text-emerald-400' />
+                <div>
+                  <div className='text-2xl font-bold text-white'>253+</div>
+                  <div className='text-sm text-gray-300'>Projects Done</div>
+                </div>
               </div>
             </div>
           </motion.div>
