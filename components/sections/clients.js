@@ -129,7 +129,7 @@ function Clients() {
               transition={{ duration: 0.3 }}
               className='bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex items-center justify-center'
             >
-              <div className="relative w-full h-12 ">
+              <div className="relative w-69 h-12 ">
               <img
                 src={client.logo}
                 alt={client.name}
