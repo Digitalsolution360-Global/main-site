@@ -112,9 +112,10 @@ function Clients() {
       {/* Infinite Scrolling Container */}
       <div className='relative overflow-hidden'>
         {/* Gradient overlays for fade effect */}
+        {/*
         <div className='absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none'></div>
         <div className='absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none'></div>
-
+         */}
         <motion.div
           className='flex gap-8'
           style={{ x: xPos }}
@@ -126,13 +127,16 @@ function Clients() {
               key={index}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              className='flex-shrink-0 w-69 h-40 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center p-6 group cursor-pointer'
+              className='bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex items-center justify-center'
             >
+              <div className="relative w-full h-12 ">
               <img
                 src={client.logo}
                 alt={client.name}
-                className='max-w-full max-h-full object-contain transition-all duration-300'
+                fill
+                className='object-contain'
               />
+              </div>
             </motion.div>
           ))}
         </motion.div>
