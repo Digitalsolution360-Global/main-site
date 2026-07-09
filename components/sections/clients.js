@@ -129,12 +129,11 @@ function Clients() {
               transition={{ duration: 0.3 }}
               className='bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex items-center justify-center'
             >
-              <div className="relative w-69 h-12 ">
+              <div className="relative w-69 h-12 flex items-center">
               <img
                 src={client.logo}
                 alt={client.name}
-                fill
-                className='object-contain'
+                className='object-contain h-full w-auto'
               />
               </div>
             </motion.div>
@@ -149,7 +148,7 @@ function Clients() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16'
+        className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24'
       >
         <div className='grid grid-cols-2 md:grid-cols-4 gap-8'>
           <motion.div 
