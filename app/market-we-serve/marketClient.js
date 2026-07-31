@@ -7,11 +7,11 @@ import { IconHome, IconChevronRight, IconMapPin, IconWorld } from '@tabler/icons
 import Link from 'next/link';
 
 const services = [
-  { id: 'google-my-business', name: 'Google My Business', color: 'blue', showFor: 'all' },
-  { id: 'seo', name: 'SEO', color: 'green', showFor: 'all' },
-  { id: 'website-development', name: 'Website Development', color: 'purple', showFor: 'all' },
-  { id: 'digital-marketing', name: 'Digital Marketing', color: 'orange', showFor: 'all' },
-  { id: 'app-development', name: 'App Development', color: 'yellow', showFor: 'uae' }
+  { id: 'google-my-business', name: 'Google My Business', color: 'blue' },
+  { id: 'seo', name: 'SEO', color: 'green' },
+  { id: 'website-development', name: 'Website Development', color: 'purple' },
+  { id: 'digital-marketing', name: 'Digital Marketing', color: 'orange' },
+  { id: 'app-development', name: 'App Development', color: 'yellow' }
 ];
 
 function MarketWeServePage() {
@@ -72,39 +72,6 @@ function MarketWeServePage() {
       fetchStatesAndCities(selectedCountry.id);
     }
   }, [selectedCountry]);
-
-  useEffect(() => {
-  if (activeService === 'app-development') {
-    const uae = countries.find(c => c.name === 'United Arab Emirates');
-    if (uae) {
-      setSelectedCountry(uae);
-    }
-  }
-}, [activeService, countries]);
-
-  // After fetching countries, filter them based on active service
-const getFilteredCountries = () => {
-  const activeServiceObj = services.find(s => s.id === activeService);
-  
-  // If app development, show only UAE
-  if (activeServiceObj?.showFor === 'uae') {
-    return countries.filter(c => c.name === 'United Arab Emirates');
-  }
-  
-  // Show all countries for other services
-  return countries;
-};
-// After fetching statesWithCities, filter them
-const getFilteredStates = () => {
-  if (activeService === 'app-development') {
-    return statesWithCities.filter(state => state.name === 'Dubai');
-  }
-  return statesWithCities;
-};
-
-const filteredStates = getFilteredStates();
-
-const filteredCountries = getFilteredCountries();
 
   const fetchCountries = async () => {
     try {
@@ -240,7 +207,7 @@ const filteredCountries = getFilteredCountries();
                   Select Country
                 </h2>
                 <div className='flex flex-wrap gap-3'>
-                  {filteredCountries.map((country) => (
+                  {countries.map((country) => (
                     <button
                       key={country.id}
                       onClick={() => setSelectedCountry(country)}
@@ -259,7 +226,7 @@ const filteredCountries = getFilteredCountries();
               {/* States with Cities */}
               {statesWithCities.length > 0 && (
                 <div className='space-y-12'>
-                  {filteredStates.filter(state => getStateSlug(state) !== 'null').map((state, idx) => (
+                  {statesWithCities.filter(state => getStateSlug(state) !== 'null').map((state, idx) => (
                     <div key={idx}>
                       <Link href={`/${getStateSlug(state)}`}>
                         <h2 className='text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2 hover:text-blue-600 transition-colors cursor-pointer w-fit'>
@@ -270,7 +237,7 @@ const filteredCountries = getFilteredCountries();
                       
                       {state.cities.length > 0 ? (
                         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-                          {state.cities.map((city) => (
+                          {state.cities.filter(city => getCitySlug(city) !== 'null').map((city) => (
                             <Link
                               key={city.id}
                               href={`/${getCitySlug(city)}`}
