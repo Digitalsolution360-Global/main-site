@@ -8,7 +8,7 @@ import Link from 'next/link';
 import Clients from '@/components/sections/clients';
 import LocationStructuredData from '@/components/seo/LocationStructuredData';
 
-export default function WebDevServicePage({ params }) {
+export default function AppServicePage({ params }) {
   const { slug } = use(params);
   const [locationData, setLocationData] = useState(null);
   const [locationType, setLocationType] = useState(null);
@@ -71,9 +71,9 @@ export default function WebDevServicePage({ params }) {
           country_code: '+91',
           company: null,
           website: null,
-          services: `Website Development - ${locationData?.city_name || slug}`,
+          services: `App Development - ${locationData?.city_name || slug}`,
           message: null,
-          source: 'web_dev_market_page',
+          source: 'app_dev_market_page',
           page_url: window.location.pathname
         })
       });
@@ -88,7 +88,7 @@ export default function WebDevServicePage({ params }) {
           'Name': formData.name,
           'Email': formData.email,
           'Phone': formData.phone,
-          'Service': 'Website Development',
+          'Service': 'App Development',
           'Location': locationData?.city_name || slug,
           'Page URL': window.location.pathname,
           _captcha: false,
@@ -141,104 +141,29 @@ export default function WebDevServicePage({ params }) {
   const countrySlug = locationData?.country_slug;
   const stateSlug = locationData?.state_slug;
 
-  const processSteps = [
-    {
-      number: '1',
-      title: 'Discovery and Strategy',
-      description: 'Find out what you want to achieve, who you are aiming at, and what your competitors are doing.'
-    },
-    {
-      number: '2',
-      title: 'Design and Prototyping',
-      description: 'Develop wireframes and prototypes of your approval of the UI/UX.'
-    },
-    {
-      number: '3',
-      title: 'Development',
-      description: 'Writing your site in modern technologies and best practices.'
-    },
-    {
-      number: '4',
-      title: 'Test and Fine Tune',
-      description: 'This is to make sure that your site works with all browsers and all devices.'
-    },
-    {
-      number: '5',
-      title: 'Launch and Support',
-      description: 'Get total technical support and training as you launch your site online.'
-    }
-  ];
 
-  const coreValues = [
-    {
-      title: 'Security',
-      description: 'Modern encryption, firewalls, and secure methods of payment are some of our measures against vulnerabilities to your site.',
-      icon: <IconLock size={60} />,
-      color: 'blue'
-    },
-    {
-      title: 'Speed',
-      description: 'Our search engine optimization techniques ensure faster page loading, which will increase user experience and search position.',
-      icon: <IconBolt size={60} />,
-      color: 'yellow'
-    },
-    {
-      title: 'Scalability',
-      description: 'Your site can easily take more visitors, merchandise, and services as your company grows.',
-      icon: <IconTrendingUp size={60} />,
-      color: 'green'
-    }
-  ];
-
-  const serviceCards = [
+ const faqs = [
   {
-    title: "Lorem Custom Business Website Development in {cityName}",
-    desc: "Lorem Build fast, responsive, and SEO-friendly business websites tailored to your brand. We create professional websites that help businesses in {cityName} attract more customers and establish a strong online presence."
+    question: `How much does app development cost in ${cityName}?`,
+    answer: `Honestly, it depends — features, complexity, whether you need one platform or both, and things like payment gateway integrations all move the number. A basic app and one with custom backend logic aren't in the same price range, so it's worth getting in touch and talking through what you actually need.`
   },
   {
-    title: "E-Commerce Website Development",
-    desc: "Launch a powerful online store with secure payments, product management, inventor's standard dummy text ever sincnce. Our e-commerce solutions help businesses in {cityName} increase online sales."
+    question: `How long does it take to develop a mobile app?`,
+    answer: `A few weeks for something simple. Longer if there are custom features, several integrations, or an admin dashboard involved. Once planning wraps up, you'll have a real timeline rather than a ballpark guess.`
   },
   {
-    title: "Responsive Web Design",
-    desc: "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley"
+    question: `Do you develop apps for Android and iOS?`,
+    answer: `Both, native or cross-platform. Flutter and React Native cover the cases where one codebase for both platforms makes sense; otherwise it's native Android and iOS builds.`
   },
   {
-    title: "CMS & WordPress Development",
-    desc: "Manage your website effortlessly with custom CMS and Word's standard dummy text ever since websites that give businesses in {cityName} complete control over their content."
+    question: `Do you provide maintenance after the app is launched?`,
+    answer: `Yes — bug fixes, performance checks, and keeping things working as Android and iOS push out new versions. Launch isn't really the finish line.`
   },
   {
-    title: "Website Maintenance & Optimization",
-    desc: "Keep your website secure, updated, and orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 196 in {cityName}."
-  },
-  {
-    title: "SEO-Friendly Website Development",
-    desc: "Develop websites with clean code, fast loading speeds, structured data, and's standard dummy text ever sincto improve search engine rankings and help businesses in {cityName} generate more organic traffic."
+    question: `Can you develop mobile apps for businesses across the ${cityName}?`,
+    answer: `Yes. The base is in ${cityName}, but plenty of projects run for businesses in Abu Dhabi, Sharjah, and other emirates, and most of that work happens remotely anyway.`
   }
 ];
-
-  const faqs = [
-    {
-      question: `How long does it take to build a website in ${cityName}?`,
-      answer: `The timeline varies based on complexity. A basic website takes 2-4 weeks, while custom e-commerce or enterprise solutions can take 8-12 weeks. We provide detailed timelines during our initial consultation in ${cityName}.`
-    },
-    {
-      question: `Do you provide website maintenance services in ${cityName}?`,
-      answer: `Yes! We offer ongoing maintenance, security updates, content updates, and technical support to ensure your website runs smoothly in ${cityName} and beyond.`
-    },
-    {
-      question: `Will my website be mobile-friendly?`,
-      answer: `Absolutely! All our websites are fully responsive and optimized for mobile devices, tablets, and desktops. Mobile-first design is a core part of our development process in ${cityName}.`
-    },
-    {
-      question: `Can you help with SEO for my website in ${cityName}?`,
-      answer: `Yes! We integrate SEO best practices into every website we build, including optimized code, fast loading times, proper meta tags, and local SEO strategies for businesses in ${cityName}.`
-    },
-    {
-      question: `What platform do you recommend for e-commerce in ${cityName}?`,
-      answer: `We recommend platforms based on your specific needs. Shopify for quick setup, WooCommerce for WordPress users, Magento for large catalogs, or custom solutions for unique requirements in ${cityName}.`
-    }
-  ];
 
   // Generate FAQ Schema
   const faqSchema = {
@@ -353,7 +278,7 @@ const reviewSchema = {
             <li className="text-white">›</li>
             <li>
               <span className="text-amber-500 font-medium">
-                Web Development in {cityName}
+                App Development in {cityName}
               </span>
             </li>
           </ol>
@@ -362,13 +287,12 @@ const reviewSchema = {
 
       {/* Heading */}
       <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 max-w-5xl'>
-        Online Presence Empowerment through Professional Website Development
-        Services in <span className="text-amber-400">{cityName}</span>
+        Best App Development Company in <span className="text-amber-400">{cityName}</span> | Digital Solution 360
       </h1>
 
       {/* Description */}
       <p className='text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mb-8'>
-        Digital Solution 360 - Your Trusted Partner for Web Development
+        Digital Solution 360 - Your Trusted Partner for App Development
       </p>
 
       {/* CTA */}
@@ -417,109 +341,259 @@ const reviewSchema = {
           <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
             {/* Content Column - 2/3 */}
             <div className='lg:col-span-2 space-y-12'>
-              {/* Section 1 */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
-              >
-                <div className='order-2 md:order-1'>
-                  <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
-                    Do you wish to develop a website that really looks like your brand?
-                  </h2>
-                  <p className='text-gray-700 leading-relaxed'>
-                    In the modern digital era when time is important, the need to have a professional site is not a choice but a necessity. Regardless, of whether you are running a small business, opening an online shop, or a large company, your site is often the first thing that anyone thinks when they see your company.
-                  </p>
-                </div>
-                <div className='order-1 md:order-2'>
-                  <img
-                    src="/market/website/case-img9.png"
-                    alt="Professional Website Design"
-                    className='w-full h-64 object-cover rounded-2xl shadow-lg'
-                  />
-                </div>
-              </motion.div>
+  {/* Section 1 */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+  >
+    <div className='order-2 md:order-1'>
+      <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
+        If you have an app idea and you're trying to figure out who can actually build it, that's what Digital Solution 360 does.
+      </h2>
+      <p className='text-gray-700 leading-relaxed'>
+        We work as an app development company in {cityName} for founders testing a first product, established companies replacing something outdated, and teams who need a mobile app tied into systems they already run. Some clients arrive with wireframes and a clear feature list. Others just have a problem they want solved and no idea what the solution should look like technically. Both starting points work fine here.
+      </p>
+    </div>
+    <div className='order-1 md:order-2'>
+      <img
+        src="/market/website/case-img9.png"
+        alt="App Development"
+        className='w-full h-64 object-cover rounded-2xl shadow-lg'
+      />
+    </div>
+  </motion.div>
 
-              {/* Section 2 */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
-              >
-                <div>
-                  <img
-                    src="/market/website/case-img10.png"
-                    alt="Digital Solution 360"
-                    className='w-full h-64 object-cover rounded-2xl shadow-lg'
-                  />
-                </div>
-                <div>
-                  <p className='text-gray-700 leading-relaxed'>
-                    At Digital Solution 360 we understand that your Website is not just a virtual storefront, but is actually the voice, personality and promise of your brand to your consumers. We are that special it comes to the development of websites in {cityName} and the UAE at large that we are creative, functional, and technological enough to deliver websites that engage, convert, and inspire.
-                  </p>
-                </div>
-              </motion.div>
+  {/* Section 2 */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+  >
+    <div>
+      <img
+        src="/market/website/case-img10.png"
+        alt="App Development Services"
+        className='w-full h-64 object-cover rounded-2xl shadow-lg'
+      />
+    </div>
+    <div>
+      <h3 className='text-2xl font-bold text-gray-900 mb-4'>
+        What We Actually Build As App Development Company in {cityName}
+      </h3>
+      <p className='text-gray-700 leading-relaxed mb-4'>
+        Android development still makes up a large share of the work, given how many users across the UAE are on Android devices, and getting performance right across that range of hardware matters more than people expect. iOS projects follow a different set of rules — Apple's review process and design standards are stricter, and apps need to feel native, not adapted from something else.
+      </p>
+      <p className='text-gray-700 leading-relaxed'>
+        Flutter and React Native come up a lot with startups, mostly because paying for one codebase instead of two makes sense when the budget is tight. That said, if an app leans hard on camera features, sensors, or anything close to the hardware, native usually still wins, even at the higher price.
+      </p>
+    </div>
+  </motion.div>
 
-              {/* Section 3 */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
-              >
-                <div className='order-2 md:order-1'>
-                  <h3 className='text-2xl font-bold text-gray-900 mb-4'>
-                    The reason why to go to Digital Solution 360 to develop a website in {cityName}?
-                  </h3>
-                  <p className='text-gray-700 leading-relaxed mb-4'>
-                    In the case of creating websites, it can be revealed that Digital Solution 360 is a reputable service provider of web development that values perfection when creating websites. We do not just come up with websites, but we also come up with digital experiences to enable the companies to prosper.
-                  </p>
-                  <p className='text-gray-700 leading-relaxed'>
-                    Our professional developers, designers, and digital strategists can make websites based on the particular needs of yours with years of experience and using the latest technology.
-                  </p>
-                </div>
-                <div className='order-1 md:order-2'>
-                  <img
-                    src="/market/website/case-img11.png"
-                    alt="Why Choose Us"
-                    className='w-full h-64 object-cover rounded-2xl shadow-lg'
-                  />
-                </div>
-              </motion.div>
+  {/* Section 3 */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+  >
+    <div className='order-2 md:order-1'>
+      <p className='text-gray-700 leading-relaxed mb-4'>
+        Then there's the stuff that doesn't fit a template at all—a booking system that works differently from anyone else's, a workflow built around how a specific business operates, an integration into software the client's been running for years. E-commerce work brings its own headaches: carts that don't lose items on a bad connection, payment gateways that actually reconcile, inventory that stays accurate across multiple sales channels. Enterprise apps are usually tied into a CRM or ERP somewhere, with higher security expectations from day one — worth mapping out before development starts rather than patching in later.
+      </p>
+    </div>
+    <div className='order-1 md:order-2'>
+      <img
+        src="/market/website/case-img11.png"
+        alt="Custom App Development"
+        className='w-full h-64 object-cover rounded-2xl shadow-lg'
+      />
+    </div>
+  </motion.div>
 
-              {/* Section 4 */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
-              >
-                <div>
-                  <img
-                    src="/market/website/case-img12.png"
-                    alt="Bespoke Design"
-                    className='w-full h-64 object-cover rounded-2xl shadow-lg'
-                  />
-                </div>
-                <div>
-                  <h3 className='text-2xl font-bold text-gray-900 mb-4'>
-                    Bespoke Website Design Solutions Built to Your Brand
-                  </h3>
-                  <p className='text-gray-700 leading-relaxed mb-4'>
-                    Every company is different and your site must indicate it. The services of our custom website development are aimed at the development of websites on a custom basis to suit your brand, beauty, and the technological requirements.
-                  </p>
-                  <p className='text-gray-700 leading-relaxed'>
-                    Since the first wireframing, design, and deployment, we ensure that all elements of your web do portray the identity of your brand.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
+  {/* Section 4 */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+  >
+    <div>
+      <img
+        src="/market/website/case-img12.png"
+        alt="Why Choose Us"
+        className='w-full h-64 object-cover rounded-2xl shadow-lg'
+      />
+    </div>
+    <div>
+      <h3 className='text-2xl font-bold text-gray-900 mb-4'>
+        Why Companies Pick Us Over Other Options
+      </h3>
+      <p className='text-gray-700 leading-relaxed mb-4'>
+        There's no shortage of mobile app development companies in {cityName} to choose from, so most of what separates them shows up after the contract is signed, not before. Does the team dig into how the business runs, or does every client get roughly the same app with a different logo on it? Is the interface built around how people actually tap through their phones, or does it just photograph well for a portfolio page? And when real users show up, does the backend hold, or does it start throwing errors the first busy weekend?
+      </p>
+    </div>
+  </motion.div>
+
+  {/* Section 5 */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+  >
+    <div className='order-2 md:order-1'>
+      <p className='text-gray-700 leading-relaxed mb-4'>
+        Security gets handled from the start rather than bolted on afterward — authentication, data storage, safe API calls. Testing happens across a range of devices before anything ships, not just once on a single phone. Communication stays direct through the project, and once the app is live, there's support available for bug fixes and updates rather than a hard stop at launch.
+      </p>
+      <p className='text-gray-700 leading-relaxed'>
+        None of that makes for a flashy sentence, but it's the difference between an app that works six months after release and one that quietly falls apart.
+      </p>
+    </div>
+    <div className='order-1 md:order-2'>
+      <img
+        src="/market/website/case-img13.png"
+        alt="App Security"
+        className='w-full h-64 object-cover rounded-2xl shadow-lg'
+      />
+    </div>
+  </motion.div>
+
+  {/* Section 6 */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+  >
+    <div>
+      <img
+        src="/market/website/case-img14.png"
+        alt="App Development Process"
+        className='w-full h-64 object-cover rounded-2xl shadow-lg'
+      />
+    </div>
+    <div>
+      <h3 className='text-2xl font-bold text-gray-900 mb-4'>
+        How a Project Actually Moves Forward
+      </h3>
+      <p className='text-gray-700 leading-relaxed mb-4'>
+        It starts with a conversation about what the app is supposed to do and who's going to use it — that's discovery, and it shapes everything after. Planning turns that into a scope and rough timeline. Wireframes and UI/UX design come next, mapping out screens before any code gets written. Development follows the approved design, with APIs and third-party services — payments, maps, notifications — wired in along the way.
+      </p>
+      <p className='text-gray-700 leading-relaxed'>
+        Testing checks for bugs, but also for how the app behaves under pressure: slow networks, older devices, unexpected input. Once it passes, deployment means getting it live on the Play Store and App Store. After that, maintenance keeps things running as operating systems update and new needs come up.
+      </p>
+    </div>
+  </motion.div>
+
+  {/* Section 7 */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+  >
+    <div className='order-2 md:order-1'>
+      <p className='text-gray-700 leading-relaxed'>
+        You don't need to understand the technical side of any of this to get a working app out of it.
+      </p>
+    </div>
+    <div className='order-1 md:order-2'>
+      <img
+        src="/market/website/case-img15.png"
+        alt="App Launch"
+        className='w-full h-64 object-cover rounded-2xl shadow-lg'
+      />
+    </div>
+  </motion.div>
+
+  {/* Section 8 - Industries */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+  >
+    <div>
+      <img
+        src="/market/website/case-img16.png"
+        alt="App Industries"
+        className='w-full h-64 object-cover rounded-2xl shadow-lg'
+      />
+    </div>
+    <div>
+      <h3 className='text-2xl font-bold text-gray-900 mb-4'>
+        Across Different Industries
+      </h3>
+      <p className='text-gray-700 leading-relaxed'>
+        Ecommerce and retail, healthcare booking and patient portals, real estate listings, restaurant and delivery apps, logistics tracking, education platforms, finance apps handling transactions, professional service booking — the requirements shift a lot between these, especially around security and real-time data. A restaurant chain's app and a fintech company's app aren't solving the same problems, even if both run on a phone.
+      </p>
+    </div>
+  </motion.div>
+
+  {/* Section 9 - Cost */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+  >
+    <div className='order-2 md:order-1'>
+      <h3 className='text-2xl font-bold text-gray-900 mb-4'>
+        What Affects the Cost
+      </h3>
+      <p className='text-gray-700 leading-relaxed mb-4'>
+        App development cost in {cityName} isn't a fixed number, and anyone quoting one without knowing your requirements is guessing. What actually drives it: feature count, platform (Android, iOS, or both), how custom the UI/UX work is, backend complexity, API integrations, payment processing, and how much testing the project needs. Maintenance after launch adds an ongoing cost too, usually a modest one compared to the initial build.
+      </p>
+      <p className='text-gray-700 leading-relaxed'>
+        Contact Digital Solution 360 for a quote based on what you're actually building, not a generic price list.
+      </p>
+    </div>
+    <div className='order-1 md:order-2'>
+      <img
+        src="/market/website/case-img17.png"
+        alt="App Cost"
+        className='w-full h-64 object-cover rounded-2xl shadow-lg'
+      />
+    </div>
+  </motion.div>
+
+  {/* Section 10 - Getting Started */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+  >
+    <div>
+      <img
+        src="/market/website/case-img18.png"
+        alt="Get Started"
+        className='w-full h-64 object-cover rounded-2xl shadow-lg'
+      />
+    </div>
+    <div>
+      <h3 className='text-2xl font-bold text-gray-900 mb-4'>
+        Getting Started
+      </h3>
+      <p className='text-gray-700 leading-relaxed'>
+        If there's an app idea sitting in a notes app or a half-finished spec document somewhere, that's enough to start a conversation. Discuss your app idea, request a consultation, or ask for a quote — whichever fits where you're at right now.
+      </p>
+    </div>
+  </motion.div>
+</div>
 
             {/* Form Column - 1/3 */}
             <div className='lg:col-span-1'>
@@ -618,314 +692,7 @@ const reviewSchema = {
           </div>
         </div>
       </section>
-      {/* Service Cards from Content */}
-
-                <section className='py-20 px-4 md:px-8 lg:px-16 bg-slate-900'>
-                    <div className='max-w-7xl mx-auto'>
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className='text-center mb-16'
-                        >
-                            <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4'>
-                                Website Development Services in {cityName}
-                            </h2>
-                            <p className='text-lg text-gray-300 max-w-3xl mx-auto'>
-                                Explore our comprehensive website development solutions designed for {cityName} businesses.
-                            </p>
-                            <div className='mx-auto mt-4 h-1 w-24 rounded-full bg-linear-to-r from-teal-500 to-cyan-500' />
-                        </motion.div>
-
-                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-                            {serviceCards.map((card, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: index * 0.05 }}
-                                    className='group rounded-xl bg-white/5 backdrop-blur-sm p-6 text-white ring-1 ring-white/10 hover:ring-teal-400/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl'
-                                >
-                                    <div className='h-0.5 w-12 bg-linear-to-r from-teal-400 to-cyan-400 rounded-full mb-4' />
-                                    <h3 className='text-lg font-semibold mb-3'>{card.title.replace(/\{cityName\}/g, cityName)}</h3>
-                                    <p className='text-slate-300 text-sm leading-relaxed'>{card.desc.replace(/\{cityName\}/g, cityName)}</p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-         
-
-      {/* Services Overview */}
-      <section className='py-10'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className='text-left lg:text-center mb-12'
-          >
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
-              Website Development Services in {cityName}
-            </h2>
-            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
-              At Digital Solution 360, we deliver responsive, scalable, and SEO-friendly websites that grow your brand in {cityName}, and beyond.
-            </p>
-          </motion.div>
-
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            {[
-              {
-                icon: <IconDeviceMobile size={40} />,
-                title: 'Responsive Web Development',
-                description: `A responsive site is a necessity. Our services ensure your site will appear and work on any screen size in ${cityName}.`,
-                color: 'blue'
-              },
-              {
-                icon: <IconShoppingCart size={40} />,
-                title: 'Ecommerce Development',
-                description: `Advanced e-commerce systems using Shopify, WooCommerce, Magento for businesses in ${cityName}.`,
-                color: 'green'
-              },
-              {
-                icon: <IconCode size={40} />,
-                title: 'WordPress Development',
-                description: `Easy-to-use, content-oriented WordPress websites with custom themes and plugins in ${cityName}.`,
-                color: 'purple'
-              },
-              {
-                icon: <IconRocket size={40} />,
-                title: 'Dynamic Website Development',
-                description: `Interactive platforms using React, Angular, and Laravel for engaging user experiences in ${cityName}.`,
-                color: 'pink'
-              },
-              {
-                icon: <IconCheck size={40} />,
-                title: 'Affordable Web Development',
-                description: `Quality websites at affordable prices for startups and small businesses in ${cityName}.`,
-                color: 'orange'
-              },
-              {
-                icon: <IconStar size={40} />,
-                title: 'Magento Development',
-                description: `Expert Magento solutions for large product collections and complex integrations in ${cityName}.`,
-                color: 'red'
-              }
-            ].map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className='bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all'
-              >
-                <div className={`text-${service.color}-600 mb-4`}>
-                  {service.icon}
-                </div>
-                <h3 className='text-xl font-bold text-gray-900 mb-3'>{service.title}</h3>
-                <p className='text-gray-600 leading-relaxed'>{service.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Development Process */}
-      <section className='py-10'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className='text-center mb-12'
-          >
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
-              How We Work – The Process of Our Development
-            </h2>
-            <p className='text-lg text-gray-600'>
-              We employ an open and cooperative approach that has you in charge at all phases.
-            </p>
-          </motion.div>
-
-          <div className='grid grid-cols-1 md:grid-cols-5 gap-6'>
-            {processSteps.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className='text-center'
-              >
-                <div className='w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4'>
-                  {step.number}
-                </div>
-                <h3 className='text-lg font-bold text-gray-900 mb-2'>{step.title}</h3>
-                <p className='text-sm text-gray-600'>{step.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section className='py-10'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className='text-left lg:text-center mb-12'
-          >
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
-              Our Three Core Values: Security, Speed, and Scalability
-            </h2>
-            <p className='text-lg text-gray-600'>
-              All successful web pages have three features that form the basis of our development philosophy.
-            </p>
-          </motion.div>
-
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-            {coreValues.map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className='bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all'
-              >
-                <div className={`text-${value.color}-600 mb-4 flex justify-center`}>{value.icon}</div>
-                <h3 className='text-2xl font-bold text-gray-900 mb-4'>{value.title}</h3>
-                <p className='text-gray-600 leading-relaxed'>{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Additional Content Sections with Images */}
-      <section className='py-10'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12'>
-          {/* Digital Trust */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
-          >
-            <div>
-              <h3 className='text-2xl font-bold text-gray-900 mb-4'>
-                Creating Digital Trust through Excellence and Innovation
-              </h3>
-              <p className='text-gray-700 leading-relaxed mb-4'>
-                The goal of Digital Solution 360 is not restricted to websites creation of websites. Our interest is in achieving digital trust: the key to connecting your brand and your customers. In the current world, trust is developed based on consistency, openness, and flawless technology.
-              </p>
-              <p className='text-gray-700 leading-relaxed'>
-                The visitors evaluate your business by the way it looks and feels by just clicking on it. A slow, disheveled, or old-fashioned Website will soon send away potential customers.
-              </p>
-            </div>
-            <div>
-              <img
-                src="/market/website/case-img13.png"
-                alt="Digital Trust"
-                className='w-full h-80 object-cover rounded-2xl shadow-lg'
-              />
-            </div>
-          </motion.div>
-
-          {/* Digital Experience */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
-          >
-            <div className='order-2 md:order-1'>
-              <img
-                src="/market/website/case-img14.png"
-                alt="Digital Experience"
-                className='w-full h-80 object-cover rounded-2xl shadow-lg'
-              />
-            </div>
-            <div className='order-1 md:order-2'>
-              <h3 className='text-2xl font-bold text-gray-900 mb-4'>
-                Making Your Vision a Digital Experience
-              </h3>
-              <p className='text-gray-700 leading-relaxed mb-4'>
-                Any major project has a great idea behind it. You give the fantasy and we have the talent to bring it into life. Our team collaborates with you in order to transform your ideas into an amazing digital platform.
-              </p>
-              <p className='text-gray-700 leading-relaxed'>
-                It starts with a comprehensive consultation to better know what you want to achieve, your audience, and market. We will then develop a designer plan to describe how your website will be designed.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Ecommerce Solutions */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
-          >
-            <div>
-              <h3 className='text-2xl font-bold text-gray-900 mb-4'>
-                Ecommerce and Beyond: Increasing the Possibility to All Businesses
-              </h3>
-              <p className='text-gray-700 leading-relaxed mb-4'>
-                The future of commerce is digital, and we would like to assist you to accept it. Our services regarding the creation of ecommerce websites are aimed at ambitious entrepreneurships that would like to sell better, enter new markets, and satisfy the consumer at each level.
-              </p>
-              <p className='text-gray-700 leading-relaxed'>
-                We integrate safe payment gateways, user friendly data-based dashboards to make it simple to manage your business, and product management systems.
-              </p>
-            </div>
-            <div>
-              <img
-                src="/market/website/case-img15.png"
-                alt="Ecommerce Solutions"
-                className='w-full h-80 object-cover rounded-2xl shadow-lg'
-              />
-            </div>
-          </motion.div>
-
-          {/* Support and Maintenance */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
-          >
-            <div className='order-2 md:order-1'>
-              <img
-                src="/market/website/case-img4.png"
-                alt="Support and Maintenance"
-                className='w-full h-80 object-cover rounded-2xl shadow-lg'
-              />
-            </div>
-            <div className='order-1 md:order-2'>
-              <h3 className='text-2xl font-bold text-gray-900 mb-4'>
-                Customer-oriented Support and Maintenance
-              </h3>
-              <p className='text-gray-700 leading-relaxed mb-4'>
-                The relationship between us does not end with launch as it is the beginning. We offer reliable after sales support, performance checks and regular upgrades in order to ensure the safety of your site and its updatedness.
-              </p>
-              <p className='text-gray-700 leading-relaxed'>
-                Have to make new features or change the layout of your site? Not an issue. Our dedicated support team will ensure that your website is moving in line with your business.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+  
 
       {/* Clients Section */}
       <section className='py-10'>
