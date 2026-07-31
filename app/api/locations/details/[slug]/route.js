@@ -38,6 +38,8 @@ export async function GET(request, { params }) {
       serviceType = 'digital-marketing';
     } else if (location.web_slug === slug) {
       serviceType = 'website-development';
+    } else if (location.app_slug === slug) {
+      serviceType = 'app-development';
     }
 
     // Add appropriate parent slugs based on service type
@@ -51,6 +53,9 @@ export async function GET(request, { params }) {
       } else if (serviceType === 'digital-marketing') {
         location.state_slug = location.state_digital_slug;
         location.country_slug = location.country_digital_slug;
+      } else if (serviceType === 'app-development') {
+        location.state_slug = location.state_app_slug;
+        location.country_slug = location.country_app_slug;
       } else {
         location.state_slug = location.state_web_slug;
         location.country_slug = location.country_web_slug;
@@ -62,6 +67,8 @@ export async function GET(request, { params }) {
         location.country_slug = location.country_seo_slug;
       } else if (serviceType === 'digital-marketing') {
         location.country_slug = location.country_digital_slug;
+      }else if (serviceType === 'app-development') {
+        location.country_slug = location.country_app_slug;
       } else {
         location.country_slug = location.country_web_slug;
       }
