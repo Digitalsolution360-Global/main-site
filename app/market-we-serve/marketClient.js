@@ -259,7 +259,7 @@ const filteredCountries = getFilteredCountries();
               {/* States with Cities */}
               {statesWithCities.length > 0 && (
                 <div className='space-y-12'>
-                  {filteredStates.map((state, idx) => (
+                  {filteredStates.filter(state => getStateSlug(state) !== 'null').map((state, idx) => (
                     <div key={idx}>
                       <Link href={`/${getStateSlug(state)}`}>
                         <h2 className='text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2 hover:text-blue-600 transition-colors cursor-pointer w-fit'>
@@ -270,7 +270,7 @@ const filteredCountries = getFilteredCountries();
                       
                       {state.cities.length > 0 ? (
                         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-                          {state.cities.filter(city => getCitySlug(city) !== 'null').map((city) => (
+                          {state.cities.map((city) => (
                             <Link
                               key={city.id}
                               href={`/${getCitySlug(city)}`}
