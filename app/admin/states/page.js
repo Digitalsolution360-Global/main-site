@@ -41,7 +41,7 @@ export default function AdminStates() {
   // Update fetchStates
 const fetchStates = async (page = 1) => {
   try {
-    const res = await fetch(`/api/admin/states?page=${page}&limit=10`);
+    const res = await fetch(`/api/states?page=${page}&limit=10`);
     const data = await res.json();
     setStates(data.data || []);
     setTotalPages(Math.ceil(data.total / 10));
@@ -286,31 +286,30 @@ const fetchStates = async (page = 1) => {
             </div>
           </div>
         )}
-        // Add Pagination Component
-<div className="flex justify-between items-center mt-6">
-  <p className="text-sm text-gray-600">
-    Showing {(currentPage - 1) * 10 + 1} - {Math.min(currentPage * 10, totalStates)} of {totalStates} states
-  </p>
-  <div className="flex gap-2">
-    <button
-      onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-      disabled={currentPage === 1}
-      className="px-4 py-2 border rounded-lg disabled:opacity-50"
-    >
-      Previous
-    </button>
-    <span className="px-4 py-2">
-      Page {currentPage} of {totalPages}
-    </span>
-    <button
-      onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-      disabled={currentPage === totalPages}
-      className="px-4 py-2 border rounded-lg disabled:opacity-50"
-    >
-      Next
-    </button>
-  </div>
-</div>
+          <div className="flex justify-between items-center mt-6">
+          <p className="text-sm text-gray-600">
+            Showing {(currentPage - 1) * 10 + 1} - {Math.min(currentPage * 10, totalStates)} of {totalStates} states
+          </p>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+              className="px-4 py-2 border rounded-lg disabled:opacity-50"
+            >
+              Previous
+            </button>
+            <span className="px-4 py-2">
+              Page {currentPage} of {totalPages}
+            </span>
+            <button
+              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
+              className="px-4 py-2 border rounded-lg disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
+        </div>
       </main>
 
       {showModal && (
