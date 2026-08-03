@@ -11,6 +11,11 @@ export default function AdminStates() {
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [editingState, setEditingState] = useState(null);
+  // Add state variables
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalStates, setTotalStates] = useState(0);
+
   const [formData, setFormData] = useState({
     country_id: '',
     name: '',
@@ -30,20 +35,23 @@ export default function AdminStates() {
       router.push('/admin/leads');
       return;
     }
-    fetchStates();
-  }, [user]);
+    fetchStates(currentPage);
+  }, [user, currentPage]);
 
-  const fetchStates = async () => {
-    try {
-      const res = await fetch('/api/states');
-      const data = await res.json();
-      setStates(data.data || []);
-    } catch (error) {
-      console.error('Error fetching states:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Update fetchStates
+const fetchStates = async (page = 1) => {
+  try {
+    const res = await fetch(`/api/admin/states?page=${page}&limit=10`);
+    const data = await res.json();
+    setStates(data.data || []);
+    setTotalPages(Math.ceil(data.total / 10));
+    setTotalStates(data.total);
+  } catch (error) {
+    console.error('Error fetching states:', error);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -274,9 +282,35 @@ export default function AdminStates() {
                   ))}
                 </tbody>
               </table>
+              
             </div>
           </div>
         )}
+        // Add Pagination Component
+<div className="flex justify-between items-center mt-6">
+  <p className="text-sm text-gray-600">
+    Showing {(currentPage - 1) * 10 + 1} - {Math.min(currentPage * 10, totalStates)} of {totalStates} states
+  </p>
+  <div className="flex gap-2">
+    <button
+      onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+      disabled={currentPage === 1}
+      className="px-4 py-2 border rounded-lg disabled:opacity-50"
+    >
+      Previous
+    </button>
+    <span className="px-4 py-2">
+      Page {currentPage} of {totalPages}
+    </span>
+    <button
+      onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+      disabled={currentPage === totalPages}
+      className="px-4 py-2 border rounded-lg disabled:opacity-50"
+    >
+      Next
+    </button>
+  </div>
+</div>
       </main>
 
       {showModal && (
