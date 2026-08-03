@@ -11,6 +11,7 @@ export default function AdminStates() {
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [editingState, setEditingState] = useState(null);
+  const [countries, setCountries] = useState([]);
   // Add state variables
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -29,7 +30,18 @@ export default function AdminStates() {
     meta_keyword: '',
     status: 1
   });
-
+useEffect(() => {
+  const fetchCountries = async () => {
+    try {
+      const res = await fetch("/api/countries");
+      const data = await res.json();
+      setCountries(data.data || []);
+    } catch (error) {
+      console.error("Error fetching countries:", error);
+    }
+  };
+  fetchCountries();
+}, []);
   useEffect(() => {
     if (user?.username?.toLowerCase() === 'leads') {
       router.push('/admin/leads');
@@ -330,19 +342,26 @@ const fetchStates = async (page = 1) => {
             <form onSubmit={handleSubmit} className="p-6 space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Country ID *
-                  </label>
-                  <input
-                    type="number"
-                    name="country_id"
-                    value={formData.country_id}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Enter country ID"
-                  />
-                </div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    Country *
+  </label>
+
+  <select
+    name="country_id"
+    value={formData.country_id || ''}
+    onChange={handleInputChange}
+    required
+    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+  >
+    <option value="">Select Country</option>
+
+    {countries.map((country) => (
+      <option key={country.id} value={country.id}>
+        {country.name}
+      </option>
+    ))}
+  </select>
+</div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -360,18 +379,24 @@ const fetchStates = async (page = 1) => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Category Name
-                  </label>
-                  <input
-                    type="text"
-                    name="category_name"
-                    value={formData.category_name}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Enter category name"
-                  />
-                </div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Category
+                </label>
+
+                <select
+                  name="category_name"
+                  value={formData.category_name}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                  <option value="">Select Category</option>
+                  <option value="App Development">App Development</option>
+                  <option value="Digital Marketing">Digital Marketing</option>
+                  <option value="Google My Business">Google My Business</option>
+                  <option value="Seo">SEO</option>
+                  <option value="Web Development">Web Development</option>
+                </select>
+              </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">

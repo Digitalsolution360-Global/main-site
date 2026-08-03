@@ -55,7 +55,7 @@ export async function GET(req, { params }) {
 
 export async function PUT(req, { params }) {
   try {
-    const { slug } = params;
+    const { state_id } = params;
     const body = await req.json();
 
     const {
@@ -95,7 +95,7 @@ export async function PUT(req, { params }) {
         meta_description = ?,
         meta_keyword = ?,
         status = ?
-      WHERE slug = ?
+      WHERE state_id = ?
       `,
       [
         country_id || null,
@@ -109,7 +109,7 @@ export async function PUT(req, { params }) {
         meta_description || null,
         meta_keyword || null,
         status ?? 1,
-        slug,
+        state_id,
       ]
     );
 
@@ -122,56 +122,6 @@ export async function PUT(req, { params }) {
     console.error('UPDATE STATE BY SLUG ERROR:', error);
     return NextResponse.json(
       { error: 'Failed to update state' },
-      { status: 500 }
-    );
-  }
-}
-
-export async function DELETE(req, { params }) {
-  try {
-    const { slug } = params;
-
-    // Delete related records first
-    try {
-      await pool.query(
-        'DELETE FROM global_cities WHERE state_id IN (SELECT state_id FROM global_states WHERE slug = ?)',
-        [slug]
-      );
-    } catch (err) {
-      console.log('No cities table or no records deleted');
-    }
-
-    const [result] = await pool.query(
-      'DELETE FROM global_states WHERE slug = ?',
-      [slug]
-    );
-
-    const affectedRows = result.affectedRows;
-    
-    if (affectedRows === 0) {
-      return NextResponse.json(
-        { error: 'State not found' },
-        { status: 404 }
-      );
-    }
-
-    return NextResponse.json({
-      success: true,
-      message: 'State deleted successfully',
-    });
-
-  } catch (error) {
-    console.error('DELETE STATE BY SLUG ERROR:', error);
-
-    if (error.code === 'ER_ROW_IS_REFERENCED_2' || error.code === 'ER_ROW_IS_REFERENCED') {
-      return NextResponse.json(
-        { error: 'Cannot delete state because it has related records' },
-        { status: 409 }
-      );
-    }
-
-    return NextResponse.json(
-      { error: 'Failed to delete state' },
       { status: 500 }
     );
   }
