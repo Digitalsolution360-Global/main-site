@@ -55,7 +55,7 @@ export async function GET(req, { params }) {
 
 export async function PUT(req, { params }) {
   try {
-    const { state_id } = params;
+    const { slug } = params;
     const body = await req.json();
 
     const {
@@ -109,7 +109,7 @@ export async function PUT(req, { params }) {
         meta_description || null,
         meta_keyword || null,
         status ?? 1,
-        state_id,
+        slug,
       ]
     );
 
