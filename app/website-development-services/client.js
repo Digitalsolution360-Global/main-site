@@ -118,6 +118,7 @@ export default function WebsiteDevelopmentServicesPage() {
           {/* LEFT CONTENT */}
           <div className="lg:col-span-2 space-y-20">
             <div className="mb-10">
+              <img src="/services/website-development-services.webp" alt="Website Development Services" title="Website Development Services" className='w-full h-full object-cover rounded-xl mb-8' />
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Best Digital Marketing Agency in India: Your 2026 Growth Partner</h2>
         <p className='text-lg text-gray-600 mb-4 leading-relaxed'>Digital marketing has become very competitive. Without proper optimization and necessary presence, your old website may not stand a chance against your competitors. There is only one player in the league of an established <a href="https://www.digitalsolution360.in/website-development"> Website Development Company in India</a>. Yes, it is <a href="https://www.digitalsolution360.in/"> Digital Solution 360</a>  that crafts cutting-edge solutions. </p>
 
