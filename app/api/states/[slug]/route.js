@@ -55,7 +55,7 @@ export async function GET(req, { params }) {
 
 export async function PUT(req, { params }) {
   try {
-    const { slug } = params;
+    const { slug } = await params;
     const body = await req.json();
 
     const {
@@ -80,7 +80,7 @@ export async function PUT(req, { params }) {
         .replace(/^-|-$/g, '');
     }
 
-    await pool.query(
+    const [result] = await pool.query(
       `
       UPDATE global_states
       SET
@@ -112,7 +112,8 @@ export async function PUT(req, { params }) {
         slug,
       ]
     );
-
+    console.log("Slug:", slug);
+console.log("Result:", result);
     return NextResponse.json({
       success: true,
       message: 'State updated successfully',
