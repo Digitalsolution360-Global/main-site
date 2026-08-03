@@ -260,6 +260,24 @@ export default function AdminDashboard() {
               </div>
             </div>
           </Link>
+          {/* States Card */}
+          <Link href="/admin/states" className="group">
+            <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-6 border-2 border-transparent hover:border-purple-500">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-semibold text-gray-900">State Management</h2>
+                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              </div>
+              <p className="text-gray-600 mb-4">Create, edit, and manage states for your website.</p>
+              <div className="flex items-center text-purple-600 font-medium group-hover:gap-2 transition-all">
+                Manage States
+                <svg className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </Link>
 
           {/* Leads Card */}
           <Link href="/admin/leads" className="group">
