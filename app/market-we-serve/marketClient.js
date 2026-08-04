@@ -12,6 +12,7 @@ const services = [
   { id: 'website-development', name: 'Website Development', color: 'purple' },
   { id: 'digital-marketing', name: 'Digital Marketing', color: 'orange' },
   { id: 'app-development', name: 'App Development', color: 'yellow' }
+  { id: 'social-media', name: 'Social Media', color: 'red' }
 ];
 
 function MarketWeServePage() {
