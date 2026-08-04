@@ -4,22 +4,23 @@ import Link from 'next/link';
 import { UserButton, useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 
-export default function AdminStates() {
+export default function AdminCities() {
   const { user } = useUser();
   const router = useRouter();
-  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const [editingState, setEditingState] = useState(null);
+  const [editingCity, setEditingCity] = useState(null);
   const [countries, setCountries] = useState([]);
-  // Add state variables
+  const [states, setStates] = useState([]);
+  // Add city variables
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [totalStates, setTotalStates] = useState(0);
+  const [totalCities, setTotalCities] = useState(0);
 
   const [formData, setFormData] = useState({
-    country_id: '',
-    name: '',
+    state_id: '',
+    city: '',
     category_name: '',
     slug: '',
     h1_title: '',
@@ -30,40 +31,61 @@ export default function AdminStates() {
     meta_keyword: '',
     status: 1
   });
-useEffect(() => {
-  const fetchCountries = async () => {
-    try {
-      const res = await fetch("/api/countries");
-      const data = await res.json();
-      setCountries(data.data || []);
-    } catch (error) {
-      console.error("Error fetching countries:", error);
-    }
-  };
-  fetchCountries();
-}, []);
+
+  // Fetch countries
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const res = await fetch("/api/countries");
+        const data = await res.json();
+        setCountries(data.data || []);
+      } catch (error) {
+        console.error("Error fetching countries:", error);
+      }
+    };
+    fetchCountries();
+  }, []);
+
+  // Fetch states based on selected country
+  useEffect(() => {
+    const fetchStates = async () => {
+      if (!formData.country_id) {
+        setStates([]);
+        return;
+      }
+      try {
+        const res = await fetch(`/api/states?country_id=${formData.country_id}`);
+        const data = await res.json();
+        setStates(data.data || []);
+      } catch (error) {
+        console.error("Error fetching states:", error);
+      }
+    };
+    fetchStates();
+  }, [formData.country_id]);
+
   useEffect(() => {
     if (user?.username?.toLowerCase() === 'leads') {
       router.push('/admin/leads');
       return;
     }
-    fetchStates(currentPage);
+    fetchCities(currentPage);
   }, [user, currentPage]);
 
-  // Update fetchStates
-const fetchStates = async (page = 1) => {
-  try {
-    const res = await fetch(`/api/states?page=${page}&limit=10`);
-    const data = await res.json();
-    setStates(data.data || []);
-    setTotalPages(Math.ceil(data.total / 10));
-    setTotalStates(data.total);
-  } catch (error) {
-    console.error('Error fetching states:', error);
-  } finally {
-    setLoading(false);
-  }
-};
+  // Fetch cities
+  const fetchCities = async (page = 1) => {
+    try {
+      const res = await fetch(`/api/cities?page=${page}&limit=10`);
+      const data = await res.json();
+      setCities(data.data || []);
+      setTotalPages(Math.ceil(data.total / 10));
+      setTotalCities(data.total);
+    } catch (error) {
+      console.error('Error fetching cities:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -72,7 +94,8 @@ const fetchStates = async (page = 1) => {
       [name]: type === 'checkbox' ? checked : value
     }));
 
-    if (name === 'name' && !editingState) {
+    // Auto-generate slug from city name
+    if (name === 'city' && !editingCity) {
       const slug = value
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, '-')
@@ -84,11 +107,11 @@ const fetchStates = async (page = 1) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = editingState 
-        ? `/api/states/${editingState.state_id}`
-        : '/api/states';
+      const url = editingCity 
+        ? `/api/cities/${editingCity.city_id}`
+        : '/api/cities';
       
-      const method = editingState ? 'PUT' : 'POST';
+      const method = editingCity ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
         method,
@@ -97,63 +120,65 @@ const fetchStates = async (page = 1) => {
       });
 
       if (res.ok) {
-        alert(editingState ? 'State updated successfully!' : 'State created successfully!');
+        alert(editingCity ? 'City updated successfully!' : 'City created successfully!');
         setShowModal(false);
-        setEditingState(null);
+        setEditingCity(null);
         resetForm();
-        fetchStates();
+        fetchCities();
       } else {
         const error = await res.json();
         alert('Error: ' + (error.error || 'Something went wrong'));
       }
     } catch (error) {
-      console.error('Error saving state:', error);
-      alert('Failed to save state');
+      console.error('Error saving city:', error);
+      alert('Failed to save city');
     }
   };
 
-  const handleEdit = (state) => {
-    setEditingState(state);
+  const handleEdit = (city) => {
+    setEditingCity(city);
     setFormData({
-      country_id: state.country_id || '',
-      name: state.name || '',
-      category_name: state.category_name || '',
-      slug: state.slug || '',
-      h1_title: state.h1_title || '',
-      description: state.description || '',
-      image: state.image || '',
-      meta_title: state.meta_title || '',
-      meta_description: state.meta_description || '',
-      meta_keyword: state.meta_keyword || '',
-      status: state.status ?? 1
+      country_id: city.country_id || '',
+      state_id: city.state_id || '',
+      city: city.city || '',
+      category_name: city.category_name || '',
+      slug: city.slug || '',
+      h1_title: city.h1_title || '',
+      description: city.description || '',
+      image: city.image || '',
+      meta_title: city.meta_title || '',
+      meta_description: city.meta_description || '',
+      meta_keyword: city.meta_keyword || '',
+      status: city.status ?? 1
     });
     setShowModal(true);
   };
 
-  const handleDelete = async (state_id) => {
-    if (!confirm('Are you sure you want to delete this state?')) return;
+  const handleDelete = async (city_id) => {
+    if (!confirm('Are you sure you want to delete this city?')) return;
 
     try {
-      const res = await fetch(`/api/states?state_id=${state_id}`, {
+      const res = await fetch(`/api/cities?city_id=${city_id}`, {
         method: 'DELETE'
       });
 
       if (res.ok) {
-        alert('State deleted successfully!');
-        fetchStates();
+        alert('City deleted successfully!');
+        fetchCities();
       } else {
-        alert('Failed to delete state');
+        alert('Failed to delete city');
       }
     } catch (error) {
-      console.error('Error deleting state:', error);
-      alert('Failed to delete state');
+      console.error('Error deleting city:', error);
+      alert('Failed to delete city');
     }
   };
 
   const resetForm = () => {
     setFormData({
       country_id: '',
-      name: '',
+      state_id: '',
+      city: '',
       category_name: '',
       slug: '',
       h1_title: '',
@@ -168,7 +193,7 @@ const fetchStates = async (page = 1) => {
 
   const closeModal = () => {
     setShowModal(false);
-    setEditingState(null);
+    setEditingCity(null);
     resetForm();
   };
 
@@ -191,7 +216,7 @@ const fetchStates = async (page = 1) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
               </Link>
-              <h1 className="text-2xl font-bold text-gray-900">State Management</h1>
+              <h1 className="text-2xl font-bold text-gray-900">City Management</h1>
             </div>
             <UserButton afterSignOutUrl="/" />
           </div>
@@ -201,24 +226,24 @@ const fetchStates = async (page = 1) => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex justify-between items-center mb-6">
           <p className="text-gray-600">
-            Total States: <span className="font-semibold">{states.length}</span>
+            Total Cities: <span className="font-semibold">{cities.length}</span>
           </p>
           <button
             onClick={() => setShowModal(true)}
             className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
           >
-            + Add New State
+            + Add New City
           </button>
         </div>
 
         {loading ? (
           <div className="text-center py-12">
             <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-            <p className="mt-4 text-gray-600">Loading states...</p>
+            <p className="mt-4 text-gray-600">Loading cities...</p>
           </div>
-        ) : states.length === 0 ? (
+        ) : cities.length === 0 ? (
           <div className="bg-white rounded-lg shadow-md p-12 text-center">
-            <p className="text-gray-500 text-lg">No states found. Create your first state!</p>
+            <p className="text-gray-500 text-lg">No cities found. Create your first city!</p>
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -226,6 +251,9 @@ const fetchStates = async (page = 1) => {
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
                   <tr>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      City
+                    </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       State
                     </th>
@@ -244,47 +272,50 @@ const fetchStates = async (page = 1) => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {states.map((state) => (
-                    <tr key={state.state_id} className="hover:bg-gray-50">
+                  {cities.map((city) => (
+                    <tr key={city.city_id} className="hover:bg-gray-50">
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          {state.image && (
+                          {city.image && (
                             <img 
-                              src={`/${state.image}`}
-                              alt={state.name}
+                              src={`/${city.image}`}
+                              alt={city.city}
                               className="w-12 h-12 rounded object-cover"
                             />
                           )}
                           <div>
-                            <p className="text-sm font-medium text-gray-900">{state.name}</p>
-                            <p className="text-xs text-gray-500">{state.slug}</p>
+                            <p className="text-sm font-medium text-gray-900">{city.city}</p>
+                            <p className="text-xs text-gray-500">{city.slug}</p>
                           </div>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                        {state.category_name || '—'}
+                        {city.state_name || '—'}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                        {city.category_name || '—'}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className={`px-2 py-1 text-xs font-medium rounded-full ${
-                          state.status === 1
+                          city.status === 1
                             ? 'bg-green-100 text-green-800' 
                             : 'bg-gray-100 text-gray-800'
                         }`}>
-                          {state.status === 1 ? 'Active' : 'Inactive'}
+                          {city.status === 1 ? 'Active' : 'Inactive'}
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {formatDate(state.created_at)}
+                        {formatDate(city.created_at)}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <button
-                          onClick={() => handleEdit(state)}
+                          onClick={() => handleEdit(city)}
                           className="text-blue-600 hover:text-blue-900 mr-4"
                         >
                           Edit
                         </button>
                         <button
-                          onClick={() => handleDelete(state.state_id)}
+                          onClick={() => handleDelete(city.city_id)}
                           className="text-red-600 hover:text-red-900"
                         >
                           Delete
@@ -294,13 +325,12 @@ const fetchStates = async (page = 1) => {
                   ))}
                 </tbody>
               </table>
-              
             </div>
           </div>
         )}
-          <div className="flex justify-between items-center mt-6">
+        <div className="flex justify-between items-center mt-6">
           <p className="text-sm text-gray-600">
-            Showing {(currentPage - 1) * 10 + 1} - {Math.min(currentPage * 10, totalStates)} of {totalStates} states
+            Showing {(currentPage - 1) * 10 + 1} - {Math.min(currentPage * 10, totalCities)} of {totalCities} cities
           </p>
           <div className="flex gap-2">
             <button
@@ -329,7 +359,7 @@ const fetchStates = async (page = 1) => {
           <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
               <h2 className="text-xl font-bold text-gray-900">
-                {editingState ? 'Edit State' : 'Add New State'}
+                {editingCity ? 'Edit City' : 'Add New City'}
               </h2>
               <button
                 onClick={closeModal}
@@ -341,64 +371,86 @@ const fetchStates = async (page = 1) => {
 
             <form onSubmit={handleSubmit} className="p-6 space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-  <label className="block text-sm font-medium text-gray-700 mb-2">
-    Country *
-  </label>
-
-  <select
-    name="country_id"
-    value={formData.country_id || ''}
-    onChange={handleInputChange}
-    required
-    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-  >
-    <option value="">Select Country</option>
-
-    {countries.map((country) => (
-      <option key={country.id} value={country.id}>
-        {country.name}
-      </option>
-    ))}
-  </select>
-</div>
-
+                {/* Country */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    State Name *
+                    Country *
                   </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
+                  <select
+                    name="country_id"
+                    value={formData.country_id || ''}
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Enter state name"
+                  >
+                    <option value="">Select Country</option>
+                    {countries.map((country) => (
+                      <option key={country.id} value={country.id}>
+                        {country.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* State */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    State *
+                  </label>
+                  <select
+                    name="state_id"
+                    value={formData.state_id || ''}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  >
+                    <option value="">Select State</option>
+                    {states.map((state) => (
+                      <option key={state.id} value={state.id}>
+                        {state.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* City Name */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    City Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Enter city name"
                   />
                 </div>
 
+                {/* Category */}
                 <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Category
-                </label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Category
+                  </label>
+                  <select
+                    name="category_name"
+                    value={formData.category_name}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  >
+                    <option value="">Select Category</option>
+                    <option value="App Development">App Development</option>
+                    <option value="Digital Marketing">Digital Marketing</option>
+                    <option value="Google My Business">Google My Business</option>
+                    <option value="Seo">SEO</option>
+                    <option value="Social Media">Social Media</option>
+                    <option value="Web Development">Web Development</option>
+                  </select>
+                </div>
 
-                <select
-                  name="category_name"
-                  value={formData.category_name}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  <option value="">Select Category</option>
-                  <option value="App Development">App Development</option>
-                  <option value="Digital Marketing">Digital Marketing</option>
-                  <option value="Google My Business">Google My Business</option>
-                  <option value="Seo">SEO</option>
-                  <option value="Social Media">Social Media</option>
-                  <option value="Web Development">Web Development</option>
-                </select>
-              </div>
-
+                {/* Slug */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Slug *
@@ -410,10 +462,11 @@ const fetchStates = async (page = 1) => {
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="state-slug"
+                    placeholder="city-slug"
                   />
                 </div>
 
+                {/* H1 Title */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     H1 Title
@@ -428,6 +481,7 @@ const fetchStates = async (page = 1) => {
                   />
                 </div>
 
+                {/* Image Path */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Image Path
@@ -438,10 +492,11 @@ const fetchStates = async (page = 1) => {
                     value={formData.image}
                     onChange={handleInputChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="/images/state-img.jpg"
+                    placeholder="/images/city-img.jpg"
                   />
                 </div>
 
+                {/* Description */}
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Description
@@ -452,10 +507,11 @@ const fetchStates = async (page = 1) => {
                     onChange={handleInputChange}
                     rows="4"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Enter state description"
+                    placeholder="Enter city description"
                   ></textarea>
                 </div>
 
+                {/* SEO Section */}
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Meta Title
@@ -525,7 +581,7 @@ const fetchStates = async (page = 1) => {
                   type="submit"
                   className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
                 >
-                  {editingState ? 'Update State' : 'Create State'}
+                  {editingCity ? 'Update City' : 'Create City'}
                 </button>
               </div>
             </form>
