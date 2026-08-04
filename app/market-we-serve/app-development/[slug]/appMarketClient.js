@@ -347,7 +347,7 @@ const reviewSchema = {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+    className='grid grid-cols-1 gap-6 items-center'
   >
     <div className='order-2 md:order-1'>
       <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
@@ -357,12 +357,12 @@ const reviewSchema = {
         We work as an app development company in {cityName} for founders testing a first product, established companies replacing something outdated, and teams who need a mobile app tied into systems they already run. Some clients arrive with wireframes and a clear feature list. Others just have a problem they want solved and no idea what the solution should look like technically. Both starting points work fine here.
       </p>
     </div>
-    <div className='order-1 md:order-2'>
+    {/* <div className='order-1 md:order-2'>
       <img
         src="/market/website/case-img9.png"
         alt="App Development"
         className='w-full h-64 object-cover rounded-2xl shadow-lg'
-      />
+      /> */}
     </div>
   </motion.div>
 
@@ -372,15 +372,15 @@ const reviewSchema = {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+    className='grid grid-cols-1 gap-6 items-center'
   >
-    <div>
+    {/* <div>
       <img
         src="/market/website/case-img10.png"
         alt="App Development Services"
         className='w-full h-64 object-cover rounded-2xl shadow-lg'
       />
-    </div>
+    </div> */}
     <div>
       <h3 className='text-2xl font-bold text-gray-900 mb-4'>
         What We Actually Build As App Development Company in {cityName}
@@ -400,20 +400,14 @@ const reviewSchema = {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+    className='grid grid-cols-1 gap-6 items-center'
   >
     <div className='order-2 md:order-1'>
       <p className='text-gray-700 leading-relaxed mb-4'>
         Then there's the stuff that doesn't fit a template at all—a booking system that works differently from anyone else's, a workflow built around how a specific business operates, an integration into software the client's been running for years. E-commerce work brings its own headaches: carts that don't lose items on a bad connection, payment gateways that actually reconcile, inventory that stays accurate across multiple sales channels. Enterprise apps are usually tied into a CRM or ERP somewhere, with higher security expectations from day one — worth mapping out before development starts rather than patching in later.
       </p>
     </div>
-    <div className='order-1 md:order-2'>
-      <img
-        src="/market/website/case-img11.png"
-        alt="Custom App Development"
-        className='w-full h-64 object-cover rounded-2xl shadow-lg'
-      />
-    </div>
+   
   </motion.div>
 
   {/* Section 4 */}
@@ -422,15 +416,9 @@ const reviewSchema = {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+    className='grid grid-cols-1 gap-6 items-center'
   >
-    <div>
-      <img
-        src="/market/website/case-img12.png"
-        alt="Why Choose Us"
-        className='w-full h-64 object-cover rounded-2xl shadow-lg'
-      />
-    </div>
+    
     <div>
       <h3 className='text-2xl font-bold text-gray-900 mb-4'>
         Why Companies Pick Us Over Other Options
@@ -447,7 +435,7 @@ const reviewSchema = {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+    className='grid grid-cols-1 gap-6 items-center'
   >
     <div className='order-2 md:order-1'>
       <p className='text-gray-700 leading-relaxed mb-4'>
@@ -457,13 +445,7 @@ const reviewSchema = {
         None of that makes for a flashy sentence, but it's the difference between an app that works six months after release and one that quietly falls apart.
       </p>
     </div>
-    <div className='order-1 md:order-2'>
-      <img
-        src="/market/website/case-img13.png"
-        alt="App Security"
-        className='w-full h-64 object-cover rounded-2xl shadow-lg'
-      />
-    </div>
+    
   </motion.div>
 
   {/* Section 6 */}
@@ -472,15 +454,9 @@ const reviewSchema = {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+    className='grid grid-cols-1 gap-6 items-center'
   >
-    <div>
-      <img
-        src="/market/website/case-img14.png"
-        alt="App Development Process"
-        className='w-full h-64 object-cover rounded-2xl shadow-lg'
-      />
-    </div>
+    
     <div>
       <h3 className='text-2xl font-bold text-gray-900 mb-4'>
         How a Project Actually Moves Forward
@@ -500,20 +476,14 @@ const reviewSchema = {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+    className='grid grid-cols-1 gap-6 items-center'
   >
     <div className='order-2 md:order-1'>
       <p className='text-gray-700 leading-relaxed'>
         You don't need to understand the technical side of any of this to get a working app out of it.
       </p>
     </div>
-    <div className='order-1 md:order-2'>
-      <img
-        src="/market/website/case-img15.png"
-        alt="App Launch"
-        className='w-full h-64 object-cover rounded-2xl shadow-lg'
-      />
-    </div>
+    
   </motion.div>
 
   {/* Section 8 - Industries */}
@@ -522,15 +492,9 @@ const reviewSchema = {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+    className='grid grid-cols-1 gap-6 items-center'
   >
-    <div>
-      <img
-        src="/market/website/case-img16.png"
-        alt="App Industries"
-        className='w-full h-64 object-cover rounded-2xl shadow-lg'
-      />
-    </div>
+    
     <div>
       <h3 className='text-2xl font-bold text-gray-900 mb-4'>
         Across Different Industries
@@ -547,7 +511,7 @@ const reviewSchema = {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+    className='grid grid-cols-1 gap-6 items-center'
   >
     <div className='order-2 md:order-1'>
       <h3 className='text-2xl font-bold text-gray-900 mb-4'>
@@ -560,13 +524,7 @@ const reviewSchema = {
         Contact Digital Solution 360 for a quote based on what you're actually building, not a generic price list.
       </p>
     </div>
-    <div className='order-1 md:order-2'>
-      <img
-        src="/market/website/case-img17.png"
-        alt="App Cost"
-        className='w-full h-64 object-cover rounded-2xl shadow-lg'
-      />
-    </div>
+    
   </motion.div>
 
   {/* Section 10 - Getting Started */}
@@ -575,15 +533,9 @@ const reviewSchema = {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className='grid grid-cols-1 md:grid-cols-2 gap-6 items-center'
+    className='grid grid-cols-1 gap-6 items-center'
   >
-    <div>
-      <img
-        src="/market/website/case-img18.png"
-        alt="Get Started"
-        className='w-full h-64 object-cover rounded-2xl shadow-lg'
-      />
-    </div>
+    
     <div>
       <h3 className='text-2xl font-bold text-gray-900 mb-4'>
         Getting Started
