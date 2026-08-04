@@ -11,7 +11,7 @@ const services = [
   { id: 'seo', name: 'SEO', color: 'green' },
   { id: 'website-development', name: 'Website Development', color: 'purple' },
   { id: 'digital-marketing', name: 'Digital Marketing', color: 'orange' },
-  { id: 'app-development', name: 'App Development', color: 'yellow' }
+  { id: 'app-development', name: 'App Development', color: 'yellow' },
   { id: 'social-media', name: 'Social Media', color: 'red' }
 ];
 

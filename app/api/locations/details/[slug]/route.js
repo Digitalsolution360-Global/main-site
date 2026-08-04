@@ -38,7 +38,7 @@ export async function GET(request, { params }) {
       serviceType = 'digital-marketing';
     } else if (location.web_slug === slug) {
       serviceType = 'website-development';
-    } else if (location.app_slug === slug) 
+    } else if (location.app_slug === slug) {
       serviceType = 'app-development';
     }else if (location.social_slug === slug) {
       serviceType = 'social-media';
