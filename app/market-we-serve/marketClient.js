@@ -32,6 +32,8 @@ function MarketWeServePage() {
         return city.web_slug;
       case 'app-development':
         return city.app_slug;
+        case 'social-media':
+        return city.social_slug;
       case 'content-writing':
         return city.content_slug;
       case 'digital-marketing':
@@ -56,6 +58,8 @@ function MarketWeServePage() {
         return state.digital_slug;
         case 'app-development':
         return state.app_slug;
+        case 'social-media':
+        return state.social_slug;
       default:
         return state.web_slug;
     }

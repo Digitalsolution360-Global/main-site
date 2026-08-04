@@ -6,6 +6,7 @@ import SEOServicePageClient from '../market-we-serve/seo/[slug]/seoMarketClient'
 import GMBServicePageClient from '../market-we-serve/google-my-business/[slug]/gmbMarketClient';
 import DigitalMarketingServicePageClient from '../market-we-serve/digital-marketing/[slug]/digitalMarketClient';
 import AppServicePageClient from '../market-we-serve/app-development/[slug]/appMarketClient';
+import SocialServicePageClient from '../market-we-serve/social-media/[slug]/socialMarketClient';
 import BlogDetailPageClient from '../blogs/[slug]/blogSlugClient';
 
 // Fetch location or blog data
@@ -176,6 +177,8 @@ export default async function DynamicPage({ params }) {
       return <DigitalMarketingServicePageClient params={params} />;
       case 'app-development':
       return <AppServicePageClient params={params} />;
+      case 'social-media':
+      return <SocialServicePageClient params={params} />;
     case 'website-development':
     default:
       return <WebDevServicePageClient params={params} />;
