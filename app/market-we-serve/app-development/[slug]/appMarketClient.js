@@ -362,8 +362,8 @@ const reviewSchema = {
         src="/market/website/case-img9.png"
         alt="App Development"
         className='w-full h-64 object-cover rounded-2xl shadow-lg'
-      /> */}
-    </div>
+      />
+    </div> */}
   </motion.div>
 
   {/* Section 2 */}
