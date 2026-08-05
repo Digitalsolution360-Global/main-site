@@ -17,6 +17,7 @@ export default function SummernoteEditor({ value, onChange }) {
             ['para', ['ul', 'ol']],
             ['insert', ['link']],
             ['view', ['codeview']]
+            
           ],
           callbacks: {
             onChange: (contents) => {
