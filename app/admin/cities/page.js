@@ -19,6 +19,135 @@ export default function AdminCities() {
   const [totalPages, setTotalPages] = useState(1);
   const [totalCities, setTotalCities] = useState(0);
 
+  // Add state variables
+const [showFAQModal, setShowFAQModal] = useState(false);
+const [faqs, setFaqs] = useState([]);
+const [loadingFAQs, setLoadingFAQs] = useState(false);
+const [editingFAQ, setEditingFAQ] = useState(null);
+const [faqFormData, setFaqFormData] = useState({
+  city_id: '',
+  question: '',
+  answer: '',
+  serial_no: 0
+});
+
+// Fetch FAQs for a city
+const fetchFAQs = async (cityId) => {
+  setLoadingFAQs(true);
+  try {
+    const res = await fetch(`/api/city-faqs?city_id=${cityId}`);
+    const data = await res.json();
+    setFaqs(data.data || []);
+  } catch (error) {
+    console.error('Error fetching FAQs:', error);
+  } finally {
+    setLoadingFAQs(false);
+  }
+};
+
+// Open FAQ Modal
+const openFAQModal = (city) => {
+  setEditingCity(city);
+  setFaqFormData({
+    city_id: String(city.city_id),
+    question: '',
+    answer: '',
+    serial_no: 0
+  });
+  fetchFAQs(city.city_id);
+  setShowFAQModal(true);
+};
+
+// Close FAQ Modal
+const closeFAQModal = () => {
+  setShowFAQModal(false);
+  setEditingFAQ(null);
+  setFaqs([]);
+  setFaqFormData({
+    city_id: '',
+    question: '',
+    answer: '',
+    serial_no: 0
+  });
+};
+
+// Handle FAQ Form Input Change
+const handleFAQInputChange = (e) => {
+  const { name, value } = e.target;
+  setFaqFormData(prev => ({
+    ...prev,
+    [name]: name === 'serial_no' ? parseInt(value) || 0 : value
+  }));
+};
+
+// Submit FAQ
+const handleFAQSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const url = editingFAQ 
+      ? `/api/city-faqs/${editingFAQ.id}`
+      : '/api/city-faqs';
+    
+    const method = editingFAQ ? 'PUT' : 'POST';
+
+    const res = await fetch(url, {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(faqFormData)
+    });
+
+    if (res.ok) {
+      alert(editingFAQ ? 'FAQ updated successfully!' : 'FAQ added successfully!');
+      setEditingFAQ(null);
+      setFaqFormData({
+        city_id: faqFormData.city_id,
+        question: '',
+        answer: '',
+        serial_no: 0
+      });
+      fetchFAQs(parseInt(faqFormData.city_id));
+    } else {
+      const error = await res.json();
+      alert('Error: ' + (error.error || 'Something went wrong'));
+    }
+  } catch (error) {
+    console.error('Error saving FAQ:', error);
+    alert('Failed to save FAQ');
+  }
+};
+
+// Edit FAQ
+const openEditFAQ = (faq) => {
+  setEditingFAQ(faq);
+  setFaqFormData({
+    city_id: String(faq.city_id),
+    question: faq.question,
+    answer: faq.answer,
+    serial_no: faq.serial_no || 0
+  });
+};
+
+// Delete FAQ
+const handleDeleteFAQ = async (id) => {
+  if (!confirm('Are you sure you want to delete this FAQ?')) return;
+
+  try {
+    const res = await fetch(`/api/city-faqs?id=${id}`, {
+      method: 'DELETE'
+    });
+
+    if (res.ok) {
+      alert('FAQ deleted successfully!');
+      fetchFAQs(parseInt(faqFormData.city_id));
+    } else {
+      alert('Failed to delete FAQ');
+    }
+  } catch (error) {
+    console.error('Error deleting FAQ:', error);
+    alert('Failed to delete FAQ');
+  }
+};
+
   const [formData, setFormData] = useState({
     country_id: '',
     state_id: '',
@@ -317,6 +446,13 @@ export default function AdminCities() {
                           Edit
                         </button>
                         <button
+                          onClick={() => openFAQModal(city)}
+                          className="text-emerald-600 hover:text-emerald-900 mr-2"
+                          title="Manage FAQs"
+                        >
+                          FAQs
+                        </button>
+                        <button
                           onClick={() => handleDelete(city.city_id)}
                           className="text-red-600 hover:text-red-900"
                         >
@@ -586,6 +722,172 @@ export default function AdminCities() {
           </div>
         </div>
       )}
+      {/* FAQ Modal */}
+{showFAQModal && editingCity && (
+  <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+    <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
+        <div>
+          <h2 className="text-xl font-bold text-gray-900">Manage FAQs</h2>
+          <p className="text-sm text-gray-500">For: {editingCity.city}</p>
+        </div>
+        <button
+          onClick={closeFAQModal}
+          className="text-gray-400 hover:text-gray-600 text-2xl"
+        >
+          ×
+        </button>
+      </div>
+
+      <div className="p-6">
+        {/* FAQ Form */}
+        <form onSubmit={handleFAQSubmit} className="mb-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-sm font-semibold text-gray-900 mb-4">
+            {editingFAQ ? 'Edit FAQ' : 'Add New FAQ'}
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="md:col-span-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Question *
+              </label>
+              <input
+                type="text"
+                name="question"
+                value={faqFormData.question}
+                onChange={handleFAQInputChange}
+                required
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Enter FAQ question"
+              />
+            </div>
+
+            <div className="md:col-span-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Answer *
+              </label>
+              <textarea
+                name="answer"
+                value={faqFormData.answer}
+                onChange={handleFAQInputChange}
+                required
+                rows="3"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Enter FAQ answer"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Serial Number
+              </label>
+              <input
+                type="number"
+                name="serial_no"
+                value={faqFormData.serial_no}
+                onChange={handleFAQInputChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="0"
+                min="0"
+              />
+            </div>
+
+            <div className="flex items-end gap-3">
+              <button
+                type="submit"
+                className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+              >
+                {editingFAQ ? 'Update FAQ' : 'Add FAQ'}
+              </button>
+              {editingFAQ && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEditingFAQ(null);
+                    setFaqFormData({
+                      city_id: String(editingCity.city_id),
+                      question: '',
+                      answer: '',
+                      serial_no: 0
+                    });
+                  }}
+                  className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  Cancel Edit
+                </button>
+              )}
+            </div>
+          </div>
+        </form>
+
+        {/* FAQ List */}
+        <div>
+          <h3 className="text-sm font-semibold text-gray-900 mb-4">
+            Existing FAQs ({faqs.length})
+          </h3>
+          
+          {loadingFAQs ? (
+            <div className="text-center py-8 text-gray-500">Loading FAQs...</div>
+          ) : faqs.length === 0 ? (
+            <div className="text-center py-8 text-gray-500">No FAQs added yet.</div>
+          ) : (
+            <div className="space-y-3">
+              {faqs.map((faq) => (
+                <div
+                  key={faq.id}
+                  className="p-4 bg-gray-50 border border-gray-200 rounded-lg"
+                >
+                  <div className="flex justify-between items-start gap-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-xs text-gray-500">
+                          #{faq.serial_no || '0'}
+                        </span>
+                        <h4 className="font-semibold text-gray-900">
+                          {faq.question}
+                        </h4>
+                      </div>
+                      <p className="text-sm text-gray-600">{faq.answer}</p>
+                    </div>
+                    <div className="flex gap-2 flex-shrink-0">
+                      <button
+                        onClick={() => openEditFAQ(faq)}
+                        className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={() => handleDeleteFAQ(faq.id)}
+                        className="p-2 text-red-600 hover:bg-red-50 rounded-lg"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <polyline points="3 6 5 6 21 6" />
+                          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="sticky bottom-0 bg-white border-t px-6 py-4 flex justify-end">
+        <button
+          onClick={closeFAQModal}
+          className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
 }
