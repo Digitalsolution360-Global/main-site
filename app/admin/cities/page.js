@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { UserButton, useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
+import TipTapEditor from '@/components/TipTapEditor';
 
 export default function AdminCities() {
   const { user } = useUser();
@@ -502,14 +503,10 @@ export default function AdminCities() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Description
                   </label>
-                  <textarea
-                    name="description"
+                 <TipTapEditor
                     value={formData.description}
-                    onChange={handleInputChange}
-                    rows="4"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Enter city description"
-                  ></textarea>
+                    onChange={(content) => setFormData(prev => ({ ...prev, description: content }))}
+                  />
                 </div>
 
                 {/* SEO Section */}
