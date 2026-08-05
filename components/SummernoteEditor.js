@@ -11,20 +11,25 @@ export default function SummernoteEditor({ value, onChange }) {
       import('summernote').then(() => {
         $(editorRef.current).summernote({
           height: 200,
+          placeholder: 'Enter description...',
+          toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['para', ['ul', 'ol']],
+            ['insert', ['link']],
+            ['view', ['codeview']]
+          ],
           callbacks: {
             onChange: (contents) => {
               onChange(contents);
             }
           }
         });
+
+        if (value) {
+          $(editorRef.current).summernote('code', value);
+        }
       });
     }
-
-    return () => {
-      if (editorRef.current) {
-        $(editorRef.current).summernote('destroy');
-      }
-    };
   }, []);
 
   return <div ref={editorRef} />;
