@@ -10,22 +10,25 @@ export async function GET(req, { params }) {
     const [rows] = await pool.query(
       `
       SELECT 
-        city_id,
-        state_id,
-        city,
-        category_name,
-        slug,
-        h1_title,
-        description,
-        image,
-        meta_title,
-        meta_description,
-        meta_keyword,
-        status,
-        created_at,
-        updated_at
-      FROM global_cities
-      WHERE slug = ?
+        c.city_id,
+        c.state_id,
+        c.city,
+        c.category_name,
+        c.slug,
+        c.h1_title,
+        c.description,
+        c.image,
+        c.meta_title,
+        c.meta_description,
+        c.meta_keyword,
+        c.status,
+        c.created_at,
+        c.updated_at,
+        s.name as state_name,
+        s.country_id
+      FROM global_cities c
+      LEFT JOIN global_states s ON c.state_id = s.state_id
+      WHERE c.slug = ?
       `,
       [slug]
     );

@@ -19,6 +19,7 @@ export default function AdminCities() {
   const [totalCities, setTotalCities] = useState(0);
 
   const [formData, setFormData] = useState({
+    country_id: '',
     state_id: '',
     city: '',
     category_name: '',

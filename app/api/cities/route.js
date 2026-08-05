@@ -14,26 +14,30 @@ export async function GET(req) {
 
     let query = `
       SELECT 
-        city_id,
-        state_id,
-        city,
-        category_name,
-        slug,
-        h1_title,
-        description,
-        image,
-        meta_title,
-        meta_description,
-        meta_keyword,
-        status,
-        created_at,
-        updated_at
-      FROM global_cities
+        c.city_id,
+        c.state_id,
+        c.city,
+        c.category_name,
+        c.slug,
+        c.h1_title,
+        c.description,
+        c.image,
+        c.meta_title,
+        c.meta_description,
+        c.meta_keyword,
+        c.status,
+        c.created_at,
+        c.updated_at,
+        s.name as state_name,
+        s.country_id
+      FROM global_cities c
+      LEFT JOIN global_states s ON c.state_id = s.state_id
     `;
 
     let countQuery = `
       SELECT COUNT(*) as total
-      FROM global_cities
+      FROM global_cities c
+      LEFT JOIN global_states s ON c.state_id = s.state_id
     `;
 
     const params = [];
@@ -41,24 +45,22 @@ export async function GET(req) {
     if (search) {
       query += `
         WHERE 
-          city LIKE ? OR
-          slug LIKE ? OR
-          category_name LIKE ? OR
-          h1_title LIKE ? OR
-          meta_title LIKE ? OR
-          meta_description LIKE ?
+          c.city LIKE ? OR
+          c.slug LIKE ? OR
+          c.category_name LIKE ? OR
+          c.h1_title LIKE ? OR
+          c.meta_title LIKE ? OR
+          c.meta_description LIKE ?
       `;
-
       countQuery += `
         WHERE 
-          city LIKE ? OR
-          slug LIKE ? OR
-          category_name LIKE ? OR
-          h1_title LIKE ? OR
-          meta_title LIKE ? OR
-          meta_description LIKE ?
+          c.city LIKE ? OR
+          c.slug LIKE ? OR
+          c.category_name LIKE ? OR
+          c.h1_title LIKE ? OR
+          c.meta_title LIKE ? OR
+          c.meta_description LIKE ?
       `;
-
       params.push(
         `%${search}%`,
         `%${search}%`,
@@ -69,8 +71,18 @@ export async function GET(req) {
       );
     }
 
+    // Country filter
+    // if (countryId) {
+    //   const hasWhere = query.includes('WHERE');
+    //   query += hasWhere ? ' AND' : ' WHERE';
+    //   query += ` s.country_id = ?`;
+    //   countQuery += hasWhere ? ' AND' : ' WHERE';
+    //   countQuery += ` s.country_id = ?`;
+    //   params.push(parseInt(countryId));
+    // }
+
     query += `
-      ORDER BY created_at DESC
+      ORDER BY c.created_at DESC
       LIMIT ? OFFSET ?
     `;
 
