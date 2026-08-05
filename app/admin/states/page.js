@@ -3,11 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { UserButton, useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
-import dynamic from 'next/dynamic';
-const SummernoteEditor = dynamic(
-  () => import('@/components/SummernoteEditor'),
-  { ssr: false }
-);
+import TipTapEditor from '@/components/TipTapEditor';
 
 export default function AdminStates() {
   const { user } = useUser();
@@ -459,10 +455,10 @@ const fetchStates = async (page = 1) => {
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Enter state description"
                   ></textarea> */}
-                  <SummernoteEditor
-                    value={formData.description}
-                    onChange={(content) => setFormData(prev => ({ ...prev, description: content }))}
-                  />
+                  <TipTapEditor
+                  value={formData.description}
+                  onChange={(content) => setFormData(prev => ({ ...prev, description: content }))}
+                />
                 </div>
 
                 <div className="md:col-span-2">
