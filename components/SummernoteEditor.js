@@ -1,44 +1,31 @@
-"use client";
+'use client';
+import { useEffect, useRef } from 'react';
+import $ from 'jquery';
+import 'summernote/dist/summernote-lite.css';
 
-import { useEffect, useRef } from "react";
-import $ from "jquery";
-
-import "summernote/dist/summernote-lite.css";
-import "summernote/dist/summernote-lite.js";
-
-export default function SummernoteEditor({
-  value,
-  onChange,
-  height = 300,
-}) {
+export default function SummernoteEditor({ value, onChange }) {
   const editorRef = useRef(null);
 
   useEffect(() => {
-    const $editor = $(editorRef.current);
-
-    $editor.summernote({
-      height,
-      callbacks: {
-        onChange: function (contents) {
-          onChange(contents);
-        },
-      },
-    });
-
-    $editor.summernote("code", value || "");
+    if (typeof window !== 'undefined' && editorRef.current) {
+      import('summernote').then(() => {
+        $(editorRef.current).summernote({
+          height: 200,
+          callbacks: {
+            onChange: (contents) => {
+              onChange(contents);
+            }
+          }
+        });
+      });
+    }
 
     return () => {
-      $editor.summernote("destroy");
+      if (editorRef.current) {
+        $(editorRef.current).summernote('destroy');
+      }
     };
   }, []);
 
-  useEffect(() => {
-    const $editor = $(editorRef.current);
-
-    if ($editor.summernote("code") !== value) {
-      $editor.summernote("code", value || "");
-    }
-  }, [value]);
-
-  return <textarea ref={editorRef}></textarea>;
+  return <div ref={editorRef} />;
 }

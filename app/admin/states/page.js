@@ -3,7 +3,11 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { UserButton, useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
-import SummernoteEditor from "@/components/SummernoteEditor";
+import dynamic from 'next/dynamic';
+const SummernoteEditor = dynamic(
+  () => import('@/components/SummernoteEditor'),
+  { ssr: false }
+);
 
 export default function AdminStates() {
   const { user } = useUser();
@@ -67,20 +71,20 @@ const fetchStates = async (page = 1) => {
 };
 
   const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
+  const { name, value, type, checked } = e.target;
+  setFormData(prev => ({
+    ...prev,
+    [name]: type === 'checkbox' ? checked : value
+  }));
 
-    if (name === 'name' && !editingState) {
-      const slug = value
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/(^-|-$)/g, '');
-      setFormData(prev => ({ ...prev, slug }));
-    }
-  };
+  if (name === 'name' && !editingState) {
+    const slug = value
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+    setFormData(prev => ({ ...prev, slug }));
+  }
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -457,10 +461,8 @@ const fetchStates = async (page = 1) => {
                   ></textarea> */}
                   <SummernoteEditor
                     value={formData.description}
-                    onChange={handleInputChange}
+                    onChange={(content) => setFormData(prev => ({ ...prev, description: content }))}
                   />
-
-                  <pre>{formData.description}</pre>
                 </div>
 
                 <div className="md:col-span-2">
