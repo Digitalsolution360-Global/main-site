@@ -19,6 +19,8 @@ export default function AdminStates() {
   const [totalStates, setTotalStates] = useState(0);
   const [totalCount, settotalCount] = useState(0);
 
+  const [searchTerm, setSearchTerm] = useState('');
+
   // Add after your existing state variables
   const [showFAQModal, setShowFAQModal] = useState(false);
   const [faqs, setFaqs] = useState([]);
@@ -61,13 +63,13 @@ useEffect(() => {
       router.push('/admin/leads');
       return;
     }
-    fetchStates(currentPage);
-  }, [user, currentPage]);
+    fetchStates(currentPage,searchTerm);
+  }, [user, currentPage, searchTerm]);
 
   // Update fetchStates
-const fetchStates = async (page = 1) => {
+const fetchStates = async (page = 1, search = '') => {
   try {
-    const res = await fetch(`/api/states?page=${page}&limit=10`);
+    const res = await fetch(`/api/states?page=${page}&limit=10&search=${encodeURIComponent(search)}`);
     const data = await res.json();
     setStates(data.data || []);
     setTotalPages(Math.ceil(data.total / 10));
@@ -331,17 +333,56 @@ const handleDeleteFAQ = async (id) => {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex justify-between items-center mb-6">
-          <p className="text-gray-600">
-            Total States: <span className="font-semibold">{totalCount}</span>
-          </p>
-          <button
-            onClick={() => setShowModal(true)}
-            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-          >
-            + Add New State
-          </button>
-        </div>
+       
+<div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
+  <p className="text-gray-600">
+    Total States: <span className="font-semibold">{totalCount}</span>
+  </p>
+  
+  {/* Search Input */}
+  <div className="flex items-center gap-3 w-full sm:w-auto">
+    <div className="relative flex-1 sm:w-64">
+      <input
+        type="text"
+        placeholder="Search states..."
+        value={searchTerm}
+        onChange={(e) => {
+          setSearchTerm(e.target.value);
+          setCurrentPage(1);
+          fetchStates(1, e.target.value);
+        }}
+        className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      />
+      <svg
+        className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+    </div>
+    {searchTerm && (
+      <button
+        onClick={() => {
+          setSearchTerm('');
+          setCurrentPage(1);
+          fetchStates(1, '');
+        }}
+        className="text-gray-400 hover:text-gray-600"
+      >
+        ✕
+      </button>
+    )}
+    <button
+      onClick={() => setShowModal(true)}
+      className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium whitespace-nowrap"
+    >
+      + Add New State
+    </button>
+  </div>
+</div>
 
         {loading ? (
           <div className="text-center py-12">

@@ -20,6 +20,7 @@ export default function AdminCities() {
   const [totalCities, setTotalCities] = useState(0);
   const [totalCount, settotalCount] = useState(0);
 
+  const [searchTerm, setSearchTerm] = useState('');
   // Add state variables
 const [showFAQModal, setShowFAQModal] = useState(false);
 const [faqs, setFaqs] = useState([]);
@@ -201,13 +202,13 @@ const handleDeleteFAQ = async (id) => {
       router.push('/admin/leads');
       return;
     }
-    fetchCities(currentPage);
-  }, [user, currentPage]);
+    fetchCities(currentPage, searchTerm);
+  }, [user, currentPage, searchTerm]);
 
   // Fetch cities
-  const fetchCities = async (page = 1) => {
+  const fetchCities = async (page = 1, search = '') => {
     try {
-      const res = await fetch(`/api/cities?page=${page}&limit=10`);
+      const res = await fetch(`/api/cities?page=${page}&limit=10&search=${encodeURIComponent(search)}`);
       const data = await res.json();
       setCities(data.data || []);
       setTotalPages(Math.ceil(data.total / 10));
@@ -357,17 +358,52 @@ const handleDeleteFAQ = async (id) => {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex justify-between items-center mb-6">
-          <p className="text-gray-600">
-            Total Cities: <span className="font-semibold">{totalCount}</span>
-          </p>
-          <button
-            onClick={() => setShowModal(true)}
-            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-          >
-            + Add New City
-          </button>
-        </div>
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
+  <p className="text-gray-600">
+    Total Cities: <span className="font-semibold">{totalCount}</span>
+  </p>
+  
+  <div className="flex items-center gap-3 w-full sm:w-auto">
+    <div className="relative flex-1 sm:w-64">
+      <input
+        type="text"
+        placeholder="Search cities..."
+        value={searchTerm}
+        onChange={(e) => {
+          setSearchTerm(e.target.value);
+          setCurrentPage(1);
+        }}
+        className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      />
+      <svg
+        className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+    </div>
+    {searchTerm && (
+      <button
+        onClick={() => {
+          setSearchTerm('');
+          setCurrentPage(1);
+        }}
+        className="text-gray-400 hover:text-gray-600"
+      >
+        ✕
+      </button>
+    )}
+    <button
+      onClick={() => setShowModal(true)}
+      className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium whitespace-nowrap"
+    >
+      + Add New City
+    </button>
+  </div>
+</div>
 
         {loading ? (
           <div className="text-center py-12">
