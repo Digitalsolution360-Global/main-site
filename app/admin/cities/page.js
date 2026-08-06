@@ -18,6 +18,7 @@ export default function AdminCities() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalCities, setTotalCities] = useState(0);
+  const [totalCount, settotalCount] = useState(0);
 
   // Add state variables
 const [showFAQModal, setShowFAQModal] = useState(false);
@@ -211,6 +212,7 @@ const handleDeleteFAQ = async (id) => {
       setCities(data.data || []);
       setTotalPages(Math.ceil(data.total / 10));
       setTotalCities(data.total);
+      settotalCount(data.totalCities || 0);
     } catch (error) {
       console.error('Error fetching cities:', error);
     } finally {
@@ -357,7 +359,7 @@ const handleDeleteFAQ = async (id) => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex justify-between items-center mb-6">
           <p className="text-gray-600">
-            Total Cities: <span className="font-semibold">{cities.length}</span>
+            Total Cities: <span className="font-semibold">{totalCount}</span>
           </p>
           <button
             onClick={() => setShowModal(true)}

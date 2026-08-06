@@ -94,11 +94,19 @@ export async function GET(req) {
 
     const [countResult] = await pool.query(countQuery, params);
 
+      const [cityCount] = await pool.query(`
+  SELECT COUNT(*) AS total_cities
+  FROM global_cities
+`);
+
+const totalCities = cityCount[0].total_cities;
+
     return NextResponse.json({
       data: rows,
       total: countResult[0].total,
       page,
       limit,
+      totalCities,
     });
 
   } catch (error) {

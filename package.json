@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.34.0",
+    "@csstools/convert-colors": "^2.0.1",
     "@tabler/icons-react": "^3.36.1",
     "@tiptap/extension-placeholder": "^3.29.2",
     "@tiptap/react": "^3.29.2",

@@ -92,11 +92,18 @@ export async function GET(req) {
     ]);
 
     const [countResult] = await pool.query(countQuery, params);
+    const [stateCount] = await pool.query(`
+  SELECT COUNT(*) AS total_states
+  FROM global_states
+`);
+
+const totalStates = stateCount[0].total_states;
 
     return NextResponse.json({
       data: rows,
       total: countResult[0].total,
       page,
+      totalStates,
       limit,
     });
 

@@ -17,6 +17,7 @@ export default function AdminStates() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalStates, setTotalStates] = useState(0);
+  const [totalCount, settotalCount] = useState(0);
 
   // Add after your existing state variables
   const [showFAQModal, setShowFAQModal] = useState(false);
@@ -71,6 +72,7 @@ const fetchStates = async (page = 1) => {
     setStates(data.data || []);
     setTotalPages(Math.ceil(data.total / 10));
     setTotalStates(data.total);
+    settotalCount(data.totalStates || 0);
   } catch (error) {
     console.error('Error fetching states:', error);
   } finally {
@@ -331,7 +333,7 @@ const handleDeleteFAQ = async (id) => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex justify-between items-center mb-6">
           <p className="text-gray-600">
-            Total States: <span className="font-semibold">{states.length}</span>
+            Total States: <span className="font-semibold">{totalCount}</span>
           </p>
           <button
             onClick={() => setShowModal(true)}
