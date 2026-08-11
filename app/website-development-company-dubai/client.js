@@ -8,6 +8,10 @@ import {
   IconChevronRight,
   IconPlus,
   IconMinus,
+  IconCode,
+  IconLayout,
+  IconDeviceLaptop,
+  IconRocket,
 } from "@tabler/icons-react";
 
 export default function WebsiteDevelopmentCompanyDubai() {
@@ -43,40 +47,71 @@ export default function WebsiteDevelopmentCompanyDubai() {
   return (
     <BgLayout>
       {/* ================= HERO ================= */}
-      <section className="relative h-[55vh] mt-21 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          {/* Reusing existing hero image or placeholder */}
-          <img
-            src="/services/web-app-dev-hero.webp"
-            alt="Website Development Company in Dubai"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/70" />
-        </div>
-
-        <div className="relative z-10 max-w-5xl px-6 text-center text-white">
-          <div className="flex justify-center items-center gap-2 text-sm mb-6">
-            <Link href="/" className="flex items-center gap-1 hover:text-blue-400">
-              <IconHome size={18} /> Home
-            </Link>
-            <IconChevronRight size={16} />
-            <span className="text-blue-300">Website Development Dubai</span>
-          </div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-2xl md:text-4xl font-bold mb-6"
-          >
-            Best Website Development Company in <span className="text-blue-400">Dubai</span>
-          </motion.h1>
-
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            We create responsive, SEO-friendly, and custom websites that drive business growth.
-          </p>
-        </div>
-      </section>
-
+       <section className="relative min-h-[60vh] flex items-center px-4 md:px-8 lg:px-16 pt-30 pb-16 overflow-hidden">
+            {/* Background Image & Gradient Overlay */}
+            <div className="absolute inset-0 z-0">
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 z-10" />
+              <img
+                src="/services/web-app-dev-hero.webp"
+                alt="Website Development Company in Dubai"
+                className="w-full h-full object-cover"
+              />
+            </div>
+      
+            {/* Content */}
+            <div className="max-w-7xl mx-auto relative z-20 w-full">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                {/* Breadcrumb */}
+                <Link
+                  href="/"
+                  className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-4 transition-colors"
+                >
+                  <IconHome className="w-4 h-4" /> Home
+                  
+                </Link>
+      
+                {/* Badge with IconCode */}
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white ml-2 px-4 py-2 rounded-lg text-sm font-semibold mb-6 border border-white/30"
+                >
+                  <IconCode className="w-4 h-4" /> Web Development Dubai
+                </motion.span>
+      
+                {/* Title */}
+                <motion.h1
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 max-w-4xl"
+                >
+                  <span className="text-blue-400">Best Website Development Company in</span> Dubai
+                </motion.h1>
+      
+                {/* Description */}
+                <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mb-8">
+                  We create responsive, SEO-friendly, and custom websites that drive business growth.
+                </p>
+      
+                {/* CTA */}
+                <div className="flex flex-wrap gap-4 mb-10">
+                  <Link
+                    href="/contact-us"
+                    className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl inline-flex items-center gap-2"
+                  >
+                    Get Free Consultation <IconRocket className="w-5 h-5" />
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+      
       {/* ================= CONTENT ================= */}
       <section className="py-14">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-12 items-start">
