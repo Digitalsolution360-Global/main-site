@@ -102,7 +102,7 @@ export default function WebsiteDevelopmentServicesPage() {
             className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-4 transition-colors"
           >
             <IconHome className="w-4 h-4" /> Home
-            <IconChevronRight className="w-4 h-4" />
+            
           </Link>
 
           {/* Badge with IconCode */}
