@@ -78,38 +78,85 @@ export default function WebsiteDevelopmentServicesPage() {
   return (
     <BgLayout>
       {/* ================= HERO ================= */}
-      <section className="relative h-[55vh] mt-21 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/services/website-development-hero.webp"
-            alt="Website Development Services"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/70" />
-        </div>
+       <section className="relative min-h-[60vh] flex items-center px-4 md:px-8 lg:px-16 pt-24 pb-16 overflow-hidden">
+      {/* Background Image & Gradient Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 z-10" />
+        <img
+          src="/services/website-development-hero.webp"
+          alt="Website Development Services"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-        <div className="relative z-10 max-w-5xl px-6 text-center text-white">
-          <div className="flex justify-center items-center gap-2 text-sm mb-6">
-            <Link href="/" className="flex items-center gap-1 hover:text-blue-400">
-              <IconHome size={18} /> Home
-            </Link>
-            <IconChevronRight size={16} />
-            <span className="text-blue-300">Website Development</span>
-          </div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
+      {/* Content */}
+      <div className="max-w-7xl mx-auto relative z-20 w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Breadcrumb */}
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-4 transition-colors"
           >
-             <span className="text-blue-400"> Website Development</span> Service in India
+            <IconHome className="w-4 h-4" /> Home
+            <IconChevronRight className="w-4 h-4" />
+            <span className="text-blue-300">Website Development</span>
+          </Link>
+
+          {/* Badge with IconCode */}
+          <motion.span
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-semibold mb-6 border border-white/30"
+          >
+            <IconCode className="w-4 h-4" /> Web Development
+          </motion.span>
+
+          {/* Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 max-w-4xl"
+          >
+            <span className="text-blue-400">Website Development</span> Service in India
           </motion.h1>
 
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+          {/* Description */}
+          <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mb-8">
             High-performance websites designed to engage users and grow your business.
           </p>
-        </div>
-      </section>
+
+          {/* CTA */}
+          <div className="flex flex-wrap gap-4 mb-10">
+            <Link
+              href="/contact-us"
+              className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl inline-flex items-center gap-2"
+            >
+              Get Free Consultation <IconRocket className="w-5 h-5" />
+            </Link>
+          </div>
+
+          {/* Optional Stats – if you want to add them later, you can use IconCode, IconLayout, IconDeviceLaptop, etc. */}
+          {/*
+          <div className="flex flex-wrap gap-6">
+            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
+              <IconCode className="w-6 h-6 text-blue-400" />
+              <div>
+                <div className="text-2xl font-bold text-white">100+</div>
+                <div className="text-sm text-gray-300">Projects Delivered</div>
+              </div>
+            </div>
+            ...
+          </div>
+          */}
+        </motion.div>
+      </div>
+    </section>
 
       {/* ================= CONTENT ================= */}
       <section className="py-14">
