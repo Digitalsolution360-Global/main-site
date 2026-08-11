@@ -78,7 +78,7 @@ export default function WebsiteDevelopmentServicesPage() {
   return (
     <BgLayout>
       {/* ================= HERO ================= */}
-       <section className="relative min-h-[60vh] flex items-center px-4 md:px-8 lg:px-16 pt-24 pb-16 overflow-hidden">
+       <section className="relative min-h-[60vh] flex items-center px-4 md:px-8 lg:px-16 pt-30 pb-16 overflow-hidden">
       {/* Background Image & Gradient Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 z-10" />
@@ -103,7 +103,6 @@ export default function WebsiteDevelopmentServicesPage() {
           >
             <IconHome className="w-4 h-4" /> Home
             <IconChevronRight className="w-4 h-4" />
-            <span className="text-blue-300">Website Development</span>
           </Link>
 
           {/* Badge with IconCode */}

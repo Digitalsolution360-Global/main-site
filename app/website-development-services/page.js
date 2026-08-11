@@ -12,6 +12,16 @@ export const metadata = {
     canonical:
       "https://www.digitalsolution360.com/website-development-services",
   },
+  openGraph: {
+    images: [
+      {
+        url: "https://www.digitalsolution360.com/services/website-development-hero.webp",
+        width: 1200,
+        height: 630,
+        alt: "Website Development Services by Digital Solution 360",
+      },
+    ],
+  },
 };
 
 export default function Page() {
