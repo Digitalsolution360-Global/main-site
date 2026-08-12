@@ -273,7 +273,7 @@ export default function WebsiteDevelopmentCompanyDubai() {
           {/* RIGHT SIDEBAR */}
           <aside className="bg-white shadow-xl rounded-2xl p-6 sticky top-28">
             <ContactForm1/>
-            <h3 className="text-xl font-bold my-4 border-b pb-2">
+            <h3 className="text-xl font-bold mt-8 mb-4 border-b pb-2">
               Website Development Dubai
             </h3>
 

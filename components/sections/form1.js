@@ -78,7 +78,7 @@ function ContactForm1() {
 
   return (
    <>
-      <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 md:p-8 transition-all hover:shadow-2xl">
+      <div className="py-0 p-6 md:p-8">
         {/* Header */}
         <div className="mb-6">
           <h3 className="text-2xl font-bold text-gray-900">Get a Free Consultation</h3>
