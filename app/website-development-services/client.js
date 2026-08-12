@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react"
 import BgLayout from "@/components/layout/bgLayout";
-import ContactForm from "@/components/sections/form";
+import ContactForm1 from "@/components/sections/form1";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import {
@@ -342,8 +342,8 @@ export default function WebsiteDevelopmentServicesPage() {
 
           {/* RIGHT SIDEBAR */}
           <aside className="bg-white shadow-xl rounded-2xl p-6 sticky top-28">
-            <ContactForm/>
-            <h3 className="text-xl font-bold mb-4 border-b pb-2">
+            <ContactForm1/>
+            <h3 className="text-xl font-bold my-4 border-b pb-2">
               Website Development
             </h3>
 
