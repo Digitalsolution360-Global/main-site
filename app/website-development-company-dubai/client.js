@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react"
+import ContactForm from "@/components/sections/form";
 import BgLayout from "@/components/layout/bgLayout";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
@@ -119,6 +120,7 @@ export default function WebsiteDevelopmentCompanyDubai() {
           {/* LEFT CONTENT */}
           <div className="lg:col-span-2 space-y-20">
             <div className="mb-10">
+              <img src="/services/website-development-services.webp" alt="Website Development Services" title="Website Development Services" className='w-full h-full object-cover rounded-xl mb-8' />
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Empowering Brands: The Best Website Development Company in Dubai</h2>
               <p className='text-lg text-gray-600 mb-4 leading-relaxed'>The world of digital marketing is entering a new phase worldwide. The Dubai market is nowhere else. It is a competitive market, with many scaling enterprises requiring elite digital infrastructure.</p>
               <p className='text-lg text-gray-600 mb-4 leading-relaxed'>Competitively, many take advantage of new entrepreneurs. Then, the Website Development Services by Digital Solution 360 breaks this cycle.</p>
@@ -270,6 +272,7 @@ export default function WebsiteDevelopmentCompanyDubai() {
 
           {/* RIGHT SIDEBAR */}
           <aside className="bg-white shadow-xl rounded-2xl p-6 sticky top-28">
+            <ContactForm/>
             <h3 className="text-xl font-bold mb-4 border-b pb-2">
               Website Development Dubai
             </h3>
