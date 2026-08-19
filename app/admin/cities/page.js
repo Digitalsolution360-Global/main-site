@@ -622,7 +622,7 @@ const handleDeleteFAQ = async (id) => {
                     <option value="Google My Business">Google My Business</option>
                     <option value="Seo">SEO</option>
                     <option value="Social Media">Social Media</option>
-                    <option value="Web Development">Web Development</option>
+                    <option value="Website Development">Website Development</option>
                   </select>
                 </div>
 

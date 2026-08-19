@@ -381,6 +381,7 @@ const reviewSchema = {
                       [&_table]:max-w-full
                       [&_table]:w-full
                       [&_table]:overflow-x-auto
+                      description-content
                     "
                     dangerouslySetInnerHTML={{
                       __html: locationData.description || ''
