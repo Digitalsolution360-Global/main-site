@@ -65,8 +65,8 @@ export async function GET(request, { params }) {
         location.state_slug = location.state_seo_slug;
         location.country_slug = location.country_seo_slug;
       } else if (serviceType === 'digital-marketing') {
-        location.state_slug = location.state_digital_slug;
-        location.country_slug = location.country_digital_slug;
+        location.state_slug = location.state_digital_slug || location.state_slug;
+        location.country_slug = location.country_digital_slug || location.country_slug;
       } else if (serviceType === 'app-development') {
         location.state_slug = location.state_app_slug;
         location.country_slug = location.country_app_slug;
@@ -74,8 +74,8 @@ export async function GET(request, { params }) {
         location.state_slug = location.state_social_slug;
         location.country_slug = location.country_social_slug;
       } else {
-        location.state_slug = location.state_web_slug || location.state_slug;
-        location.country_slug = location.country_web_slug || location.country_slug;
+        location.state_slug = location.state_web_slug;
+        location.country_slug = location.country_web_slug;
       }
     } else if (locationType === 'state') {
       if (serviceType === 'google-my-business') {
@@ -89,7 +89,7 @@ export async function GET(request, { params }) {
       }else if (serviceType === 'social-media') {
         location.country_slug = location.country_social_slug;
       } else {
-        location.country_slug = location.country_web_slug || location.country_slug;
+        location.country_slug = location.country_web_slug;
       }
     }
 
