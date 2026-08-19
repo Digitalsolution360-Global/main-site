@@ -187,12 +187,15 @@ export default function DigitalServicePage() {
       answer: `We combine advanced AI technology with human creativity, offer transparent reporting, provide personalized strategies for the ${cityName} market, and focus on building long-term partnerships rather than just selling services.`
     }
   ];
+  const displayFaqs =
+  locationData?.faqs?.length > 0 ? locationData.faqs : faqs;
 
+  // Generate FAQ Schema
   // Generate FAQ Schema
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
+    "mainEntity": displayFaqs.map(faq => ({
       "@type": "Question",
       "name": faq.question,
       "acceptedAnswer": {
@@ -310,7 +313,13 @@ const reviewSchema = {
             
                   {/* Heading */}
                   <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 max-w-5xl'>
+                    {locationData?.h1_title ? (
+                       locationData.h1_title
+                    ) : (
+                    <>
                      Digital Marketing Services in <span className="text-amber-400">{cityName}</span>
+                     </>
+                     )}
                   </h1>
             
                   {/* Description */}
@@ -743,38 +752,48 @@ const reviewSchema = {
           </motion.div>
 
           <div className='space-y-4'>
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className='bg-white rounded-xl shadow-xl overflow-hidden'
-              >
-                <button
-                  onClick={() => setOpenFaqIndex(openFaqIndex === index ? -1 : index)}
-                  className='w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors'
-                >
-                  <h3 className='text-lg font-bold text-gray-900 pr-4'>{faq.question}</h3>
-                  <IconChevronDown 
-                    size={24} 
-                    className={`flex-shrink-0 text-blue-600 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180' : ''}`}
-                  />
-                </button>
-                <motion.div
-                  initial={false}
-                  animate={{ 
-                    height: openFaqIndex === index ? 'auto' : 0,
-                    opacity: openFaqIndex === index ? 1 : 0
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className='overflow-hidden'
-                >
-                  <p className='px-6 pb-4 text-gray-600 leading-relaxed'>{faq.answer}</p>
-                </motion.div>
-              </motion.div>
-            ))}
+         {displayFaqs.map((faq, index) => (
+  <motion.div
+    key={faq.id || index}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    className='bg-white rounded-xl shadow-xl overflow-hidden'
+  >
+    <button
+      onClick={() =>
+        setOpenFaqIndex(openFaqIndex === index ? -1 : index)
+      }
+      className='w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors'
+    >
+      <h3 className='text-lg font-bold text-gray-900 pr-4'>
+        {faq.question}
+      </h3>
+
+      <IconChevronDown
+        size={24}
+        className={`flex-shrink-0 text-blue-600 transition-transform duration-300 ${
+          openFaqIndex === index ? 'rotate-180' : ''
+        }`}
+      />
+    </button>
+
+    <motion.div
+      initial={false}
+      animate={{
+        height: openFaqIndex === index ? 'auto' : 0,
+        opacity: openFaqIndex === index ? 1 : 0
+      }}
+      transition={{ duration: 0.3 }}
+      className='overflow-hidden'
+    >
+      <p className='px-6 pb-4 text-gray-600 leading-relaxed'>
+        {faq.answer}
+      </p>
+    </motion.div>
+  </motion.div>
+))}
           </div>
         </div>
       </section>
