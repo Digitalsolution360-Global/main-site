@@ -13,6 +13,7 @@ export async function GET(request, { params }) {
 
     if (!location) {
       location = await getCityDetailsNew(slug);
+      let locationType = 'city';
     }
     // If not found as city, try as state
     if (!location) {
