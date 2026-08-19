@@ -8,7 +8,6 @@ import DigitalMarketingServicePageClient from '../market-we-serve/digital-market
 import AppServicePageClient from '../market-we-serve/app-development/[slug]/appMarketClient';
 import SocialServicePageClient from '../market-we-serve/social-media/[slug]/socialMarketClient';
 import BlogDetailPageClient from '../blogs/[slug]/blogSlugClient';
-import "./location.css";
 
 // Fetch location or blog data
 async function getPageData(slug) {

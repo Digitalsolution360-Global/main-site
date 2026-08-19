@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Clients from '@/components/sections/clients';
 import LocationStructuredData from '@/components/seo/LocationStructuredData';
 import { useParams } from 'next/navigation';
+import "../../location.css";
 
 export default function DigitalServicePage() {
   const { slug } = useParams();
