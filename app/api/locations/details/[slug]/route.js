@@ -1,4 +1,4 @@
-import { getCityDetails, getStateDetails, getCountryDetails } from '@/lib/db';
+import { getCityDetails, getCityDetailsNew, getStateDetails, getCountryDetails } from '@/lib/db';
 
 export async function GET(request, { params }) {
   try {
@@ -10,7 +10,10 @@ export async function GET(request, { params }) {
     // Try to find as city first
     let location = await getCityDetails(slug);
     let locationType = 'city';
-    
+
+    if (!location) {
+      location = await getCityDetailsNew(slug);
+    }
     // If not found as city, try as state
     if (!location) {
       location = await getStateDetails(slug);
@@ -42,7 +45,15 @@ export async function GET(request, { params }) {
       serviceType = 'app-development';
     }else if (location.social_slug === slug) {
       serviceType = 'social-media';
+    }else if(location.slug === slug){
+      serviceType = location.category_name.toLowerCase()
+                      .trim()
+                      .replace(/\s+/g, '-')
+                      .replace(/[^\w-]+/g, '')
+                      .replace(/--+/g, '-');
     }
+
+    
 
     // Add appropriate parent slugs based on service type
     if (locationType === 'city') {
@@ -62,8 +73,8 @@ export async function GET(request, { params }) {
         location.state_slug = location.state_social_slug;
         location.country_slug = location.country_social_slug;
       } else {
-        location.state_slug = location.state_web_slug;
-        location.country_slug = location.country_web_slug;
+        location.state_slug = location.state_web_slug || location.state_slug;
+        location.country_slug = location.country_web_slug || location.country_slug;
       }
     } else if (locationType === 'state') {
       if (serviceType === 'google-my-business') {
@@ -77,7 +88,7 @@ export async function GET(request, { params }) {
       }else if (serviceType === 'social-media') {
         location.country_slug = location.country_social_slug;
       } else {
-        location.country_slug = location.country_web_slug;
+        location.country_slug = location.country_web_slug || location.country_slug;
       }
     }
 

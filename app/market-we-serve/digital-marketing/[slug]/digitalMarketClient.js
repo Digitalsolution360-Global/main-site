@@ -362,6 +362,32 @@ const reviewSchema = {
           <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
             {/* Content Column - 2/3 */}
             <div className='lg:col-span-2'>
+              {locationData.description ? (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <div
+                    className="
+                      text-lg text-gray-700
+                      max-w-full
+                      min-w-0
+                      break-words
+                      [overflow-wrap:anywhere]
+                      [&_img]:max-w-full
+                      [&_img]:h-auto
+                      [&_table]:max-w-full
+                      [&_table]:w-full
+                      [&_table]:overflow-x-auto
+                    "
+                    dangerouslySetInnerHTML={{
+                      __html: locationData.description || ''
+                    }}
+                  />
+                </motion.div>
+              ):(
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -404,6 +430,7 @@ const reviewSchema = {
                   </p>
                 </div>
               </motion.div>
+              )}
             </div>
 
             {/* Form Column - 1/3 */}
