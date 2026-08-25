@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { use, useEffect, useState } from 'react'
 import { notFound } from 'next/navigation'
 import { motion } from 'motion/react'
-import { IconHome, IconChevronRight, IconShare, IconBrandFacebook, IconBrandTwitter, IconBrandLinkedin } from '@tabler/icons-react'
+import { IconHome, IconChevronRight, IconShare, IconBrandFacebook, IconBrandTwitter, IconBrandLinkedin, IconCalendar, IconClock } from '@tabler/icons-react'
 
 function BlogDetailPage({ params }) {
   const { slug } = use(params)
