@@ -42,7 +42,13 @@ function BlogDetailPage({ params }) {
 
     fetchBlogData()
   }, [slug])
-
+ const estimateReadTime = (html) => {
+    if (!html) return '3 min read';
+    const text = html.replace(/<[^>]*>/g, '');
+    const words = text.split(/\s+/).length;
+    const mins = Math.max(2, Math.ceil(words / 200));
+    return `${mins} min read`;
+  };
   // Format date
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' }
@@ -65,50 +71,53 @@ function BlogDetailPage({ params }) {
 
   return (
     <BgLayout>
-      {/* Hero Section with Breadcrumb */}
-      <section className='relative h-[50vh] mt-15 flex items-center justify-center overflow-hidden'>
-        <div className='absolute inset-0'>
-          <Image
-            src={`/${blog.image}`}
-            alt={blog.title}
-            fill
-            className='object-cover'
-            priority
-          />
-          <div className='absolute inset-0 bg-black/70'></div>
-        </div>
+     {/* ── Hero Banner ── */}
+        <section className="relative overflow-hidden bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 pt-32 pb-16">
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute top-10 left-20 w-64 h-64 bg-teal-500 rounded-full filter blur-3xl" />
+            <div className="absolute bottom-10 right-10 w-80 h-80 bg-blue-500 rounded-full filter blur-3xl" />
+          </div>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+              {/* Breadcrumb */}
+              <div className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+                <Link href="/" className="hover:text-teal-400 transition-colors">Home</Link>
+                <span>/</span>
+                {blog.category_name ? (
+                  <>
+                    <Link href={`/blog?category=${post.category_id}`} className="hover:text-teal-400 transition-colors">{post.category_name}</Link>
+                    <span>/</span>
+                  </>
+                ):(
+                  <>
+                    <Link href={`/blogs`} className="hover:text-teal-400 transition-colors">Blog</Link>
+                    <span>/</span>
+                  </>
+                )}
+                <span className="text-gray-500 truncate max-w-[200px]">{blog.title}</span>
+              </div>
 
-        <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white'>
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className='flex items-center justify-center gap-2 text-sm mb-6'
-          >
-            <Link href='/' className='flex items-center gap-1 hover:text-blue-400 transition-colors'>
-              <IconHome size={18} />
-              <span>Home</span>
-            </Link>
-            <IconChevronRight size={16} className='text-blue-400' />
-            <Link href='/blogs' className='hover:text-blue-400 transition-colors'>Blog</Link>
-            <IconChevronRight size={16} className='text-blue-400' />
-            <span className='text-blue-400 line-clamp-1'>{blog.title}</span>
-          </motion.div>
+              {blog.category_name && (
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-medium mb-4">
+                  <IconCategory size={14} /> {blog.category_name}
+                </span>
+              )}
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <p className='text-sm text-blue-300 font-semibold mb-4'>
-              {formatDate(blog.created_at)}
-            </p>
-            <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-4 max-w-4xl mx-auto'>
-              {blog.title}
-            </h1>
-          </motion.div>
-        </div>
-      </section>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5">
+                {blog.title}
+              </h1>
+
+              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+                <span className="flex items-center gap-1.5">
+                  <IconCalendar size={16} /> {formatDate(blog.created_at)}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <IconClock size={16} /> {estimateReadTime(blog.description)}
+                </span>
+              </div>
+            </motion.div>
+          </div>
+        </section>
 
       {/* Blog Content */}
       <section className='py-10'>
@@ -121,6 +130,16 @@ function BlogDetailPage({ params }) {
               transition={{ duration: 0.6 }}
               className='lg:col-span-2'
             >
+              {blog.image && (
+                <div className="rounded-2xl overflow-hidden shadow-xl mb-10 border border-gray-100">
+                  <img
+                    src={`/${blog.image}`}
+                    alt={blog.title}
+                    className="w-full h-auto max-h-[480px] object-cover"
+                  />
+                </div>
+              )}
+
               <article className='bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100'>
                 {/* Article Content */}
                 <div className='p-8 md:p-12'>
