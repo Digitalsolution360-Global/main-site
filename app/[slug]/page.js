@@ -95,8 +95,7 @@ export async function generateMetadata({ params }) {
   const locationName = locationType === 'city'
     ? location.city || location.name
     : location.name;
-
-  let serviceTitle, serviceDescription, serviceKeywords;
+  let serviceTitle, serviceDescription, serviceKeywords, Title, Description, Keywords;
 
   switch (serviceType) {
     case 'google-my-business':
