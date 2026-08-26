@@ -6,7 +6,8 @@ export async function GET() {
     const [rows] = await pool.query(`
       SELECT
         id,
-        name
+        name,
+        category_name
       FROM global_countries
       WHERE status = 1
       ORDER BY name ASC

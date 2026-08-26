@@ -562,7 +562,7 @@ const handleDeleteFAQ = async (id) => {
                     <option value="">Select Country</option>
                     {countries.map((country) => (
                       <option key={country.id} value={country.id}>
-                        {country.name}
+                        {country.name} ({country.category_name})
                       </option>
                     ))}
                   </select>
@@ -583,7 +583,7 @@ const handleDeleteFAQ = async (id) => {
                     <option value="">Select State</option>
                     {states.map((state) => (
                       <option key={state.state_id} value={state.state_id}>
-                        {state.name}
+                        {state.name} ({state.category_name})
                       </option>
                     ))}
                   </select>

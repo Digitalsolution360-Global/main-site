@@ -1,4 +1,4 @@
-import { getCityDetails, getCityDetailsNew, getStateDetails, getCountryDetails } from '@/lib/db';
+import { getCityDetails, getCityDetailsNew, getStateDetails, getStateDetailsNew, getCountryDetails } from '@/lib/db';
 
 export async function GET(request, { params }) {
   try {
@@ -87,7 +87,7 @@ export async function GET(request, { params }) {
       } else if (serviceType === 'seo') {
         location.country_slug = location.country_seo_slug;
       } else if (serviceType === 'digital-marketing') {
-        location.country_slug = location.country_digital_slug;
+        location.country_slug = location.country_digital_slug || location.country_slug;
       }else if (serviceType === 'app-development') {
         location.country_slug = location.country_app_slug;
       }else if (serviceType === 'social-media') {

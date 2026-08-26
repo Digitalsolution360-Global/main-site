@@ -538,7 +538,7 @@ const handleDeleteFAQ = async (id) => {
 
     {countries.map((country) => (
       <option key={country.id} value={country.id}>
-        {country.name}
+        {country.name} ({country.category_name})
       </option>
     ))}
   </select>
