@@ -7,6 +7,7 @@ import { IconHome, IconChevronRight, IconMapPin, IconCheck, IconStar,IconStarFil
 import Link from 'next/link';
 import Clients from '@/components/sections/clients';
 import LocationStructuredData from '@/components/seo/LocationStructuredData';
+import "../../location.css";
 
 export default function WebDevServicePage({ params }) {
   const { slug } = use(params);
@@ -240,11 +241,14 @@ export default function WebDevServicePage({ params }) {
     }
   ];
 
+  const displayFaqs =
+  locationData?.faqs?.length > 0 ? locationData.faqs : faqs;
+
   // Generate FAQ Schema
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
+    "mainEntity": displayFaqs.map(faq => ({
       "@type": "Question",
       "name": faq.question,
       "acceptedAnswer": {
@@ -361,10 +365,17 @@ const reviewSchema = {
       </nav>
 
       {/* Heading */}
-      <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 max-w-5xl'>
-        Online Presence Empowerment through Professional Website Development
+      
+     <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 max-w-5xl'>
+                    {locationData?.h1_title ? (
+                       locationData.h1_title
+                    ) : (
+                    <>
+                       Online Presence Empowerment through Professional Website Development
         Services in <span className="text-amber-400">{cityName}</span>
-      </h1>
+                     </>
+                     )}
+                  </h1>
 
       {/* Description */}
       <p className='text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mb-8'>
@@ -417,6 +428,33 @@ const reviewSchema = {
           <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
             {/* Content Column - 2/3 */}
             <div className='lg:col-span-2 space-y-12'>
+               {locationData.description ? (
+                              <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6 }}
+                              >
+                                <div
+                                  className="
+                                    text-lg text-gray-700
+                                    max-w-full
+                                    min-w-0
+                                    break-words
+                                    [overflow-wrap:anywhere]
+                                    [&_img]:max-w-full
+                                    [&_img]:h-auto
+                                    [&_table]:max-w-full
+                                    [&_table]:w-full
+                                    [&_table]:overflow-x-auto
+                                    description-content
+                                  "
+                                  dangerouslySetInnerHTML={{
+                                    __html: locationData.description || ''
+                                  }}
+                                />
+                              </motion.div>
+                            ):(<>
               {/* Section 1 */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -519,6 +557,7 @@ const reviewSchema = {
                   </p>
                 </div>
               </motion.div>
+              </>)}
             </div>
 
             {/* Form Column - 1/3 */}
@@ -950,7 +989,7 @@ const reviewSchema = {
           </motion.div>
 
           <div className='space-y-4'>
-            {faqs.map((faq, index) => (
+            {displayFaqs.map((faq, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}

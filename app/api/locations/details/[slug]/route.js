@@ -20,6 +20,10 @@ export async function GET(request, { params }) {
       location = await getStateDetails(slug);
       locationType = 'state';
     }
+    if (!location) {
+      location = await getStateDetailsNew(slug);
+      locationType = 'state';
+    }
     
     // If not found as state, try as country
     if (!location) {
@@ -89,7 +93,7 @@ export async function GET(request, { params }) {
       }else if (serviceType === 'social-media') {
         location.country_slug = location.country_social_slug;
       } else {
-        location.country_slug = location.country_web_slug;
+        location.country_slug = location.country_web_slug || location.country_slug;
       }
     }
 

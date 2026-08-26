@@ -110,14 +110,24 @@ export async function generateMetadata({ params }) {
       serviceKeywords = `SEO services ${locationName}, SEO company ${locationName}, search engine optimization ${locationName}, local SEO ${locationName}`;
       break;
     case 'digital-marketing':
-      serviceTitle = `Elevate Your Brand with ${locationName}'s Digital Marketing Services`
-      serviceDescription = `Build your success in the ${locationName} digital marketing. We offer expert SEO services in ${locationName} and across the Emirates, creating responsive, high-performance websites optimized for business growth.`
-      serviceKeywords = `digital marketing services in ${locationName}, digital marketing services ${locationName}, digital marketing services in ${locationName}, digital marketing services in ${locationName}, ecommerce digital marketing services ${locationName}, best digital marketing services, digital marketing services company, agency digital marketing services, ${locationName} digital marketing services, affordable digital marketing services in ${locationName}`
+      Title = `Elevate Your Brand with ${locationName}'s Digital Marketing Services`
+      location.description ? serviceTitle = location.meta_title : serviceTitle=Title;
+
+      Description = `Build your success in the ${locationName} digital marketing. We offer expert SEO services in ${locationName} and across the Emirates, creating responsive, high-performance websites optimized for business growth.`
+      location.description ? serviceDescription = location.meta_description : serviceDescription=Description;
+      
+      Keywords = `digital marketing services in ${locationName}, digital marketing services ${locationName}, digital marketing services in ${locationName}, digital marketing services in ${locationName}, ecommerce digital marketing services ${locationName}, best digital marketing services, digital marketing services company, agency digital marketing services, ${locationName} digital marketing services, affordable digital marketing services in ${locationName}`
+      location.description ? serviceKeywords = location.meta_keyword : serviceKeywords=Keywords;
       break;
     default:
-      serviceTitle = `Transform Your Business with Expert Web Development in ${locationName} | Digital Solution 360`
-      serviceDescription = `Top Web Development Company in ${locationName}. We craft custom, high-performance websites and e-commerce solutions that drive measurable business growth and dominate search rankings. Future-proof your digital presence.`
-      serviceKeywords = `web development company ${locationName}, web development companies in ${locationName}, ${locationName} web development company, web development company in ${locationName}, web design company ${locationName}, web development ${locationName}, best web development company in ${locationName}, web development agency, web development services, web development ${locationName}, web design company in ${locationName}`
+      Title = `Transform Your Business with Expert Web Development in ${locationName} | Digital Solution 360`
+      location.description ? serviceTitle = location.meta_title : serviceTitle=Title;
+
+      Description = `Top Web Development Company in ${locationName}. We craft custom, high-performance websites and e-commerce solutions that drive measurable business growth and dominate search rankings. Future-proof your digital presence.`
+      location.description ? serviceDescription = location.meta_description : serviceDescription=Description;
+
+      Keywords = `web development company ${locationName}, web development companies in ${locationName}, ${locationName} web development company, web development company in ${locationName}, web design company ${locationName}, web development ${locationName}, best web development company in ${locationName}, web development agency, web development services, web development ${locationName}, web design company in ${locationName}`
+      location.description ? serviceKeywords = location.meta_keyword : serviceKeywords=Keywords;
   }
 
   return {
