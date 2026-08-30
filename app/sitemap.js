@@ -175,7 +175,7 @@ const servicePages = [
   // Fetch location pages dynamically
   let locationRoutes = [];
   try {
-    const [cities, states, countries] = await Promise.all([
+    const [cities, citiesNew, states, statesNew, countries] = await Promise.all([
       getAllCities(),
       getAllCitiesNew(),
       getAllStates(),
@@ -203,9 +203,33 @@ const servicePages = [
         }
       });
     });
+    citiesNew?.forEach(city => {
+      services.forEach(service => {
+        if (city[service.slugField]) {
+          locationRoutes.push({
+            url: `${baseUrl}/${escapeXml(city[service.slugField])}`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.6,
+          });
+        }
+      });
+    });
 
     // Generate routes for all states
     states?.forEach(state => {
+      services.forEach(service => {
+        if (state[service.slugField]) {
+          locationRoutes.push({
+            url: `${baseUrl}/${escapeXml(state[service.slugField])}`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.6,
+          });
+        }
+      });
+    });
+    statesNew?.forEach(state => {
       services.forEach(service => {
         if (state[service.slugField]) {
           locationRoutes.push({
