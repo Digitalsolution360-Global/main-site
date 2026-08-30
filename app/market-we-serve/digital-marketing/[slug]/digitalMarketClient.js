@@ -143,13 +143,13 @@ export default function DigitalServicePage() {
   const stateSlug = locationData?.state_slug;
 
   const industries = [
-    { name: 'Healthcare', label: 'INDUSTRY', image: '/market/gmb/images/industries/healthcare.jpg' },
-    { name: 'Retail & Ecommerce', label: 'INDUSTRY', image: '/market/gmb/images/industries/retail.png' },
+    { name: 'Healthcare', label: 'INDUSTRY', image: '/market/gmb/images/industries/Healthcare.webp' },
+    { name: 'Retail & Ecommerce', label: 'INDUSTRY', image: '/market/gmb/images/industries/E-commerce.webp' },
     { name: 'Travel & Hospitality', label: 'INDUSTRY', image: '/market/gmb/images/industries/travel.jpg' },
-    { name: 'Finance & Legal', label: 'INDUSTRY', image: '/market/gmb/images/industries/finance.jpg' },
-    { name: 'Startups & SaaS', label: 'INDUSTRY', image: '/market/gmb/images/industries/startups.jpg' },
-    { name: 'Real Estate', label: 'INDUSTRY', image: '/market/gmb/images/industries/real-estate.png' },
-    { name: 'Education & Edtech', label: 'INDUSTRY', image: '/market/gmb/images/industries/education.jpg' }
+    { name: 'Finance & Legal', label: 'INDUSTRY', image: '/market/gmb/images/industries/Finance-Insurance.webp' },
+    { name: 'Startups & SaaS', label: 'INDUSTRY', image: '/market/gmb/images/industries/IT-SaaS.webp' },
+    { name: 'Real Estate', label: 'INDUSTRY', image: '/market/gmb/images/industries/Real-Estate.webp' },
+    { name: 'Education & Edtech', label: 'INDUSTRY', image: '/market/gmb/images/industries/Education-Coaching.webp' }
   ];
 
   const services = [

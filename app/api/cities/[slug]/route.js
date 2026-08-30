@@ -83,6 +83,23 @@ export async function PUT(req, { params }) {
         .replace(/^-|-$/g, '');
     }
 
+    const [existing] = await pool.query(
+  `
+    SELECT 1 FROM global_cities WHERE slug = ?
+    UNION ALL
+    SELECT 1 FROM global_states WHERE slug = ?
+    LIMIT 1
+  `,
+  [finalSlug, finalSlug]
+);
+
+if (existing.length > 0) {
+  return NextResponse.json(
+    { error: 'This slug already added' },
+    { status: 409 }
+  );
+}
+
     const [result] = await pool.query(
       `
       UPDATE global_cities

@@ -1,4 +1,4 @@
-import { getAllBlogs, getAllBlogsForSitemap, getAllCities, getAllStates, getAllCountriesForSitemap } from '@/lib/db';
+import { getAllBlogs, getAllBlogsForSitemap, getAllCities, getAllCitiesNew, getAllStates, getAllStatesNew, getAllCountriesForSitemap } from '@/lib/db';
 
 /**
  * IMPORTANT NOTE ABOUT BLOG ROUTES IN SITEMAP:
@@ -177,7 +177,9 @@ const servicePages = [
   try {
     const [cities, states, countries] = await Promise.all([
       getAllCities(),
+      getAllCitiesNew(),
       getAllStates(),
+      getAllStatesNew(),
       getAllCountriesForSitemap()
     ]);
 
