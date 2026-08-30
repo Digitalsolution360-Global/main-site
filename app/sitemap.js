@@ -204,16 +204,12 @@ const servicePages = [
       });
     });
     citiesNew?.forEach(city => {
-      services.forEach(service => {
-        if (city[service.slugField]) {
           locationRoutes.push({
-            url: `${baseUrl}/${escapeXml(city[service.slugField])}`,
+            url: `${baseUrl}/${escapeXml(city['slug'])}`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.6,
-          });
-        }
-      });
+          });     
     });
 
     // Generate routes for all states
@@ -230,16 +226,12 @@ const servicePages = [
       });
     });
     statesNew?.forEach(state => {
-      services.forEach(service => {
-        if (state[service.slugField]) {
           locationRoutes.push({
-            url: `${baseUrl}/${escapeXml(state[service.slugField])}`,
+            url: `${baseUrl}/${escapeXml(state['slug'])}`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.6,
           });
-        }
-      });
     });
 
     // Generate routes for all countries
