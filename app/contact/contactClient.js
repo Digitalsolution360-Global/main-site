@@ -419,7 +419,7 @@ function ContactPage() {
                     <IconMapPin size={24} className='text-blue-600 flex-shrink-0' />
                     <div>
                       <p className='font-semibold text-gray-900'>Address</p>
-                      <p className='text-gray-600'>Juma Suhail Building | 11, 27 street | Port Saeed, Deira, Dubai, Dubai Municipality</p>
+                      <p className='text-gray-600'>SB-203,KR Puram TC Palya By Pass Rd, near Anandapura, Anandapura, Battarahalli, Bengaluru, Karnataka</p>
                     </div>
                   </div>
                   
