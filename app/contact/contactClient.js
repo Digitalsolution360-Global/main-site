@@ -467,7 +467,7 @@ function ContactPage() {
       <section className='py-0'>
         <div className='w-full h-96'>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29209.92955417534!2d86.373154!3d23.774424!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f6a3a95555556d%3A0x9ef46a5b1044df98!2sDigitalsolution360%20%7C%20Web%20Designing%20%7C%20Digital%20Marketing%20Services!5e0!3m2!1sen!2sin!4v1761879127838!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5167.720052893363!2d77.6927805!3d13.024317799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae110026f5869b%3A0x3b2619324f4a4130!2sDigitalsolution360!5e1!3m2!1sen!2sin!4v1795534327650!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}
