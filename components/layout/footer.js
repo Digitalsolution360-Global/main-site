@@ -132,8 +132,8 @@ function Footer() {
               </li>
               <li className='flex items-center gap-3'>
                 <MdEmail size={20} className='text-blue-500 flex-shrink-0' />
-                <a href="mailto:info@digitalsolution360.in" className='text-gray-400 hover:text-white transition-colors'>
-                  info@digitalsolution360.in
+                <a href="mailto:info@digitalsolution360.com" className='text-gray-400 hover:text-white transition-colors'>
+                  info@digitalsolution360.com
                 </a>
               </li>
             </ul>
